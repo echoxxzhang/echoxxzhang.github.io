@@ -229,6 +229,184 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/爬虫Day2-爬虫基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/09/爬虫Day2-爬虫基础/" itemprop="url">爬虫Day2_爬虫基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-09T10:05:04+08:00">
+                2019-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="爬虫基础："><a href="#爬虫基础：" class="headerlink" title="爬虫基础："></a>爬虫基础：</h2><p>简单来说，爬虫就是<strong>请求</strong>网页并<strong>提取</strong>数据和保存信息的<strong>自动化程序</strong>。</p>
+<p>人们常常把爬虫比做蜘蛛爬网，把网的节点比做一个个网页，爬虫爬到这就相当于访问了该页面获取了其信息，节点间的连线可以比做网页与网页之间的链接关系，这样蜘蛛通过一个节点后可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，这样网站的数据就可以被抓取下来了。</p>
+<p><strong>简单流程介绍</strong>：</p>
+<p>下面我们说说爬虫的具体流程，一般分为四步：</p>
+<ol>
+<li>发起请求， 通过请求库对目标站点发起请求，我们可以模拟携带浏览器信息、cookie值、关键字查询等信息，从而访问服务器端，然后等待服务器的响应</li>
+<li>解析内容： 服务器响应的内容有可能是HTML纯文本，也有可能是json格式的数据、或者是二进制（如图片视频），我们可以利用相关的解析库进行解析、保存或进一步处理。</li>
+<li>处理信息：一般来说，我们使用解析库解析出来的内容，是冗杂晦涩的，我们通过用format或者切片等技术，使得内容清晰明了，这时，才算得上的有用的信息。 接下来，我们可以将信息存储到本地、数据库或者远程服务器等等。</li>
+<li>爬虫优化：爬虫优化的方面有很多，例如，控制爬虫速率、使用高匿代理服务器、使用分布式爬取、处理异常…</li>
+</ol>
+<blockquote>
+<p>接下来作者针对爬虫最重要的部分做出详细介绍：</p>
+</blockquote>
+<p><img src="/2019/07/09/爬虫Day2-爬虫基础/4.jpg" alt></p>
+<h3 id="一、-获取网页"><a href="#一、-获取网页" class="headerlink" title="一、 获取网页"></a>一、 获取网页</h3><p>爬虫首先要做的工作就是获取网页，在这里获取网页即获取网页的源代码，源代码里面必然包含了网页的部分有用的信息，所以只要把源代码获取下来了，就可以从中提取我们想要的信息了。</p>
+<p>在前面我们讲到了 Request 和 Response 的概念，我们向网站的服务器发送一个 Request，返回的 Response 的 Body 便是网页源代码。</p>
+<p><strong>所以最关键的部分就是构造一个</strong> <strong>Request</strong> <strong>并发送给服务器，然后接收到</strong> <strong>Response</strong> <strong>并将其解析出来</strong>。具体相关的库有：urllib（python自带的库）、requests（优雅的第三方库）</p>
+<h3 id="二、提取信息"><a href="#二、提取信息" class="headerlink" title="二、提取信息"></a>二、提取信息</h3><p>我们在第一步获取了网页源代码之后，接下来的工作就是分析网页源代码，从中提取我们想要的数据，首先最通用的方法便是采用正则表达式提取，这是一个万能的方法，但是在构造正则表达式的时候比较复杂且容易出错。</p>
+<p>另外由于网页的结构是有一定规则的，所以还有一些根据网页节点属性、CSS 选择器或 XPath 来提取网页信息的库，如 BeautifulSoup、PyQuery、LXML 等，使用这些库可以高效快速地从中提取网页信息，如节点的属性、文本值等内容。</p>
+<p>提取信息是爬虫非常重要的部分，它可以使杂乱的数据变得清晰条理，以便于我们后续在对数据进行处理和分析。</p>
+<h3 id="能抓取怎样的数据："><a href="#能抓取怎样的数据：" class="headerlink" title="能抓取怎样的数据："></a>能抓取怎样的数据：</h3><ul>
+<li>常规网页，  也就是html源代码。有些网页返回的不是不是 HTML 代码，而是返回一个 Json 字符串（使用Ajax渲染的网页），API      接口大多采用这样的形式，方便数据的传输和解析，这种数据同样可以抓取，而且数据提取更加方便。</li>
+<li>二进制数据，如图片、视频、音频等等，我们可以利用爬虫将它们的二进制数据抓取下来，然后保存成对应的文件名即可。</li>
+<li>我们还可以看到各种扩展名的文件，如      CSS、JavaScript、配置文件等等，这些其实也是最普通的文件，只要在浏览器里面访问到，我们就可以将其抓取下来。</li>
+</ul>
+<h3 id="JavaScript-渲染页面："><a href="#JavaScript-渲染页面：" class="headerlink" title="JavaScript 渲染页面："></a>JavaScript 渲染页面：</h3><p>有时候我们在用 Urllib 或 Requests 抓取网页时，得到的源代码实际和浏览器中看到的是不一样的。</p>
+<p>这个问题是一个非常常见的问题，现在网页越来越多地采用 Ajax、前端模块化工具来构建网页，整个网页可能都是由 JavaScript 渲染出来的，意思就是说原始的 HTML 代码就是一个空壳。</p>
+<p>下面，是JS常规的渲染代码：</p>
+<p><img src="/2019/07/09/爬虫Day2-爬虫基础/3.jpg" alt></p>
+<p>body 节点里面只有一个 id 为 container 的节点，但是注意到在 body 节点后引入了一个 <strong>app.js</strong>，这个便负责了整个网站的渲染。</p>
+<p>在浏览器打开这个页面时，首先会加载这个 HTML 内容，接着浏览器会发现其中里面引入了一个 app.js 文件，然后浏览器便会接着去请求这个文件，获取到该文件之后便会执行其中的 JavaScript 代码，而 JavaScript 则会改变 HTML 中的节点，向内添加内容，最后得到完整的页面。</p>
+<p><strong>但是在用</strong> <strong>Urllib</strong> <strong>或</strong> <strong>Requests</strong> <strong>等库来请求当前页面时，我们得到的只是这个</strong> <strong>HTML</strong> <strong>代码，它不会帮助我们去继续加载这个</strong> <strong>JavaScript</strong> <strong>文件，这样也就看不到浏览器中看到的内容了。</strong></p>
+<p>这也解释了为什么有时我们得到的源代码和浏览器中看到的是不一样的。</p>
+<p>所以使用基本 HTTP 请求库得到的结果源代码可能跟浏览器中的页面源代码不太一样。对于这样的情况，我们可以分析其后台的Ajax接口，通过模拟Ajax请求得到渲染的页面，也可以使用Selenium这样的库来实现模拟JavaScript。</p>
+<blockquote>
+<p>本期对爬虫基础原理的讲述就到这里了~    下期预告：“urllib请求库的使用”</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/爬虫Day1-网页基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -410,138 +588,6 @@
 <blockquote>
 <p>好了，以上就是简单的讲解了爬虫相关的网页基础内容，下期作者会讲解爬虫的原理基础，以及实现过程。Bye~</p>
 </blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/05/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-05T07:57:42+08:00">
-                2019-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
