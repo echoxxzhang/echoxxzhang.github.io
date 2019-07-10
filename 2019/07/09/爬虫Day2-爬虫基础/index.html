@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang>
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -83,12 +83,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫Day2_爬虫基础">
 <meta property="og:url" content="http://yoursite.com/2019/07/09/爬虫Day2-爬虫基础/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="小小世界">
 <meta property="og:description" content="爬虫基础：简单来说，爬虫就是请求网页并提取数据和保存信息的自动化程序。 人们常常把爬虫比做蜘蛛爬网，把网的节点比做一个个网页，爬虫爬到这就相当于访问了该页面获取了其信息，节点间的连线可以比做网页与网页之间的链接关系，这样蜘蛛通过一个节点后可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，这样网站的数据就可以被抓取下来了。 简单流程介绍">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/09/爬虫Day2-爬虫基础/4.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/09/爬虫Day2-爬虫基础/3.jpg">
-<meta property="og:updated_time" content="2019-07-09T02:08:19.904Z">
+<meta property="og:updated_time" content="2019-07-10T01:41:27.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day2_爬虫基础">
 <meta name="twitter:description" content="爬虫基础：简单来说，爬虫就是请求网页并提取数据和保存信息的自动化程序。 人们常常把爬虫比做蜘蛛爬网，把网的节点比做一个个网页，爬虫爬到这就相当于访问了该页面获取了其信息，节点间的连线可以比做网页与网页之间的链接关系，这样蜘蛛通过一个节点后可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，这样网站的数据就可以被抓取下来了。 简单流程介绍">
@@ -100,7 +100,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -128,7 +128,7 @@
 
 
 
-  <title>爬虫Day2_爬虫基础 | Hexo</title>
+  <title>爬虫Day2_爬虫基础 | 小小世界</title>
   
 
 
@@ -140,7 +140,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -158,12 +158,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">小小世界</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">山不过来，我便过去</p>
       
   </div>
 
@@ -238,13 +238,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/爬虫Day2-爬虫基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content>
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/max.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="小小世界">
     </span>
 
     
@@ -395,6 +395,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/07/10/爬虫Day3-urllib介绍/" rel="prev" title="爬虫Day3-urllib介绍">
+                爬虫Day3-urllib介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -459,8 +463,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <img class="site-author-image" itemprop="image" src="/images/max.jpg" alt>
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description">作者联系方式：zzhfeichang666（微信）</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -470,7 +476,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -540,7 +546,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder"></span>
 
   
 </div>
@@ -554,7 +560,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -653,6 +659,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
