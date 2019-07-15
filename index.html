@@ -284,6 +284,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr.zhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/max.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/爬虫Day4-urllib实战/" itemprop="url">爬虫Day4-urllib实战</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T09:24:08+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          urllib爬虫实战之爬取笔趣阁小说一、前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。
+二、环境运行平台： Windows
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/15/爬虫Day4-urllib实战/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+		  <div>
+    
+  </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/爬虫Day3-urllib介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -377,114 +529,21 @@
       
         
           
-            <h2 id="Urllib介绍"><a href="#Urllib介绍" class="headerlink" title="Urllib介绍"></a>Urllib介绍</h2><p>在 Python2 版本中，有 Urllib 和 Urlib2 两个库可以用来实现Request的发送。而在 Python3 中，已经不存在<br>Urllib2 这个库了，统一为 <strong>Urllib</strong></p>
-<p>urllib分为四个模块：</p>
-<ul>
-<li>第一个模块是request，它是最基本的HTTP请求模块，我们可以用它模拟发送请求，就像在浏览器手动输入网址然后敲击回车一样，只需要给库方法传入URL，以及额外的参数，就可以模拟实现整个过程了。</li>
-<li>第二个模块是error，即异常处理，如果出现请求错误，我们可以捕获这个异常，然后进行异常的处理，保证程序的稳定性</li>
-<li>第三个模块是paser，它是一个工具模块，提供了许多URL处理方法，比如拆分、解析、合并等操作</li>
-<li>第四个模块是robotparser，主要是用来识别网站的robots.txt的（反爬虫的文本说明）</li>
-</ul>
-<blockquote>
-<p>下面作者就对以上模块进行重点讲解~</p>
-</blockquote>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/5.gif" alt></p>
-<h3 id="一、request模块"><a href="#一、request模块" class="headerlink" title="一、request模块"></a>一、request模块</h3><p>1.urlopen方法：</p>
-<p>我们知道，request是HTTP请求模块，那么具体的请求方法是什么呢？没错，正是urlopen！</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">urlopen的API：</span><br><span class="line">urllib.request.urlopen(url, data=<span class="literal">None</span>, [timeout, ]*, cafile=<span class="literal">None</span>, capath=<span class="literal">None</span>, cadefault=<span class="literal">False</span>, context=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+          Urllib介绍在 Python2 版本中，有 Urllib 和 Urlib2 两个库可以用来实现Request的发送。而在 Python3 中，已经不存在Urllib2 这个库了，统一为 Urllib
+urllib分为四个模块：
 
-<p>我们通过urllib.request.urlopen（“url链接”）就可以请求到网页，如下图所示</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/6.png" alt></p>
-<p>这个请求的返回结果response，就是服务器响应内容。紧接着，我们可以调用这个对象包含的方法对返回的内容进行处理。</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/7.png" alt></p>
-<ul>
-<li><p>响应的内容是HTML纯文本，它以字节流的形式返回的，<strong>于是要解码成utf-8</strong>，得到字符串</p>
-</li>
-<li><p>response.read（）读取响应内容到控制台</p>
-</li>
-<li><p>respon.status返回网页的状态码，如果网页的状态码是200，则表示正常</p>
-</li>
-<li><p>利用以上最基本的 urlopen() 方法，我们可以完成最基本的简单网页的 <strong>GET</strong> <strong>请求</strong>抓取。</p>
-</li>
-</ul>
-<p><strong>2.data参数</strong></p>
-<p>data 参数是可选的，另外如果传递了这个 data 参数，它的请求方式就不再是 GET 方式请求，而是 POST。我们就可以使传递data参数，完成模拟登陆等类似功能… 具体如何模拟from表单，后文的urllib.parser会讲解</p>
-<p><strong>3. timeout参数</strong></p>
-<p>timeout 参数可以设置超时时间，单位为秒，<strong>意思就是如果请求超出了设置的这个时间还没有得到响应，就会抛出异常</strong>，如果不指定，就会使用全局默认时间。</p>
-<p>我们可以通过设置timeout值，从而缩短超时时间。或者是让程序不会一直处于阻塞状态（我们知道，客户端和服务器的交互是一个同步过程，我们可以利用timeout参数，以及异常处理来完成非阻塞的效果，以及让程序不会异常终止，让程序更加稳定）</p>
-<p><strong>4.构建Request对象</strong></p>
-<p>我们知道利用 urlopen()<br>方法可以实现最基本请求的发起，但这几个简单的参数并不足以构建一个完整的请求，<strong>如果请求中需要加入</strong> <strong>Headers</strong> <strong>等信息，我们就可以利用更强大的</strong> <strong>Request</strong> <strong>类</strong>来构建一个请求。比如可以构建请求链接的浏览器标识等等</p>
-<p>下面是正常的urlopen请求和使用Request构建URL的代码举例：</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/8.png" alt></p>
-<p>可以发现，我们依然是用 urlopen() 方法来发送这个请求，只不过这次 urlopen() 方法的参数不再是一个 URL，而是一个 Request 类型的对象，这样的好处是：</p>
-<ul>
-<li><p>一方面我们可以将请求独立成一个对象</p>
-</li>
-<li><p>另一方面可配置参数更加丰富和灵活（将参数全部加到Ruquest对象中作为一个整体发送）</p>
-</li>
-</ul>
-<p><strong>Request配置举例</strong></p>
-<p>之前我们说到过，可以构建url链接，比如关键字查询、模拟登陆。还可以模拟浏览器标识，让爬虫更像是一个人为发出的请求信息。具体内容如下：</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/9.png" alt></p>
-<ol>
-<li>headers 参数是一个字典，这个就是 Request Headers 了，你可以在构造  Request 时通过 headers 参数直接构造，也可以通过调用  Request 实例的 add_header() 方法来添加。</li>
-<li>data就是我们发出的数据了，他会以表单形式向服务器发出</li>
-<li>method是方法的意思，我们可以指定method来声明这是一个什么类型的URL</li>
-</ol>
-<h3 id="二、Error模块"><a href="#二、Error模块" class="headerlink" title="二、Error模块"></a>二、Error模块</h3><p>前文我们了解了 Request 的发送过程，但是在网络情况不好、被反爬的情况下，出现了异常怎么办呢？这时如果我们不处理这些异常，程序很可能报错而终止运行，所以异常处理还是十分有必要的。</p>
-<p>Urllib 的 error 模块定义了由request 模块产生的异常。如果出现了问题，<strong>request 模块便会抛出error 模块中定义的异常</strong></p>
-<p><strong>1.URLError</strong></p>
-<p>URLError 类来自 Urllib 库的 error 模块，它继承自 OSError 类，是 error 异常模块的基类，由 request 模块生的异常都可以通过捕获这个类来处理。它具有一个属性 reason，即返回错误的原因。</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/10.png" alt></p>
-<p><strong>2.HTTPError</strong></p>
-<p>它是 URLError 的子类，专门用来处理 HTTP 请求错误，比如认证请求失败等等。</p>
-<p>它有三个属性。</p>
-<ul>
-<li>code，返回 HTTP Status Code，即状态码，比如 404 网页不存在，500 服务器内部错误等等。</li>
-<li>reason，同父类URLError一样，返回错误的原因。(有时候 reason 属性返回的不一定是字符串，也可能是一个对象—可以用 isinstance() 方法来判断它的类型，做出更详细的异常判断。)</li>
-<li>headers，返回 Request Headers。</li>
-</ul>
-<p>因为 URLError是HTTPError 的父类，所以我们可以先选择捕获子类的错误，再去捕获父类的错误，这样捕获的代码更加精准，且有利于程序猿处理。</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/11.png" alt></p>
-<p>请求到响应信息不足为奇，也不是什么难事，最主要的，是让程序可以正常的”跑起来”，所以，异常处理是爬虫工程师的必修课，需好好掌握。</p>
-<h3 id="三、parse模块"><a href="#三、parse模块" class="headerlink" title="三、parse模块"></a>三、parse模块</h3><p>1.urlparse（）</p>
-<p>urlparse() 方法可以实现 URL 的识别和分段,返回六个部分的内容，字段分别是 scheme、netloc、path、params、query、fragment。</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/12.png" alt></p>
-<p>2.urlencode（）</p>
-<p>常用的 urlencode() 方法，它在构造 GET 请求参数的时候非常有用——字典转序列化</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/13.png" alt></p>
-<p>3.parse_qs（）</p>
-<p>有了序列化必然就有反序列化，如果我们有一串 GET 请求参数，我们利用 parse_qs() 方法就可以将它<strong>转回字典</strong></p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/14.png" alt></p>
-<ol start="4">
-<li>quote（）</li>
-</ol>
-<p>quote() 方法可以将内容转化为 URL 编码的格式，有时候 URL 中带有中文参数的时候可能导致乱码的问题，所以我们可以用这个方法将中文字符转化为 URL 编码</p>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/15.png" alt></p>
-<p>5.unquote（）</p>
-<p> quote() 方法的逆操作，它可以进行 URL 解码（默认是以utf-8编码）</p>
-<h3 id="四、-robotparser"><a href="#四、-robotparser" class="headerlink" title="四、 robotparser"></a>四、 robotparser</h3><p>在介绍rebotparser模块之前呢，我们需要对robots协议进行了解 </p>
-<p>Robots 协议也被称作爬虫协议、机器人协议，它的全名叫做网络爬虫排除标准（Robots Exclusion Protocol），用来告诉爬虫和搜索引擎哪些页面可以抓取，哪些不可以抓取。它通常是一个叫做 robots.txt 的文本文件，放在网站的根目录下。</p>
-<p>robotparse：用来解析rebots文件的类</p>
-<p>robotparser 模块提供了一个类，叫做 RobotFileParser。它可以根据某网站的 robots.txt 文件来判断一个爬取爬虫是否有权限来爬取这个网页。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">接口API：</span><br><span class="line"><span class="keyword">import</span> urllib.robotparser</span><br><span class="line">urllib.robotparser.RobotFileParser(url=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
-
-<p>使用这个类的时候非常简单，只需要在构造方法里传入 robots.txt的链接即可。当然也可以声明时不传入，默认为空，再使用 set_url() 方法设置一下也可以。</p>
-<p><strong>RobotFileParser常用方法解析</strong></p>
-<ul>
-<li><p>read()，<strong>读取</strong> <strong>robots.txt</strong> <strong>文件并进行分析</strong>，注意这个函数是执行一个读取和分析操作，如果不调用这个方法，接下来的判断都会为 False，所以一定记得调用这个方法，这个方法不会返回任何内容，但是执行了读取操作。（注意是“读取”而不是读出）</p>
-</li>
-<li><p>parse()，用来解析 robots.txt 文件，传入的参数是 robots.txt 某些行的内容，它会按照 robots.txt 的语法规则来分析这些内容。</p>
-</li>
-<li><p>can_fetch()，方法传入两个参数，第一个是 User-agent，第二个是要抓取的 URL，返回的内容是该搜索引擎是否可以抓取这个 URL，返回结果是 True 或 False。（判断是否能抓取的方法）</p>
-</li>
-</ul>
-<blockquote>
-<p>好了，对urllib库的介绍就到这儿了，下次作者会对第三方请求库requests讲解，这是一个当前的流行库，让我们一起期待吧~</p>
-</blockquote>
-<p><img src="/2019/07/10/爬虫Day3-urllib介绍/a1.png" alt></p>
-
-          
+第一个模块是request，它是最基本的HTTP请求模块，我们可以
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/10/爬虫Day3-urllib介绍/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+		  <div>
+    
+  </div>
+          <!--/noindex-->
         
       
     </div>
@@ -624,45 +683,19 @@
       
         
           
-            <h2 id="爬虫基础："><a href="#爬虫基础：" class="headerlink" title="爬虫基础："></a>爬虫基础：</h2><p>简单来说，爬虫就是<strong>请求</strong>网页并<strong>提取</strong>数据和保存信息的<strong>自动化程序</strong>。</p>
-<p>人们常常把爬虫比做蜘蛛爬网，把网的节点比做一个个网页，爬虫爬到这就相当于访问了该页面获取了其信息，节点间的连线可以比做网页与网页之间的链接关系，这样蜘蛛通过一个节点后可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，这样网站的数据就可以被抓取下来了。</p>
-<p><strong>简单流程介绍</strong>：</p>
-<p>下面我们说说爬虫的具体流程，一般分为四步：</p>
-<ol>
-<li>发起请求， 通过请求库对目标站点发起请求，我们可以模拟携带浏览器信息、cookie值、关键字查询等信息，从而访问服务器端，然后等待服务器的响应</li>
-<li>解析内容： 服务器响应的内容有可能是HTML纯文本，也有可能是json格式的数据、或者是二进制（如图片视频），我们可以利用相关的解析库进行解析、保存或进一步处理。</li>
-<li>处理信息：一般来说，我们使用解析库解析出来的内容，是冗杂晦涩的，我们通过用format或者切片等技术，使得内容清晰明了，这时，才算得上的有用的信息。 接下来，我们可以将信息存储到本地、数据库或者远程服务器等等。</li>
-<li>爬虫优化：爬虫优化的方面有很多，例如，控制爬虫速率、使用高匿代理服务器、使用分布式爬取、处理异常…</li>
-</ol>
-<blockquote>
-<p>接下来作者针对爬虫最重要的部分做出详细介绍：</p>
-</blockquote>
-<p><img src="/2019/07/09/爬虫Day2-爬虫基础/4.jpg" alt></p>
-<h3 id="一、-获取网页"><a href="#一、-获取网页" class="headerlink" title="一、 获取网页"></a>一、 获取网页</h3><p>爬虫首先要做的工作就是获取网页，在这里获取网页即获取网页的源代码，源代码里面必然包含了网页的部分有用的信息，所以只要把源代码获取下来了，就可以从中提取我们想要的信息了。</p>
-<p>在前面我们讲到了 Request 和 Response 的概念，我们向网站的服务器发送一个 Request，返回的 Response 的 Body 便是网页源代码。</p>
-<p><strong>所以最关键的部分就是构造一个</strong> <strong>Request</strong> <strong>并发送给服务器，然后接收到</strong> <strong>Response</strong> <strong>并将其解析出来</strong>。具体相关的库有：urllib（python自带的库）、requests（优雅的第三方库）</p>
-<h3 id="二、提取信息"><a href="#二、提取信息" class="headerlink" title="二、提取信息"></a>二、提取信息</h3><p>我们在第一步获取了网页源代码之后，接下来的工作就是分析网页源代码，从中提取我们想要的数据，首先最通用的方法便是采用正则表达式提取，这是一个万能的方法，但是在构造正则表达式的时候比较复杂且容易出错。</p>
-<p>另外由于网页的结构是有一定规则的，所以还有一些根据网页节点属性、CSS 选择器或 XPath 来提取网页信息的库，如 BeautifulSoup、PyQuery、LXML 等，使用这些库可以高效快速地从中提取网页信息，如节点的属性、文本值等内容。</p>
-<p>提取信息是爬虫非常重要的部分，它可以使杂乱的数据变得清晰条理，以便于我们后续在对数据进行处理和分析。</p>
-<h3 id="能抓取怎样的数据："><a href="#能抓取怎样的数据：" class="headerlink" title="能抓取怎样的数据："></a>能抓取怎样的数据：</h3><ul>
-<li>常规网页，  也就是html源代码。有些网页返回的不是不是 HTML 代码，而是返回一个 Json 字符串（使用Ajax渲染的网页），API      接口大多采用这样的形式，方便数据的传输和解析，这种数据同样可以抓取，而且数据提取更加方便。</li>
-<li>二进制数据，如图片、视频、音频等等，我们可以利用爬虫将它们的二进制数据抓取下来，然后保存成对应的文件名即可。</li>
-<li>我们还可以看到各种扩展名的文件，如      CSS、JavaScript、配置文件等等，这些其实也是最普通的文件，只要在浏览器里面访问到，我们就可以将其抓取下来。</li>
-</ul>
-<h3 id="JavaScript-渲染页面："><a href="#JavaScript-渲染页面：" class="headerlink" title="JavaScript 渲染页面："></a>JavaScript 渲染页面：</h3><p>有时候我们在用 Urllib 或 Requests 抓取网页时，得到的源代码实际和浏览器中看到的是不一样的。</p>
-<p>这个问题是一个非常常见的问题，现在网页越来越多地采用 Ajax、前端模块化工具来构建网页，整个网页可能都是由 JavaScript 渲染出来的，意思就是说原始的 HTML 代码就是一个空壳。</p>
-<p>下面，是JS常规的渲染代码：</p>
-<p><img src="/2019/07/09/爬虫Day2-爬虫基础/3.jpg" alt></p>
-<p>body 节点里面只有一个 id 为 container 的节点，但是注意到在 body 节点后引入了一个 <strong>app.js</strong>，这个便负责了整个网站的渲染。</p>
-<p>在浏览器打开这个页面时，首先会加载这个 HTML 内容，接着浏览器会发现其中里面引入了一个 app.js 文件，然后浏览器便会接着去请求这个文件，获取到该文件之后便会执行其中的 JavaScript 代码，而 JavaScript 则会改变 HTML 中的节点，向内添加内容，最后得到完整的页面。</p>
-<p><strong>但是在用</strong> <strong>Urllib</strong> <strong>或</strong> <strong>Requests</strong> <strong>等库来请求当前页面时，我们得到的只是这个</strong> <strong>HTML</strong> <strong>代码，它不会帮助我们去继续加载这个</strong> <strong>JavaScript</strong> <strong>文件，这样也就看不到浏览器中看到的内容了。</strong></p>
-<p>这也解释了为什么有时我们得到的源代码和浏览器中看到的是不一样的。</p>
-<p>所以使用基本 HTTP 请求库得到的结果源代码可能跟浏览器中的页面源代码不太一样。对于这样的情况，我们可以分析其后台的Ajax接口，通过模拟Ajax请求得到渲染的页面，也可以使用Selenium这样的库来实现模拟JavaScript。</p>
-<blockquote>
-<p>本期对爬虫基础原理的讲述就到这里了~    下期预告：“urllib请求库的使用”</p>
-</blockquote>
-
-          
+          爬虫基础：简单来说，爬虫就是请求网页并提取数据和保存信息的自动化程序。
+人们常常把爬虫比做蜘蛛爬网，把网的节点比做一个个网页，爬虫爬到这就相当于访问了该页面获取了其信息，节点间的连线可以比做网页与网页之间的链接关系，这样蜘蛛通过一个节点后可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/09/爬虫Day2-爬虫基础/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+		  <div>
+    
+  </div>
+          <!--/noindex-->
         
       
     </div>
@@ -802,96 +835,25 @@
       
         
           
-            <h2 id="网页基础"><a href="#网页基础" class="headerlink" title="网页基础"></a>网页基础</h2><h4 id="一、网页交互过程："><a href="#一、网页交互过程：" class="headerlink" title="一、网页交互过程："></a>一、网页交互过程：</h4><blockquote>
-<p>URL：统一资源定位符，通俗的讲，它是一个链接，它能使我们从互联网上找到我们访问的资源。</p>
-<p>例如： <a href="http://www.4399.com/flash/58508.htm" target="_blank" rel="noopener">http://www.4399.com/flash/58508.htm</a> 这样的一个网站</p>
-<p>它包含三个部分： </p>
-<ul>
-<li>访问协议  http</li>
-<li>访问路径  “<a href="http://www.4399.com”" target="_blank" rel="noopener">www.4399.com”</a></li>
-<li>资源名称  “flash/58508”</li>
-</ul>
-</blockquote>
-<p><strong>我们在浏览器中输入一个 URL，回车之后便会在浏览器中观察到页面内容。实际上这就是和服务器做交互行为， 通过发送请求，再到服务器响应服务，这就完成了我们获取资源的目的。</strong></p>
-<p><img src="/2019/07/06/爬虫Day1-网页基础/1.jpg" alt="交互图片"></p>
-<h4 id="二、客户端请求–Request："><a href="#二、客户端请求–Request：" class="headerlink" title="二、客户端请求–Request："></a>二、客户端请求–Request：</h4><blockquote>
-<p>Request，即请求，由客户端向服务端发出。可以将Request分为四部分：</p>
-<ul>
-<li>请求方法（Request Method）</li>
-<li>请求链接（Request URL）</li>
-<li>请求头（Request Headers）</li>
-<li>请求体（Request Body）</li>
-</ul>
-</blockquote>
-<p><em>接下来，我们就分别来谈谈这四个部分的具体内容…</em></p>
-<ol>
-<li><h5 id="Request-Method"><a href="#Request-Method" class="headerlink" title="Request Method"></a>Request Method</h5></li>
-</ol>
-<p>请求方式，请求方式常见的有两种类型，GET 和 POST。</p>
-<ul>
-<li><p>Get：</p>
-<p>我们在浏览器中直接输入一个URL 并回车，这便发起了一个 GET 请求，请求的参数会直接包含到 URL 里（GET 方式请求提交的数据最多只有 1024 字节）</p>
-</li>
-</ul>
-<ul>
-<li><p>Post：</p>
-<p>Post 请求大多为表单提交发起，如一个登录表单，输入用户名密码，点击登录按钮，这通常会发起一个 POST 请求，其数据通常以 Form Data 即表单的形式传输，不会体现在 URL 中。（POST 方式请求提交的数据没有限制）</p>
-<p>而且Post请求在Request Headers中的Content-Type标识——只有设置为<strong>application/x-www-form-urlencoded</strong> 才是Post请求。</p>
-</li>
-</ul>
-<ul>
-<li><p>其他请求方式</p>
-<p>我们平常遇到的绝大部分请求都是<br>GET 或 POST 请求，另外还有一些请求方式，如 HEAD、PUT、DELETE、OPTIONS、CONNECT、TRACE，我们简单将其总结如下：</p>
-</li>
-</ul>
-<p><img src="/2019/07/06/爬虫Day1-网页基础/2.jpg" alt="Request Method方法"></p>
-<ol start="2">
-<li><strong>Request URL</strong>：</li>
-</ol>
-<p>顾名思义，就是请求的链接网址，我们发起的请求，必须包含URL</p>
-<ol start="3">
-<li><p><strong>Request Headers</strong>：</p>
-<p>请求头，用来说明客户端要使用的附加信息，比较重要的信息有：Cookie，Referer、User-Agent</p>
-<p>以及Content-Type等等。</p>
-<p><strong>Request Headers 是 Request 等重要组成部分，在写爬虫的时候大部分情况都需要设定 Request Headers。</strong></p>
-</li>
-</ol>
-<ol start="4">
-<li><p><strong>Request Body</strong>：</p>
-<p>请求体，一般承载的内容是Post请求的Form Data，即表单数据，而对于Get请求中，Request Body的内容为空。  </p>
-</li>
-</ol>
-<h4 id="三、服务器响应–Response"><a href="#三、服务器响应–Response" class="headerlink" title="三、服务器响应–Response"></a>三、服务器响应–Response</h4><p>Response，即响应，由服务端返回给客户端。</p>
-<p>Response 可以划分为三部分，Response Status Code、Response Headers、Response Body。</p>
-<ol>
-<li><p><strong>Response Status Code</strong>：</p>
-<p>响应状态码，此状态码表示了服务器的响应状态，<strong>如 200则代表服务器正常响应，404 则代表页面未找到</strong>，500则代表服务器内部发生错误。</p>
-</li>
-</ol>
-<ol start="2">
-<li><p><strong>Response Headers</strong>：</p>
-<p>响应头，其中包含了服务器对请求的应答信息，如 Content-Type、Server、Set-Cookie 等，下面对一些常用的头信息说明：</p>
-</li>
-</ol>
-<ul>
-<li>Date：日期，标识 Response 产生的时间。</li>
-<li>Last-Modified，指定资源的最后修改时间。</li>
-<li>Content-Encoding，指定 Response 内容的编码。</li>
-<li>Server，包含了服务器的信息，名称，版本号等。</li>
-<li>Content-Type，文档类型，指定了返回的数据类型是什么，如text/html 则代表返回 HTML      文档，application/x-javascript 则代表返回 JavaScript 文件，image/jpeg 则代表返回了图片。</li>
-<li>Set-Cookie，设置Cookie，Response Headers 中的 Set-Cookie即告诉浏览器需要将此内容放在      Cookies 中，下次请求携带 Cookies 请求。</li>
-</ul>
-<ol start="3">
-<li><p><strong>Response Body</strong>：</p>
-<p>响应体，响应的正文数据都存放于此，如果请求一个网页，它的响应体就是网页的HTML代码，或者是Json格式的数据；请求一张图片，它的响应体就是图片的二进制数据。</p>
-<p>爬虫的解析都是根据响应体进行操作的。</p>
-</li>
-</ol>
-<blockquote>
-<p>好了，以上就是简单的讲解了爬虫相关的网页基础内容，下期作者会讲解爬虫的原理基础，以及实现过程。Bye~</p>
-</blockquote>
+          网页基础一、网页交互过程：
+URL：统一资源定位符，通俗的讲，它是一个链接，它能使我们从互联网上找到我们访问的资源。
+例如： http://www.4399.com/flash/58508.htm 这样的一个网站
+它包含三个部分： 
 
-          
+访问协议  http
+访问路径  “www.4399.com”
+
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/06/爬虫Day1-网页基础/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+		  <div>
+    
+  </div>
+          <!--/noindex-->
         
       
     </div>
@@ -973,7 +935,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

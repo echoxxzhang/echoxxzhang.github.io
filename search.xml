@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[爬虫Day4-urllib实战]]></title>
+    <url>%2F2019%2F07%2F15%2F%E7%88%AC%E8%99%ABDay4-urllib%E5%AE%9E%E6%88%98%2F</url>
+    <content type="text"><![CDATA[urllib爬虫实战之爬取笔趣阁小说一、前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。 二、环境运行平台： WindowsPython版本： Python3.xIDE： Pycharm 三、BeautifulSoup简介 BeautifulSoup 就是 Python 的一个 HTML 或 XML 的解析库，我们可以用它来方便地从网页中提取数据。BeautifulSoup提供一些简单的、Python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据。 解析器 BeautifulSoup 在解析的时候实际上是依赖于解析器的，它除了支持 Python 标准库中的 HTML 解析器，还支持一些第三方的解析器比如 LXML 。 Beautiful方法有两个参数，第一个参数传入待解析的文本，第二个参数指定解析器，如果我们想要使用 LXML 这个解析器，在初始化 BeautifulSoup 的时候指定 lxml 即可，如下： 好了，简单介绍了BeautifulSoup，我们快点进入今天的实战环节吧~ 四、实战 背景介绍：笔趣看是一个盗版小说网站，这里有很多起点中文网的小说，该网站小说的更新速度稍滞后于起点中文网正版小说的更新速度。并且该网站只支持在线浏览，不支持小说打包下载。因此，本次实战就是从该网站爬取并保存一本名为《一念永恒》的小说。 PS：本实例仅为交流学习，支持耳根大大，请上起点中文网订阅。 URL: ‘https://www.biqukan.com/1_1094/5403177.html&#39; 预备知识： 本文提及的代码并不复杂，如果对BeautifulSoup想要更加了解，可以去官方文档进行翻阅 URL：‘http://beautifulsoup.readthedocs.io/zh_CN/latest/‘ BeautifulSoup环境搭建： pip install bs4 导入使用 – from bs4 import BeautifulSoup 小说内容爬取获取请求① 打开url链接，按F12或者右键- 检查 进入开发者工具 ② 在开发者工具中，捕获我们要找到的请求条目信息 将正文中部分内容进行复制 在开发者工具中，使用 ctrl + f 进入全局搜索框，将复制内容进行粘贴 然后会在下方得到条目信息，点击，页面会跳转到加载正文的请求响应条目中。 分析发现，正文部分存储在 id 为 content 和 class 为 showtxt 的 div 中。这就是我们解析网页得到的重要信息啦 ③ 构造url请求 有了上面的信息还不够，现在的网站都有了反爬能力，我们需要模拟一条正常从浏览器中发出的url请求链接。 例如： User-Agent（浏览器标识）、Cookies（标识客户端身份的“钥匙”）、referer等等字段 那么，这些包含在请求头的字段信息，我们应该如何构造呢? 还是开发者工具，点击Headers，就可以看到Request-Response条目明细。 ④ 发出请求： 有了字段的详细内容，我们就可以编写出请求网页的代码… 12345678import urllib.requestdef get_page(url): headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0&apos;,&apos;Cookie&apos;:&apos;UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333&apos;&#125; Request = urllib.request.Request(url,headers=headers) response = urllib.request.urlopen(Request) html = response.read() print(html) return html ⑤ 获得相应内容：运行，得到内容如下: 发现是一个二进制流的数据，因此得知，我们在解析时，需要编码 解析响应数据接下来，我们就可以使用BeautifulSoup进行解析 12345678910def parser_page(html): soup = BeautifulSoup(html,&apos;lxml&apos;,from_encoding=&apos;utf-8&apos;) # 传入编码方式，为utf-8 text = soup.find(&apos;div&apos;, class_=&apos;showtxt&apos;) # 使用BeautifulSoup的find方法，匹配符合的节点，该节点为我们上文得知的属性 cont = text.get_text() # 输出文本内容 cont = str(cont).split() # 将空白符进行分割，这里的作用是消除 \xa0、\u3000空白符 print(cont) 运行….代码结果如图： 永久存储数据：我们这里使用最简单的方式，存储写入本地文件 打开result.txt文件，内容如下（完成！） 写在最后本次我们实战项目就告一段落啦，最后再为大家做一次梳理总结。 观察网页信息，获取相应内容 构造get请求，拿到响应内容 用解析库对相应内容进行解析 写入文件 全文代码如下： 12345678910111213141516171819202122232425262728import urllib.requestfrom bs4 import BeautifulSoupurl = &apos;https://www.biqukan.com/1_1094/5403177.html&apos;def get_page(url): headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0&apos;,&apos;Cookie&apos;:&apos;UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333&apos;&#125; Request = urllib.request.Request(url,headers=headers) response = urllib.request.urlopen(Request) html = response.read() return htmldef parser_page(html): soup = BeautifulSoup(html,&apos;lxml&apos;,from_encoding=&apos;utf-8&apos;) text = soup.find(&apos;div&apos;, class_=&apos;showtxt&apos;) cont = text.get_text() cont = str(cont).split() return contif __name__ == &apos;__main__&apos;: html = get_page(url) results = parser_page(html) with open(&apos;result.txt&apos;,&apos;w&apos;,encoding=&apos;utf-8&apos;) as f : for result in results: f.write(result) f.write(&apos;\n&apos;) print(&quot;爬取完毕&quot;) 耗费一上午时间，终于把这篇文章给赶出来了~ 爬虫Day系列会持续更新，让我们共同期待吧！]]></content>
+      <categories>
+        <category>Python爬虫</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[爬虫Day3-urllib介绍]]></title>
     <url>%2F2019%2F07%2F10%2F%E7%88%AC%E8%99%ABDay3-urllib%E4%BB%8B%E7%BB%8D%2F</url>
     <content type="text"><![CDATA[Urllib介绍在 Python2 版本中，有 Urllib 和 Urlib2 两个库可以用来实现Request的发送。而在 Python3 中，已经不存在Urllib2 这个库了，统一为 Urllib urllib分为四个模块： 第一个模块是request，它是最基本的HTTP请求模块，我们可以用它模拟发送请求，就像在浏览器手动输入网址然后敲击回车一样，只需要给库方法传入URL，以及额外的参数，就可以模拟实现整个过程了。 第二个模块是error，即异常处理，如果出现请求错误，我们可以捕获这个异常，然后进行异常的处理，保证程序的稳定性 第三个模块是paser，它是一个工具模块，提供了许多URL处理方法，比如拆分、解析、合并等操作 第四个模块是robotparser，主要是用来识别网站的robots.txt的（反爬虫的文本说明） 下面作者就对以上模块进行重点讲解~ 一、request模块1.urlopen方法： 我们知道，request是HTTP请求模块，那么具体的请求方法是什么呢？没错，正是urlopen！ 12urlopen的API：urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None) 我们通过urllib.request.urlopen（“url链接”）就可以请求到网页，如下图所示 这个请求的返回结果response，就是服务器响应内容。紧接着，我们可以调用这个对象包含的方法对返回的内容进行处理。 响应的内容是HTML纯文本，它以字节流的形式返回的，于是要解码成utf-8，得到字符串 response.read（）读取响应内容到控制台 respon.status返回网页的状态码，如果网页的状态码是200，则表示正常 利用以上最基本的 urlopen() 方法，我们可以完成最基本的简单网页的 GET 请求抓取。 2.data参数 data 参数是可选的，另外如果传递了这个 data 参数，它的请求方式就不再是 GET 方式请求，而是 POST。我们就可以使传递data参数，完成模拟登陆等类似功能… 具体如何模拟from表单，后文的urllib.parser会讲解 3. timeout参数 timeout 参数可以设置超时时间，单位为秒，意思就是如果请求超出了设置的这个时间还没有得到响应，就会抛出异常，如果不指定，就会使用全局默认时间。 我们可以通过设置timeout值，从而缩短超时时间。或者是让程序不会一直处于阻塞状态（我们知道，客户端和服务器的交互是一个同步过程，我们可以利用timeout参数，以及异常处理来完成非阻塞的效果，以及让程序不会异常终止，让程序更加稳定） 4.构建Request对象 我们知道利用 urlopen()方法可以实现最基本请求的发起，但这几个简单的参数并不足以构建一个完整的请求，如果请求中需要加入 Headers 等信息，我们就可以利用更强大的 Request 类来构建一个请求。比如可以构建请求链接的浏览器标识等等 下面是正常的urlopen请求和使用Request构建URL的代码举例： 可以发现，我们依然是用 urlopen() 方法来发送这个请求，只不过这次 urlopen() 方法的参数不再是一个 URL，而是一个 Request 类型的对象，这样的好处是： 一方面我们可以将请求独立成一个对象 另一方面可配置参数更加丰富和灵活（将参数全部加到Ruquest对象中作为一个整体发送） Request配置举例 之前我们说到过，可以构建url链接，比如关键字查询、模拟登陆。还可以模拟浏览器标识，让爬虫更像是一个人为发出的请求信息。具体内容如下： headers 参数是一个字典，这个就是 Request Headers 了，你可以在构造 Request 时通过 headers 参数直接构造，也可以通过调用 Request 实例的 add_header() 方法来添加。 data就是我们发出的数据了，他会以表单形式向服务器发出 method是方法的意思，我们可以指定method来声明这是一个什么类型的URL 二、Error模块前文我们了解了 Request 的发送过程，但是在网络情况不好、被反爬的情况下，出现了异常怎么办呢？这时如果我们不处理这些异常，程序很可能报错而终止运行，所以异常处理还是十分有必要的。 Urllib 的 error 模块定义了由request 模块产生的异常。如果出现了问题，request 模块便会抛出error 模块中定义的异常 1.URLError URLError 类来自 Urllib 库的 error 模块，它继承自 OSError 类，是 error 异常模块的基类，由 request 模块生的异常都可以通过捕获这个类来处理。它具有一个属性 reason，即返回错误的原因。 2.HTTPError 它是 URLError 的子类，专门用来处理 HTTP 请求错误，比如认证请求失败等等。 它有三个属性。 code，返回 HTTP Status Code，即状态码，比如 404 网页不存在，500 服务器内部错误等等。 reason，同父类URLError一样，返回错误的原因。(有时候 reason 属性返回的不一定是字符串，也可能是一个对象—可以用 isinstance() 方法来判断它的类型，做出更详细的异常判断。) headers，返回 Request Headers。 因为 URLError是HTTPError 的父类，所以我们可以先选择捕获子类的错误，再去捕获父类的错误，这样捕获的代码更加精准，且有利于程序猿处理。 请求到响应信息不足为奇，也不是什么难事，最主要的，是让程序可以正常的”跑起来”，所以，异常处理是爬虫工程师的必修课，需好好掌握。 三、parse模块1.urlparse（） urlparse() 方法可以实现 URL 的识别和分段,返回六个部分的内容，字段分别是 scheme、netloc、path、params、query、fragment。 2.urlencode（） 常用的 urlencode() 方法，它在构造 GET 请求参数的时候非常有用——字典转序列化 3.parse_qs（） 有了序列化必然就有反序列化，如果我们有一串 GET 请求参数，我们利用 parse_qs() 方法就可以将它转回字典 quote（） quote() 方法可以将内容转化为 URL 编码的格式，有时候 URL 中带有中文参数的时候可能导致乱码的问题，所以我们可以用这个方法将中文字符转化为 URL 编码 5.unquote（） quote() 方法的逆操作，它可以进行 URL 解码（默认是以utf-8编码） 四、 robotparser在介绍rebotparser模块之前呢，我们需要对robots协议进行了解 Robots 协议也被称作爬虫协议、机器人协议，它的全名叫做网络爬虫排除标准（Robots Exclusion Protocol），用来告诉爬虫和搜索引擎哪些页面可以抓取，哪些不可以抓取。它通常是一个叫做 robots.txt 的文本文件，放在网站的根目录下。 robotparse：用来解析rebots文件的类 robotparser 模块提供了一个类，叫做 RobotFileParser。它可以根据某网站的 robots.txt 文件来判断一个爬取爬虫是否有权限来爬取这个网页。 123接口API：import urllib.robotparserurllib.robotparser.RobotFileParser(url='') 使用这个类的时候非常简单，只需要在构造方法里传入 robots.txt的链接即可。当然也可以声明时不传入，默认为空，再使用 set_url() 方法设置一下也可以。 RobotFileParser常用方法解析 read()，读取 robots.txt 文件并进行分析，注意这个函数是执行一个读取和分析操作，如果不调用这个方法，接下来的判断都会为 False，所以一定记得调用这个方法，这个方法不会返回任何内容，但是执行了读取操作。（注意是“读取”而不是读出） parse()，用来解析 robots.txt 文件，传入的参数是 robots.txt 某些行的内容，它会按照 robots.txt 的语法规则来分析这些内容。 can_fetch()，方法传入两个参数，第一个是 User-agent，第二个是要抓取的 URL，返回的内容是该搜索引擎是否可以抓取这个 URL，返回结果是 True 或 False。（判断是否能抓取的方法） 好了，对urllib库的介绍就到这儿了，下次作者会对第三方请求库requests讲解，这是一个当前的流行库，让我们一起期待吧~]]></content>
@@ -8,8 +20,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -20,8 +32,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -32,8 +44,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>
