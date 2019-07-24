@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python,技术,">
+  <meta name="keywords" content="技术,python,">
 
 
 
@@ -79,28 +79,30 @@
 
 
 
-<meta name="description" content="urllib爬虫实战之爬取笔趣阁小说一、前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。 二、环境运行平台： WindowsPython版本： Python3.xIDE： Pycharm 三、BeautifulSoup简介">
-<meta name="keywords" content="Python,技术">
+<meta name="description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。  获取Soup对象：使用Beau">
+<meta name="keywords" content="技术,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬虫Day4-urllib实战">
-<meta property="og:url" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/index.html">
+<meta property="og:title" content="爬虫Day6-Beautiful介绍">
+<meta property="og:url" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="urllib爬虫实战之爬取笔趣阁小说一、前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。 二、环境运行平台： WindowsPython版本： Python3.xIDE： Pycharm 三、BeautifulSoup简介">
+<meta property="og:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。  获取Soup对象：使用Beau">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/4.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/5.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/6.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/7.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/9.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/timg.jpg">
-<meta property="og:updated_time" content="2019-07-15T03:01:42.098Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/9.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png">
+<meta property="og:updated_time" content="2019-07-24T14:08:58.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬虫Day4-urllib实战">
-<meta name="twitter:description" content="urllib爬虫实战之爬取笔趣阁小说一、前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。 二、环境运行平台： WindowsPython版本： Python3.xIDE： Pycharm 三、BeautifulSoup简介">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/1.png">
+<meta name="twitter:title" content="爬虫Day6-Beautiful介绍">
+<meta name="twitter:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。  获取Soup对象：使用Beau">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/1.jpg">
 
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/">
 
 
 
 
 
-  <title>爬虫Day4-urllib实战 | 小小世界</title>
+  <title>爬虫Day6-Beautiful介绍 | 小小世界</title>
   
 
 
@@ -295,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -312,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">爬虫Day4-urllib实战</h1>
+          <h1 class="post-title" itemprop="name headline">爬虫Day6-Beautiful介绍</h1>
         
 
         <div class="post-meta">
@@ -324,8 +326,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T09:24:08+08:00">
-                2019-07-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T21:15:01+08:00">
+                2019-07-24
               </time>
             
 
@@ -365,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/15/爬虫Day4-urllib实战/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/15/爬虫Day4-urllib实战/" itemprop="commentsCount"></span>
+                <a href="/2019/07/24/爬虫Day6-BeautifulSoup介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/24/爬虫Day6-BeautifulSoup介绍/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -399,75 +401,110 @@
       
 
       
-        <h2 id="urllib爬虫实战之爬取笔趣阁小说"><a href="#urllib爬虫实战之爬取笔趣阁小说" class="headerlink" title="urllib爬虫实战之爬取笔趣阁小说"></a>urllib爬虫实战之爬取笔趣阁小说</h2><h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h4><p>上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。</p>
-<h4 id="二、环境"><a href="#二、环境" class="headerlink" title="二、环境"></a>二、环境</h4><p><strong>运行平台：</strong> Windows<br><strong>Python版本：</strong> Python3.x<br><strong>IDE：</strong> Pycharm</p>
-<h4 id="三、BeautifulSoup简介"><a href="#三、BeautifulSoup简介" class="headerlink" title="三、BeautifulSoup简介"></a>三、BeautifulSoup简介</h4><ul>
-<li>BeautifulSoup 就是 Python 的一个 HTML 或 XML 的解析库，我们可以用它来方便地从网页中提取数据。BeautifulSoup提供一些简单的、Python式的函数用来处理导航、搜索、修改分析树等功能。它是一个工具箱，通过解析文档为用户提供需要抓取的数据。</li>
-</ul>
-<p><strong>解析器</strong></p>
-<p>BeautifulSoup 在解析的时候实际上是<strong>依赖于解析器</strong>的，它除了支持 Python 标准库中的 HTML 解析器，还支持一些第三方的解析器比如 LXML 。 Beautiful方法有两个参数，第一个参数传入待解析的文本，第二个参数指定解析器，如果我们想要使用 LXML 这个解析器，在初始化 BeautifulSoup 的时候指定 lxml 即可，如下：</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/1.png" alt></p>
-<blockquote>
-<p> 好了，简单介绍了BeautifulSoup，我们快点进入今天的实战环节吧~</p>
-</blockquote>
-<h4 id="四、实战"><a href="#四、实战" class="headerlink" title="四、实战"></a>四、实战</h4><ol>
-<li><p>背景介绍：笔趣看是一个盗版小说网站，这里有很多起点中文网的小说，该网站小说的更新速度稍滞后于起点中文网正版小说的更新速度。并且该网站只支持在线浏览，不支持小说打包下载。因此，本次实战就是从该网站爬取并保存一本名为《一念永恒》的小说。 </p>
-<p>PS：本实例仅为交流学习，支持耳根大大，请上起点中文网订阅。</p>
-<p>URL: ‘<a href="https://www.biqukan.com/1_1094/5403177.html&#39;" target="_blank" rel="noopener">https://www.biqukan.com/1_1094/5403177.html&#39;</a></p>
-</li>
-<li><p>预备知识： 本文提及的代码并不复杂，如果对BeautifulSoup想要更加了解，可以去官方文档进行翻阅</p>
-<p>URL：‘<a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/‘" target="_blank" rel="noopener">http://beautifulsoup.readthedocs.io/zh_CN/latest/‘</a></p>
-</li>
-<li><p>BeautifulSoup环境搭建：</p>
+        <p>之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？</p>
+<p>今天，他来了！！</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/1.jpg" alt></p>
+<h3 id="BeautifulSoup的基本使用："><a href="#BeautifulSoup的基本使用：" class="headerlink" title="BeautifulSoup的基本使用："></a>BeautifulSoup的基本使用：</h3><h4 id="拿到网页数据："><a href="#拿到网页数据：" class="headerlink" title="拿到网页数据："></a>拿到网页数据：</h4><p>一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/2.png" alt="网页数据"></p>
+<h4 id="获取Soup对象："><a href="#获取Soup对象：" class="headerlink" title="获取Soup对象："></a>获取Soup对象：</h4><p>使用BeautifulSoup方法，第一个参数传入 HTML字符串文本，第二个参数传入的是解析器的类型，在这里我们使用<br>lxml。不指定会使用默认的解析器，但是会发出警告</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  bs4 <span class="keyword">import</span> Beautifulsoup</span><br><span class="line">soup = BeautifulSoup(html,<span class="string">"lxml"</span>)</span><br><span class="line">print(soup)</span><br></pre></td></tr></table></figure>
+
+<p>运行后，发现内容如下（发现不完整的HTML字符串被补齐了）：</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/3.png" alt="网页数据"></p>
+<h4 id="属性选择"><a href="#属性选择" class="headerlink" title="属性选择"></a>属性选择</h4><p>调用 soup 的各个方法和属性<strong>（选择器）</strong>对这串HTML代码解析。这个soup对象支持 “.” 获取节点操作，也可以通过”.”表达嵌套关系。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/4.png" alt="网页数据"></p>
 <ul>
-<li>pip install bs4</li>
-<li>导入使用 –  from bs4 import BeautifulSoup</li>
+<li>我们直接拿到的soup打印不美观，使用prettify（）方法可以打印出树形结构的 html 文本</li>
+<li>这里我们打印 title 的文本内容，以及 head 节点信息</li>
 </ul>
+<p>上面就是BeautifulSoup的使用流程，有时候，我们需要的内容存放于某些节点中，这些节点有它的特征，我们可以通过<strong>选择器</strong>获取这些节点，最后拿到我们需要的结果。</p>
+<h3 id="节点选择器："><a href="#节点选择器：" class="headerlink" title="节点选择器："></a>节点选择器：</h3><h4 id="选择元素："><a href="#选择元素：" class="headerlink" title="选择元素："></a>选择元素：</h4><p> 元素选择—— 直接通过调用节点的名称就可以选择节点元素了，这种选择方式速度非常快，如果单个节点结构话层次非常清晰，可以选用这种方式来解析。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/5.png" alt="网页数据"></p>
+<ul>
+<li><p>注意，我们的选择器是基于soup这个对象的</p>
 </li>
-</ol>
-<h3 id="小说内容爬取"><a href="#小说内容爬取" class="headerlink" title="小说内容爬取"></a>小说内容爬取</h3><h3 id="获取请求"><a href="#获取请求" class="headerlink" title="获取请求"></a>获取请求</h3><p>① 打开url链接，按F12或者右键- 检查 进入开发者工具</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/2.png" alt></p>
-<p>② 在开发者工具中，捕获我们要找到的请求条目信息</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/3.png" alt></p>
-<ol>
-<li>将正文中部分内容进行复制</li>
-<li>在开发者工具中，使用 ctrl + f 进入全局搜索框，将复制内容进行粘贴</li>
-<li>然后会在下方得到条目信息，点击，页面会跳转到加载正文的请求响应条目中。</li>
-<li>分析发现，正文部分存储在 id 为 content 和 class 为 showtxt 的 div 中。这就是我们解析网页得到的重要信息啦</li>
-</ol>
-<p>③ 构造url请求</p>
-<p>有了上面的信息还不够，现在的网站都有了反爬能力，我们需要模拟一条正常从浏览器中发出的url请求链接。  </p>
-<p>例如： User-Agent（浏览器标识）、Cookies（标识客户端身份的“钥匙”）、referer等等字段</p>
-<p>那么，这些包含在请求头的字段信息，我们应该如何构造呢?   还是开发者工具，点击Headers，就可以看到Request-Response条目明细。</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/4.png" alt></p>
-<p>④ 发出请求： 有了字段的详细内容，我们就可以编写出请求网页的代码…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">def get_page(url):</span><br><span class="line">    headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0&apos;,&apos;Cookie&apos;:&apos;UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333&apos;&#125;</span><br><span class="line">    Request = urllib.request.Request(url,headers=headers)</span><br><span class="line">    response = urllib.request.urlopen(Request)</span><br><span class="line">    html = response.read()</span><br><span class="line">    print(html)</span><br><span class="line">    return html</span><br></pre></td></tr></table></figure>
-
-<p>⑤ 获得相应内容：运行，得到内容如下:</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/5.png" alt></p>
-<p>发现是一个二进制流的数据，因此得知，我们在解析时，需要编码</p>
-<h3 id="解析响应数据"><a href="#解析响应数据" class="headerlink" title="解析响应数据"></a>解析响应数据</h3><p>接下来，我们就可以使用BeautifulSoup进行解析</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def parser_page(html):</span><br><span class="line">    soup = BeautifulSoup(html,&apos;lxml&apos;,from_encoding=&apos;utf-8&apos;)</span><br><span class="line">    # 传入编码方式，为utf-8</span><br><span class="line">    text = soup.find(&apos;div&apos;, class_=&apos;showtxt&apos;)</span><br><span class="line">    # 使用BeautifulSoup的find方法，匹配符合的节点，该节点为我们上文得知的属性</span><br><span class="line">    cont = text.get_text()</span><br><span class="line">    # 输出文本内容</span><br><span class="line">    cont = str(cont).split()</span><br><span class="line">	# 将空白符进行分割，这里的作用是消除 \xa0、\u3000空白符</span><br><span class="line">    print(cont)</span><br></pre></td></tr></table></figure>
-
-<p>运行….代码结果如图：</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/6.png" alt></p>
-<h3 id="永久存储数据："><a href="#永久存储数据：" class="headerlink" title="永久存储数据："></a>永久存储数据：</h3><p>我们这里使用最简单的方式，存储写入本地文件</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/7.png" alt></p>
-<p>打开result.txt文件，内容如下（完成！）</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/9.png" alt></p>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>本次我们实战项目就告一段落啦，最后再为大家做一次梳理总结。</p>
-<ol>
-<li>观察网页信息，获取相应内容</li>
-<li>构造get请求，拿到响应内容</li>
-<li>用解析库对相应内容进行解析</li>
-<li>写入文件</li>
-</ol>
-<p>全文代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">url = &apos;https://www.biqukan.com/1_1094/5403177.html&apos;</span><br><span class="line">def get_page(url):</span><br><span class="line">    headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0&apos;,&apos;Cookie&apos;:&apos;UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333&apos;&#125;</span><br><span class="line">    Request = urllib.request.Request(url,headers=headers)</span><br><span class="line">    response = urllib.request.urlopen(Request)</span><br><span class="line">    html = response.read()</span><br><span class="line">    return html</span><br><span class="line"></span><br><span class="line">def parser_page(html):</span><br><span class="line">    soup = BeautifulSoup(html,&apos;lxml&apos;,from_encoding=&apos;utf-8&apos;)</span><br><span class="line">    text = soup.find(&apos;div&apos;, class_=&apos;showtxt&apos;)</span><br><span class="line">    cont = text.get_text()</span><br><span class="line">    cont = str(cont).split()</span><br><span class="line"></span><br><span class="line">    return cont</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    html = get_page(url)</span><br><span class="line">    results = parser_page(html)</span><br><span class="line">    with open(&apos;result.txt&apos;,&apos;w&apos;,encoding=&apos;utf-8&apos;) as f :</span><br><span class="line">        for result in results:</span><br><span class="line">            f.write(result)</span><br><span class="line">            f.write(&apos;\n&apos;)</span><br><span class="line"></span><br><span class="line">    print(&quot;爬取完毕&quot;)</span><br></pre></td></tr></table></figure>
-
-<p>耗费一上午时间，终于把这篇文章给赶出来了~</p>
-<p>爬虫Day系列会持续更新，让我们共同期待吧！</p>
-<p><img src="/2019/07/15/爬虫Day4-urllib实战/timg.jpg" alt></p>
+<li><p>输出了soup.head的类型，是 bs4.element.Tag 类型.这是 BeautifulSoup 中的一个重要的数据结构，<strong>经过选择器选择之后，选择结果都是这种</strong> <strong>Tag</strong> <strong>类型</strong>，它具有着一些属性，比如 string 属性（输出文本信息），可以进行获取属性、嵌套等操作。</p>
+</li>
+<li><p><strong>不过这种选择方式只会选择到第一个匹配的节点，其他的后面的节点都会忽略</strong>——比如我们打印的p节点，只呈现一个信息（html字符串中有三个p节点信息）</p>
+</li>
+</ul>
+<h4 id="获取属性："><a href="#获取属性：" class="headerlink" title="获取属性："></a>获取属性：</h4><p>每个节点可能有多个属性，比如id，class 等等，我们选择到这个节点元素之后，可以调用 attrs 获取所有属性。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/7.png" alt="网页数据"></p>
+<ul>
+<li>可以看到 attrs 的返回结果是字典形式，把选择的节点的所有属性和属性值组合成一个字典。因此，可以通过键值形式进行取值传入节点的属性，获取该节点的属性值</li>
+</ul>
+<p><strong>contents 属性：</strong></p>
+<p>选取到了一个节点元素之后，如果想要获取它的<strong>直接子节点的信息</strong>   （不包含子孙节点），可以调用<br>contents 属性（和直接选择不同的是，contents返回的<strong>列表</strong>包含了<strong>所有子节点和所有文本信息</strong>）</p>
+<h4 id="关联选择："><a href="#关联选择：" class="headerlink" title="关联选择："></a>关联选择：</h4><p>我们在做选择的时候有时候不能做到一步就可以选择到想要的节点元素，有时候在选择的时候需要先选中某一个节点元素，然后以它为基准再选择它的子节点、父节点、兄弟节点等等。这里列出了获取节点的各个方法：</p>
+<table>
+<thead>
+<tr>
+<th>Children</th>
+<th>查询某个节点的直接子节点（返回一个迭代器）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Descendants</td>
+<td>查询某个节点的所有子孙节点（返回生成器）</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>查询某个节点的元素的父节点</td>
+</tr>
+<tr>
+<td>Parents</td>
+<td>查询某个节点的元素的祖父节点（返回生成器）</td>
+</tr>
+<tr>
+<td>soup.a.next_sibling</td>
+<td>查询某个节点的下一个节点</td>
+</tr>
+<tr>
+<td>previous_sibling</td>
+<td>查询某个节点的上一个节点</td>
+</tr>
+<tr>
+<td>next_siblings   和 previous_siblings</td>
+<td>分别返回所有前面和后面的兄弟节点的生成器。</td>
+</tr>
+</tbody></table>
+<p>需要注意的是：<strong>上面这些节点选择，但凡涉及到多个节点内容，就会返回一个生成器类型。</strong></p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/8.png" alt="网页数据"></p>
+<ul>
+<li>关于这些节点选择，我们要注意 html 树型结构的排列关系，例如，我们不能跨越父级节点，去拿到另一个子孙节点的内容。</li>
+</ul>
+<h4 id="方法选择器"><a href="#方法选择器" class="headerlink" title="方法选择器"></a>方法选择器</h4><p>前面我们所讲的选择方法都是通过属性来选择元素的，这种选择方法非常快，但是如果要进行比较复杂的选择的话则会比较繁琐，不够灵活。所以 BeautifulSoup 还为我们提供了一些查询的方法，这里介绍非常常用的 find_all()、find() 等方法，我们可以调用方法然后传入相应等参数就可以灵活地进行查询。</p>
+<p><strong>find_all(</strong> <strong>)</strong><br>查询所有符合条件的元素，可以给它传入一些属性或文本来得到符合条件的元素，并使用一个列表进行返回。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/9.png" alt="网页数据"></p>
+<p>我们接下来针对它的 API 下的属性进行介绍</p>
+<p>①name：根据标签名选择节点</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/10.png" alt="网页数据"></p>
+<ul>
+<li>方法选择器会返回一个Tag标签的类型，也就是说，其支持嵌套获取元素、层层迭代使用find_all等等操作。</li>
+<li>当name=True时，匹配所有标签。</li>
+</ul>
+<p>② attrs / id ：</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png" alt="网页数据"></p>
+<ul>
+<li>可以通过这些attrs、id 这两个关键字对我们需要的节点传入进行匹配</li>
+</ul>
+<p>③recursive：是否对子孙全部检索，默认为True，改为False则忽略孙节点</p>
+<p>④ text：用来匹配节点的文本，文本参数 text是用标签的文本内容去匹配，而不是用标签的属性。传入的形式可以是文本字符串，也可以是正则表达式对象（compile）</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png" alt="网页数据"></p>
+<ul>
+<li>也可以使用text = “Hello，this is a link” 这样的形式进行匹配节点。</li>
+</ul>
+<h4 id="find（）"><a href="#find（）" class="headerlink" title="find（）"></a>find（）</h4><p>find() 方法返回的是<strong>单个元素</strong>，也就是第一个匹配的元素。类型依然是 Tag 类型。（当某个标签只有一个是使用find比较好，因为find返回一个Tag类型，而find_all返回一个列表，这是最大的区别了，有时候我们需要拿到Tag类型的节点，这样对我们的后续操作更为便利），跟find_all很接近，API都是相同.</p>
+<h4 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h4><p>经过节点选择，我们已经匹配到我们需要的节点了，接下来应该是获取文本内容了，通过Tag 类型的string 属性，我们可以拿到文本内容，有一个方法那就是 get_text（），同样可以获取文本值。</p>
+<p>只需基于 Tag类型，调用 get_text（） 方法即可。不过需要注意的是： .get_text（）会把你正在处理的 HTML 文档中所有的标签都清除，然后返回一个只包含文字的字符串。假如你正在处理一个包含许多超链接、段落和标签的大段源代码，那么 .get_text() 会把这些超链接、段落和标签都清除掉，只剩下一串不带标签的文字。</p>
+<p>所以，get_text（）方法一般留到最后面使用，不然会影响我们获取节点</p>
+<h3 id="写在最后："><a href="#写在最后：" class="headerlink" title="写在最后："></a>写在最后：</h3><ul>
+<li>说一下节点选择的建议：页面布局总是不断变化的。一个标签这次是在表格中第一行的位置，没准儿哪天就在第二行或第三行了。如果想让你的爬虫更稳定，最好还是让标签的选择更加具体。<strong>如果有属性，就利用标签的属性。</strong></li>
+<li>解析库呢，就像一把锤子，使用的是我们，我们学会如何使用一把锤子的同时呢，也要关注什么时候去使用它，不要手上握着一把锤子，看任何问题都是钉子。使用适当的解析库去拿到我们需要的内容才是我们应该做的，使用什么样的锤子并不重要。</li>
+</ul>
+<blockquote>
+<p>不经意间，爬虫专栏已经走到的Day6了，过阵子应该会更新 爬取网站的实战。还是那句话，学理论归理论，但只有实战才能使我们将其内化，成为我们真正的技能。</p>
+</blockquote>
 
       
     </div>
@@ -485,9 +522,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
-          
             <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -500,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/10/爬虫Day3-urllib介绍/" rel="next" title="爬虫Day3-urllib介绍">
-                <i class="fa fa-chevron-left"></i> 爬虫Day3-urllib介绍
+              <a href="/2019/07/19/爬虫Day5-requests介绍/" rel="next" title="爬虫Day5-requests介绍">
+                <i class="fa fa-chevron-left"></i> 爬虫Day5-requests介绍
               </a>
             
           </div>
@@ -509,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/16/编程新手的必修课/" rel="prev" title="编程新手的必修课">
-                编程新手的必修课 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -671,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#urllib爬虫实战之爬取笔趣阁小说"><span class="nav-number">1.</span> <span class="nav-text">urllib爬虫实战之爬取笔趣阁小说</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、前言"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、环境"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、BeautifulSoup简介"><span class="nav-number">1.0.3.</span> <span class="nav-text">三、BeautifulSoup简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、实战"><span class="nav-number">1.0.4.</span> <span class="nav-text">四、实战</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小说内容爬取"><span class="nav-number">1.1.</span> <span class="nav-text">小说内容爬取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求"><span class="nav-number">1.2.</span> <span class="nav-text">获取请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析响应数据"><span class="nav-number">1.3.</span> <span class="nav-text">解析响应数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永久存储数据："><span class="nav-number">1.4.</span> <span class="nav-text">永久存储数据：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">1.5.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup的基本使用："><span class="nav-number">1.</span> <span class="nav-text">BeautifulSoup的基本使用：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拿到网页数据："><span class="nav-number">1.1.</span> <span class="nav-text">拿到网页数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取Soup对象："><span class="nav-number">1.2.</span> <span class="nav-text">获取Soup对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性选择"><span class="nav-number">1.3.</span> <span class="nav-text">属性选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点选择器："><span class="nav-number">2.</span> <span class="nav-text">节点选择器：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择元素："><span class="nav-number">2.1.</span> <span class="nav-text">选择元素：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取属性："><span class="nav-number">2.2.</span> <span class="nav-text">获取属性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联选择："><span class="nav-number">2.3.</span> <span class="nav-text">关联选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法选择器"><span class="nav-number">2.4.</span> <span class="nav-text">方法选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find（）"><span class="nav-number">2.5.</span> <span class="nav-text">find（）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取文本"><span class="nav-number">2.6.</span> <span class="nav-text">获取文本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后："><span class="nav-number">3.</span> <span class="nav-text">写在最后：</span></a></li></ol></div>
             
 
           </div>
