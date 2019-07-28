@@ -88,7 +88,7 @@
 <meta property="og:description" content="以太网的帧格式帧本身是一段有限的0/1序列。它可以分为以下几部分：   Preameble 和 SFD：   帧的最初7个字节被称为前导码，前导码是包括 七个字节的二进制0  1交替的代码  共56位。  定界符是由一个字节的01  交替的  二进制序列 ，他的作用是使接收端对数据帧的第一位进行定位   通常，我们都会预定好以一定的频率发送0/1序列(比如每秒10bit)。如果接收设备以其他频率接">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day2-数据链路层/2.png">
-<meta property="og:updated_time" content="2019-07-28T08:05:48.759Z">
+<meta property="og:updated_time" content="2019-07-28T09:28:56.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day2-数据链路层">
 <meta name="twitter:description" content="以太网的帧格式帧本身是一段有限的0/1序列。它可以分为以下几部分：   Preameble 和 SFD：   帧的最初7个字节被称为前导码，前导码是包括 七个字节的二进制0  1交替的代码  共56位。  定界符是由一个字节的01  交替的  二进制序列 ，他的作用是使接收端对数据帧的第一位进行定位   通常，我们都会预定好以一定的频率发送0/1序列(比如每秒10bit)。如果接收设备以其他频率接">
@@ -434,9 +434,14 @@
 <p>主机被分配IP地址或者IP地址发生变更之后，检测该网段是否唯一，避免冲突。主机用过发送一个arp request 报文进行检测，将广播报文中目的ip地址设置为自己的IP地址。当收到其他主机的回复时，则表示该网段被占用。</p>
 <h3 id="ICMP协议："><a href="#ICMP协议：" class="headerlink" title="ICMP协议："></a>ICMP协议：</h3><p>ICMP(Internet control message protocol)是网络层的的协议，用来在网络设备间传递各种差错和控制信息，他对于收集各种网络信息，诊断和排除各种网络故障具有至关重要的作用。</p>
 <p>ICMP重定向，ICMP差错检查:用于诊断源和目的之前的连通性(ICMP echo request查询和ICMP echo reply响应)，ICMP错误报告(各种传输数据失败的原因)</p>
-<h4 id="ICMP-的两个运用：-Ping-和-Ttracert"><a href="#ICMP-的两个运用：-Ping-和-Ttracert" class="headerlink" title="ICMP 的两个运用： Ping 和 Ttracert"></a>ICMP 的两个运用： Ping 和 Ttracert</h4><p>ping可以检测网络的连通性，这一点运用很广。</p>
-<p>tracert 基于报文的ttl来逐条跟踪报文的转发路径，源端首先把报文的ttl值设置为一，该报文到达第一个节点后，ttl超时于是该节点向源端发送ttl超时信息，以此类推，直到报文到达目的地。这样的机制，使得源端通过报文跟踪经过的每个节点。tracert是检测网络丢包及时延的有效手段，同时帮管理员发现网络中的路由环路</p>
-<p>当TTL值为0时，丢弃报文并向源端发送ICMP超时报文(该报文包含有第一条的IP地址)，这样源端就得到了下一跳的地址，以此类推，追踪获得报文所经过的路径。</p>
+<blockquote>
+<p>ICMP基于IP协议。也就是说，一个ICMP包需要封装在IP包中，然后在互联网传送。ICMP是IP套装的必须部分，也就是说，任何一个支持IP协议的计算机，都要同时实现ICMP。</p>
+</blockquote>
+<h4 id="常见的ICMP包类型"><a href="#常见的ICMP包类型" class="headerlink" title="常见的ICMP包类型"></a>常见的ICMP包类型</h4><h5 id="目的端不可达"><a href="#目的端不可达" class="headerlink" title="目的端不可达"></a>目的端不可达</h5><p>目的地无法到达<code>(Destination Unreachable)</code>属于错误信息。如果一个路由器接收到一个没办法进一步接力的IP包，它会向出发主机发送该类型的ICMP包。比如当IP包到达最后一个路由器，路由器发现目的地主机down机，就会向出发主机发送目的地无法到达<code>(Destination Unreachable)</code>类型的ICMP包。目的地无法到达还可能有其他的原因，比如不存在路由表项，比如不被接收的端口号等等。</p>
+<h5 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h5><p>重新定向<code>(redirect)</code>属于错误信息。当一个路由器收到一个IP包，对照其routing table，发现自己不应该收到该IP包，它会向出发主机发送重新定向类型的ICMP，提醒出发主机修改自己的routing table（“我”不是你的目标，请更换目的地址）</p>
+<h4 id="ICMP-的两个运用：-Ping-和-Ttracert"><a href="#ICMP-的两个运用：-Ping-和-Ttracert" class="headerlink" title="ICMP 的两个运用： Ping 和 Ttracert"></a>ICMP 的两个运用： Ping 和 Ttracert</h4><p>ping可以检测网络的连通性，这一点运用很广。ping命令就是利用了该类型的ICMP包。当使用ping命令的时候，将向目标主机发送Echo-询问类型的ICMP包，而目标主机在接收到该ICMP包之后，会回复Echo-回答类型的ICMP包，并将询问ICMP包包含在数据部分。ping命令是我们进行网络排查的一个重要工具。如果一个IP地址可以通过ping命令收到回复，那么其他的网络协议通信方式也很有可能成功。</p>
+<p>tracert 用于测试链路的跳数：IPv4中的Time to Live<code>(TTL)</code>会随着经过的路由器而递减，当这个区域值减为0时，就认为该IP包超时<code>(Time Exceeded)</code>。Time Exceeded就是TTL减为0时的路由器发给出发主机的ICMP包，通知它发生了超时错误。traceroute命令用来发现IP接力路径<code>(route)</code>上的各个路由器。它向目的地发送IP包，第一次的时候，将TTL设置为1，引发第一个路由器的Time Exceeded错误。这样，第一个路由器回复ICMP包，从而让出发主机知道途径的第一个路由器的信息。随后TTL被设置为2、3、4，…，直到到达目的主机。这样，沿途的每个路由器都会向出发主机发送ICMP包来汇报错误。traceroute将ICMP包的信息打印在屏幕上，就是路径的信息了。</p>
+<hr>
 <h3 id="集线器-Hub-vs-交换器-Switch-二层设备"><a href="#集线器-Hub-vs-交换器-Switch-二层设备" class="headerlink" title="集线器(Hub) vs. 交换器(Switch)二层设备"></a>集线器(Hub) vs. 交换器(Switch)二层设备</h3><p><strong>集线器：</strong></p>
 <p>以太网使用集线器或者交换器将帧从发出地传送到目的地。一台集线器或交换器上有多个端口，每个端口都可以连接一台计算机(或其他设备)。</p>
 <p>集线器像一个广播电台。一台电脑将帧发送到集线器，集线器会将帧转发到所有其他的端口。每台计算机检查自己的MAC地址是不是符合DST。如果不是，则保持沉默。集线器是比较早期的以太网设备。它有明显的缺陷：</p>
@@ -649,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#以太网的帧格式"><span class="nav-number">1.</span> <span class="nav-text">以太网的帧格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP协议"><span class="nav-number">2.</span> <span class="nav-text">ARP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP协议："><span class="nav-number">3.</span> <span class="nav-text">ICMP协议：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ICMP-的两个运用：-Ping-和-Ttracert"><span class="nav-number">3.1.</span> <span class="nav-text">ICMP 的两个运用： Ping 和 Ttracert</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集线器-Hub-vs-交换器-Switch-二层设备"><span class="nav-number">4.</span> <span class="nav-text">集线器(Hub) vs. 交换器(Switch)二层设备</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#以太网的帧格式"><span class="nav-number">1.</span> <span class="nav-text">以太网的帧格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARP协议"><span class="nav-number">2.</span> <span class="nav-text">ARP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ICMP协议："><span class="nav-number">3.</span> <span class="nav-text">ICMP协议：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常见的ICMP包类型"><span class="nav-number">3.1.</span> <span class="nav-text">常见的ICMP包类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#目的端不可达"><span class="nav-number">3.1.1.</span> <span class="nav-text">目的端不可达</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重定向"><span class="nav-number">3.1.2.</span> <span class="nav-text">重定向</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ICMP-的两个运用：-Ping-和-Ttracert"><span class="nav-number">3.2.</span> <span class="nav-text">ICMP 的两个运用： Ping 和 Ttracert</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集线器-Hub-vs-交换器-Switch-二层设备"><span class="nav-number">4.</span> <span class="nav-text">集线器(Hub) vs. 交换器(Switch)二层设备</span></a></li></ol></div>
             
 
           </div>
