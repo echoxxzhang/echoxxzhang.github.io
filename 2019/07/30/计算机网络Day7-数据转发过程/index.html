@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="UDP协议简介UDP(User Datagram Protocol)传输与IP传输非常类似。你可以将UDP协议看作IP协议暴露在传输层的一个接口。UDP协议同样以数据包(datagram)的方式传输。 当应用程序对传输的可靠性要求不高，但是对传输速度和延迟要求较高时，可以用UDP协议来替代TCP协议在传输层控制数据的转发。UDP将数据从源端发送到目的端时，无需事先建立连接。UDP采用了简单、易操作">
+<meta name="description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。 CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也">
 <meta name="keywords" content="技术,计算机网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络Day5-UDP协议">
-<meta property="og:url" content="http://yoursite.com/2019/07/28/计算机网络Day5-UDP协议/index.html">
+<meta property="og:title" content="计算机网络Day7-数据转发过程">
+<meta property="og:url" content="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="UDP协议简介UDP(User Datagram Protocol)传输与IP传输非常类似。你可以将UDP协议看作IP协议暴露在传输层的一个接口。UDP协议同样以数据包(datagram)的方式传输。 当应用程序对传输的可靠性要求不高，但是对传输速度和延迟要求较高时，可以用UDP协议来替代TCP协议在传输层控制数据的转发。UDP将数据从源端发送到目的端时，无需事先建立连接。UDP采用了简单、易操作">
+<meta property="og:description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。 CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-28T13:29:55.701Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/1.jpg">
+<meta property="og:updated_time" content="2019-07-30T11:47:33.419Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络Day5-UDP协议">
-<meta name="twitter:description" content="UDP协议简介UDP(User Datagram Protocol)传输与IP传输非常类似。你可以将UDP协议看作IP协议暴露在传输层的一个接口。UDP协议同样以数据包(datagram)的方式传输。 当应用程序对传输的可靠性要求不高，但是对传输速度和延迟要求较高时，可以用UDP协议来替代TCP协议在传输层控制数据的转发。UDP将数据从源端发送到目的端时，无需事先建立连接。UDP采用了简单、易操作">
+<meta name="twitter:title" content="计算机网络Day7-数据转发过程">
+<meta name="twitter:description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。 CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/1.jpg">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/28/计算机网络Day5-UDP协议/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/">
 
 
 
 
 
-  <title>计算机网络Day5-UDP协议 | 小小世界</title>
+  <title>计算机网络Day7-数据转发过程 | 小小世界</title>
   
 
 
@@ -285,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/计算机网络Day5-UDP协议/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -302,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">计算机网络Day5-UDP协议</h1>
+          <h1 class="post-title" itemprop="name headline">计算机网络Day7-数据转发过程</h1>
         
 
         <div class="post-meta">
@@ -314,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-28T21:07:31+08:00">
-                2019-07-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T17:37:20+08:00">
+                2019-07-30
               </time>
             
 
@@ -355,8 +357,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/28/计算机网络Day5-UDP协议/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/28/计算机网络Day5-UDP协议/" itemprop="commentsCount"></span>
+                <a href="/2019/07/30/计算机网络Day7-数据转发过程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/30/计算机网络Day7-数据转发过程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -389,16 +391,80 @@
       
 
       
-        <h3 id="UDP协议简介"><a href="#UDP协议简介" class="headerlink" title="UDP协议简介"></a>UDP协议简介</h3><p>UDP(User Datagram Protocol)传输与IP传输非常类似。你可以将UDP协议看作IP协议暴露在传输层的一个接口。UDP协议同样以数据包(datagram)的方式传输。</p>
-<p><strong>当应用程序对传输的可靠性要求不高，但是对传输速度和延迟要求较高时</strong>，可以用UDP协议来替代TCP协议在传输层控制数据的转发。UDP将数据从源端发送到目的端时，无需事先建立连接。UDP采用了简单、易操作的机制在应用程序间传输数据，<strong>没有使用TCP中的确认技术或滑动窗口机制</strong>，因此UDP不能保证数据传输的可靠性，也无法避免接收到重复数据的情况。</p>
-<h3 id="UPD的诞生："><a href="#UPD的诞生：" class="headerlink" title="UPD的诞生："></a>UPD的诞生：</h3><p>尽管UDP协议非常简单，但它的产生晚于更加复杂的TCP协议。早期的网络开发者开发出IP协议和TCP协议分别位于网络层和传输层，所有的通信都要先经过TCP封装，再经过IP封装(应用层-&gt;TCP-&gt;IP)。开发者将TCP/IP视为相互合作的套装。但很快，网络开发者发现，IP协议的功能和TCP协议的功能是相互独立的。对于一些简单的通信，我们只需要简单的IP传输就可以了，而不需要TCP协议复杂的建立连接的方式(如果过多的建立TCP连接，会造成很大的网络负担，而UDP协议可以相对快速的处理这些简单通信)。UDP协议随之被开发出来。</p>
-<h3 id="UDP运用场景："><a href="#UDP运用场景：" class="headerlink" title="UDP运用场景："></a>UDP运用场景：</h3><p>UDP适合传输对延迟敏感的流量，如语音和视频。在使用TCP协议传输数据时，如果一个数据段丢失或者接收端对某个数据段没有确认，发送端会重新发送该数据段。</p>
-<p>让我们设想一下，平时打电话过程中，偶尔出现的信号不好的情况，此时，如果对方在说话，那么我们肯定是听不清楚的，而这些遗失的语音是不会重新出现的（除非你叫对方重新讲一遍）</p>
-<p>上面的打电话案例其传输层协议就是使用的UDP，而不是TCP。UDP采用实时传输机制和时间戳来传输语音和视频数据。</p>
-<p><strong>使用UDP传输数据时，由应用程序根据需要提供报文到达确认、排序、流量控制等功能。</strong></p>
+        <h3 id="实例引入——LAN"><a href="#实例引入——LAN" class="headerlink" title="实例引入——LAN"></a>实例引入——LAN</h3><p>计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。</p>
+<h3 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h3><p>一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也看得到数据，但不知道数据是给它们的，还是给其他计算机的——为了解决这个问题 以太网需要每台计算机有唯一的 媒体访问控制地址 简称 MAC地址，这个唯一的地址放在头部，作为数据的前缀发送到网络中，所以，计算机只需要监听以太网电缆 只有看到自己的 MAC 地址，才处理数据。</p>
+<p>多台电脑共享一个传输媒介， 这种方法叫 “载波侦听多路访问” 简称”CSMA”。而这种共享载体式网络有一个弊端：一个共享网段中，多个主机不能同时传输数据，其会发生冲突。</p>
+<p>解决办法是，每一台计算机都监听电线中的信号检测这些冲突，当检测到冲突时，就停止传输，等待网络空闲, 然后再试一遍。其等待的时间使用“指数退避”算法进行计算，这样，每台计算机都有机会传输数据了。</p>
+<p>因此，CSMA/CD 全程就叫做 ： 载波侦听多路访问 / 冲突检测</p>
+<p><em>虽然CSMA/CD能够一定程度上的解决问题，但是，当主机数量多起来之后，意味着传输速率大大减少，我们使用交换机进行分割为多个“冲突域”，身处不同冲突域的主机传输互不影响。</em></p>
+<h3 id="传输数据的方式："><a href="#传输数据的方式：" class="headerlink" title="传输数据的方式："></a>传输数据的方式：</h3><h4 id="电路交换："><a href="#电路交换：" class="headerlink" title="电路交换："></a>电路交换：</h4><p>连接两台相隔遥远的计算机或网路，最简单的办法是分配一条专用的通信线路，这就叫电路交换。这种方法虽然能用，但是不灵活而且价格昂贵，因为总有闲置的线路，好处是：如果有一条专属于自己的线路你可以最大限度地随意使用，无需共享。</p>
+<h4 id="报文交换："><a href="#报文交换：" class="headerlink" title="报文交换："></a>报文交换：</h4><p>“报文交换” 就像邮政系统一样，每个站点都知道下一站发哪里， 因为站点有“表格”，记录到各个目的地，信件该怎么传等等信息。报文交换的好处是 可以用不同路由，灵活性、可靠性大大提高。</p>
+<p>而这个过程中，每个站点就是一个路由器，消息沿着路由跳转的次数叫”跳数”，记录跳数很有用，因为可以分辨出路由问题，有利于网络工作人员的差错排查。</p>
+<p>报文交换的缺点之一是有时候报文比较大，会堵塞网络，因为要把整个报文从一站传到下一站后才能继续传递其他报文，设想一下，如果你现在有一个非常大的文件在传输，整条路都堵塞了。即便你只有一个1KB的小文件要传输也只能等大文件传完，或是选另一条效率稍低的路线。</p>
+<p>因此，分组交换出现了…</p>
+<h4 id="分组交换："><a href="#分组交换：" class="headerlink" title="分组交换："></a>分组交换：</h4><p>将大报文分成很多小块，叫”数据包”，就像报文交换 每个数据包都有目标地址，因此路由器知道发到哪里。报文具体格式由”互联网协议”定义，简称“IP协议”。将数据拆分成多个小数据包，然后通过灵活的路由传递，非常高效且可容错，如今互联网就是这么运行的。</p>
+<p><em>有了上面大概的介绍，让我们看看，我们是如何实现上网的~</em></p>
+<h3 id="分布式网络"><a href="#分布式网络" class="headerlink" title="分布式网络"></a>分布式网络</h3><p>计算机首先要连到局域网（例如WIFI，也可能是4G），局域网再连到 WAN。WAN 的路由器一般属于你的”互联网服务提供商”，简称 ISP。就这么层层叠加，最终到达了互联网主干（互联网主干由一群超大型、带宽超高路由器组成）。</p>
+<p>例如 我们现在在网络上请求了一个资源，数据包（packet）要先到互联网主干，沿着主干到达有对应文件的 服务器，最后拿到资源并返回，其过程跨越了多个路由器交换机。</p>
+<p>在路由器交换机中传递的数据包依据 IP头部中的“信息”进行传递（我们之前提到过），最终使用传输层协议控制，你的计算机内核就拿到了资源。</p>
+<hr>
+<h3 id="数据转发过程："><a href="#数据转发过程：" class="headerlink" title="数据转发过程："></a>数据转发过程：</h3><p>接下来我们谈谈… 数据转发的底层实现（前面几篇的汇总）</p>
+<ol>
+<li>假设两台主机已经建立了TCP连接。主机对应用数据（Data）压缩加密 ，然后基于传输层协议封装数据 填充源端口跟目的端口（源端口一般是随机端口号），初始序列号和确认序列号字段、标识位、窗口字段等等信息。</li>
+</ol>
+<ol start="2">
+<li><p>随后进行网络层封装 ，一般使用IP封装时，需要源目IP地址，还有其他元数据：</p>
+<ul>
+<li>如果IP报文大于MTU （最大传输单元） 则会被分片。</li>
+<li>接着，封装生命周期TTL值（每经过一个三层设备这个值将减一  默认值是255   如果三层设备发送报文时 TTL值减为0  将丢弃数据包  这样就形成了防环机制 ）</li>
+<li>协议字段标识了传输层所使用的协议，例如上层是TCP，所以该字段的填充值为0x06  （若是UDP 则0x017  ICMP是0x01）</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li>接下来，数据包被封装成数据帧，需填充源目MAC地址字段。主机首先会查询ARP缓存表，如果有相应MAC地址，则直接封装，如果没有，则发送ARP请求：</li>
+</ol>
+<ul>
+<li>不同网段通信时，发送ARP查询 ：如果ARP回应不在同一个网段，主机则封装网关的mac地址，对网关进行ARP请求（源MAC是本机，目的MAC是广播地址）， 路由器网关设备收到广播数据帧后 ，将源Mac地址记录到本地Mac缓存表中，并进行ARP回复。</li>
+<li>如果ARP回应在同一个网段，那么直接使用ARP对目标主机发出请求</li>
+</ul>
+<ol start="4">
+<li>这时  主机便有了目的网段的mac地址 。主机在链路层封装数据帧时，会遵循一般为以太二型帧标准 （其中的帧头的Type字段为0x0800 表明上层是IP ，ARP是0x0806  ）</li>
+</ol>
+<ol start="5">
+<li>主机在半双工的状态下 采用CSMA/CD 机制来检测链路是否空闲  如果链路空闲  主机会将一个前导码跟帧首定界符附加到帧头并进行传输    前导码的作用是使接受设备进行同步并做好接受数据帧的准备，  前导码是包括  七个字节的 二进制0  1交替的代码  共56位。帧首定界符是由一个字节的01  交替的  二进制序列  他的作用是使接收端对帧的第一位进行定位。</li>
+</ol>
+<ol start="6">
+<li><p>主机发送数据帧到共享以太网中  身处同一个冲突域的设备都将收到数据帧 ，他们会做以下步骤的处理：</p>
+<p>① 进行FCS校验 如果不通过就丢弃 </p>
+<p>②对于通过的帧 设备会检查帧中的目的MAC地址 ，若与本地MAC地址不同 ，将进行丢弃 。</p>
+<p>③经过上面筛选，应该是合格的数据帧 ，这时，将帧头帧尾剥去（解封装），剩下数据报文会根据帧头的Type字段来送到上层对应协议模块去处理。</p>
+</li>
+</ol>
+<ol start="7">
+<li><p>网络层的处理 ：</p>
+<p>① 检查IP头部的校验和字段 ，看ip数据报文头部是否完整 ，然后根据目的IP地址查看路由表 ，确定是否能够将数据包转发给目的端 </p>
+<p>② 设备在转发出去之前，会对TTL值进行处理，另外报文大小也不能超过MTU值  否则将分片，网络层处理完成后       报文将被送到数据链路层进行重新封装 ，添加新的源目MAC地址，但是源目IP地址则不会改变。</p>
+</li>
+</ol>
+<ol start="8">
+<li>目的端最终收到数据包，执行以上步骤，接着查看Protocol字段，送往传输层进行处理</li>
+</ol>
+<ol start="9">
+<li>传输层协议 查看数据段头部信息的端口号 ，将数据段头部剥离后  将剩下的应用数据发送给应用层处理。</li>
+</ol>
+<p>这个就是数据转发过程中发生的事情，其中还省略了物理层、应用层等具体实现。不过计算机网络主要关注的是网络层、传输层，所以有所侧重。</p>
 <blockquote>
-<p> UDP说的东西不多，只要我们IP协议学的好，UDP并不是很大难题，重点还是TCP的熟练掌握。</p>
+<p>计算机网络系列更新完结啦~ 撒花撒花！！  </p>
+<p>这里贴出几篇之前写的计算机网络的文章：</p>
+<ul>
+<li><a href="/2019/07/28/计算机网络Day4-TCP协议/" title="计算机网络Day4-TCP协议">计算机网络Day4-TCP协议</a></li>
+<li><a href="/2019/07/28/计算机网络Day3-网络层/" title="计算机网络Day3-网络层">计算机网络Day3-网络层</a></li>
+<li><a href="/2019/07/28/计算机网络Day2-数据链路层/" title="计算机网络Day2-数据链路层">计算机网络Day2-数据链路层</a>
+</li>
+</ul>
 </blockquote>
+<p><img src="/2019/07/30/计算机网络Day7-数据转发过程/1.jpg" alt></p>
 
       
     </div>
@@ -431,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/28/计算机网络Day4-TCP协议/" rel="next" title="计算机网络Day4-TCP协议">
-                <i class="fa fa-chevron-left"></i> 计算机网络Day4-TCP协议
+              <a href="/2019/07/29/计算机网络Day6-应用层协议/" rel="next" title="计算机网络Day6-应用层协议">
+                <i class="fa fa-chevron-left"></i> 计算机网络Day6-应用层协议
               </a>
             
           </div>
@@ -440,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/29/计算机网络Day6-应用层协议/" rel="prev" title="计算机网络Day6-应用层协议">
-                计算机网络Day6-应用层协议 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -602,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP协议简介"><span class="nav-number">1.</span> <span class="nav-text">UDP协议简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UPD的诞生："><span class="nav-number">2.</span> <span class="nav-text">UPD的诞生：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UDP运用场景："><span class="nav-number">3.</span> <span class="nav-text">UDP运用场景：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实例引入——LAN"><span class="nav-number">1.</span> <span class="nav-text">实例引入——LAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSMA-CD"><span class="nav-number">2.</span> <span class="nav-text">CSMA/CD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传输数据的方式："><span class="nav-number">3.</span> <span class="nav-text">传输数据的方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#电路交换："><span class="nav-number">3.1.</span> <span class="nav-text">电路交换：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#报文交换："><span class="nav-number">3.2.</span> <span class="nav-text">报文交换：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分组交换："><span class="nav-number">3.3.</span> <span class="nav-text">分组交换：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分布式网络"><span class="nav-number">4.</span> <span class="nav-text">分布式网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据转发过程："><span class="nav-number">5.</span> <span class="nav-text">数据转发过程：</span></a></li></ol></div>
             
 
           </div>
