@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API） GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的类型是type，">
+<meta name="description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API） 目录[TOC] GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的">
 <meta name="keywords" content="Python,技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫Day5-requests介绍">
 <meta property="og:url" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API） GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的类型是type，">
+<meta property="og:description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API） 目录[TOC] GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/2.png">
@@ -99,10 +99,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/11.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/12.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/0.png">
-<meta property="og:updated_time" content="2019-07-27T07:05:40.982Z">
+<meta property="og:updated_time" content="2019-07-31T08:16:11.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day5-requests介绍">
-<meta name="twitter:description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API） GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的类型是type，">
+<meta name="twitter:description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API） 目录[TOC] GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/1.png">
 
 
@@ -403,6 +403,7 @@
 
       
         <h2 id="Requests的基本使用"><a href="#Requests的基本使用" class="headerlink" title="Requests的基本使用"></a>Requests的基本使用</h2><p>我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API）</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>[TOC]</p>
 <h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~</p>
 <p><img src="/2019/07/19/爬虫Day5-requests介绍/1.png" alt></p>
 <ul>
@@ -422,7 +423,7 @@
 <h3 id="定制请求头"><a href="#定制请求头" class="headerlink" title="定制请求头"></a>定制请求头</h3><p><img src="/2019/07/19/爬虫Day5-requests介绍/5.png" alt></p>
 <p><strong>注意：</strong>定制 header 的优先级低于某些特定的信息源，例如：</p>
 <ul>
-<li>如果在 .netrc 中设置了用户认证信息，使用 headers= 设置的授权就不会生效。而如果设置了 auth= 参数，<code>.netrc</code> 的设置就无效了。</li>
+<li>如果在 <code>.netrc</code> 中设置了用户认证信息，使用 headers= 设置的授权就不会生效。而如果设置了 auth= 参数，<code>.netrc</code> 的设置就无效了。</li>
 <li><strong>如果被重定向到别的主机，授权</strong> <strong>header</strong> <strong>就会被删除</strong>。</li>
 <li>代理授权 header 会被 URL 中提供的代理身份覆盖掉。</li>
 <li>在我们能判断内容长度的情况下，header 的 Content-Length 会被改写。</li>
@@ -466,7 +467,7 @@
 <h3 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h3><p>在本机网络状况不好或者服务器网络响应太慢甚至无响应时，我们可能会等待特别久的时间才可能会收到一个响应，甚至到最后收不到响应而报错。为了防止服务器不能及时响应，我们应该设置一个超时时间，即超过了这个时间还没有得到响应，那就报错，或者谁用异常处理来处理这类事情。</p>
 <p><img src="/2019/07/19/爬虫Day5-requests介绍/12.png" alt></p>
 <ul>
-<li>设置超时时间需要用到 timeout 参数（默认是None）。这个时间的计算是发出 Request 到服务器返回<br>Response 的时间。</li>
+<li>设置超时时间需要用到 timeout 参数（默认是None）。这个时间的计算是发出 Request 到服务器返回Response 的时间。</li>
 </ul>
 <blockquote>
 <p>上面就是requests的简单介绍了，是不是发现功能都被封装称为各个API中，我们只需要进行调用就好了，有没有像我当初一样，被requests这个库的魅力所感染到了呢？</p>
@@ -675,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Requests的基本使用"><span class="nav-number">1.</span> <span class="nav-text">Requests的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET-请求"><span class="nav-number">1.1.</span> <span class="nav-text">GET 请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟其他请求"><span class="nav-number">1.2.</span> <span class="nav-text">模拟其他请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加信息"><span class="nav-number">1.3.</span> <span class="nav-text">附加信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制请求头"><span class="nav-number">1.4.</span> <span class="nav-text">定制请求头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制流数据"><span class="nav-number">1.5.</span> <span class="nav-text">二进制流数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于编码："><span class="nav-number">1.6.</span> <span class="nav-text">关于编码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-请求"><span class="nav-number">1.7.</span> <span class="nav-text">post 请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request的高级用法"><span class="nav-number">2.</span> <span class="nav-text">Request的高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">2.1.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Cookies"><span class="nav-number">2.2.</span> <span class="nav-text">设置Cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理设置"><span class="nav-number">2.3.</span> <span class="nav-text">代理设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超时设置"><span class="nav-number">2.4.</span> <span class="nav-text">超时设置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Requests的基本使用"><span class="nav-number">1.</span> <span class="nav-text">Requests的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GET-请求"><span class="nav-number">1.2.</span> <span class="nav-text">GET 请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟其他请求"><span class="nav-number">1.3.</span> <span class="nav-text">模拟其他请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加信息"><span class="nav-number">1.4.</span> <span class="nav-text">附加信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制请求头"><span class="nav-number">1.5.</span> <span class="nav-text">定制请求头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制流数据"><span class="nav-number">1.6.</span> <span class="nav-text">二进制流数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于编码："><span class="nav-number">1.7.</span> <span class="nav-text">关于编码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-请求"><span class="nav-number">1.8.</span> <span class="nav-text">post 请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request的高级用法"><span class="nav-number">2.</span> <span class="nav-text">Request的高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">2.1.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Cookies"><span class="nav-number">2.2.</span> <span class="nav-text">设置Cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理设置"><span class="nav-number">2.3.</span> <span class="nav-text">代理设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超时设置"><span class="nav-number">2.4.</span> <span class="nav-text">超时设置</span></a></li></ol></li></ol></div>
             
 
           </div>
