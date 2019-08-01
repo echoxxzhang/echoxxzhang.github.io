@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/6.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/7.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/10.jpg">
-<meta property="og:updated_time" content="2019-07-27T07:07:05.204Z">
+<meta property="og:updated_time" content="2019-08-01T04:11:28.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day7-Mysql的那些事">
 <meta name="twitter:description" content="前言： 爬虫爬取到的数据最终是要保存下来滴~  别以为爬下来就完事了，具体流程还有数据去重，数据分析，最后数据可视化等等操作呢…  这一章节，我们聊聊 “数据存储”  在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。 环境准备： python 3 Pycharm 安装好PyMysql库 本地m">
@@ -409,6 +409,12 @@
 <h3 id="PyMysql使用介绍："><a href="#PyMysql使用介绍：" class="headerlink" title="PyMysql使用介绍："></a>PyMysql使用介绍：</h3><h4 id="获取连接对象"><a href="#获取连接对象" class="headerlink" title="获取连接对象"></a>获取连接对象</h4><p>我们要连接到 mysql 这个库，首先应该获取一个connection对象（输入本地部署的Mysql参数）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">db = pymysql.connect(host =<span class="string">'localhost'</span>,user =<span class="string">'root'</span>,password =<span class="string">'root'</span>,port=<span class="number">3306</span>)</span><br><span class="line"><span class="comment"># 通过 PyMySQL 的 connect() 方法声明了一个 MySQL 连接对象</span></span><br></pre></td></tr></table></figure>
 
+
+
+
+
+
+
 <h4 id="获取操作游标"><a href="#获取操作游标" class="headerlink" title="获取操作游标"></a>获取操作游标</h4><p>紧接着，需要实例化一个操作游标对象，这个对象的作用是执行sql语句</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">db = pymysql.connect(host =<span class="string">'localhost'</span>,user =<span class="string">'root'</span>,password =<span class="string">'root'</span>,port=<span class="number">3306</span>)</span><br><span class="line">cursor=db.cursor()</span><br><span class="line"><span class="comment"># 注意：cursor 对象是基于db 这个connection对象实例化出来的</span></span><br></pre></td></tr></table></figure>
 
@@ -430,11 +436,15 @@
 <p>于是，旁白君大手一挥，说：“这个还不简单，我最拿手了。”于是抢走了作者的键盘，刷刷的写下这么一串代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">db = pymysql.connect(host=<span class="string">'localhost'</span>,port=<span class="number">3306</span>,user=<span class="string">'root'</span>,password=<span class="string">'root'</span>,db=<span class="string">'spiders'</span>)</span><br><span class="line">cursor = db.cursor()</span><br><span class="line"></span><br><span class="line">table = <span class="string">'students'</span></span><br><span class="line"></span><br><span class="line">sql = <span class="string">'select * from &#123;table&#125; WHERE age &gt;= 20'</span>.format(table=table)</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    results = cursor.execute(sql)</span><br><span class="line">    print(results)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(e)</span><br></pre></td></tr></table></figure>
 
+
+
 <p>但是，结果却是这样的…</p>
 <p><img src="/2019/07/26/爬虫Day7-Mysql的那些事/5.png" alt></p>
 <p>what？ 这是什么鬼东西，我的数据呢？？</p>
 <p>作者邪魅一笑，眼中三分不屑三分冷漠四分讥笑，慢吞吞的拿走旁白君的键盘，自信的啪啪啪添加上了这么几条代码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sql = <span class="string">'select * from &#123;table&#125; WHERE age &gt;= 20'</span>.format(table=table)</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    cursor.execute(sql)</span><br><span class="line"></span><br><span class="line">    results = cursor.fetchall()  <span class="comment"># fetchall（）方法，获取查询数据的返回值</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> results:</span><br><span class="line">        print(row)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(e)</span><br></pre></td></tr></table></figure>
+
+
 
 <p>看到输出的结果，作者在旁白君羡慕的眼神中满意的点了点头</p>
 <p><img src="/2019/07/26/爬虫Day7-Mysql的那些事/6.png" alt></p>
@@ -580,7 +590,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
