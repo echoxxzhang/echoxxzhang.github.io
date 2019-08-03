@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。 CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也">
+<meta name="description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。        CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里">
 <meta name="keywords" content="技术,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络Day7-数据转发过程">
 <meta property="og:url" content="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。 CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也">
+<meta property="og:description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。        CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/1.jpg">
-<meta property="og:updated_time" content="2019-08-01T04:06:51.418Z">
+<meta property="og:updated_time" content="2019-08-03T05:51:18.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day7-数据转发过程">
-<meta name="twitter:description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。 CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也">
+<meta name="twitter:description" content="实例引入——LAN计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。        CSMA/CD一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/30/计算机网络Day7-数据转发过程/1.jpg">
 
 
@@ -392,11 +392,25 @@
 
       
         <h3 id="实例引入——LAN"><a href="#实例引入——LAN" class="headerlink" title="实例引入——LAN"></a>实例引入——LAN</h3><p>计算机近距离构成的小型网络 叫局域网， 简称LAN。局域网能小到是同一个房间里的两台机器，或大到校园里的上千台机器。LAN技术中最为典型的就是“以太网”，开发于1970年代，今日仍被广泛使用。</p>
+ <br>
+
+<br>
+
+
+
 <h3 id="CSMA-CD"><a href="#CSMA-CD" class="headerlink" title="CSMA/CD"></a>CSMA/CD</h3><p>一条以太网电线连接数台计算机，这就构成了一个LAN。当一台计算机要传数据给另一台计算机时，它以电信号形式，将数据传入电缆。因为电缆是共享的，所以连在同一个网络里的其他计算机也看得到数据，但不知道数据是给它们的，还是给其他计算机的——为了解决这个问题 以太网需要每台计算机有唯一的 媒体访问控制地址 简称 MAC地址，这个唯一的地址放在头部，作为数据的前缀发送到网络中，所以，计算机只需要监听以太网电缆 只有看到自己的 MAC 地址，才处理数据。</p>
 <p>多台电脑共享一个传输媒介， 这种方法叫 “载波侦听多路访问” 简称”CSMA”。而这种共享载体式网络有一个弊端：一个共享网段中，多个主机不能同时传输数据，其会发生冲突。</p>
 <p>解决办法是，每一台计算机都监听电线中的信号检测这些冲突，当检测到冲突时，就停止传输，等待网络空闲, 然后再试一遍。其等待的时间使用“指数退避”算法进行计算，这样，每台计算机都有机会传输数据了。</p>
 <p>因此，CSMA/CD 全程就叫做 ： 载波侦听多路访问 / 冲突检测</p>
 <p><em>虽然CSMA/CD能够一定程度上的解决问题，但是，当主机数量多起来之后，意味着传输速率大大减少，我们使用交换机进行分割为多个“冲突域”，身处不同冲突域的主机传输互不影响。</em></p>
+ <br>
+
+<br>
+
+
+
+
+
 <h3 id="传输数据的方式："><a href="#传输数据的方式：" class="headerlink" title="传输数据的方式："></a>传输数据的方式：</h3><h4 id="电路交换："><a href="#电路交换：" class="headerlink" title="电路交换："></a>电路交换：</h4><p>连接两台相隔遥远的计算机或网路，最简单的办法是分配一条专用的通信线路，这就叫电路交换。这种方法虽然能用，但是不灵活而且价格昂贵，因为总有闲置的线路，好处是：如果有一条专属于自己的线路你可以最大限度地随意使用，无需共享。</p>
 <h4 id="报文交换："><a href="#报文交换：" class="headerlink" title="报文交换："></a>报文交换：</h4><p>“报文交换” 就像邮政系统一样，每个站点都知道下一站发哪里， 因为站点有“表格”，记录到各个目的地，信件该怎么传等等信息。报文交换的好处是 可以用不同路由，灵活性、可靠性大大提高。</p>
 <p>而这个过程中，每个站点就是一个路由器，消息沿着路由跳转的次数叫”跳数”，记录跳数很有用，因为可以分辨出路由问题，有利于网络工作人员的差错排查。</p>
@@ -404,6 +418,14 @@
 <p>因此，分组交换出现了…</p>
 <h4 id="分组交换："><a href="#分组交换：" class="headerlink" title="分组交换："></a>分组交换：</h4><p>将大报文分成很多小块，叫”数据包”，就像报文交换 每个数据包都有目标地址，因此路由器知道发到哪里。报文具体格式由”互联网协议”定义，简称“IP协议”。将数据拆分成多个小数据包，然后通过灵活的路由传递，非常高效且可容错，如今互联网就是这么运行的。</p>
 <p><em>有了上面大概的介绍，让我们看看，我们是如何实现上网的~</em></p>
+ <br>
+
+<br>
+
+
+
+
+
 <h3 id="分布式网络"><a href="#分布式网络" class="headerlink" title="分布式网络"></a>分布式网络</h3><p>计算机首先要连到局域网（例如WIFI，也可能是4G），局域网再连到 WAN。WAN 的路由器一般属于你的”互联网服务提供商”，简称 ISP。就这么层层叠加，最终到达了互联网主干（互联网主干由一群超大型、带宽超高路由器组成）。</p>
 <p>例如 我们现在在网络上请求了一个资源，数据包（packet）要先到互联网主干，沿着主干到达有对应文件的 服务器，最后拿到资源并返回，其过程跨越了多个路由器交换机。</p>
 <p>在路由器交换机中传递的数据包依据 IP头部中的“信息”进行传递（我们之前提到过），最终使用传输层协议控制，你的计算机内核就拿到了资源。</p>
@@ -453,6 +475,10 @@
 <ol start="9">
 <li>传输层协议 查看数据段头部信息的端口号 ，将数据段头部剥离后  将剩下的应用数据发送给应用层处理。</li>
 </ol>
+ <br>
+
+<br>
+
 <p>这个就是数据转发过程中发生的事情，其中还省略了物理层、应用层等具体实现。不过计算机网络主要关注的是网络层、传输层，所以有所侧重。</p>
 <blockquote>
 <p>计算机网络系列更新完结啦~ 撒花撒花！！  </p>
@@ -595,7 +621,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -606,7 +632,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -617,7 +643,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

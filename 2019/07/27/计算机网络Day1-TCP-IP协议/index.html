@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="引言：感谢！计算机网络可以说是一门计算机的必修课吧，私以为，计算机网络和计算机组成原理是一名计算机专业学生最应该先学习的知识~  于是我决定展开对于这门学科一些知识总结与感悟。  在这里要感谢一名老师，在刚踏上大学这段旅途的时候，余老师像一盏明灯一样，使得我面临计算机这个钢铁巨兽面前不会感到手足无措，带我踏进了计算机这个门槛、揭开了计算机的奥妙。 实例引入：计算机之所以能够通信，是因为其遵守了相约">
+<meta name="description" content="引言：感谢！计算机网络可以说是一门计算机的必修课吧，私以为，计算机网络和计算机组成原理是一名计算机专业学生最应该先学习的知识~  于是我决定展开对于这门学科一些知识总结与感悟。  在这里要感谢一名老师，在刚踏上大学这段旅途的时候，余老师像一盏明灯一样，使得我面临计算机这个钢铁巨兽面前不会感到手足无措，带我踏进了计算机这个门槛、揭开了计算机的奥妙。      实例引入：计算机之所以能够通信，是因为其">
 <meta name="keywords" content="技术,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络Day1-TCP&#x2F;IP协议">
 <meta property="og:url" content="http://yoursite.com/2019/07/27/计算机网络Day1-TCP-IP协议/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="引言：感谢！计算机网络可以说是一门计算机的必修课吧，私以为，计算机网络和计算机组成原理是一名计算机专业学生最应该先学习的知识~  于是我决定展开对于这门学科一些知识总结与感悟。  在这里要感谢一名老师，在刚踏上大学这段旅途的时候，余老师像一盏明灯一样，使得我面临计算机这个钢铁巨兽面前不会感到手足无措，带我踏进了计算机这个门槛、揭开了计算机的奥妙。 实例引入：计算机之所以能够通信，是因为其遵守了相约">
+<meta property="og:description" content="引言：感谢！计算机网络可以说是一门计算机的必修课吧，私以为，计算机网络和计算机组成原理是一名计算机专业学生最应该先学习的知识~  于是我决定展开对于这门学科一些知识总结与感悟。  在这里要感谢一名老师，在刚踏上大学这段旅途的时候，余老师像一盏明灯一样，使得我面临计算机这个钢铁巨兽面前不会感到手足无措，带我踏进了计算机这个门槛、揭开了计算机的奥妙。      实例引入：计算机之所以能够通信，是因为其">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/27/计算机网络Day1-TCP-IP协议/3.png">
-<meta property="og:updated_time" content="2019-08-01T04:03:57.414Z">
+<meta property="og:updated_time" content="2019-08-03T05:49:21.309Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day1-TCP&#x2F;IP协议">
-<meta name="twitter:description" content="引言：感谢！计算机网络可以说是一门计算机的必修课吧，私以为，计算机网络和计算机组成原理是一名计算机专业学生最应该先学习的知识~  于是我决定展开对于这门学科一些知识总结与感悟。  在这里要感谢一名老师，在刚踏上大学这段旅途的时候，余老师像一盏明灯一样，使得我面临计算机这个钢铁巨兽面前不会感到手足无措，带我踏进了计算机这个门槛、揭开了计算机的奥妙。 实例引入：计算机之所以能够通信，是因为其遵守了相约">
+<meta name="twitter:description" content="引言：感谢！计算机网络可以说是一门计算机的必修课吧，私以为，计算机网络和计算机组成原理是一名计算机专业学生最应该先学习的知识~  于是我决定展开对于这门学科一些知识总结与感悟。  在这里要感谢一名老师，在刚踏上大学这段旅途的时候，余老师像一盏明灯一样，使得我面临计算机这个钢铁巨兽面前不会感到手足无措，带我踏进了计算机这个门槛、揭开了计算机的奥妙。      实例引入：计算机之所以能够通信，是因为其">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/27/计算机网络Day1-TCP-IP协议/3.png">
 
 
@@ -392,6 +392,10 @@
 
       
         <h3 id="引言：感谢！"><a href="#引言：感谢！" class="headerlink" title="引言：感谢！"></a>引言：感谢！</h3><p>计算机网络可以说是一门计算机的必修课吧，私以为，计算机网络和计算机组成原理是一名计算机专业学生最应该先学习的知识~  于是我决定展开对于这门学科一些知识总结与感悟。  在这里要感谢一名老师，在刚踏上大学这段旅途的时候，余老师像一盏明灯一样，使得我面临计算机这个钢铁巨兽面前不会感到手足无措，带我踏进了计算机这个门槛、揭开了计算机的奥妙。</p>
+ <br>
+
+<br>
+
 <h3 id="实例引入："><a href="#实例引入：" class="headerlink" title="实例引入："></a>实例引入：</h3><p>计算机之所以能够通信，是因为其遵守了相约定好的协议(protocol)。就像人与人之间对话所使用的语言一样，语言不同，自然也就不能实现“通信”。于是，协议这种约定俗成的东西就诞生了。</p>
 <h3 id="TCP-IP-模型："><a href="#TCP-IP-模型：" class="headerlink" title="TCP/IP 模型："></a>TCP/IP 模型：</h3><p><img src="/2019/07/27/计算机网络Day1-TCP-IP协议/3.png" alt></p>
 <ul>
@@ -401,14 +405,28 @@
 <hr>
 <p><em>下面我们针对TCP/IP的各层进行简单介绍</em> </p>
 <h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>所谓的物理层，是指光纤、电缆或者电磁波等真实存在的物理媒介。这些媒介可以传送物理信号，比如电信号、电压。对于数字应用来说，我们只需要两种物理信号来分别表示0和1，比如用高电压表示1，低电压表示0，就构成了简单的物理层协议。针对某种媒介，电脑可以有相应的接口，用来接收物理信号，并解读成为0/1序列。</p>
+  <br>
+
+<br>
+
+
+
 <h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p>息以帧(frame)为单位传输。信息是一段有序的0/1序列，而帧，是这个序列中符合特定格式的一小段。连接层协议的功能就是识别0/1序列中所包含的帧。并且负责 物理层和网络层之间的通信。</p>
 <p>帧中，有<strong>源地址和目的地址</strong>，还有能够探测错误的校验序列(FCS)。当然，帧中最重要的最重要是所要传输的数据</p>
 <p>通过连接层协议，我们可以建立局域的以太网或者WiFi局域网，并让同一局域网中的两台计算机通信。</p>
+  <br>
+
+<br>
+
 <h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p>数据链路层使得同一个局域网的人可以互相通信，那么不处于同一个局域网如何通信呢？我们需要一个“中间人”。这个“中间人”必须有以下功能:</p>
 <ol>
 <li>能从物理层上在两个网络的接收和发送0/1序列，</li>
 <li>能同时理解两种网络的帧格式。</li>
 </ol>
+ <br>
+
+<br>
+
 <p><strong>路由网关：</strong></p>
 <p>路由器(router)就是为此而产生的“中间人”，也称为“网关”。一个路由器有多个网卡(NIC，Network Interface Controller)。每个网卡可以接入到一个网络，并理解相应的连接层协议。在帧经过路由到达另一个网络的时候，路由会读取帧的信息，并改写以发送到另一个网络。</p>
 <p>两个不同局域网的计算机是这么通信的：</p>
@@ -419,10 +437,20 @@
 </li>
 </ul>
 <p>在数据链路层，一个帧中只能记录目的地址和源地址两个地址。而完成上面的过程需要经过四个地址(计算机1，网关地址，以太网接口，计算机2)，因此，这也是 IP协议的主要功能——寻址。</p>
+  <br>
+
+<br>
+
 <h4 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h4><p>上面的三层协议让不同的计算机之间可以通信。但计算机中可能运行了许多个进程，每个进程都可能有自己的通信需求。我们使用网络接口层、网络层实现了主机与主机之间的通信，可是， 软件与软件之间的通信该如何解决呢？   没错，就是传输层要做的事情了。</p>
 <p><strong>端口号：</strong></p>
 <p>计算机有多个进程，那么我们如何辨别是某个进程发出的信息请求呢？  比如我们打开firefox浏览网页，与此同时，又用QQ来接收邮件。我们需要有一个标志来识别，也就是端口号啦。</p>
 <p>我们知道IP层的ip地址可以唯一标识主机，而端口号可以唯一标示主机的一个进程。</p>
+ <br>
+
+<br>
+
+
+
 <p><strong>TCP 和 UDP</strong></p>
 <p>Internet 在传输层有两种主要的协议：一种是面向连接的协议 TCP ，一种是无连接的协议 UDP。利用端口号，一台主机上多个进程可以同时使用 TCP/UDP 提供的传输服务，并且这种通信是端到端的，它的数据由 IP 传递，但与 IP 数据报的传递路径无关。这俩兄弟的具体情况，我们以后会涉及到。</p>
 <h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p>应用层协议定义了运行在不同端系统上的应用程序进程如何相互传递报文。向用户提供一组常用的应用程序，比如电子邮件、文件传输访问、远程登录等。远程登录TELNET使用TELNET协议提供在网络其它主机上注册的接口。</p>
@@ -585,7 +613,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -596,7 +624,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -607,7 +635,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

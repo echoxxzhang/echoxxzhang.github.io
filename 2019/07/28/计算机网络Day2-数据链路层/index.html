@@ -88,7 +88,7 @@
 <meta property="og:description" content="以太网的帧格式帧本身是一段有限的0/1序列。它可以分为以下几部分：   Preameble 和 SFD：   帧的最初7个字节被称为前导码，前导码是包括 七个字节的二进制0  1交替的代码  共56位。  定界符是由一个字节的01  交替的  二进制序列 ，他的作用是使接收端对数据帧的第一位进行定位   通常，我们都会预定好以一定的频率发送0/1序列(比如每秒10bit)。如果接收设备以其他频率接">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day2-数据链路层/2.png">
-<meta property="og:updated_time" content="2019-08-01T04:04:33.299Z">
+<meta property="og:updated_time" content="2019-08-03T05:50:01.900Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day2-数据链路层">
 <meta name="twitter:description" content="以太网的帧格式帧本身是一段有限的0/1序列。它可以分为以下几部分：   Preameble 和 SFD：   帧的最初7个字节被称为前导码，前导码是包括 七个字节的二进制0  1交替的代码  共56位。  定界符是由一个字节的01  交替的  二进制序列 ，他的作用是使接收端对数据帧的第一位进行定位   通常，我们都会预定好以一定的频率发送0/1序列(比如每秒10bit)。如果接收设备以其他频率接">
@@ -403,23 +403,39 @@
 </li>
 </ul>
 <p>通常，我们都会预定好以一定的频率发送0/1序列(比如每秒10bit)。如果接收设备以其他频率接收(比如每秒5bit)，那么就会错漏掉应该接收的0/1信息。但是，由于网卡的不同，发送方和接收方即使预订的频率相同，两者也可能由于物理原因发生偏差。这就好像两个人约好的10点见，结果一个人表快，一个人表慢一样。前导码是为了让接收设备调整接收频率，以便与发送设备的频率一致。</p>
+ <br>
+
+
+
 <ol start="2">
 <li>dst 和 src</li>
 </ol>
 <p>紧跟着后面的是6 字节的目的地和6 字节的源地址。要注意，这里写的是MAC地址。MAC地址是物理设备自带的序号，只能在同一个以太网中被识别</p>
+  <br>
+
+
+
 <ol start="3">
 <li>Data</li>
 </ol>
 <p>数据一般包含有符合更高层协议的数据，比如IP包。连接层协议本身并不在乎数据是什么，它只负责传输。注意，数据尾部可能填充有一串0(PAD区域)。填充0的原因是，一个帧需要超过一定的最小长度。</p>
 <p>数据的字节长限制为 64～1500字节：</p>
 <ul>
-<li>最大包长1518字节，其中数据1500字节为MTU，18字节为字段值</li>
-<li>最小包长64字节，为了限制冲突，有足够时间检测到冲突（CSMA/CD）</li>
+<li><p>最大包长1518字节，其中数据1500字节为MTU，18字节为字段值</p>
+</li>
+<li><p>最小包长64字节，为了限制冲突，有足够时间检测到冲突（CSMA/CD）</p>
+<br>
+
+
+
+</li>
 </ul>
 <ol start="4">
 <li>Type字段：</li>
 </ol>
 <p>type字段两个字节，它用于区分两种帧类型，当type字段值小于1500，则是IEEE802.3格式。当type字段值大于或等于1536，帧使用的是以太Ethernet格式。0×0800标识IP，0×0806标识ARP) </p>
+<br>
+
 <ol start="5">
 <li>FCS效验码</li>
 </ol>
@@ -430,15 +446,35 @@
 <h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><p>ARP协议介于连接层和网络层之间，ARP包需要包裹在一个帧中。它的工作方式如下：主机会发出一个ARP包，该ARP包中包含有自己的IP地址和MAC地址。通过ARP包，主机以广播的形式询问局域网上所有的主机和路由：我是IP地址xxxx，我的MAC地址是xxxx，有人知道199.165.146.4的MAC地址吗？拥有该IP地址的主机会回复发出请求的主机：哦，我知道，这个IP地址属于我的一个NIC，它的MAC地址是xxxxxx。由于发送ARP请求的主机采取的是广播形式，并附带有自己的IP地址和MAC地址，其他的主机和路由会同时检查自己的ARP cache，如果不符合，则更新自己的ARP cache。</p>
 <p>这样，经过几次ARP请求之后，ARP cache会达到稳定。如果局域网上设备发生变动，ARP重复上面过程。</p>
 <p><strong>总的来说： APR协议就是通过IP 地址请求对端的MAC地址的过程。</strong></p>
+ <br>
+
+
+
 <p><strong>免费arp ：</strong></p>
 <p>主机被分配IP地址或者IP地址发生变更之后，检测该网段是否唯一，避免冲突。主机用过发送一个arp request 报文进行检测，将广播报文中目的ip地址设置为自己的IP地址。当收到其他主机的回复时，则表示该网段被占用。</p>
+  <br>
+
+<br>
+
 <h3 id="ICMP协议："><a href="#ICMP协议：" class="headerlink" title="ICMP协议："></a>ICMP协议：</h3><p>ICMP(Internet control message protocol)是网络层的的协议，用来在网络设备间传递各种差错和控制信息，他对于收集各种网络信息，诊断和排除各种网络故障具有至关重要的作用。</p>
 <p>ICMP重定向，ICMP差错检查:用于诊断源和目的之前的连通性(ICMP echo request查询和ICMP echo reply响应)，ICMP错误报告(各种传输数据失败的原因)</p>
 <blockquote>
 <p>ICMP基于IP协议。也就是说，一个ICMP包需要封装在IP包中，然后在互联网传送。ICMP是IP套装的必须部分，也就是说，任何一个支持IP协议的计算机，都要同时实现ICMP。</p>
 </blockquote>
+ <br>
+
+<br>
+
+
+
 <h4 id="常见的ICMP包类型"><a href="#常见的ICMP包类型" class="headerlink" title="常见的ICMP包类型"></a>常见的ICMP包类型</h4><h5 id="目的端不可达"><a href="#目的端不可达" class="headerlink" title="目的端不可达"></a>目的端不可达</h5><p>目的地无法到达<code>(Destination Unreachable)</code>属于错误信息。如果一个路由器接收到一个没办法进一步接力的IP包，它会向出发主机发送该类型的ICMP包。比如当IP包到达最后一个路由器，路由器发现目的地主机down机，就会向出发主机发送目的地无法到达<code>(Destination Unreachable)</code>类型的ICMP包。目的地无法到达还可能有其他的原因，比如不存在路由表项，比如不被接收的端口号等等。</p>
 <h5 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h5><p>重新定向<code>(redirect)</code>属于错误信息。当一个路由器收到一个IP包，对照其routing table，发现自己不应该收到该IP包，它会向出发主机发送重新定向类型的ICMP，提醒出发主机修改自己的routing table（“我”不是你的目标，请更换目的地址）</p>
+ <br>
+
+<br>
+
+
+
 <h4 id="ICMP-的两个运用：-Ping-和-Ttracert"><a href="#ICMP-的两个运用：-Ping-和-Ttracert" class="headerlink" title="ICMP 的两个运用： Ping 和 Ttracert"></a>ICMP 的两个运用： Ping 和 Ttracert</h4><p>ping可以检测网络的连通性，这一点运用很广。ping命令就是利用了该类型的ICMP包。当使用ping命令的时候，将向目标主机发送Echo-询问类型的ICMP包，而目标主机在接收到该ICMP包之后，会回复Echo-回答类型的ICMP包，并将询问ICMP包包含在数据部分。ping命令是我们进行网络排查的一个重要工具。如果一个IP地址可以通过ping命令收到回复，那么其他的网络协议通信方式也很有可能成功。</p>
 <p>tracert 用于测试链路的跳数：IPv4中的Time to Live<code>(TTL)</code>会随着经过的路由器而递减，当这个区域值减为0时，就认为该IP包超时<code>(Time Exceeded)</code>。Time Exceeded就是TTL减为0时的路由器发给出发主机的ICMP包，通知它发生了超时错误。traceroute命令用来发现IP接力路径<code>(route)</code>上的各个路由器。它向目的地发送IP包，第一次的时候，将TTL设置为1，引发第一个路由器的Time Exceeded错误。这样，第一个路由器回复ICMP包，从而让出发主机知道途径的第一个路由器的信息。随后TTL被设置为2、3、4，…，直到到达目的主机。这样，沿途的每个路由器都会向出发主机发送ICMP包来汇报错误。traceroute将ICMP包的信息打印在屏幕上，就是路径的信息了。</p>
 <hr>
@@ -446,9 +482,15 @@
 <p>以太网使用集线器或者交换器将帧从发出地传送到目的地。一台集线器或交换器上有多个端口，每个端口都可以连接一台计算机(或其他设备)。</p>
 <p>集线器像一个广播电台。一台电脑将帧发送到集线器，集线器会将帧转发到所有其他的端口。每台计算机检查自己的MAC地址是不是符合DST。如果不是，则保持沉默。集线器是比较早期的以太网设备。它有明显的缺陷：</p>
 <ul>
-<li>任意两台电脑的通信在同一个以太网上是公开的。所有连接在同一个集线器上的设备都能收听到别人在传输什么，这样很不安全。可以通过对信息加密提高安全性。</li>
-<li>不允许多路同时通信。如果两台电脑同时向集线器发信，集线器会向所有设备发出“冲突”信息，提醒发生冲突。可以在设备上增加冲突检测算法：一旦设备发现有冲突，则随机等待一段时间再重新发送（CSMA/CD）</li>
+<li><p>任意两台电脑的通信在同一个以太网上是公开的。所有连接在同一个集线器上的设备都能收听到别人在传输什么，这样很不安全。可以通过对信息加密提高安全性。</p>
+</li>
+<li><p>不允许多路同时通信。如果两台电脑同时向集线器发信，集线器会向所有设备发出“冲突”信息，提醒发生冲突。可以在设备上增加冲突检测算法：一旦设备发现有冲突，则随机等待一段时间再重新发送（CSMA/CD）</p>
+</li>
 </ul>
+  <br>
+
+  <br>
+
 <p><strong>交换机：</strong></p>
 <p>交换器克服集线器的缺陷。交换器记录有各个设备的MAC地址。当帧发送到交换器时，交换器会检查DST，然后将帧只发送到对应端口。交换器允许多路同时通信。由于交换器的优越性，交换器基本上取代了集线器。</p>
 
@@ -581,7 +623,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -592,7 +634,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -603,7 +645,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

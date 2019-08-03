@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="前言： 爬虫爬取到的数据最终是要保存下来滴~  别以为爬下来就完事了，具体流程还有数据去重，数据分析，最后数据可视化等等操作呢…  这一章节，我们聊聊 “数据存储”  在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。 环境准备： python 3 Pycharm 安装好PyMysql库 本地m">
+<meta name="description" content="前言： 爬虫爬取到的数据最终是要保存下来滴~  别以为爬下来就完事了，具体流程还有数据去重，数据分析，最后数据可视化等等操作呢…  这一章节，我们聊聊 “数据存储”  在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。 环境准备： python 3  Pycharm  安装好PyMysql库">
 <meta name="keywords" content="技术,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫Day7-Mysql的那些事">
 <meta property="og:url" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言： 爬虫爬取到的数据最终是要保存下来滴~  别以为爬下来就完事了，具体流程还有数据去重，数据分析，最后数据可视化等等操作呢…  这一章节，我们聊聊 “数据存储”  在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。 环境准备： python 3 Pycharm 安装好PyMysql库 本地m">
+<meta property="og:description" content="前言： 爬虫爬取到的数据最终是要保存下来滴~  别以为爬下来就完事了，具体流程还有数据去重，数据分析，最后数据可视化等等操作呢…  这一章节，我们聊聊 “数据存储”  在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。 环境准备： python 3  Pycharm  安装好PyMysql库">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/3.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/4.png">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/6.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/7.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/10.jpg">
-<meta property="og:updated_time" content="2019-08-01T04:11:28.374Z">
+<meta property="og:updated_time" content="2019-08-03T05:54:22.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day7-Mysql的那些事">
-<meta name="twitter:description" content="前言： 爬虫爬取到的数据最终是要保存下来滴~  别以为爬下来就完事了，具体流程还有数据去重，数据分析，最后数据可视化等等操作呢…  这一章节，我们聊聊 “数据存储”  在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。 环境准备： python 3 Pycharm 安装好PyMysql库 本地m">
+<meta name="twitter:description" content="前言： 爬虫爬取到的数据最终是要保存下来滴~  别以为爬下来就完事了，具体流程还有数据去重，数据分析，最后数据可视化等等操作呢…  这一章节，我们聊聊 “数据存储”  在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。 环境准备： python 3  Pycharm  安装好PyMysql库">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/26/爬虫Day7-Mysql的那些事/3.png">
 
 
@@ -401,17 +401,29 @@
 </blockquote>
 <p>在 Python2 中，连接 MySQL 的库大多是使用 MySQLDB，但是此库官方并不支持 Python3，所以在这里推荐使用的库是 PyMySQL。</p>
 <h3 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a>环境准备：</h3><ul>
-<li>python 3</li>
-<li>Pycharm</li>
-<li>安装好PyMysql库</li>
-<li>本地mysql环境的部署</li>
+<li><p>python 3</p>
+</li>
+<li><p>Pycharm</p>
+</li>
+<li><p>安装好PyMysql库</p>
+</li>
+<li><p>本地mysql环境的部署</p>
+<br>
+
+</li>
 </ul>
+<br>
+
+
+
 <h3 id="PyMysql使用介绍："><a href="#PyMysql使用介绍：" class="headerlink" title="PyMysql使用介绍："></a>PyMysql使用介绍：</h3><h4 id="获取连接对象"><a href="#获取连接对象" class="headerlink" title="获取连接对象"></a>获取连接对象</h4><p>我们要连接到 mysql 这个库，首先应该获取一个connection对象（输入本地部署的Mysql参数）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">db = pymysql.connect(host =<span class="string">'localhost'</span>,user =<span class="string">'root'</span>,password =<span class="string">'root'</span>,port=<span class="number">3306</span>)</span><br><span class="line"><span class="comment"># 通过 PyMySQL 的 connect() 方法声明了一个 MySQL 连接对象</span></span><br></pre></td></tr></table></figure>
 
 
 
+ <br>
 
+<br>
 
 
 
@@ -419,18 +431,36 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">db = pymysql.connect(host =<span class="string">'localhost'</span>,user =<span class="string">'root'</span>,password =<span class="string">'root'</span>,port=<span class="number">3306</span>)</span><br><span class="line">cursor=db.cursor()</span><br><span class="line"><span class="comment"># 注意：cursor 对象是基于db 这个connection对象实例化出来的</span></span><br></pre></td></tr></table></figure>
 
 <p>我们拿到操作游标后，就很容易了。因为python执行的 sql 语句跟 mysql 里面是一样的…但还是有一丢丢不同的，让我们接着往下看。</p>
+ <br>
+
+<br>
+
+
+
 <h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><p><img src="/2019/07/26/爬虫Day7-Mysql的那些事/3.png" alt></p>
 <ul>
 <li>注意我们这里使用了异常处理，因为在python里面是采用事务这个概念进行操作的</li>
 <li>插入数据需要使用commit进行数据提交；当捕捉到错误时，db对象进行rollback事件回滚（只针对插入、更新、删除这些对数据库进行更改的操作，而创建数据库、创建表则不需要）</li>
 <li><strong>还有一点要注意的是：里面的参数，不管什么类型，统一使用%s作为占位符</strong></li>
 </ul>
+ <br>
+
+<br>
+
+
+
 <h4 id="动态插入数据："><a href="#动态插入数据：" class="headerlink" title="动态插入数据："></a>动态插入数据：</h4><p>有时候我们面临的实际情况，你不知道有多少字段插入（上面的情况是我们”写死“的），可以说，插入的字段由你爬取的数据决定，我们应该学会根据实际情况去构造 sql 语句。</p>
 <p>在很多情况下，我们要达到的效果是插入方法无需改动，做成一个通用方法，只需要传入一个动态变化的字典给就好了。比如我们构造这样一个字典：</p>
 <p><img src="/2019/07/26/爬虫Day7-Mysql的那些事/4.png" alt></p>
 <ul>
 <li>上面这条执行语句， 就替代之前那条 很 low 的写法，这么一来，无论字典有多少个键值对，我们都能进行插入。</li>
 </ul>
+ <br>
+
+<br>
+
+
+
 <h4 id="数据查询："><a href="#数据查询：" class="headerlink" title="数据查询："></a>数据查询：</h4><p>是的，对于数据库的增删改查，什么最重要？ （大声告诉我！）—— 没错！ 就是查询！！</p>
 <p>旁白君吐槽：“自嗨型作者…”</p>
 <p>于是，旁白君大手一挥，说：“这个还不简单，我最拿手了。”于是抢走了作者的键盘，刷刷的写下这么一串代码</p>
@@ -450,6 +480,14 @@
 <p><img src="/2019/07/26/爬虫Day7-Mysql的那些事/6.png" alt></p>
 <p>旁白君对着图仔细看了看说：“刚好四条！原来我刚才输出的4是执行成功的条目数！”  </p>
 <p>“没错，悟性还挺高！” 作者留下潇洒离去的背影，并甩给旁白君一本秘籍。</p>
+ <br>
+
+<br>
+
+
+
+
+
 <h4 id="数据查询的方法："><a href="#数据查询的方法：" class="headerlink" title="数据查询的方法："></a>数据查询的方法：</h4><ul>
 <li>使用select语句查询后不会直接返回查询的具体数据，而是返回执行成功的条目数，我们需要使用fetchone或者fetchall方法读取出来。</li>
 <li>fetchone() 方法，这个方法可以获取结果的第一条数据，返回结果是元组形式，元组的元素顺序跟字段一一对应，也就是第一个元素就是第一个字段 id，第二个元素就是第二个字段 name，以此类推。</li>
@@ -590,7 +628,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -601,7 +639,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -612,7 +650,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

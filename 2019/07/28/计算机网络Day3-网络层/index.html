@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。 IP数据包： IP数据包简称为IP包。它是符合IP协议的0/1序列。信">
+<meta name="description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。      IP数据包： IP数据包简称为IP包。它是符合IP协议的0/">
 <meta name="keywords" content="技术,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络Day3-网络层">
 <meta property="og:url" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。 IP数据包： IP数据包简称为IP包。它是符合IP协议的0/1序列。信">
+<meta property="og:description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。      IP数据包： IP数据包简称为IP包。它是符合IP协议的0/">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/3.png">
-<meta property="og:updated_time" content="2019-08-01T04:04:54.092Z">
+<meta property="og:updated_time" content="2019-08-03T05:50:26.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day3-网络层">
-<meta name="twitter:description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。 IP数据包： IP数据包简称为IP包。它是符合IP协议的0/1序列。信">
+<meta name="twitter:description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。      IP数据包： IP数据包简称为IP包。它是符合IP协议的0/">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/1.png">
 
 
@@ -394,6 +394,10 @@
 
       
         <h3 id="网络层："><a href="#网络层：" class="headerlink" title="网络层："></a>网络层：</h3><p>网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。</p>
+ <br>
+
+<br>
+
 <p><strong>IP数据包：</strong></p>
 <p>IP数据包简称为IP包。它是符合IP协议的0/1序列。信息包含在这一序列中。IP包分为头部(header)和数据(Data)两部分。数据部分是要传送的信息，头部是为了能够实现传输而附加的信息。</p>
 <p>与帧类似，IP包的头部也有多个区域。我们将注意力放在源地址(source address)和目的地(destination address)。它们都是IP地址。IPv4的地址为4 bytes的长度(也就是32位)。我们通常将IPv4的地址分为四个十进制的数，每个数的范围为0-255,比如192.0.0.1就是一个IP地址。填写在IP包头部的是该地址的二进制形式。</p>
@@ -403,6 +407,12 @@
 <li>每个IP地址的32位分为前后两部分，第一部分用来区分局域网，第二个部分用来区分该局域网的主机。</li>
 <li>子网掩码(Subnet Mask)告诉我们这两部分的分界线，比如255.0.0.0(也就是8个1和24个0)表示前8位用于区分局域网，后24位用于区分主机。由于A、B、C分类是已经规定好的，所以当一个IP地址属于B类范围时，我们就知道它的前16位和后16位分别表示局域网和主机。</li>
 </ul>
+ <br>
+
+<br>
+
+
+
 <h3 id="网卡与路由器"><a href="#网卡与路由器" class="headerlink" title="网卡与路由器"></a>网卡与路由器</h3><p><strong>网卡（NIC）：</strong></p>
 <p>IP地址是分配给每个计算机的。但这个说法并不精确。IP地址实际上识别的是网卡(NIC, Network Interface Card)。</p>
 <p>网卡是计算机的一个硬件，它在接收到网路信息之后，将信息交给计算机的CPU处理。当计算机需要发送信息的时，也要通过网卡发送。一台计算机可以有不只一个网卡，比如笔记本就有一个以太网卡和一个WiFi网卡。计算机在接收或者发送信息的时候，要先决定想要通过哪个网卡。</p>
@@ -418,9 +428,21 @@
 <li>第一行，如果IP目的地是199.165.145.0这个网络的主机，那么只需要自己在eth0上的网卡直接传送(“本地社区”：直接送达)，不需要前往路由器(Gateway 0.0.0.0 =      “本地送信”)。</li>
 <li>第二行，所有不符合第一行的IP目的地，都应该送往Gateway      199.165.145.17，也就是中间路由器接入在eth0的网卡IP地址。因为 目的地址和子网掩码全为 0.0.0.0 是缺省路由（当匹配不到路由明细时，就会往这个接口发出） </li>
 </ul>
+<br>
+
+<br>
+
+
+
 <h4 id="中转"><a href="#中转" class="headerlink" title="中转"></a>中转</h4><p>我们的IP包目的地为199.165.146.21，不符合第一行，所以按照第二行，发送到中间的路由器。主机145.17会将IP包放入帧的payload，并在帧的头部写上199.165.145.17对应的MAC地址，这样，就可以在局域网中传送了。</p>
 <p>中间的路由器在收到IP包之后(实际上是收到以太协议的帧，然后从帧中的payload读取IP包)，提取目的地IP地址，然后对照自己的路由表：</p>
 <p><img src="/2019/07/28/计算机网络Day3-网络层/3.png" alt></p>
+  <br>
+
+<br>
+
+
+
 <h4 id="送达："><a href="#送达：" class="headerlink" title="送达："></a>送达：</h4><p>数据包的目的地符合第二行，所以将IP放入一个新的帧中， 在帧的头部写上199.165.146.21的MAC地址，直接发往主机146.21。</p>
 <p> <strong>总结：</strong></p>
 <p>这样，我们就完成了“路由”的过程。整个过程中，IP包不断被主机和路由封装入帧并拆开，然后借助连接层，在局域网的各个NIC之间传送帧。整个过程中，我们的IP包的内容保持完整，没有发生变化（有变化的是TTL值、FCS校验码等字段）。最终的效果是一个IP包从一个主机传送到另一个主机。利用IP包，我们不需要去操心底层(比如连接层)发生了什么。</p>
@@ -558,7 +580,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -569,7 +591,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -580,7 +602,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

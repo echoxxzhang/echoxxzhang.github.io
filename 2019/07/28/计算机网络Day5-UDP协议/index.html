@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小小世界">
 <meta property="og:description" content="UDP协议简介UDP(User Datagram Protocol)传输与IP传输非常类似。你可以将UDP协议看作IP协议暴露在传输层的一个接口。UDP协议同样以数据包(datagram)的方式传输。 当应用程序对传输的可靠性要求不高，但是对传输速度和延迟要求较高时，可以用UDP协议来替代TCP协议在传输层控制数据的转发。UDP将数据从源端发送到目的端时，无需事先建立连接。UDP采用了简单、易操作">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-01T04:05:51.332Z">
+<meta property="og:updated_time" content="2019-08-03T05:51:04.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day5-UDP协议">
 <meta name="twitter:description" content="UDP协议简介UDP(User Datagram Protocol)传输与IP传输非常类似。你可以将UDP协议看作IP协议暴露在传输层的一个接口。UDP协议同样以数据包(datagram)的方式传输。 当应用程序对传输的可靠性要求不高，但是对传输速度和延迟要求较高时，可以用UDP协议来替代TCP协议在传输层控制数据的转发。UDP将数据从源端发送到目的端时，无需事先建立连接。UDP采用了简单、易操作">
@@ -391,7 +391,18 @@
       
         <h3 id="UDP协议简介"><a href="#UDP协议简介" class="headerlink" title="UDP协议简介"></a>UDP协议简介</h3><p>UDP(User Datagram Protocol)传输与IP传输非常类似。你可以将UDP协议看作IP协议暴露在传输层的一个接口。UDP协议同样以数据包(datagram)的方式传输。</p>
 <p><strong>当应用程序对传输的可靠性要求不高，但是对传输速度和延迟要求较高时</strong>，可以用UDP协议来替代TCP协议在传输层控制数据的转发。UDP将数据从源端发送到目的端时，无需事先建立连接。UDP采用了简单、易操作的机制在应用程序间传输数据，<strong>没有使用TCP中的确认技术或滑动窗口机制</strong>，因此UDP不能保证数据传输的可靠性，也无法避免接收到重复数据的情况。</p>
+ <br>
+
+<br>
+
 <h3 id="UPD的诞生："><a href="#UPD的诞生：" class="headerlink" title="UPD的诞生："></a>UPD的诞生：</h3><p>尽管UDP协议非常简单，但它的产生晚于更加复杂的TCP协议。早期的网络开发者开发出IP协议和TCP协议分别位于网络层和传输层，所有的通信都要先经过TCP封装，再经过IP封装(应用层-&gt;TCP-&gt;IP)。开发者将TCP/IP视为相互合作的套装。但很快，网络开发者发现，IP协议的功能和TCP协议的功能是相互独立的。对于一些简单的通信，我们只需要简单的IP传输就可以了，而不需要TCP协议复杂的建立连接的方式(如果过多的建立TCP连接，会造成很大的网络负担，而UDP协议可以相对快速的处理这些简单通信)。UDP协议随之被开发出来。</p>
+  <br>
+
+<br>
+
+
+
+
 <h3 id="UDP运用场景："><a href="#UDP运用场景：" class="headerlink" title="UDP运用场景："></a>UDP运用场景：</h3><p>UDP适合传输对延迟敏感的流量，如语音和视频。在使用TCP协议传输数据时，如果一个数据段丢失或者接收端对某个数据段没有确认，发送端会重新发送该数据段。</p>
 <p>让我们设想一下，平时打电话过程中，偶尔出现的信号不好的情况，此时，如果对方在说话，那么我们肯定是听不清楚的，而这些遗失的语音是不会重新出现的（除非你叫对方重新讲一遍）</p>
 <p>上面的打电话案例其传输层协议就是使用的UDP，而不是TCP。UDP采用实时传输机制和时间戳来传输语音和视频数据。</p>
@@ -529,7 +540,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -540,7 +551,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -551,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

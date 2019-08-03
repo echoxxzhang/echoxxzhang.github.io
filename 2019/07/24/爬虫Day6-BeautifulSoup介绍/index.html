@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。  获取Soup对象：使用Beau">
+<meta name="description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。         获取Soup对象">
 <meta name="keywords" content="技术,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫Day6-Beautiful介绍">
 <meta property="og:url" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。  获取Soup对象：使用Beau">
+<meta property="og:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。         获取Soup对象">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/2.png">
@@ -98,10 +98,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/10.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png">
-<meta property="og:updated_time" content="2019-08-01T04:10:53.993Z">
+<meta property="og:updated_time" content="2019-08-03T05:54:07.268Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day6-Beautiful介绍">
-<meta name="twitter:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。  获取Soup对象：使用Beau">
+<meta name="twitter:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。         获取Soup对象">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/1.jpg">
 
 
@@ -406,11 +406,21 @@
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/1.jpg" alt></p>
 <h3 id="BeautifulSoup的基本使用："><a href="#BeautifulSoup的基本使用：" class="headerlink" title="BeautifulSoup的基本使用："></a>BeautifulSoup的基本使用：</h3><h4 id="拿到网页数据："><a href="#拿到网页数据：" class="headerlink" title="拿到网页数据："></a>拿到网页数据：</h4><p>一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/2.png" alt="网页数据"></p>
+ <br>
+
+<br>
+
+
+
 <h4 id="获取Soup对象："><a href="#获取Soup对象：" class="headerlink" title="获取Soup对象："></a>获取Soup对象：</h4><p>使用BeautifulSoup方法，第一个参数传入 HTML字符串文本，第二个参数传入的是解析器的类型，在这里我们使用<br>lxml。不指定会使用默认的解析器，但是会发出警告</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span>  bs4 <span class="keyword">import</span> Beautifulsoup</span><br><span class="line">soup = BeautifulSoup(html,<span class="string">"lxml"</span>)</span><br><span class="line">print(soup)</span><br></pre></td></tr></table></figure>
 
 <p>运行后，发现内容如下（发现不完整的HTML字符串被补齐了）：</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/3.png" alt="网页数据"></p>
+ <br>
+
+<br>
+
 <h4 id="属性选择"><a href="#属性选择" class="headerlink" title="属性选择"></a>属性选择</h4><p>调用 soup 的各个方法和属性<strong>（选择器）</strong>对这串HTML代码解析。这个soup对象支持 “.” 获取节点操作，也可以通过”.”表达嵌套关系。</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/4.png" alt="网页数据"></p>
 <ul>
@@ -427,8 +437,14 @@
 <li><p>输出了soup.head的类型，是 bs4.element.Tag 类型.这是 BeautifulSoup 中的一个重要的数据结构，<strong>经过选择器选择之后，选择结果都是这种</strong> <strong>Tag</strong> <strong>类型</strong>，它具有着一些属性，比如 string 属性（输出文本信息），可以进行获取属性、嵌套等操作。</p>
 </li>
 <li><p><strong>不过这种选择方式只会选择到第一个匹配的节点，其他的后面的节点都会忽略</strong>——比如我们打印的p节点，只呈现一个信息（html字符串中有三个p节点信息）</p>
+<br>
+
 </li>
 </ul>
+<br>
+
+
+
 <h4 id="获取属性："><a href="#获取属性：" class="headerlink" title="获取属性："></a>获取属性：</h4><p>每个节点可能有多个属性，比如id，class 等等，我们选择到这个节点元素之后，可以调用 attrs 获取所有属性。</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/7.png" alt="网页数据"></p>
 <ul>
@@ -436,6 +452,10 @@
 </ul>
 <p><strong>contents 属性：</strong></p>
 <p>选取到了一个节点元素之后，如果想要获取它的<strong>直接子节点的信息</strong>   （不包含子孙节点），可以调用<br>contents 属性（和直接选择不同的是，contents返回的<strong>列表</strong>包含了<strong>所有子节点和所有文本信息</strong>）</p>
+<br>
+
+
+
 <h4 id="关联选择："><a href="#关联选择：" class="headerlink" title="关联选择："></a>关联选择：</h4><p>我们在做选择的时候有时候不能做到一步就可以选择到想要的节点元素，有时候在选择的时候需要先选中某一个节点元素，然后以它为基准再选择它的子节点、父节点、兄弟节点等等。这里列出了获取节点的各个方法：</p>
 <table>
 <thead>
@@ -472,8 +492,15 @@
 <p>需要注意的是：<strong>上面这些节点选择，但凡涉及到多个节点内容，就会返回一个生成器类型。</strong></p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/8.png" alt="网页数据"></p>
 <ul>
-<li>关于这些节点选择，我们要注意 html 树型结构的排列关系，例如，我们不能跨越父级节点，去拿到另一个子孙节点的内容。</li>
+<li><p>关于这些节点选择，我们要注意 html 树型结构的排列关系，例如，我们不能跨越父级节点，去拿到另一个子孙节点的内容。</p>
+<br>
+
+</li>
 </ul>
+<br>
+
+
+
 <h4 id="方法选择器"><a href="#方法选择器" class="headerlink" title="方法选择器"></a>方法选择器</h4><p>前面我们所讲的选择方法都是通过属性来选择元素的，这种选择方法非常快，但是如果要进行比较复杂的选择的话则会比较繁琐，不够灵活。所以 BeautifulSoup 还为我们提供了一些查询的方法，这里介绍非常常用的 find_all()、find() 等方法，我们可以调用方法然后传入相应等参数就可以灵活地进行查询。</p>
 <p><strong>find_all(</strong> <strong>)</strong><br>查询所有符合条件的元素，可以给它传入一些属性或文本来得到符合条件的元素，并使用一个列表进行返回。</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/9.png" alt="网页数据"></p>
@@ -484,22 +511,48 @@
 <li>方法选择器会返回一个Tag标签的类型，也就是说，其支持嵌套获取元素、层层迭代使用find_all等等操作。</li>
 <li>当name=True时，匹配所有标签。</li>
 </ul>
+<br>
+
+<br> 
+
+
+
 <p>② attrs / id ：</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png" alt="网页数据"></p>
 <ul>
 <li>可以通过这些attrs、id 这两个关键字对我们需要的节点传入进行匹配</li>
 </ul>
+ <br>
+
+<br>
+
 <p>③recursive：是否对子孙全部检索，默认为True，改为False则忽略孙节点</p>
+ <br>
+
+<br>
+
 <p>④ text：用来匹配节点的文本，文本参数 text是用标签的文本内容去匹配，而不是用标签的属性。传入的形式可以是文本字符串，也可以是正则表达式对象（compile）</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png" alt="网页数据"></p>
 <ul>
 <li>也可以使用text = “Hello，this is a link” 这样的形式进行匹配节点。</li>
 </ul>
+<br>
+
+<br> 
+
+
+
 <p><strong>find( )</strong></p>
 <p>find() 方法返回的是<strong>单个元素</strong>，也就是第一个匹配的元素。类型依然是 Tag 类型。（当某个标签只有一个是使用find比较好，因为find返回一个Tag类型，而find_all返回一个列表，这是最大的区别了，有时候我们需要拿到Tag类型的节点，这样对我们的后续操作更为便利），跟find_all很接近，API都是相同.</p>
 <h4 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h4><p>经过节点选择，我们已经匹配到我们需要的节点了，接下来应该是获取文本内容了，通过Tag 类型的string 属性，我们可以拿到文本内容，有一个方法那就是 get_text（），同样可以获取文本值。</p>
 <p>只需基于 Tag类型，调用 get_text（） 方法即可。不过需要注意的是： .get_text（）会把你正在处理的 HTML 文档中所有的标签都清除，然后返回一个只包含文字的字符串。假如你正在处理一个包含许多超链接、段落和标签的大段源代码，那么 .get_text() 会把这些超链接、段落和标签都清除掉，只剩下一串不带标签的文字。</p>
 <p>所以，get_text（）方法一般留到最后面使用，不然会影响我们获取节点</p>
+ <br>
+
+<br>
+
+
+
 <h3 id="写在最后："><a href="#写在最后：" class="headerlink" title="写在最后："></a>写在最后：</h3><ul>
 <li>说一下节点选择的建议：页面布局总是不断变化的。一个标签这次是在表格中第一行的位置，没准儿哪天就在第二行或第三行了。如果想让你的爬虫更稳定，最好还是让标签的选择更加具体。<strong>如果有属性，就利用标签的属性。</strong></li>
 <li>解析库呢，就像一把锤子，使用的是我们，我们学会如何使用一把锤子的同时呢，也要关注什么时候去使用它，不要手上握着一把锤子，看任何问题都是钉子。使用适当的解析库去拿到我们需要的内容才是我们应该做的，使用什么样的锤子并不重要。</li>
@@ -637,7 +690,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -648,7 +701,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -659,7 +712,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
