@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,">
+  <meta name="keywords" content="Python,技术,">
 
 
 
@@ -79,22 +79,28 @@
 
 
 
-<meta name="description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。      汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。 汇编语言的主题是汇编指令，汇编指令和">
-<meta name="keywords" content="技术">
+<meta name="description" content="Ajax引言：有时候我们在用 Requests 抓取页面的时候，得到的结果可能和在浏览器中看到的是不一样的，在浏览器中可以看到正常显示的页面数据，但是得到的 Response 并没有相应的内容。 这其中的原因是 Requests 获取的都是原始的 HTML 文档，而浏览器中的页面则是页面又经过 JavaScript 处理数据后生成的结果，这些数据的来源有多种：  通过 Ajax 加载 包含在了 H">
+<meta name="keywords" content="Python,技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机基础知识扫盲篇">
-<meta property="og:url" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/index.html">
+<meta property="og:title" content="爬虫Day10-Ajax异步请求">
+<meta property="og:url" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。      汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。 汇编语言的主题是汇编指令，汇编指令和">
+<meta property="og:description" content="Ajax引言：有时候我们在用 Requests 抓取页面的时候，得到的结果可能和在浏览器中看到的是不一样的，在浏览器中可以看到正常显示的页面数据，但是得到的 Response 并没有相应的内容。 这其中的原因是 Requests 获取的都是原始的 HTML 文档，而浏览器中的页面则是页面又经过 JavaScript 处理数据后生成的结果，这些数据的来源有多种：  通过 Ajax 加载 包含在了 H">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/4.png">
-<meta property="og:updated_time" content="2019-08-03T05:48:47.917Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/2.gif">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/9.png">
+<meta property="og:updated_time" content="2019-08-04T16:48:50.635Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机基础知识扫盲篇">
-<meta name="twitter:description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。      汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。 汇编语言的主题是汇编指令，汇编指令和">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/1.png">
+<meta name="twitter:title" content="爬虫Day10-Ajax异步请求">
+<meta name="twitter:description" content="Ajax引言：有时候我们在用 Requests 抓取页面的时候，得到的结果可能和在浏览器中看到的是不一样的，在浏览器中可以看到正常显示的页面数据，但是得到的 Response 并没有相应的内容。 这其中的原因是 Requests 获取的都是原始的 HTML 文档，而浏览器中的页面则是页面又经过 JavaScript 处理数据后生成的结果，这些数据的来源有多种：  通过 Ajax 加载 包含在了 H">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/1.jpg">
 
 
 
@@ -124,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/">
 
 
 
 
 
-  <title>计算机基础知识扫盲篇 | 小小世界</title>
+  <title>爬虫Day10-Ajax异步请求 | 小小世界</title>
   
 
 
@@ -289,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/04/爬虫Day10-Ajax异步请求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -306,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">计算机基础知识扫盲篇</h1>
+          <h1 class="post-title" itemprop="name headline">爬虫Day10-Ajax异步请求</h1>
         
 
         <div class="post-meta">
@@ -318,8 +324,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-16T22:16:32+08:00">
-                2019-07-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-04T22:27:39+08:00">
+                2019-08-04
               </time>
             
 
@@ -341,8 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
+                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
                   </a>
                 </span>
 
@@ -359,8 +365,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/16/计算机基础知识扫盲篇/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/16/计算机基础知识扫盲篇/" itemprop="commentsCount"></span>
+                <a href="/2019/08/04/爬虫Day10-Ajax异步请求/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/04/爬虫Day10-Ajax异步请求/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -393,173 +399,117 @@
       
 
       
-        <h2 id="计算机组成基础"><a href="#计算机组成基础" class="headerlink" title="计算机组成基础"></a>计算机组成基础</h2><h3 id="谈谈汇编语言："><a href="#谈谈汇编语言：" class="headerlink" title="谈谈汇编语言："></a>谈谈汇编语言：</h3><p>机器语言——“计算机运行的基础”</p>
-<p>机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为<strong>一列高低电平</strong>，以使计算机的电子器件受到驱动，进行运算。</p>
- <br>
-
-<br>
-
-<p>汇编语言的诞生：</p>
-<p>汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。</p>
-<p>汇编语言的主题是汇编指令，汇编指令和机器指令的差别在于指令的表示方法上<strong>，汇编指令是机器指令便于记忆的书写格式</strong></p>
-<br>
-
-<br> 
-
-<p>编译器：</p>
-<p>但是计算机能读懂的只有机器指令，那么如何让计算机执行程序员用汇编语言编写的程序呢？   这时，一种能够将汇编语言转成机器指令的翻译程序——<strong>编译器</strong> 产生了。</p>
-<p><img src="/2019/07/16/计算机基础知识扫盲篇/1.png" alt></p>
-<br>
-
-<br>
-
-<p>####　汇编语言的组成：</p>
-<ol>
-<li><p>汇编指令：有对应的机器码，决定了汇编语言的特性</p>
-</li>
-<li><p>伪指令：没有对应的机器码，由编译器执行，计算机并不执行</p>
-</li>
-<li><p>其他符号：如+、-、*、/ 等，由编译器识别，也没有对应的机器码</p>
-<br>
-
-</li>
-</ol>
-<br>
-
-
-
-<h3 id="计算机组成的各个部分"><a href="#计算机组成的各个部分" class="headerlink" title="计算机组成的各个部分"></a>计算机组成的各个部分</h3><ol>
-<li>存储器：</li>
-</ol>
-<p>CPU是计算机的核心部件，它控制整个计算机的运作，要想让CPU工作，就必须向它提供指令和数据。<strong>指令和数据在存储器中存放</strong>，也就是平时说的内存。   离开了内存，CPU也无法工作。</p>
-<p>磁盘是计算机永久性存储数据的空间所在，<strong>磁盘上的数据要想被**</strong>CPU<strong>**执行调用，必须先读到内存当中</strong>。</p>
- <br>
-
-<br>
-
-<ol start="2">
-<li>指令和数据：</li>
-</ol>
-<p>指令和数据是应用上的概念，在内存或磁盘上，指令和数据没有任何区别，都是二进制信息。 CPU在工作时，把有的信息看做指令，有的信息看做数据。（有特殊意义的二进制信息视为指令）</p>
- <br>
-
-<br>
-
-<ol start="3">
-<li>存储单元：</li>
-</ol>
-<p>存储器又被划分为若干个存储单元，每个存储单元从0开始顺序编号，例如一个存储器有128个存储单元，编号从0~127。</p>
-<p>微型机存储器的每一个存储单元可以存储一个字节，即8个bit（电子计算机的最小信息单位）。 也就是说，一个存储器有128个存储单元，它可以存储128个字节。</p>
-<p><strong>微机存储器的容量是以字节为最小单位来计算的</strong>。</p>
- <br>
-
-<br>
-
-<ol start="4">
-<li>CPU对存储器的读写：</li>
-</ol>
-<p>存储器被划分成多个存储单元，存储单元从零开始顺序编号，这些编号可以看作存储单元在存储器中的地址，就像每个房子的门牌号</p>
-<p>CPU要从内容中读取数据，首先要指定存储单元的地址，也就是说它要先确定读取哪一个存储单元中的数据。</p>
-<p>另外，在微机中，不当当只有存储器这一种器件，CPU在进行读写数据操作时，需要指明它要对哪一个器件进行操作、进行哪种操作、是从中读出数据，还是写进数据。</p>
-<p>可见，CPU要想进行数据的读写，必须和外部器件（可以说成芯片）进行三类信息的交互：</p>
+        <h3 id="Ajax引言："><a href="#Ajax引言：" class="headerlink" title="Ajax引言："></a>Ajax引言：</h3><p>有时候我们在用 Requests 抓取页面的时候，得到的结果可能和在浏览器中看到的是不一样的，在浏览器中可以看到正常显示的页面数据，但是得到的 Response 并没有相应的内容。</p>
+<p>这其中的原因是 Requests 获取的都是原始的 HTML 文档，而浏览器中的页面则是页面又经过 JavaScript 处理数据后生成的结果，这些数据的来源有多种：</p>
 <ul>
-<li>存储单元的地址（地址信息）</li>
-<li>器件的选择，读或写的命令（控制信息）</li>
-<li>读或写的数据（数据）</li>
+<li>通过 Ajax 加载</li>
+<li>包含在了 HTML 文档中的（我们之前爬取的网站都是这个类型）</li>
+<li>经过 JavaScript 经过特定算法计算后生成的。</li>
 </ul>
-<p>那么CPU是通过什么介质将这些信息传到存储器芯片中呢？</p>
-<p><strong>电子计算机能处理、传输的信息都是电信号</strong>，电信号当然要用导线传送。在计算机中，专门连接CPU和其他芯片的导线，称为<strong>总线</strong>。  从物理上来讲，总线是一根根导线的集合，根据传送信息的不同，又从逻辑上分为三类、即地址总线、控制总线和数据总线。</p>
 <br>
 
-<br> 
+<p><strong>今天我们就来谈谈 Ajax：</strong></p>
+<br>
 
-<ol start="5">
-<li>总线</li>
-</ol>
+<br>
+
+<h3 id="Ajax的概念"><a href="#Ajax的概念" class="headerlink" title="Ajax的概念"></a>Ajax的概念</h3><p>Ajax，全称为Asynchronous JavaScript and XML，即异步的 JavaScript和 XML， 对于Ajax 渲染 的页面，数据的加载是一种异步加载方式，原始的页面最初不会包含某些数据，<strong>原始页面加载完后会会再向服务器请求某个接口获取数据</strong>，然后数据再被处理才呈现到网页上，这其实就是发送了一个 Ajax请求。</p>
+<p>这也就是我们直接使用 requests 请求 不到页面实际内容的原理所在。</p>
+<p><strong>这时需要做的就是分析网页的后台向接口发送的 Ajax 请求，再用Requests 来模拟 Ajax 请求</strong>，那就可以成功抓取了。</p>
+<br>
+
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/1.jpg" alt></p>
+<hr>
+<p>那么~ 进入今天的正题。</p>
+<h3 id="Ajax-观察"><a href="#Ajax-观察" class="headerlink" title="Ajax  观察"></a>Ajax  观察</h3><p>对于Ajax 请求， 我们在现实生活中一直碰到，我描述一下你就知道了：“当你在浏览网页、APP的时候，下拉进度条到最下面时，会看到进度条唰的一下子跳到中间，然后下方有了新的内容出现”</p>
+<p>其实这就是Ajax 的运用了。</p>
+<br>
+
+<p>今天，我们使用 微博来作为爬取对象。</p>
+<p>url = <a href="https://m.weibo.cn/u/2145291155" target="_blank" rel="noopener">https://m.weibo.cn/u/2145291155</a></p>
+<br>
+
+<h4 id="浏览器发起请求"><a href="#浏览器发起请求" class="headerlink" title="浏览器发起请求"></a>浏览器发起请求</h4><p>老规矩，进入开发者模式。 然后在Network 下，点击 XHR 进行筛选（过滤出只有Ajax请求的请求响应报文）</p>
+<p>让我们看第一个条目信息，观察其Response</p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/1.png" alt></p>
 <ul>
-<li>地址总线：</li>
-</ul>
-<p>CPU是通过地址总线来指定存储器单元的。地址总线上能传送多少个不同的信息，CPU就可以对多少个存储单元进行寻址。</p>
-<p>在电子计算机中，一根导线可以传送的稳定状态有两种，高电平或是低电平。用二进制表示就是1或者0。  有 n 根导线就能表示 2的n次方种信息。假设一个CPU有N跟地址线，则可以说这个CPU的地址总线的宽度为N，这样的CPU最多可以寻找2的N次方个内存单元。</p>
- <br>
-
-<br>
-
-<ul>
-<li>数据总线：</li>
-</ul>
-<p>CPU与内存或其他器件之间的数据交互是通过数据总线进行传递的。</p>
-<p>数据总线的宽度决定了CPU与外界的数据传输速度。8跟数据总线一次可传送一个8位二进制数据（即一个字节）。</p>
- <br>
-
-
-
-<ul>
-<li>控制总线：</li>
-</ul>
-<p>CPU对外部器件的控制是通过控制总线来进行的。</p>
-<p>控制总线是一些不同控制线的集合，有多少根控制总线，就意味着CPU提供了对外部器件的多少种控制，所以，控制总线的宽度决定了CPU对外部器件的控制能力。</p>
- <br>
-
-
-
-
-
-<ol start="6">
-<li>内存地址空间：</li>
-</ol>
-<p>举例来说，一个CPU的地址宽度为10，那么可寻址1024个内存单元，这1024个可寻址的内存单元就构成了这个CPU的内存地址空间。CPU在操纵和控制各类存储器时，都把他们当作内存来对待，把它们总的看做一个由若干存储单元组成的逻辑存储器，这个逻辑存储器就是我们所说的内存地址空间。</p>
-<p><img src="/2019/07/16/计算机基础知识扫盲篇/3.png" alt></p>
-<br>
-
-<br>
-
-<ol start="7">
-<li>主板：</li>
-</ol>
-<p>每一台PC机中，都会有一个主板，主板上的器件通过总线相连。</p>
-<p>这些器件有：CPU、内存、外围芯片组、扩展插槽等。扩展插槽一般插有RAM内存条和各类接口卡.</p>
- <br>
-
-<br>
-
-<ol start="8">
-<li>接口卡：</li>
-</ol>
-<p>计算机系统中，所有可用程序控制其工作的设备，都归CPU控制。</p>
-<p>CPU对于外部设备如显示器、音箱等，是通过控制这些设备直接相连的接口卡，从而实现间接的控制这些外部设备的。简单来说，CPU通过总线向接口卡发送命令，接口卡根据CPU的命令控制外设进行工作。</p>
- <br>
-
-<br>
-
-<ol start="9">
-<li>各类存储器芯片：</li>
-</ol>
-<p>一台PC机中，装有多个存储器芯片。不同的器件，从读写属性上分为两大类：   随机存储器（RAM）和只读存储器（ROM）</p>
-<ul>
-<li><p>随机存储器可读可写，但必须带电存储，关机后存储的内容丢失；</p>
+<li><p>发现其代码只有五十行，结构也非常简单，只是执行了一些 JavaScript。这只是最原始的链接返回的结果。</p>
 </li>
-<li><p>只读存储器只能读取不能写入，关机后内容也不会消失。</p>
-<br>
-
-
-
+<li><p>所以说，我们所看到的微博页面的真实数据并不是最原始的页面返回的，而是后来执行 JavaScript      后再次向后台发送了 Ajax 请求，拿到数据后再进一步渲染出来的。</p>
 </li>
 </ul>
-<p>这些存储器从功能和连接上又可分为以下几类：</p>
-<ol>
-<li>随机存储器：用于存放供CPU使用的绝大部分程序和数据，主随机存储器一般由两个位置上的RAM组成，装在主板上的RAM和插在插槽上的RAM</li>
-<li>装有BIOS（基本输入输出系统）的ROM：BIOS是由主板和给某些接口卡（如：显卡、网卡等）厂商提供的软件系统。</li>
-<li>接口卡上的RAM：某些接口卡需要大批量输入输出数据进行暂时存储，因此会在其上装有RAM。最为经典的是显示卡上的RAM，一般称为显存。我们将需要显示的内容写入显存，就会出现在显示器上。</li>
-</ol>
-<p><img src="/2019/07/16/计算机基础知识扫盲篇/4.png" alt>****</p>
- <br>
+<br>
 
 <br>
 
-<blockquote>
-<p>以上就是总结的部分计算机基础知识。我们下篇见，see you ~</p>
-</blockquote>
+<p>于是我们进行测试，拖拽进度条到最下面，发现浏览器与服务器偷偷的交互了报文，效果如下：</p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/2.gif" alt></p>
+<ul>
+<li>新刷新出来的响应报文就是网站下方一些新的内容了</li>
+<li>Ajax 渲染网页的就是这样，当用户看到下方时，才会加载内容。这样在 Web 开发上可以做到<strong>前后端分离</strong>，而且降低服务器直接渲染页面带来的压力。（以后可能都是这样类型的网页噢，赶紧学起来吧~）</li>
+</ul>
+<br>
+
+<h4 id="查看详细信息"><a href="#查看详细信息" class="headerlink" title="查看详细信息"></a>查看详细信息</h4><p>我们点开这条响应报文进行分析。</p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/4.png" alt></p>
+<ul>
+<li><p>Ajax其实有其特殊的请求类型，它叫作xhr。我们可以发现一个名称以getlndex开头的请求，其Type为xhr，这就是一个Ajax请求。</p>
+</li>
+<li><p>其中RequestHeaders 中有一个字段为 X-Requested-With：XMLHttpRequest，这就标记了此请求是Ajax异步请求</p>
+</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="Ajax-结果提取"><a href="#Ajax-结果提取" class="headerlink" title="Ajax 结果提取"></a>Ajax 结果提取</h3><p>我们要能将Ajax内容提取出来，就是要用Python来模拟这些Ajax请求，达到自动加载页面信息的功能。<strong>（第一步就是观察参数的规律，这是解析网页的必修课）</strong></p>
+<p><strong>① URL的构建</strong></p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/6.png" alt></p>
+<ul>
+<li>观察一下这些请求，发现它们的 type、value、containerid 始终如一。type 始终为 uid，value 的值就是页面的链接中的数字，其实这就是用户的 id，另外还有一个containerid，经过观察发现它就是 一个常量 然后加上用户id。</li>
+<li>所以改变的值就是 page，很明显这个参数就是用来控制分页的，page=1 代表第一页，page=2 代表第二页，以此类推。我们使用一个变量来控制页码数</li>
+</ul>
+<br>
+
+<p><strong>② 头部的构造</strong></p>
+<p>并且，我们需要构造header头部，模拟这是由浏览器发出的Ajax请求，还有一些重要字段（最基本的反爬策略）</p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/5.png" alt></p>
+<br>
+
+<p><strong>③ 观看响应内容</strong></p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/7.png" alt></p>
+<ul>
+<li><strong>它是一个</strong> <strong>Json 格式</strong>，浏览器开发者工具自动为做了解析方便我们查看，可以看到最关键的两部分信息就是 cardlistInfo 和 cards，将二者展开，cardlistInfo 里面包含了一个比较重要的信息就是 total，经过观察后发现其实它是微博的总数量，我们可以根据这个数字来估算出分页的数目。</li>
+<li>其中cards 则是一个列表，它包含了 10个元素，这就是每一条微博帖子存放的地方所在了。</li>
+</ul>
+<br>
+
+<p>我们继续展开看看</p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/8.png" alt></p>
+<ul>
+<li>发现它包含的正是微博的一些信息。比如 attitudes_count 赞数目、comments_count 评论数目、reposts_count 转发数目、created_at  发布时间、text 微博正文等等</li>
+</ul>
+<br>
+
+<hr>
+<h3 id="Python-代码模拟"><a href="#Python-代码模拟" class="headerlink" title="Python 代码模拟"></a>Python 代码模拟</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">base_url = <span class="string">'https://m.weibo.cn/api/container/getIndex?'</span></span><br><span class="line"><span class="comment">#  抓包得到的Ajax请求的url前部</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'host'</span>:<span class="string">'m.weibo.cn'</span>,</span><br><span class="line">    <span class="string">'Referer'</span>:<span class="string">'https://m.weibo.cn/u/2145291155'</span>,</span><br><span class="line">    <span class="comment"># 此内容用来标识这个请求是从哪个页面发过来的</span></span><br><span class="line">    <span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0'</span>,</span><br><span class="line">    <span class="string">'X-Requested-With'</span>:<span class="string">'XMLHttpRequest'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_page</span><span class="params">(page)</span>:</span></span><br><span class="line"></span><br><span class="line">    params = &#123;</span><br><span class="line">        <span class="string">'type'</span>:<span class="string">'uid'</span>,</span><br><span class="line">        <span class="string">'value'</span>:<span class="string">'2145291155'</span>,</span><br><span class="line">        <span class="string">'containerid'</span>: <span class="string">'1076032145291155'</span>,</span><br><span class="line">        <span class="string">'page'</span>:page</span><br><span class="line">    &#125;    <span class="comment"># 这个字典是我们根据xhr连接请求分析构造的</span></span><br><span class="line"></span><br><span class="line">    url = base_url+ urllib.parse.urlencode(params)</span><br><span class="line">    response = requests.get(url=url,headers=headers)</span><br><span class="line">    <span class="keyword">return</span> response.json()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_page</span><span class="params">(json)</span>:</span></span><br><span class="line">    result = json.get(<span class="string">'data'</span>).get(<span class="string">'cards'</span>)</span><br><span class="line">    result =result.pop()</span><br><span class="line">    weibo = &#123;&#125;</span><br><span class="line">    item = result.get(<span class="string">'mblog'</span>)</span><br><span class="line">    print(item)</span><br><span class="line">    weibo[<span class="string">'text'</span>]  = item.get(<span class="string">'text'</span>)</span><br><span class="line">    weibo[<span class="string">'attitudes'</span>] = item.get(<span class="string">'attitudes_count'</span>)</span><br><span class="line">    weibo[<span class="string">'comments'</span>] = item.get(<span class="string">'comments_count'</span>)</span><br><span class="line">    weibo[<span class="string">'reposts'</span>] = item.get(<span class="string">'reposts_count'</span>)</span><br><span class="line">    print(weibo)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">1</span>):</span><br><span class="line">        json = get_page(page)</span><br><span class="line">        result = parse_page(json)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+
+
+<p><strong>运行结果如下：</strong></p>
+<p><img src="/2019/08/04/爬虫Day10-Ajax异步请求/9.png" alt></p>
+<ul>
+<li>先抓取一页进行测试，完成！</li>
+<li>这样，我们只需要增加 变量 page，即可将微博数据全部爬取下来了。由于篇幅原因，略过。</li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="写在后面："><a href="#写在后面：" class="headerlink" title="写在后面："></a>写在后面：</h3><p>这次我们主要介绍了Ajax 请求的原理，这样一来，我们就可以模拟Ajax请求，对任何使用异步加载的网页进行爬取了。</p>
+<p>啊~ 溜了溜了，胖友们，我们下回见。</p>
 
       
     </div>
@@ -577,6 +527,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
             <a href="/tags/技术/" rel="tag"># 技术</a>
           
         </div>
@@ -590,8 +542,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/16/编程新手的必修课/" rel="next" title="编程新手的必修课">
-                <i class="fa fa-chevron-left"></i> 编程新手的必修课
+              <a href="/2019/08/04/爬虫Day9-requests实战/" rel="next" title="爬虫Day9-requests实战">
+                <i class="fa fa-chevron-left"></i> 爬虫Day9-requests实战
               </a>
             
           </div>
@@ -599,10 +551,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/19/爬虫Day5-requests介绍/" rel="prev" title="爬虫Day5-requests介绍">
-                爬虫Day5-requests介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -761,7 +709,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机组成基础"><span class="nav-number">1.</span> <span class="nav-text">计算机组成基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#谈谈汇编语言："><span class="nav-number">1.1.</span> <span class="nav-text">谈谈汇编语言：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机组成的各个部分"><span class="nav-number">1.2.</span> <span class="nav-text">计算机组成的各个部分</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax引言："><span class="nav-number">1.</span> <span class="nav-text">Ajax引言：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的概念"><span class="nav-number">2.</span> <span class="nav-text">Ajax的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-观察"><span class="nav-number">3.</span> <span class="nav-text">Ajax  观察</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器发起请求"><span class="nav-number">3.1.</span> <span class="nav-text">浏览器发起请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看详细信息"><span class="nav-number">3.2.</span> <span class="nav-text">查看详细信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-结果提取"><span class="nav-number">4.</span> <span class="nav-text">Ajax 结果提取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-代码模拟"><span class="nav-number">5.</span> <span class="nav-text">Python 代码模拟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在后面："><span class="nav-number">6.</span> <span class="nav-text">写在后面：</span></a></li></ol></div>
             
 
           </div>
