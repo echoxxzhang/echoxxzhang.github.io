@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python,技术,">
+  <meta name="keywords" content="Python,">
 
 
 
@@ -79,31 +79,20 @@
 
 
 
-<meta name="description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API）        GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的类">
-<meta name="keywords" content="Python,技术">
+<meta name="description" content="前言网络编程很重要，在实际开发环境中，很多地方会用到，  举个例子，当我们的爬虫速率太慢了，我们可以开多进程多线程进行爬取；遇到 I/O 密集型任务，我们可以采用多线程处理。 今天介绍的进程线程是理论基础，应该熟练掌握。不熟悉进程线程概念的同学，认真理清其中的区别噢~   操作系统还记得我们之前说过的操作系统基础吗？今天排上用场了~   忘记的童鞋可以点击下方链接看一下： 计算机基础知识之操作系统">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬虫Day5-requests介绍">
-<meta property="og:url" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/index.html">
+<meta property="og:title" content="网络编程Day1-进程线程概念">
+<meta property="og:url" content="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API）        GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的类">
+<meta property="og:description" content="前言网络编程很重要，在实际开发环境中，很多地方会用到，  举个例子，当我们的爬虫速率太慢了，我们可以开多进程多线程进行爬取；遇到 I/O 密集型任务，我们可以采用多线程处理。 今天介绍的进程线程是理论基础，应该熟练掌握。不熟悉进程线程概念的同学，认真理清其中的区别噢~   操作系统还记得我们之前说过的操作系统基础吗？今天排上用场了~   忘记的童鞋可以点击下方链接看一下： 计算机基础知识之操作系统">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/5.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/6.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/7.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/8.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/9.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/10.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/11.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/12.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/0.png">
-<meta property="og:updated_time" content="2019-08-03T05:53:35.168Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/1.png">
+<meta property="og:updated_time" content="2019-08-05T05:15:59.240Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬虫Day5-requests介绍">
-<meta name="twitter:description" content="Requests的基本使用我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API）        GET 请求下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~   响应内容的类">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/1.png">
+<meta name="twitter:title" content="网络编程Day1-进程线程概念">
+<meta name="twitter:description" content="前言网络编程很重要，在实际开发环境中，很多地方会用到，  举个例子，当我们的爬虫速率太慢了，我们可以开多进程多线程进行爬取；遇到 I/O 密集型任务，我们可以采用多线程处理。 今天介绍的进程线程是理论基础，应该熟练掌握。不熟悉进程线程概念的同学，认真理清其中的区别噢~   操作系统还记得我们之前说过的操作系统基础吗？今天排上用场了~   忘记的童鞋可以点击下方链接看一下： 计算机基础知识之操作系统">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/1.png">
 
 
 
@@ -133,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/">
 
 
 
 
 
-  <title>爬虫Day5-requests介绍 | 小小世界</title>
+  <title>网络编程Day1-进程线程概念 | 小小世界</title>
   
 
 
@@ -298,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/爬虫Day5-requests介绍/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -315,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">爬虫Day5-requests介绍</h1>
+          <h1 class="post-title" itemprop="name headline">网络编程Day1-进程线程概念</h1>
         
 
         <div class="post-meta">
@@ -327,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-19T20:57:28+08:00">
-                2019-07-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T11:42:30+08:00">
+                2019-08-05
               </time>
             
 
@@ -350,8 +339,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
-                    <span itemprop="name">Python爬虫</span>
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
                   </a>
                 </span>
 
@@ -368,8 +357,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/19/爬虫Day5-requests介绍/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/19/爬虫Day5-requests介绍/" itemprop="commentsCount"></span>
+                <a href="/2019/08/05/网络编程Day1-进程线程概念/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/05/网络编程Day1-进程线程概念/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -402,142 +391,76 @@
       
 
       
-        <h2 id="Requests的基本使用"><a href="#Requests的基本使用" class="headerlink" title="Requests的基本使用"></a>Requests的基本使用</h2><p>我们知道在 Urllib 库中有 urlopen() 的方法，实际上它是以 GET 方式请求了一个网页。那么在 Requests 中，相应的方法就是 get() 方法，相比较方便（使用什么请求方法就用对应的方法名封装的API）</p>
- <br>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>网络编程很重要，在实际开发环境中，很多地方会用到，  举个例子，当我们的爬虫速率太慢了，我们可以开多进程多线程进行爬取；遇到 I/O 密集型任务，我们可以采用多线程处理。</p>
+<p>今天介绍的进程线程是理论基础，应该熟练掌握。不熟悉进程线程概念的同学，认真理清其中的区别噢~</p>
+<br>
+
+<h3 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h3><p>还记得我们之前说过的操作系统基础吗？今天排上用场了~   忘记的童鞋可以点击下方链接看一下：</p>
+<a href="/2019/07/28/计算机基础知识之操作系统/" title="计算机基础知识之操作系统">计算机基础知识之操作系统</a>
 
 <br>
 
-
-
-<h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>下面是使用requests库发出的简单get请求，是不是相对于urllib，步骤变简单了很多呢？嘿嘿~</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/1.png" alt></p>
-<ul>
-<li>响应内容的类型是type，我们可以基于这个对象，使用text方法获取文本，也可以调整编码格式等等。</li>
-<li>响应状态码封装在status_code这个属性中，200表示正常访问。</li>
-</ul>
- <br>
+<p>现代计算机系统是由一个或者多个处理器，主存，磁盘，打印机，键盘，鼠标显示器，网络接口以及各种其他输入输出设备组成的复杂系统，每位程序员不可能掌握所有系统实现细节，并且管理优化这些部件是一件挑战性极强的工作。所以，我们需要为计算机安装一层软件，也就是操作系统。操作系统的任务就是用户程序提供一个简单清晰的计算机模型，并管理以上所有设备。</p>
+<p><strong>操作系统是一个用来协调、管理和控制计算机硬件和软件资源的系统程序，其中包括：文件系统、内存管理、设备管理和进程管理。它位于硬件和应用程序之间。</strong></p>
+<p>简单来说，操作系统是存在于用户与程序之间的”中间商”，我们负责下令调度，它负责具体工作的实现。</p>
+<br>
 
 <br>
 
-<h3 id="模拟其他请求"><a href="#模拟其他请求" class="headerlink" title="模拟其他请求"></a>模拟其他请求</h3><p>接下来，在这里分别用post()、put()、delete() 等方法实现了 POST、PUT、DELETE 等请求。requests这些方法时是直接使用的（不像urllib那么隐晦）</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/2.png" alt></p>
- <br>
-
+<h3 id="程序？进程？"><a href="#程序？进程？" class="headerlink" title="程序？进程？"></a>程序？进程？</h3><p>我们知道，每一个软件都是由一串串代码构造出来的，而在我们电脑磁盘中，任何文件类型都只能以二进制存储。</p>
+<p>那么，以一堆代码以文本形式存入一个文档，我们把这么一个二进制文件叫做程序。</p>
+<p>当我们运行这个程序时，就会读取到内存，再用相应的解释器编译执行。当程序执行起来时，我们称之为进程。在我们的电脑上，每一个运行着的软件，就是一个进程（当然有子进程，后面会说）</p>
 <br>
 
-<h3 id="附加信息"><a href="#附加信息" class="headerlink" title="附加信息"></a>附加信息</h3><p>我们知道，使用百度这样的搜素引擎搜索关键字时，会在url生成类似这样的url，比如我们现在搜索的关键词是python，会生成下面这条url——“<a href="http://www.baidu.com/s?wd=python”" target="_blank" rel="noopener">http://www.baidu.com/s?wd=python”</a> </p>
-<p>那么，在requests中，如何模拟这样的关键词查询呢？</p>
-<p>回答：将信息数据存储到字典中，然后利用params这个参数进行传递。</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/3.png" alt></p>
-<ul>
-<li>我们可以看到，字典的键值被传递到url中。</li>
-<li>注意字典里值为None 的键都不会被添加到 URL 的查询字符串里。</li>
-</ul>
- <br>
-
-<br>
-
-<h3 id="定制请求头"><a href="#定制请求头" class="headerlink" title="定制请求头"></a>定制请求头</h3><p><img src="/2019/07/19/爬虫Day5-requests介绍/5.png" alt></p>
-<p><strong>注意：</strong>定制 header 的优先级低于某些特定的信息源，例如：</p>
-<ul>
-<li>如果在 <code>.netrc</code> 中设置了用户认证信息，使用 headers= 设置的授权就不会生效。而如果设置了 auth= 参数，<code>.netrc</code> 的设置就无效了。</li>
-<li><strong>如果被重定向到别的主机，授权</strong> <strong>header</strong> <strong>就会被删除</strong>。</li>
-<li>代理授权 header 会被 URL 中提供的代理身份覆盖掉。</li>
-<li>在我们能判断内容长度的情况下，header 的 Content-Length 会被改写。</li>
-</ul>
-<p>更进一步讲，Requests 不会基于定制 header 的具体情况改变自己的行为。只不过在最后的请求中，所有的 header 信息都会被传递进去。</p>
- <br>
-
-<br>
-
-
-
-<h3 id="二进制流数据"><a href="#二进制流数据" class="headerlink" title="二进制流数据"></a>二进制流数据</h3><p>上面例子中，实际上它返回的是一个 HTML 文档，那么如果我们想抓去图片、音频、视频等文件的话应该怎么办呢？我们都知道，图片、音频、视频这些文件都是本质上由二进制码组成的，由于有特定的保存格式和对应的解析方式，所以就需要拿到他们的二进制码。</p>
-<p>需要记住的是：<strong>（用什么保存格式编码就要用对应的解析方式解码）</strong></p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/6.png" alt></p>
-<ul>
-<li>前两行便是 r.text 的结果，最后一行是      r.content 的结果。</li>
-<li>前者出现了乱码，由于图片是二进制数据，所以前者在打印时转化为 str 类型（默认的编码格式），也就是图片直接转化为字符串，理所当然会出现乱码；   而后者结果前面带有一个 b，代表这是 bytes 类型的数据。</li>
-</ul>
- <br>
-
-
-
-<p><strong>得出结论：</strong></p>
+<h3 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h3><p><strong>进程就是一个程序在一个数据集上的一次动态执行过程（程序运行的一种状态）</strong>。</p>
+<p> 进程一般由程序、数据集、进程控制块三部分组成。</p>
 <ol>
-<li><p>r.test返回的是字符串类型，如果返回结果是文本文件，那么用这种方式直接获取其内容即可。</p>
-</li>
-<li><p>如果返回结果是图片、音频、视频等文件，应该使用r.content，Requests 会为我们自动解码成  bytes 类型，即获取字节流数据。此时，我们就可以通过写入文件（注意编码格式是wb），将其保存为照片格式。</p>
+<li>程序：我们编写的程序用来描述进程要完成哪些功能以及主逻辑；</li>
+<li>数据集则是程序在执行过程中所需要使用的资源；</li>
+<li>进程控制块用来记录进程的外部特征，描述进程的执行变化过程，系统可以利用它来<strong>控制和管理进程</strong>（很重要的概念），它是系统感知进程存在的唯一标志。</li>
+</ol>
 <br>
 
+<h3 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h3><p>我们知道，一个CPU在<strong>同一时刻</strong>只能处理一件事情，但是呢，CPU运行速度很快，它可以实现<strong>多个进程之间来回切换</strong>来达到我们看到的多个进程同时运行的效果。</p>
+<p>进程是一种程序运行的状态，会涉及到状态挂起的保存，状态恢复、程序的识别、CPU资源的调用等等，因此，<strong>进程之间的切换是很消费资源的</strong>。</p>
+<p>还有就是，进程的切换，具体是怎么样的呢？  两个条件可以触发切换：</p>
+<p>① 时间轮循 ： 每隔一段时间，CPU就会切换到其他进程。</p>
+<p>② I/O操作  ： 当遇到 输入输出操作时，CPU不会傻傻的等着，直接会进行切换操作。</p>
+<br>
+
+<br>
+
+<h3 id="线程定义"><a href="#线程定义" class="headerlink" title="线程定义"></a>线程定义</h3><p>线程的概念：“一个进程的独立运行片段”。</p>
+<p>我们知道了，进程虽然可以完成切换，但是十分的消耗资源。线程的出现是为了<strong>降低上下文切换的消耗</strong>，提高系统的并发性，并突破一个进程只能干一样事的缺陷，使到进程内并发成为可能。</p>
+<p><img src="/2019/08/05/网络编程Day1-进程线程概念/1.png" alt></p>
+<p>上面这三个任务，我们不能放到同一个进程里面，不然就无法实现三个任务的切换操作。  但又不想放到三个进程里（这三个任务实现的是同一个功能，所以三个进程之间需要互相访问，同时频繁的切换很费资源）。</p>
+<ul>
+<li>线程也叫轻量级进程，它是一个基本的CPU执行单元，<strong>也是程序执行过程中的最小单元</strong>。——相当于进程里面的进程</li>
+<li>线程的引入减小了程序并发执行时的开销，提高了操作系统的并发性能。<strong>线程没有自己的系统资源。所有的线程共用进程里面的资源</strong></li>
+</ul>
+<br>
+
+<br>
+
+<h3 id="进程线程的关系"><a href="#进程线程的关系" class="headerlink" title="进程线程的关系"></a>进程线程的关系</h3><ol>
+<li><p><strong>一个程序至少有一个进程,一个进程至少有一个线程.(进程可以理解成线程的容器)。</strong></p>
+</li>
+<li><p>每一个进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。</p>
+</li>
+<li><p>线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。 </p>
+</li>
+<li><p>一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行。</p>
+</li>
+<li><p>进程是最小的资源单位，操作系统分资源只能分到进程（最小单位），而线程是最小的执行单位（程序真正在跑的，是线程）</p>
 </li>
 </ol>
 <br>
 
-
-
-<h3 id="关于编码："><a href="#关于编码：" class="headerlink" title="关于编码："></a>关于编码：</h3><p>编码可谓是蛰伏在黑暗中的精灵，如果你不搞懂他，它就会偶尔出来耍一下脾气…</p>
-<p>Requests 会自动解码来自服务器的内容 。 大多数 unicode 字符集都能被无缝地解码 。 请求发出后 ， Requests 会基于 HTTP 头部对响应的编码作出有根据的推测 。 当你访问 r.text 时 ， <strong>Requests 会使用其推测的文本编码</strong> 。 不过你也可以找出 Requests 使 用 了 什 么 编 码 ， 并 且 能 够 使 用 r.encoding来更改编码方式。如果你改变了编码，每当你访问r.text，Request都会使用r.encoding的新值。</p>
-<p>不过每一次设置r.encoding都需要去浏览器中查看相应字符集，这很麻烦。我们可以这样写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r.encoding = r.apprent_encoding   <span class="comment"># apprent_encoding是在响应报文的头部获取字符集，这样设置比较灵活</span></span><br></pre></td></tr></table></figure>
-
- <br>
-
 <br>
 
-
-
-<h3 id="post-请求"><a href="#post-请求" class="headerlink" title="post 请求"></a>post 请求</h3><p>通常，你想要发送一些编码为表单形式的数据——非常像一个 HTML 表单。要实现这个，只需简单地传递一个字典（也可以是个元组）给 data 参数。你的数据字典在发出请求时会自动编码为表单形式</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/7.png" alt></p>
-<p>是不是觉得好简单？哈哈~ 这就是requests向我们提供的简单接口，然后我们直接拿来调用就行了！</p>
- <br>
-
-<br>
-
-<h2 id="Request的高级用法"><a href="#Request的高级用法" class="headerlink" title="Request的高级用法"></a>Request的高级用法</h2><h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>我们知道 Reqeuests 可以模拟提交一些数据，假如有的网站需要我们上传文件，我们同样可以利用它来上传。使用files关键字传递文件，就可以达到我们想要的效果。</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/8.png" alt></p>
-<ul>
-<li>content-type的值是multipart/from-data，表示是以表单数据提交的，证明请求方法为post</li>
-<li>发送到网页，需要以字节流形式传输，所以我们打开文件时必须指定为<strong>“wb”</strong> </li>
-<li>最后使用files关键字指定传入文件，文件需以字典形式传入（键名是什么不重要）</li>
-</ul>
- <br>
-
-<br>
-
-
-
-<h3 id="设置Cookies"><a href="#设置Cookies" class="headerlink" title="设置Cookies"></a>设置Cookies</h3><p>在前面我们使用了 Urllib 处理过 Cookies，写法比较复杂，而有了 Requests，获取和设置Cookies 就比较方便快捷了。而且requests有两种设置方法，我们一起来看看吧~</p>
-<p>① 在请求报文头中设置</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/9.png" alt></p>
- <br>
-
-<br>
-
-<p>② 通过cookies参数进行传递</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/10.png" alt></p>
-<br>
-
-<br>
-
-<h3 id="代理设置"><a href="#代理设置" class="headerlink" title="代理设置"></a>代理设置</h3><p>对于某些网站，在测试的时候请求几次，能正常获取内容。但是一旦开始大规模爬取，对于大规模且频繁的请求，网站可能会提出登录验证、验证码，甚至直接把IP给封禁掉。（我就曾使用selenium对淘宝网进行爬取，结果没爬几页，发现被淘宝反爬虫给识别出来了，这就很尴尬了…）</p>
-<p>那么为了防止这种情况的发生，我们就需要设置代理来解决这个问题，在 Requests 中需要用到 <strong>proxies</strong> 这个参数。</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/11.png" alt></p>
- <br>
-
-<br>
-
-
-
-<h3 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h3><p>在本机网络状况不好或者服务器网络响应太慢甚至无响应时，我们可能会等待特别久的时间才可能会收到一个响应，甚至到最后收不到响应而报错。为了防止服务器不能及时响应，我们应该设置一个超时时间，即超过了这个时间还没有得到响应，那就报错，或者谁用异常处理来处理这类事情。</p>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/12.png" alt></p>
-<ul>
-<li>设置超时时间需要用到 timeout 参数（默认是None）。这个时间的计算是发出 Request 到服务器返回Response 的时间。</li>
-</ul>
 <blockquote>
-<p>上面就是requests的简单介绍了，是不是发现功能都被封装称为各个API中，我们只需要进行调用就好了，有没有像我当初一样，被requests这个库的魅力所感染到了呢？</p>
+<p>乌拉！！   进程线程介绍就到这里了。各位，下期见~</p>
 </blockquote>
-<p><img src="/2019/07/19/爬虫Day5-requests介绍/0.png" alt></p>
 
       
     </div>
@@ -557,8 +480,6 @@
           
             <a href="/tags/Python/" rel="tag"># Python</a>
           
-            <a href="/tags/技术/" rel="tag"># 技术</a>
-          
         </div>
       
 
@@ -570,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/16/计算机基础知识扫盲篇/" rel="next" title="计算机基础知识扫盲篇">
-                <i class="fa fa-chevron-left"></i> 计算机基础知识扫盲篇
+              <a href="/2019/08/04/爬虫Day10-Ajax异步请求/" rel="next" title="爬虫Day10-Ajax异步请求">
+                <i class="fa fa-chevron-left"></i> 爬虫Day10-Ajax异步请求
               </a>
             
           </div>
@@ -579,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/爬虫Day6-BeautifulSoup介绍/" rel="prev" title="爬虫Day6-Beautiful介绍">
-                爬虫Day6-Beautiful介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -741,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Requests的基本使用"><span class="nav-number">1.</span> <span class="nav-text">Requests的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET-请求"><span class="nav-number">1.1.</span> <span class="nav-text">GET 请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟其他请求"><span class="nav-number">1.2.</span> <span class="nav-text">模拟其他请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附加信息"><span class="nav-number">1.3.</span> <span class="nav-text">附加信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定制请求头"><span class="nav-number">1.4.</span> <span class="nav-text">定制请求头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制流数据"><span class="nav-number">1.5.</span> <span class="nav-text">二进制流数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于编码："><span class="nav-number">1.6.</span> <span class="nav-text">关于编码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-请求"><span class="nav-number">1.7.</span> <span class="nav-text">post 请求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Request的高级用法"><span class="nav-number">2.</span> <span class="nav-text">Request的高级用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">2.1.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置Cookies"><span class="nav-number">2.2.</span> <span class="nav-text">设置Cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理设置"><span class="nav-number">2.3.</span> <span class="nav-text">代理设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超时设置"><span class="nav-number">2.4.</span> <span class="nav-text">超时设置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">2.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序？进程？"><span class="nav-number">3.</span> <span class="nav-text">程序？进程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的定义"><span class="nav-number">4.</span> <span class="nav-text">进程的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程切换"><span class="nav-number">5.</span> <span class="nav-text">进程切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程定义"><span class="nav-number">6.</span> <span class="nav-text">线程定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程线程的关系"><span class="nav-number">7.</span> <span class="nav-text">进程线程的关系</span></a></li></ol></div>
             
 
           </div>
