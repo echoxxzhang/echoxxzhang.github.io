@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/10.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png">
-<meta property="og:updated_time" content="2019-08-03T05:54:07.268Z">
+<meta property="og:updated_time" content="2019-08-05T15:17:32.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day6-Beautiful介绍">
 <meta name="twitter:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。         获取Soup对象">
@@ -513,20 +513,19 @@
 </ul>
 <br>
 
-<br> 
-
-
+<br>
 
 <p>② attrs / id ：</p>
 <p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png" alt="网页数据"></p>
 <ul>
-<li>可以通过这些attrs、id 这两个关键字对我们需要的节点传入进行匹配</li>
-</ul>
- <br>
-
+<li><p>可以通过这些attrs、id 这两个关键字对我们需要的节点传入进行匹配 </p>
 <br>
 
-<p>③recursive：是否对子孙全部检索，默认为True，改为False则忽略孙节点</p>
+</li>
+</ul>
+<br>
+
+<p>③recursive：是否对子孙全部检索，默认为True，改为False则忽略孙节点 </p>
  <br>
 
 <br>
@@ -540,13 +539,11 @@
 
 <br> 
 
-
-
 <p><strong>find( )</strong></p>
-<p>find() 方法返回的是<strong>单个元素</strong>，也就是第一个匹配的元素。类型依然是 Tag 类型。（当某个标签只有一个是使用find比较好，因为find返回一个Tag类型，而find_all返回一个列表，这是最大的区别了，有时候我们需要拿到Tag类型的节点，这样对我们的后续操作更为便利），跟find_all很接近，API都是相同.</p>
+<p>find() 方法返回的是<strong>单个元素</strong>，也就是第一个匹配的元素。类型依然是 Tag 类型。（当某个标签只有一个是使用find比较好，因为<strong>find返回一个Tag类型</strong>，而find_all返回一个列表，这是最大的区别了，有时候我们需要拿到Tag类型的节点，这样对我们的后续操作更为便利），跟find_all很接近，API都是相同.</p>
 <h4 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h4><p>经过节点选择，我们已经匹配到我们需要的节点了，接下来应该是获取文本内容了，通过Tag 类型的string 属性，我们可以拿到文本内容，有一个方法那就是 get_text（），同样可以获取文本值。</p>
 <p>只需基于 Tag类型，调用 get_text（） 方法即可。不过需要注意的是： .get_text（）会把你正在处理的 HTML 文档中所有的标签都清除，然后返回一个只包含文字的字符串。假如你正在处理一个包含许多超链接、段落和标签的大段源代码，那么 .get_text() 会把这些超链接、段落和标签都清除掉，只剩下一串不带标签的文字。</p>
-<p>所以，get_text（）方法一般留到最后面使用，不然会影响我们获取节点</p>
+<p>所以，get_text（）方法一般留到最后面使用，不然会影响我们获取节点 </p>
  <br>
 
 <br>
@@ -690,7 +687,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
