@@ -94,11 +94,13 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/7.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/8.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/9.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/14.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png">
-<meta property="og:updated_time" content="2019-08-05T15:17:32.750Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/13.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/24/爬虫Day6-BeautifulSoup介绍/16.png">
+<meta property="og:updated_time" content="2019-08-06T03:04:10.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day6-Beautiful介绍">
 <meta name="twitter:description" content="之前的urllib实战中我们谈到了BeautifulSoup这个解析库，那么…是不是应该来一篇详细介绍呢？ 今天，他来了！！  BeautifulSoup的基本使用：拿到网页数据：一般来说，我们使用解析库的前提，已经是通过请求库拿到了网页的数据，假设现在由下图的 html 变量存储的数据正是我们请求的文本内容，下面我们将使用BeautifulSoup进行加工解析。         获取Soup对象">
@@ -422,15 +424,15 @@
 <br>
 
 <h4 id="属性选择"><a href="#属性选择" class="headerlink" title="属性选择"></a>属性选择</h4><p>调用 soup 的各个方法和属性<strong>（选择器）</strong>对这串HTML代码解析。这个soup对象支持 “.” 获取节点操作，也可以通过”.”表达嵌套关系。</p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/4.png" alt="网页数据"></p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/4.png" alt></p>
 <ul>
 <li>我们直接拿到的soup打印不美观，使用prettify（）方法可以打印出树形结构的 html 文本</li>
 <li>这里我们打印 title 的文本内容，以及 head 节点信息</li>
 </ul>
 <p>上面就是BeautifulSoup的使用流程，有时候，我们需要的内容存放于某些节点中，这些节点有它的特征，我们可以通过<strong>选择器</strong>获取这些节点，最后拿到我们需要的结果。</p>
 <hr>
-<h3 id="节点选择器："><a href="#节点选择器：" class="headerlink" title="节点选择器："></a>节点选择器：</h3><h4 id="选择元素："><a href="#选择元素：" class="headerlink" title="选择元素："></a>选择元素：</h4><p> 元素选择—— 直接通过调用节点的名称就可以选择节点元素了，这种选择方式速度非常快，如果单个节点结构话层次非常清晰，可以选用这种方式来解析。</p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/5.png" alt="网页数据"></p>
+<h3 id="节点选择器："><a href="#节点选择器：" class="headerlink" title="节点选择器："></a>节点选择器：</h3><h4 id="选择节点："><a href="#选择节点：" class="headerlink" title="选择节点："></a>选择节点：</h4><p>直接通过调用节点的名称就可以选择节点元素了，这种选择方式速度非常快，如果单个节点结构话层次非常清晰，可以选用这种方式来解析。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/5.png" alt></p>
 <ul>
 <li><p>注意，我们的选择器是基于soup这个对象的</p>
 </li>
@@ -445,11 +447,13 @@
 
 
 
-<h4 id="获取属性："><a href="#获取属性：" class="headerlink" title="获取属性："></a>获取属性：</h4><p>每个节点可能有多个属性，比如id，class 等等，我们选择到这个节点元素之后，可以调用 attrs 获取所有属性。</p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/7.png" alt="网页数据"></p>
+<h4 id="获取属性值："><a href="#获取属性值：" class="headerlink" title="获取属性值："></a>获取属性值：</h4><p>每个节点可能有多个属性，比如id，class 等等，我们选择到这个节点元素之后，可以调用 attrs 获取所有属性。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/7.png" alt></p>
 <ul>
 <li>可以看到 attrs 的返回结果是字典形式，把选择的节点的所有属性和属性值组合成一个字典。因此，可以通过键值形式进行取值传入节点的属性，获取该节点的属性值</li>
 </ul>
+<br>
+
 <p><strong>contents 属性：</strong></p>
 <p>选取到了一个节点元素之后，如果想要获取它的<strong>直接子节点的信息</strong>   （不包含子孙节点），可以调用<br>contents 属性（和直接选择不同的是，contents返回的<strong>列表</strong>包含了<strong>所有子节点和所有文本信息</strong>）</p>
 <br>
@@ -490,7 +494,7 @@
 </tr>
 </tbody></table>
 <p>需要注意的是：<strong>上面这些节点选择，但凡涉及到多个节点内容，就会返回一个生成器类型。</strong></p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/8.png" alt="网页数据"></p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/8.png" alt></p>
 <ul>
 <li><p>关于这些节点选择，我们要注意 html 树型结构的排列关系，例如，我们不能跨越父级节点，去拿到另一个子孙节点的内容。</p>
 <br>
@@ -501,22 +505,30 @@
 
 
 
-<h4 id="方法选择器"><a href="#方法选择器" class="headerlink" title="方法选择器"></a>方法选择器</h4><p>前面我们所讲的选择方法都是通过属性来选择元素的，这种选择方法非常快，但是如果要进行比较复杂的选择的话则会比较繁琐，不够灵活。所以 BeautifulSoup 还为我们提供了一些查询的方法，这里介绍非常常用的 find_all()、find() 等方法，我们可以调用方法然后传入相应等参数就可以灵活地进行查询。</p>
+<h4 id="调用-API"><a href="#调用-API" class="headerlink" title="调用 API"></a>调用 API</h4><p>前面我们所讲的选择方法都是通过属性来选择元素的，这种选择方法非常快，但是如果要进行比较复杂的选择的话则会比较繁琐，不够灵活。所以 BeautifulSoup 还为我们提供了一些查询的方法，这里介绍非常常用的 find_all()、find() 等方法，我们可以调用方法然后传入相应等参数就可以灵活地进行查询。</p>
+ <br>
+
+
+
 <p><strong>find_all(</strong> <strong>)</strong><br>查询所有符合条件的元素，可以给它传入一些属性或文本来得到符合条件的元素，并使用一个列表进行返回。</p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/9.png" alt="网页数据"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">它的API 如下：</span><br><span class="line">find_all (name, attrs, recursicve, text, **kwargs)</span><br></pre></td></tr></table></figure>
+
 <p>我们接下来针对它的 API 下的属性进行介绍</p>
-<p>①name：根据标签名选择节点</p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/10.png" alt="网页数据"></p>
+<p><strong>①name：根据标签名选择节点</strong></p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/10.png" alt></p>
 <ul>
 <li>方法选择器会返回一个Tag标签的类型，也就是说，其支持嵌套获取元素、层层迭代使用find_all等等操作。</li>
 <li>当name=True时，匹配所有标签。</li>
 </ul>
+<p><strong>string 属性获取文本：</strong></p>
+<p>如果我们想拿到节点中的文本，该怎么做呢？  使用列表切片方式取值，再调用.string属性，即可获取文本。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/14.png" alt></p>
 <br>
 
 <br>
 
-<p>② attrs / id ：</p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png" alt="网页数据"></p>
+<p><strong>② attrs / id ：根据属性值匹配</strong></p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/11.png" alt></p>
 <ul>
 <li><p>可以通过这些attrs、id 这两个关键字对我们需要的节点传入进行匹配 </p>
 <br>
@@ -525,31 +537,36 @@
 </ul>
 <br>
 
-<p>③recursive：是否对子孙全部检索，默认为True，改为False则忽略孙节点 </p>
- <br>
-
-<br>
-
-<p>④ text：用来匹配节点的文本，文本参数 text是用标签的文本内容去匹配，而不是用标签的属性。传入的形式可以是文本字符串，也可以是正则表达式对象（compile）</p>
-<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png" alt="网页数据"></p>
+<p>③ text：用来匹配节点的文本，文本参数 text是用标签的文本内容去匹配，而不是用标签的属性。</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/12.png" alt></p>
 <ul>
-<li>也可以使用text = “Hello，this is a link” 这样的形式进行匹配节点。</li>
+<li>传入的形式可以是文本字符串，也可以是正则表达式对象（compile方法生成的对象）</li>
+<li>举例：text = “Hello，this is a link” 这样的形式进行匹配节点。</li>
 </ul>
 <br>
 
 <br> 
 
 <p><strong>find( )</strong></p>
-<p>find() 方法返回的是<strong>单个元素</strong>，也就是第一个匹配的元素。类型依然是 Tag 类型。（当某个标签只有一个是使用find比较好，因为<strong>find返回一个Tag类型</strong>，而find_all返回一个列表，这是最大的区别了，有时候我们需要拿到Tag类型的节点，这样对我们的后续操作更为便利），跟find_all很接近，API都是相同.</p>
-<h4 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h4><p>经过节点选择，我们已经匹配到我们需要的节点了，接下来应该是获取文本内容了，通过Tag 类型的string 属性，我们可以拿到文本内容，有一个方法那就是 get_text（），同样可以获取文本值。</p>
-<p>只需基于 Tag类型，调用 get_text（） 方法即可。不过需要注意的是： .get_text（）会把你正在处理的 HTML 文档中所有的标签都清除，然后返回一个只包含文字的字符串。假如你正在处理一个包含许多超链接、段落和标签的大段源代码，那么 .get_text() 会把这些超链接、段落和标签都清除掉，只剩下一串不带标签的文字。</p>
-<p>所以，get_text（）方法一般留到最后面使用，不然会影响我们获取节点 </p>
+<p>find() 方法返回的是<strong>单个元素</strong>，也就是第一个匹配的元素。类型依然是 Tag 类型。（当某个标签只有一个是使用find比较好，因为<strong>find返回一个Tag类型</strong>，而find_all返回一个列表，这是最大的区别了，有时候我们需要拿到Tag类型的节点，这样对我们的后续操作更为便利），跟find_all很相似，API都是相同.</p>
  <br>
 
 <br>
 
-
-
+<hr>
+<h3 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h3><p>BeautifulSoup 还提供了另外一种选择器，那就是 CSS 选择器，只需要调用 <strong>select()</strong> 方法，传入相应的 CSS 选择器即可</p>
+<p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/13.png" alt></p>
+<ul>
+<li>CSS选择器是 BeautifulSoup 最大的特性，比较简便，且好理解</li>
+<li>例如：    id =“xx”   我们就可以写成  ‘#xx’，传给select 方法匹配</li>
+</ul>
+<h4 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h4><p>经过节点选择，我们已经匹配到我们需要的节点了，接下来应该是获取文本内容了，通过Tag 类型的string 属性，我们可以拿到文本内容，<strong>还有一个方法那就是 get_text（）</strong>，同样可以获取文本值。</p>
+<p>只需基于 Tag类型，调用 get_text（） 方法即可。不过需要注意的是： .get_text（）会把你正在处理的 HTML 文档中所有的标签都清除，然后返回一个只包含文字的字符串。假如你正在处理一个包含许多超链接、段落和标签的大段源代码，那么 .get_text() 会把这些超链接、段落和标签都清除掉，只剩下一串不带标签的文字。</p>
+<p>所以，get_text（）方法一般留到节点匹配之后使用，不然会影响我们获取节点 </p>
+<h4 id="获取属性"><a href="#获取属性" class="headerlink" title="获取属性"></a>获取属性</h4><p><img src="/2019/07/24/爬虫Day6-BeautifulSoup介绍/16.png" alt></p>
+<ul>
+<li>这个属性还是比较常用的，例如获取 a 标签的href 属性，我们就能得到链接了</li>
+</ul>
 <h3 id="写在最后："><a href="#写在最后：" class="headerlink" title="写在最后："></a>写在最后：</h3><ul>
 <li>说一下节点选择的建议：页面布局总是不断变化的。一个标签这次是在表格中第一行的位置，没准儿哪天就在第二行或第三行了。如果想让你的爬虫更稳定，最好还是让标签的选择更加具体。<strong>如果有属性，就利用标签的属性。</strong></li>
 <li>解析库呢，就像一把锤子，使用的是我们，我们学会如何使用一把锤子的同时呢，也要关注什么时候去使用它，不要手上握着一把锤子，看任何问题都是钉子。使用适当的解析库去拿到我们需要的内容才是我们应该做的，使用什么样的锤子并不重要。</li>
@@ -760,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup的基本使用："><span class="nav-number">1.</span> <span class="nav-text">BeautifulSoup的基本使用：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拿到网页数据："><span class="nav-number">1.1.</span> <span class="nav-text">拿到网页数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取Soup对象："><span class="nav-number">1.2.</span> <span class="nav-text">获取Soup对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性选择"><span class="nav-number">1.3.</span> <span class="nav-text">属性选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点选择器："><span class="nav-number">2.</span> <span class="nav-text">节点选择器：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择元素："><span class="nav-number">2.1.</span> <span class="nav-text">选择元素：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取属性："><span class="nav-number">2.2.</span> <span class="nav-text">获取属性：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联选择："><span class="nav-number">2.3.</span> <span class="nav-text">关联选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法选择器"><span class="nav-number">2.4.</span> <span class="nav-text">方法选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取文本"><span class="nav-number">2.5.</span> <span class="nav-text">获取文本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后："><span class="nav-number">3.</span> <span class="nav-text">写在最后：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#BeautifulSoup的基本使用："><span class="nav-number">1.</span> <span class="nav-text">BeautifulSoup的基本使用：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拿到网页数据："><span class="nav-number">1.1.</span> <span class="nav-text">拿到网页数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取Soup对象："><span class="nav-number">1.2.</span> <span class="nav-text">获取Soup对象：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性选择"><span class="nav-number">1.3.</span> <span class="nav-text">属性选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点选择器："><span class="nav-number">2.</span> <span class="nav-text">节点选择器：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择节点："><span class="nav-number">2.1.</span> <span class="nav-text">选择节点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取属性值："><span class="nav-number">2.2.</span> <span class="nav-text">获取属性值：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联选择："><span class="nav-number">2.3.</span> <span class="nav-text">关联选择：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用-API"><span class="nav-number">2.4.</span> <span class="nav-text">调用 API</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS选择器"><span class="nav-number">3.</span> <span class="nav-text">CSS选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取文本"><span class="nav-number">3.1.</span> <span class="nav-text">获取文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取属性"><span class="nav-number">3.2.</span> <span class="nav-text">获取属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后："><span class="nav-number">4.</span> <span class="nav-text">写在最后：</span></a></li></ol></div>
             
 
           </div>
