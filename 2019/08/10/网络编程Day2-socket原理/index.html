@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day2-socket原理/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day2-socket原理/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day2-socket原理/3.png">
-<meta property="og:updated_time" content="2019-08-10T06:30:27.866Z">
+<meta property="og:updated_time" content="2019-08-10T07:01:09.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程Day2-socket原理">
 <meta name="twitter:description" content="前言之前我们在 计算机网络系列中提到过，应用都是依靠传输层协议进行通信的，并且，不同的网络应用使用端口号进行区分。我们知道IP层的ip地址可以唯一标识主机，而TCP协议和端口号可以唯一标示主机的一个进程。本地进程通讯中我们可以使用PID来唯一标示一个进程，但PID只在本地唯一，网络中的两个进程PID冲突几率很大，这时候我们需要另辟它径了。那么，Socket（套接字）就诞生了。 socket套接字">
@@ -464,6 +464,11 @@
 
 <p>当然，这种粘包现象是有解决方案的——使用UDP，它是无连接的、面向消息的，数据包与包之间互相独立，一收对应一发，因此没有粘包现象的产生。但是会丢数据，不可靠。</p>
 <p>或者，告诉对端消息边界——在实际数据交互之前，通知对方，“我”的数据有多少；或者将多次发送数据的情况分隔开。</p>
+<br>
+
+<blockquote>
+<p> 这篇socket就介绍到这儿了，下回见~</p>
+</blockquote>
 
       
     </div>
@@ -503,6 +508,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/10/网络编程Day3-子线程/" rel="prev" title="网络编程Day3-子线程">
+                网络编程Day3-子线程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -588,7 +597,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
