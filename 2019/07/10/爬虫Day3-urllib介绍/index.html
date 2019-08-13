@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/10/爬虫Day3-urllib介绍/14.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/10/爬虫Day3-urllib介绍/15.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/10/爬虫Day3-urllib介绍/a1.png">
-<meta property="og:updated_time" content="2019-08-03T05:52:47.508Z">
+<meta property="og:updated_time" content="2019-08-13T12:14:56.466Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day3-urllib介绍">
 <meta name="twitter:description" content="Urllib介绍在 Python2 版本中，有 Urllib 和 Urlib2 两个库可以用来实现Request的发送。而在 Python3 中，已经不存在Urllib2 这个库了，统一为 Urllib urllib分为四个模块：  第一个模块是request，它是最基本的HTTP请求模块，我们可以用它模拟发送请求，就像在浏览器手动输入网址然后敲击回车一样，只需要给库方法传入URL，以及额外的参数">
@@ -518,7 +518,8 @@
 
 
 
-<h3 id="parse模块"><a href="#parse模块" class="headerlink" title="parse模块"></a>parse模块</h3><p><strong>1.urlparse（）</strong></p>
+<h3 id="parse模块"><a href="#parse模块" class="headerlink" title="parse模块"></a>parse模块</h3><p>这是一个工具模块，用的地方挺多的。</p>
+<p><strong>1.urlparse（）</strong></p>
 <p>urlparse() 方法可以实现 URL 的识别和分段,返回六个部分的内容，字段分别是 scheme、netloc、path、params、query、fragment。</p>
 <p><img src="/2019/07/10/爬虫Day3-urllib介绍/12.png" alt></p>
 <br>
@@ -542,7 +543,7 @@
 <br>
 
 <p><strong>4.quote（）</strong></p>
-<p>quote() 方法可以将内容转化为 URL 编码的格式，有时候 URL 中带有中文参数的时候可能导致乱码的问题，所以我们可以用这个方法将中文字符转化为 URL 编码</p>
+<p><strong>quote() 方法可以将内容转化为 URL 编码的格式</strong>，有时候 URL 中带有中文参数的时候可能导致乱码的问题，所以我们可以用这个方法将中文字符转化为 URL 编码</p>
 <p><img src="/2019/07/10/爬虫Day3-urllib介绍/15.png" alt></p>
  <br>
 
@@ -556,7 +557,7 @@
 
 
 
-<h3 id="robotparser"><a href="#robotparser" class="headerlink" title="robotparser"></a>robotparser</h3><p>在介绍rebotparser模块之前呢，我们需要对robots协议进行了解 </p>
+<h3 id="robotparser模块"><a href="#robotparser模块" class="headerlink" title="robotparser模块"></a>robotparser模块</h3><p>在介绍rebotparser模块之前呢，我们需要对robots协议进行了解 </p>
 <p>Robots 协议也被称作爬虫协议、机器人协议，它的全名叫做网络爬虫排除标准（Robots Exclusion Protocol），用来告诉爬虫和搜索引擎哪些页面可以抓取，哪些不可以抓取。它通常是一个叫做 robots.txt 的文本文件，放在网站的根目录下。</p>
 <p>robotparse：用来解析rebots文件的类</p>
 <p>robotparser 模块提供了一个类，叫做 RobotFileParser。它可以根据某网站的 robots.txt 文件来判断一个爬取爬虫是否有权限来爬取这个网页。</p>
@@ -714,7 +715,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -787,7 +788,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Urllib介绍"><span class="nav-number">1.</span> <span class="nav-text">Urllib介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#request模块"><span class="nav-number">1.1.</span> <span class="nav-text">request模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error模块"><span class="nav-number">1.2.</span> <span class="nav-text">Error模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parse模块"><span class="nav-number">1.3.</span> <span class="nav-text">parse模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#robotparser"><span class="nav-number">1.4.</span> <span class="nav-text">robotparser</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Urllib介绍"><span class="nav-number">1.</span> <span class="nav-text">Urllib介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#request模块"><span class="nav-number">1.1.</span> <span class="nav-text">request模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Error模块"><span class="nav-number">1.2.</span> <span class="nav-text">Error模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parse模块"><span class="nav-number">1.3.</span> <span class="nav-text">parse模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#robotparser模块"><span class="nav-number">1.4.</span> <span class="nav-text">robotparser模块</span></a></li></ol></li></ol></div>
             
 
           </div>
