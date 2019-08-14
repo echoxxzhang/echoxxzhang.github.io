@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="前言久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——selenium 同时，这也是我目前最为喜欢的爬取工具，让我们往下看看吧~ Selenium 是一个自动化测试工具，利用它我们可以驱动浏览器执行特定的动作，如点击、下拉等等操作，同时还可以获取浏览器当前呈现的页面的源代码，做到可见即可爬。">
+<meta name="description" content="前言久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——selenium 同时，这也是我目前最为喜欢的爬取工具。 Selenium 是一个自动化测试工具，利用它我们可以驱动浏览器执行特定的动作，如点击、下拉等等操作，同时还可以获取浏览器当前呈现的页面的源代码，做到可见即可爬。用 Seleniu">
 <meta name="keywords" content="技术,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫Day8-Selenium魔法师">
 <meta property="og:url" content="http://yoursite.com/2019/07/31/爬虫Day8-Selenium魔法师/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——selenium 同时，这也是我目前最为喜欢的爬取工具，让我们往下看看吧~ Selenium 是一个自动化测试工具，利用它我们可以驱动浏览器执行特定的动作，如点击、下拉等等操作，同时还可以获取浏览器当前呈现的页面的源代码，做到可见即可爬。">
+<meta property="og:description" content="前言久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——selenium 同时，这也是我目前最为喜欢的爬取工具。 Selenium 是一个自动化测试工具，利用它我们可以驱动浏览器执行特定的动作，如点击、下拉等等操作，同时还可以获取浏览器当前呈现的页面的源代码，做到可见即可爬。用 Seleniu">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/31/爬虫Day8-Selenium魔法师/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/31/爬虫Day8-Selenium魔法师/1.gif">
@@ -99,10 +99,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/31/爬虫Day8-Selenium魔法师/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/31/爬虫Day8-Selenium魔法师/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/31/爬虫Day8-Selenium魔法师/7.png">
-<meta property="og:updated_time" content="2019-08-05T11:50:58.680Z">
+<meta property="og:updated_time" content="2019-08-14T12:49:39.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day8-Selenium魔法师">
-<meta name="twitter:description" content="前言久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——selenium 同时，这也是我目前最为喜欢的爬取工具，让我们往下看看吧~ Selenium 是一个自动化测试工具，利用它我们可以驱动浏览器执行特定的动作，如点击、下拉等等操作，同时还可以获取浏览器当前呈现的页面的源代码，做到可见即可爬。">
+<meta name="twitter:description" content="前言久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——selenium 同时，这也是我目前最为喜欢的爬取工具。 Selenium 是一个自动化测试工具，利用它我们可以驱动浏览器执行特定的动作，如点击、下拉等等操作，同时还可以获取浏览器当前呈现的页面的源代码，做到可见即可爬。用 Seleniu">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/31/爬虫Day8-Selenium魔法师/1.png">
 
 
@@ -402,21 +402,17 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——selenium</p>
-<p>同时，这也是我目前最为喜欢的爬取工具，让我们往下看看吧~</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>久违的爬虫Day 系列！！ 自从计算机网络系列更新完之后，我又把目光投到爬虫系列来了hhh… 今天介绍的技术可厉害了，在外人眼中，这近乎是“魔法”，那就是——<code>selenium</code></p>
+<p>同时，这也是我目前最为喜欢的爬取工具。</p>
 <p>Selenium 是一个自动化测试工具，利用它我们可以驱动浏览器执行特定的动作，如点击、下拉等等操作，同时还可以获取浏览器当前呈现的页面的源代码，做到可见即可爬。用 Selenium 来驱动浏览器加载网页的话，我们就可以直接拿到 JavaScript 渲染的结果了，不管是什么加密统统不用再需要担心。</p>
  <br>
 
 <br>
 
 <h3 id="环境准备："><a href="#环境准备：" class="headerlink" title="环境准备："></a>环境准备：</h3><ul>
-<li><p>selenium库</p>
+<li><p>selenium </p>
 </li>
-<li><p>python3、Pycharm</p>
-</li>
-<li><p>Chrome浏览器</p>
-</li>
-<li><p>ChromeDriver</p>
+<li><p>Chrome浏览器 与 ChromeDriver</p>
 </li>
 <li><p>以上内容，请自行百度安装</p>
 <br>
@@ -556,6 +552,8 @@
 
 <h4 id="显示等待"><a href="#显示等待" class="headerlink" title="显示等待"></a>显示等待</h4><p>实际情况中，显示等待用的比较多，因为隐式等待的效果其实并没有那么好，因为我们只是规定了一个固定时间，而页面的加载时间是受到网络条件影响的。</p>
 <p>所以在这里还有一种更合适的显式等待方法，它<strong>直接指定好要查找的节点</strong>，然后指定一个最长等待时间。如果在规定时间内加载出来了这个节点，那就返回查找的节点，如果到了规定时间依然没有加载出该节点，则会抛出超时异常。并且还有一个好处——当页面加载很慢时，使用显示等待，<strong>等到需要操作的那个元素加载成功之后就直接操作这个元素，不需要等待其他元素的加载。</strong></p>
+<br>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">"https://www.zhihu.com/explore"</span>)</span><br><span class="line">wait = WebDriverWait(driver, <span class="number">10</span>)   <span class="comment"># 传入一个wait对象</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    element = wait.until(</span><br><span class="line">        EC.presence_of_element_located((By.CLASS_NAME, <span class="string">"zu-top-add-question"</span>)))   <span class="comment"># 调用until方法</span></span><br><span class="line">		</span><br><span class="line">        </span><br><span class="line">    print(element)</span><br><span class="line">    <span class="comment"># 得到的依旧是Element对象</span></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    print(<span class="string">"ok"</span>)</span><br><span class="line">    driver.quit()</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -585,8 +583,10 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException, NoSuchElementException</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome()</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    browser.get(<span class="string">'https://www.baidu.com'</span>)</span><br><span class="line"><span class="keyword">except</span> TimeoutException:   <span class="comment"># 超时的异常处理</span></span><br><span class="line">    print(<span class="string">'Time Out'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    browser.find_element_by_id(<span class="string">'hello'</span>)</span><br><span class="line"><span class="keyword">except</span> NoSuchElementException:   <span class="comment"># 没有找到节点的异常处理</span></span><br><span class="line">    print(<span class="string">'No Element'</span>)</span><br><span class="line"><span class="keyword">finally</span>:                  <span class="comment"># 最终执行的语句</span></span><br><span class="line">    browser.close()</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>异常处理有利于我们后期的排错，也有利于爬取过程中一些错误的处理，一个完整的爬虫脚本应该含括异常处理</li>
+<li>异常处理有利于我们后期的排错，也有利于爬取过程中一些错误的处理，一个完整的爬虫脚本应该含括异常处理。</li>
 </ul>
+<br>
+
 <blockquote>
 <p>我们把 selenium 大概的介绍完了！ 有没有像我一样，一接触selenium 就被他高明的抓取手段迷住了呢？哈哈</p>
 </blockquote>
@@ -720,7 +720,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

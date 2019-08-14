@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个模块  线程的运行规律我们开启了两个子线程，依次让这两个子线程执行一个hello函数，里">
+<meta name="description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网络编程Day3-子线程">
 <meta property="og:url" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个模块  线程的运行规律我们开启了两个子线程，依次让这两个子线程执行一个hello函数，里">
+<meta property="og:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/3.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/5.png">
-<meta property="og:updated_time" content="2019-08-10T07:15:14.475Z">
+<meta property="og:updated_time" content="2019-08-14T13:25:50.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程Day3-子线程">
-<meta name="twitter:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个模块  线程的运行规律我们开启了两个子线程，依次让这两个子线程执行一个hello函数，里">
+<meta name="twitter:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
 <meta name="twitter:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/1.png">
 
 
@@ -372,7 +372,7 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前我们讨论了进程与线程，<a href="/2019/08/05/网络编程Day1-进程线程概念/" title="网络编程Day1-进程线程概念">网络编程Day1-进程线程概念</a>，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前我们讨论了进程与线程，<a href="/2019/08/05/网络编程Day1-进程线程概念/" title="网络编程Day1-进程线程概念">网络编程Day1-进程线程概念</a>，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。</p>
 <br>
 
 <h3 id="创建子线程"><a href="#创建子线程" class="headerlink" title="创建子线程"></a>创建子线程</h3><p>创建线程有两种方法：</p>
@@ -529,7 +529,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

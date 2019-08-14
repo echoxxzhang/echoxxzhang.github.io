@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="urllib爬虫实战之爬取笔趣阁小说前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。        环境运行平台： WindowsPython版本： Python3.xIDE： Pycharm      BeautifulS">
+<meta name="description" content="urllib爬虫实战之爬取笔趣阁小说前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。      环境运行平台： WindowsPython版本： Python 3.xIDE： Pycharm      BeautifulSo">
 <meta name="keywords" content="技术,Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫Day4-urllib实战">
 <meta property="og:url" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="urllib爬虫实战之爬取笔趣阁小说前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。        环境运行平台： WindowsPython版本： Python3.xIDE： Pycharm      BeautifulS">
+<meta property="og:description" content="urllib爬虫实战之爬取笔趣阁小说前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。      环境运行平台： WindowsPython版本： Python 3.xIDE： Pycharm      BeautifulSo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/2.png">
@@ -93,13 +93,14 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/2.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/7.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/9.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/timg.jpg">
-<meta property="og:updated_time" content="2019-08-03T05:53:08.399Z">
+<meta property="og:updated_time" content="2019-08-14T12:27:02.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day4-urllib实战">
-<meta name="twitter:description" content="urllib爬虫实战之爬取笔趣阁小说前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。        环境运行平台： WindowsPython版本： Python3.xIDE： Pycharm      BeautifulS">
+<meta name="twitter:description" content="urllib爬虫实战之爬取笔趣阁小说前言上一节我们介绍了urllib这个基本库，它的内容还是蛮多的，要想熟练掌握爬虫，必须配合实战进行巩固。一开始小伙伴们可能会觉得无从下手，特别是解析响应内容这一步。这一次，作者将会从小白的角度，讲述如何对网页进行爬取、解析。      环境运行平台： WindowsPython版本： Python 3.xIDE： Pycharm      BeautifulSo">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/15/爬虫Day4-urllib实战/1.png">
 
 
@@ -404,9 +405,7 @@
 
 <br>
 
-
-
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p><strong>运行平台：</strong> Windows<br><strong>Python版本：</strong> Python3.x<br><strong>IDE：</strong> Pycharm</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p><strong>运行平台：</strong> Windows<br><strong>Python版本：</strong> Python 3.x<br><strong>IDE：</strong> Pycharm</p>
  <br>
 
 <br>
@@ -444,8 +443,6 @@
 
 <h4 id="获取内容"><a href="#获取内容" class="headerlink" title="获取内容"></a>获取内容</h4><p>① 打开url链接，按F12或者右键- 检查 进入开发者工具</p>
 <p><img src="/2019/07/15/爬虫Day4-urllib实战/2.png" alt></p>
- <br>
-
 <br>
 
 <p>② 在开发者工具中，捕获我们要找到的请求条目信息</p>
@@ -458,19 +455,17 @@
 </ol>
  <br>
 
-<br>
-
 <p>③ 构造url请求</p>
 <p>有了上面的信息还不够，现在的网站都有了反爬能力，我们需要模拟一条正常从浏览器中发出的url请求链接。  </p>
 <p>例如： User-Agent（浏览器标识）、Cookies（标识客户端身份的“钥匙”）、referer等等字段</p>
-<p>那么，这些包含在请求头的字段信息，我们应该如何构造呢?   还是开发者工具，点击Headers，就可以看到Request-Response条目明细。</p>
+<p>那么，这些包含在请求头的字段信息，我们应该如何构造这些字段信息呢?   还是开发者工具，点击Headers，就可以看到<code>Request-Response</code>条目明细。</p>
 <p><img src="/2019/07/15/爬虫Day4-urllib实战/4.png" alt></p>
 <br>
 
-<br> 
-
 <p>④ 发出请求： 有了字段的详细内容，我们就可以编写出请求网页的代码…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">def get_page(url):</span><br><span class="line">    headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0&apos;,&apos;Cookie&apos;:&apos;UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333&apos;&#125;</span><br><span class="line">    Request = urllib.request.Request(url,headers=headers)</span><br><span class="line">    response = urllib.request.urlopen(Request)</span><br><span class="line">    html = response.read()</span><br><span class="line">    print(html)</span><br><span class="line">    return html</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    headers = &#123;<span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0'</span>,<span class="string">'Cookie'</span>:<span class="string">'UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333'</span>&#125;</span><br><span class="line">    Request = urllib.request.Request(url,headers=headers)</span><br><span class="line">    response = urllib.request.urlopen(Request)</span><br><span class="line">    html = response.read()</span><br><span class="line">    print(html)</span><br><span class="line">    <span class="keyword">return</span> html</span><br></pre></td></tr></table></figure>
+
+<br>
 
 <p>⑤ 获得相应内容：运行，得到内容如下:</p>
 <p><img src="/2019/07/15/爬虫Day4-urllib实战/5.png" alt></p>
@@ -479,15 +474,15 @@
 
 <br> 
 
-
-
 <h4 id="解析响应数据"><a href="#解析响应数据" class="headerlink" title="解析响应数据"></a>解析响应数据</h4><p>接下来，我们就可以使用BeautifulSoup进行解析</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def parser_page(html):</span><br><span class="line">    soup = BeautifulSoup(html,&apos;lxml&apos;,from_encoding=&apos;utf-8&apos;)</span><br><span class="line">    # 传入编码方式，为utf-8</span><br><span class="line">    text = soup.find(&apos;div&apos;, class_=&apos;showtxt&apos;)</span><br><span class="line">    # 使用BeautifulSoup的find方法，匹配符合的节点，该节点为我们上文得知的属性</span><br><span class="line">    cont = text.get_text()</span><br><span class="line">    # 输出文本内容</span><br><span class="line">    cont = str(cont).split()</span><br><span class="line">	# 将空白符进行分割，这里的作用是消除 \xa0、\u3000空白符</span><br><span class="line">    print(cont)</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parser_page</span><span class="params">(html)</span>:</span></span><br><span class="line">    soup = BeautifulSoup(html,<span class="string">'lxml'</span>,from_encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    <span class="comment"># 传入编码方式，为utf-8</span></span><br><span class="line">    text = soup.find(<span class="string">'div'</span>, class_=<span class="string">'showtxt'</span>)</span><br><span class="line">    <span class="comment"># 使用BeautifulSoup的find方法，匹配符合的节点，该节点为我们上文得知的属性</span></span><br><span class="line">    cont = text.get_text()</span><br><span class="line">    <span class="comment"># 输出文本内容</span></span><br><span class="line">    cont = str(cont).split()</span><br><span class="line">	<span class="comment"># 将空白符进行分割，这里的作用是消除 \xa0、\u3000空白符</span></span><br><span class="line">    print(cont)</span><br></pre></td></tr></table></figure>
 
 <p>运行….代码结果如图：</p>
 <p><img src="/2019/07/15/爬虫Day4-urllib实战/6.png" alt></p>
+ <br>
+
+<p>拿到小说数据！ 到这里，不少同学露出这样的微笑，哈哈哈</p>
+<p><img src="/2019/07/15/爬虫Day4-urllib实战/2.jpg" alt></p>
  <br>
 
 <br>
@@ -500,13 +495,11 @@
 
 <br>
 
-<p>打开result.txt文件，内容如下（完成！）</p>
+<p>打开result.txt文件，内容如下：</p>
 <p><img src="/2019/07/15/爬虫Day4-urllib实战/9.png" alt></p>
  <br>
 
 <br>
-
-
 
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>本次我们实战项目就告一段落啦，最后再为大家做一次梳理总结。</p>
 <ol>
@@ -516,7 +509,9 @@
 <li>写入文件</li>
 </ol>
 <p>全文代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line">url = &apos;https://www.biqukan.com/1_1094/5403177.html&apos;</span><br><span class="line">def get_page(url):</span><br><span class="line">    headers = &#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0&apos;,&apos;Cookie&apos;:&apos;UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333&apos;&#125;</span><br><span class="line">    Request = urllib.request.Request(url,headers=headers)</span><br><span class="line">    response = urllib.request.urlopen(Request)</span><br><span class="line">    html = response.read()</span><br><span class="line">    return html</span><br><span class="line"></span><br><span class="line">def parser_page(html):</span><br><span class="line">    soup = BeautifulSoup(html,&apos;lxml&apos;,from_encoding=&apos;utf-8&apos;)</span><br><span class="line">    text = soup.find(&apos;div&apos;, class_=&apos;showtxt&apos;)</span><br><span class="line">    cont = text.get_text()</span><br><span class="line">    cont = str(cont).split()</span><br><span class="line"></span><br><span class="line">    return cont</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    html = get_page(url)</span><br><span class="line">    results = parser_page(html)</span><br><span class="line">    with open(&apos;result.txt&apos;,&apos;w&apos;,encoding=&apos;utf-8&apos;) as f :</span><br><span class="line">        for result in results:</span><br><span class="line">            f.write(result)</span><br><span class="line">            f.write(&apos;\n&apos;)</span><br><span class="line"></span><br><span class="line">    print(&quot;爬取完毕&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://www.biqukan.com/1_1094/5403177.html'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_page</span><span class="params">(url)</span>:</span></span><br><span class="line">    headers = &#123;<span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0'</span>,<span class="string">'Cookie'</span>:<span class="string">'UM_distinctid=16b8523768d317-020cad425c2672-e343166-144000-16b8523768e115; bcolor=; font=; size=; fontcolor=; width=; CNZZDATA1260938422=1245222118-1561302037-https%253A%252F%252Fblog.csdn.net%252F%7C1563150333'</span>&#125;</span><br><span class="line">    Request = urllib.request.Request(url,headers=headers)</span><br><span class="line">    response = urllib.request.urlopen(Request)</span><br><span class="line">    html = response.read()</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parser_page</span><span class="params">(html)</span>:</span></span><br><span class="line">    soup = BeautifulSoup(html,<span class="string">'lxml'</span>,from_encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    text = soup.find(<span class="string">'div'</span>, class_=<span class="string">'showtxt'</span>)</span><br><span class="line">    cont = text.get_text()</span><br><span class="line">    cont = str(cont).split()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cont</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    html = get_page(url)</span><br><span class="line">    results = parser_page(html)</span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'result.txt'</span>,<span class="string">'w'</span>,encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f :</span><br><span class="line">        <span class="keyword">for</span> result <span class="keyword">in</span> results:</span><br><span class="line">            f.write(result)</span><br><span class="line">            f.write(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"爬取完毕"</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
 
 <p>耗费一上午时间，终于把这篇文章给赶出来了~</p>
 <p>爬虫Day系列会持续更新，让我们共同期待吧！</p>
@@ -651,7 +646,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

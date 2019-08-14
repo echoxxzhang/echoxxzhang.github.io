@@ -88,8 +88,7 @@
 <meta property="og:description" content="爬虫基础：简单来说，爬虫就是请求网页并提取数据和保存信息的自动化程序。 人们常常把爬虫比做蜘蛛爬网，把网的节点比做一个个网页，爬虫爬到这就相当于访问了该页面获取了其信息，节点间的连线可以比做网页与网页之间的链接关系，这样蜘蛛通过一个节点后可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，这样网站的数据就可以被抓取下来了。      简">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/09/爬虫Day2-爬虫基础/4.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/07/09/爬虫Day2-爬虫基础/3.jpg">
-<meta property="og:updated_time" content="2019-08-03T05:52:16.192Z">
+<meta property="og:updated_time" content="2019-08-14T12:06:16.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day2_爬虫基础">
 <meta name="twitter:description" content="爬虫基础：简单来说，爬虫就是请求网页并提取数据和保存信息的自动化程序。 人们常常把爬虫比做蜘蛛爬网，把网的节点比做一个个网页，爬虫爬到这就相当于访问了该页面获取了其信息，节点间的连线可以比做网页与网页之间的链接关系，这样蜘蛛通过一个节点后可以顺着节点连线继续爬行到达下一个节点，即通过一个网页继续获取后续的网页，这样整个网的节点便可以被蜘蛛全部爬行到，这样网站的数据就可以被抓取下来了。      简">
@@ -412,7 +411,7 @@
 <p><img src="/2019/07/09/爬虫Day2-爬虫基础/4.jpg" alt></p>
 <h3 id="获取网页"><a href="#获取网页" class="headerlink" title="获取网页"></a>获取网页</h3><p>爬虫首先要做的工作就是获取网页，在这里获取网页即获取网页的源代码，源代码里面必然包含了网页的部分有用的信息，所以只要把源代码获取下来了，就可以从中提取我们想要的信息了。</p>
 <p>在前面我们讲到了 Request 和 Response 的概念，我们向网站的服务器发送一个 Request，返回的 Response 的 Body 便是网页源代码。</p>
-<p><strong>所以最关键的部分就是构造一个</strong> <strong>Request</strong> <strong>并发送给服务器，然后接收到</strong> <strong>Response</strong> <strong>并将其解析出来</strong>。具体相关的库有：urllib（python自带的库）、requests（优雅的第三方库）</p>
+<p><strong>所以最关键的部分就是构造一个</strong> <strong>Request</strong> <strong>并发送给服务器，然后接收到</strong> <strong>Response</strong> <strong>并将其解析出来</strong>。在python3 中，相关的库有：urllib（python自带的库）、requests（优雅的第三方库）</p>
  <br>
 
 <br>
@@ -429,7 +428,7 @@
 
 
 <h3 id="能抓取怎样的数据："><a href="#能抓取怎样的数据：" class="headerlink" title="能抓取怎样的数据："></a>能抓取怎样的数据：</h3><ul>
-<li><p>常规网页，  也就是html源代码。有些网页返回的不是不是 HTML 代码，而是返回一个 Json 字符串（使用Ajax渲染的网页），API      接口大多采用这样的形式，方便数据的传输和解析，这种数据同样可以抓取，而且数据提取更加方便。</p>
+<li><p>常规网页，  也就是html源代码。有些网页返回的不是不是 HTML 代码，而是返回一个 Json 字符串（使用Ajax渲染的网页），API 接口大多采用这样的形式，方便数据的传输和解析，这种数据同样可以抓取，而且数据提取更加方便。</p>
 </li>
 <li><p>二进制数据，如图片、视频、音频等等，我们可以利用爬虫将它们的二进制数据抓取下来，然后保存成对应的文件名即可。</p>
 </li>
@@ -444,13 +443,11 @@
 
 <h3 id="JavaScript-渲染页面："><a href="#JavaScript-渲染页面：" class="headerlink" title="JavaScript 渲染页面："></a>JavaScript 渲染页面：</h3><p>有时候我们在用 Urllib 或 Requests 抓取网页时，得到的源代码实际和浏览器中看到的是不一样的。</p>
 <p>这个问题是一个非常常见的问题，现在网页越来越多地采用 Ajax、前端模块化工具来构建网页，整个网页可能都是由 JavaScript 渲染出来的，意思就是说原始的 HTML 代码就是一个空壳。</p>
-<p>下面，是JS常规的渲染代码：</p>
-<p><img src="/2019/07/09/爬虫Day2-爬虫基础/3.jpg" alt></p>
-<p>body 节点里面只有一个 id 为 container 的节点，但是注意到在 body 节点后引入了一个 <strong>app.js</strong>，这个便负责了整个网站的渲染。</p>
-<p>在浏览器打开这个页面时，首先会加载这个 HTML 内容，接着浏览器会发现其中里面引入了一个 app.js 文件，然后浏览器便会接着去请求这个文件，获取到该文件之后便会执行其中的 JavaScript 代码，而 JavaScript 则会改变 HTML 中的节点，向内添加内容，最后得到完整的页面。</p>
-<p><strong>但是在用</strong> <strong>Urllib</strong> <strong>或</strong> <strong>Requests</strong> <strong>等库来请求当前页面时，我们得到的只是这个</strong> <strong>HTML</strong> <strong>代码，它不会帮助我们去继续加载这个</strong> <strong>JavaScript</strong> <strong>文件，这样也就看不到浏览器中看到的内容了。</strong></p>
+<p><strong>因此在用</strong> <strong>Urllib</strong> <strong>或</strong> <strong>Requests</strong> <strong>等库来请求当前页面时，我们得到的只是这个</strong> <strong>HTML</strong> <strong>代码，它不会帮助我们去继续加载这个</strong> <strong>JavaScript</strong> <strong>文件，这样也就看不到浏览器中看到的内容了。</strong></p>
+  <br>
+
 <p>这也解释了为什么有时我们得到的源代码和浏览器中看到的是不一样的。</p>
-<p>所以使用基本 HTTP 请求库得到的结果源代码可能跟浏览器中的页面源代码不太一样。对于这样的情况，我们可以分析其后台的Ajax接口，通过模拟Ajax请求得到渲染的页面，也可以使用Selenium这样的库来实现模拟JavaScript。</p>
+<p>所以使用基本 HTTP 请求库得到的结果源代码可能跟浏览器中的页面源代码不太一样。对于这样的情况，我们可以分析其后台的Ajax接口，通过模拟Ajax请求得到渲染的页面，或者也可以使用Selenium这样的库来实现模拟JavaScript。</p>
 <blockquote>
 <p>本期对爬虫基础原理的讲述就到这里了~    下期预告：“urllib请求库的使用”</p>
 </blockquote>
@@ -584,7 +581,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
