@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[爬虫Day14-模拟登陆Github]]></title>
+    <url>%2F2019%2F08%2F15%2F%E7%88%AC%E8%99%ABDay14-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86Github%2F</url>
+    <content type="text"><![CDATA[前言爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。 我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等 为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人的个人信息，如果有，就登陆成功。 模拟登陆首先要分析登录的过程，需要探究后台的登录请求是怎样发送的，登录之后又有怎样的处理过程。 如果已经登录 GitHub，先退出登录，同时清除 Cookies。 打开 GitHub 的登录页面，链接为 https://github.com/login 。 然后输入GitHub 的用户名和密码，打开开发者工具，将 Preserve Log 选项勾选上，这表示显示持续日志（preserve log的作用是，保持下面的所有的网络请求不被冲掉。因为当网页刷新的时候，如果没有选中这个按钮，之前的访问url记录会被冲掉。） 如下图所示： 点击登陆之后 发现交互了一些信息，我们查看session请求响应条目，它是个POST 请求信息（就是它了！） 状态码是302，为重定向，说明我们登陆的时候，经过了一个页面。 往下拉，查看Request Headers 和 From Data 信息： 发现有个from Data ，这对应 POST请求发送的Data表单 。 里面字段信息有 login、password （账号密码），另外还有utf8、commit、authenticity_token 这些其他字段。 有些字段可以直接构建，一些字段参数不知道其含义，只能一个一个测试。比如这里的 authenticity_token 通过观察，我们发现在登录之前我们会访问到一个登录页面，此页面是通过 GET 形式访问的。输入用户名密码，点击登录按钮，浏览器发送这两部分信息。 也就是说 Cookies 和 authenticity_token 是在访问登录页的时候设置的。 一些临时变量的参数，肯定是在登陆之前附加的参数（这是个先有鸡后有蛋的故事） 于是我们再次退出登陆，清除Cookies，寻找Cookie、 authenticity_token 参数是从哪来的。 发现 交互的报文中，Response Headers 有一个 Set-Cookie 字段。这就是设置 Cookies 的过程。 然后在网页的源码探寻，搜索相关字段，发现源代码里面隐藏着 authenticity_token信息，它是一个隐藏式表单元素。 那么我们就拿到了POST的请求参数了。 可以进行模拟登陆了~ 代码示例：12345678910111213141516171819202122232425262728293031323334353637import requestsfrom lxml import etreeclass Login: def __init__(self): self.headers = &#123; 'host': 'github.com', 'Referer': 'https://github.com/login', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36' &#125; self.login_url = 'https://github.com/login' # 登陆之前的URL self.post_url = 'https://github.com/session' # 发送POST请求的URL self.session = requests.Session() # 由Session实例化的对象，Cookies会自动保存 def back_tokenI(self): response = self.session.get(self.login_url, headers=self.headers) selector = etree.HTML(response.text) token = selector.xpath('//div//input[2]/@value')[0] # 选中 authenticity_token 参数的值 return token def login(self, username, password): data = &#123; 'commit': 'Sign in', 'authenticity_token': self.back_tokenI(), 'utf8': '✓', 'login': username, 'password': password &#125; response = self.session.post(url=self.post_url, headers=self.headers, data=data) if response.status_code == 200: print('模拟请求成功了！！！') return response.text # 返回登陆成功之后的数据c1 = Login()c1.login('username','password') 注意我们这里使用的Session（）实例化的对象发送请求的，这个方法构建的对象，在访问页面的时候，会自动帮我们保存 Cookies值 。这样我们就不用特定设置Cookies 参数了。 写在最后其实这种携带参数请求的模拟登陆并不复杂，主要是它携带的参数有多个，你需要一个个去试，没有其他规律可循。当然，有时候会碰到 salt 加密或CSS反爬，这个就需要其他方面的知识点了。 这篇Github模拟登陆就说到这里啦，下期见，peace~]]></content>
+      <categories>
+        <category>Python爬虫</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[网络编程Day7-事件驱动模型]]></title>
     <url>%2F2019%2F08%2F15%2F%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BDay7-%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%A8%A1%E5%9E%8B%2F</url>
     <content type="text"><![CDATA[事件驱动性思想事件驱动模型不是什么具体的东西，而是一种“思想”。事件驱动编程是一种编程范式，这里程序的执行流由外部事件来决定。它的特点是包含一个事件循环，当外部事件发生时使用回调机制来触发相应的处理。 关于编程范式，在这里要说说传统编程和事件驱动型编程的区别： 传统编程传统的编程是如下线性模式的： 1开始---&gt;代码块A---&gt;代码块B---&gt;代码块C......---&gt;结束 事件驱动型 对于事件驱动型程序模型，它的流程大致如下： 1开始---&gt;初始化---&gt;等待信号---&gt;特定信号---&gt;相应处理 我们看到了事件驱动型和传统编程的编程风格是完全不同的 事件驱动程序在启动之后，就在那等待，等待什么呢？等待被事件触发。传统编程下也有“等待”的时候，例如：input()，需要用户输入交互数据。但这种等待是有目的性的：期待着用户某些行为，或输入一个特定的字符串、数字等等。如果用户输入不规范，还需要提醒他，并做处理。 而事件驱动程序的等待则是没有目的性的，也不强制用户输入或者干什么。只要某一事件发生，那程序就会做出相应的“反应”。这些事件包括：输入信息、鼠标、敲击键盘上某个键还有系统内部定时器触发。 事件驱动模型介绍通常，我们写服务器处理模型的程序时，有以下几种模型： 每收到一个请求，创建一个新的进程，来处理该请求； 每收到一个请求，创建一个新的线程，来处理该请求； 每收到一个请求，放入一个事件列表，让主进程通过非阻塞I/O方式来处理请求 第一种第二种都挺消耗资源的，第三种就是协程、事件驱动的方式，一般普遍认为第3种方式是大多数网络服务器采用的方式。 下图就是典型的事件驱动模型： onclick 绑定着 一个 fun（）函数，当事件被触发时（这里是被点击），相应的处理模块，就会运行。 有了这种思想，我们就可以监测用户行为，从而发送响应内容了。 那么，如何去检测用户什么时候点击、点的哪里呢？ 检测点击的方法①创建一个线程循环 这个方式有以下几个缺点： CPU资源浪费，可能鼠标点击的频率非常小，但是扫描线程还是会一直循环检测，这会造成很多的CPU资源浪费 如果扫描鼠标点击的接口是阻塞的，又会出现下面这样的问题，我们无法检测键盘是否被按下，因为扫描鼠标时被堵塞了，那么可能永远不会去扫描键盘；（此时，一个线程无法解决问题） 如果一个循环需要扫描的设备非常多，这又会引来响应时间的问题 ②事件驱动模型思想 目前大部分的UI编程都是事件驱动模型，如很多UI平台都会提供onClick()事件，这个事件就代表鼠标按下事件。事件驱动模型大体思路如下： 有一个事件（消息）队列； 鼠标按下时，往这个队列中增加一个点击事件（消息）； 有个循环，不断从队列取出事件，根据不同的事件，调用不同的函数，如onClick()、onKeyDown()等； 事件（消息）一般都各自保存各自的处理函数指针，这样，每个消息都有独立的处理函数； 模型如图所示： okk，网络编程系列更新到此结束啦，跟计算机网络系列一样，都是 day7，挺巧的哈哈哈 以后新增的更新系列应该是操作系统方面吧（Linux），当然，爬虫系列是不会断更的。byebye~]]></content>
@@ -41,8 +53,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -64,8 +76,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -103,8 +115,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -126,8 +138,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -138,8 +150,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -161,8 +173,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -268,8 +280,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -280,8 +292,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -292,8 +304,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -326,8 +338,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -338,8 +350,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -350,8 +362,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -362,8 +374,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>

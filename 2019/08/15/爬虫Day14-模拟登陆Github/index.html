@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,计算机网络,">
+  <meta name="keywords" content="技术,Python,">
 
 
 
@@ -79,22 +79,23 @@
 
 
 
-<meta name="description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。      IP数据包： IP数据包简称为IP包。它是符合IP协议的0/">
-<meta name="keywords" content="技术,计算机网络">
+<meta name="description" content="前言爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。 我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等 为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人">
+<meta name="keywords" content="技术,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络Day3-网络层">
-<meta property="og:url" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/index.html">
+<meta property="og:title" content="爬虫Day14-模拟登陆Github">
+<meta property="og:url" content="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。      IP数据包： IP数据包简称为IP包。它是符合IP协议的0/">
+<meta property="og:description" content="前言爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。 我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等 为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/3.png">
-<meta property="og:updated_time" content="2019-08-03T05:50:26.713Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/4.png">
+<meta property="og:updated_time" content="2019-08-15T15:03:34.950Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络Day3-网络层">
-<meta name="twitter:description" content="网络层：网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。      IP数据包： IP数据包简称为IP包。它是符合IP协议的0/">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/1.png">
+<meta name="twitter:title" content="爬虫Day14-模拟登陆Github">
+<meta name="twitter:description" content="前言爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。 我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等 为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/1.png">
 
 
 
@@ -124,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/">
 
 
 
 
 
-  <title>计算机网络Day3-网络层 | 小小世界</title>
+  <title>爬虫Day14-模拟登陆Github | 小小世界</title>
   
 
 
@@ -289,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/28/计算机网络Day3-网络层/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/爬虫Day14-模拟登陆Github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -306,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">计算机网络Day3-网络层</h1>
+          <h1 class="post-title" itemprop="name headline">爬虫Day14-模拟登陆Github</h1>
         
 
         <div class="post-meta">
@@ -318,8 +319,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-28T16:06:04+08:00">
-                2019-07-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-15T22:26:51+08:00">
+                2019-08-15
               </time>
             
 
@@ -341,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
+                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
                   </a>
                 </span>
 
@@ -359,8 +360,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/28/计算机网络Day3-网络层/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/28/计算机网络Day3-网络层/" itemprop="commentsCount"></span>
+                <a href="/2019/08/15/爬虫Day14-模拟登陆Github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/15/爬虫Day14-模拟登陆Github/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -393,63 +394,53 @@
       
 
       
-        <h3 id="网络层："><a href="#网络层：" class="headerlink" title="网络层："></a>网络层：</h3><p>网络层(network layer)是实现互联网最重要的一层。正是在网络层面上，各个局域网根据IP协议相互连接，最终构成覆盖全球的Internet。更高层的协议，无论是TCP还是UDP，必须通过网络层的IP数据包(datagram)来传递信息。操作系统也会提供该层面的套接字(socket)，从而允许用户直接操作IP包。</p>
- <br>
-
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。</p>
+<p>我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等</p>
+<p>为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人的个人信息，如果有，就登陆成功。</p>
+<p><br><br></p>
+<h3 id="模拟登陆"><a href="#模拟登陆" class="headerlink" title="模拟登陆"></a>模拟登陆</h3><p>首先要分析登录的过程，需要探究后台的登录请求是怎样发送的，登录之后又有怎样的处理过程。</p>
+<p>如果已经登录 GitHub，先退出登录，同时清除 Cookies。</p>
+<p>打开 GitHub 的登录页面，链接为 <a href="https://github.com/login" target="_blank" rel="noopener">https://github.com/login</a> 。 然后输入GitHub 的用户名和密码，打开开发者工具，将 Preserve Log 选项勾选上，这表示显示持续日志（preserve  log的作用是，保持下面的所有的网络请求不被冲掉。因为当网页刷新的时候，如果没有选中这个按钮，之前的访问url记录会被冲掉。）</p>
+<p>如下图所示：</p>
+<p><img src="/2019/08/15/爬虫Day14-模拟登陆Github/1.png" alt></p>
 <br>
 
-<p><strong>IP数据包：</strong></p>
-<p>IP数据包简称为IP包。它是符合IP协议的0/1序列。信息包含在这一序列中。IP包分为头部(header)和数据(Data)两部分。数据部分是要传送的信息，头部是为了能够实现传输而附加的信息。</p>
-<p>与帧类似，IP包的头部也有多个区域。我们将注意力放在源地址(source address)和目的地(destination address)。它们都是IP地址。IPv4的地址为4 bytes的长度(也就是32位)。我们通常将IPv4的地址分为四个十进制的数，每个数的范围为0-255,比如192.0.0.1就是一个IP地址。填写在IP包头部的是该地址的二进制形式。</p>
-<p>IP地址是全球地址，它可以识别局域网和主机。这是通过将IP地址分类实现的。下图则为 IP 地址分类：</p>
-<p><img src="/2019/07/28/计算机网络Day3-网络层/1.png" alt></p>
+<p>点击登陆之后</p>
+<p><img src="/2019/08/15/爬虫Day14-模拟登陆Github/2.png" alt></p>
 <ul>
-<li>每个IP地址的32位分为前后两部分，第一部分用来区分局域网，第二个部分用来区分该局域网的主机。</li>
-<li>子网掩码(Subnet Mask)告诉我们这两部分的分界线，比如255.0.0.0(也就是8个1和24个0)表示前8位用于区分局域网，后24位用于区分主机。由于A、B、C分类是已经规定好的，所以当一个IP地址属于B类范围时，我们就知道它的前16位和后16位分别表示局域网和主机。</li>
-</ul>
- <br>
-
-<br>
-
-
-
-<h3 id="网卡与路由器"><a href="#网卡与路由器" class="headerlink" title="网卡与路由器"></a>网卡与路由器</h3><p><strong>网卡（NIC）：</strong></p>
-<p>IP地址是分配给每个计算机的。但这个说法并不精确。IP地址实际上识别的是网卡(NIC, Network Interface Card)。</p>
-<p>网卡是计算机的一个硬件，它在接收到网路信息之后，将信息交给计算机的CPU处理。当计算机需要发送信息的时，也要通过网卡发送。一台计算机可以有不只一个网卡，比如笔记本就有一个以太网卡和一个WiFi网卡。计算机在接收或者发送信息的时候，要先决定想要通过哪个网卡。</p>
-<p><strong>路由器：</strong></p>
-<p>路由器(router)实际上就是一台配备有多个网卡的专用电脑。它让网卡接入到不同的网络中。他专门负责与多个网络之间的寻址与通信。跨网段的数据通信一般都会经过路由器</p>
-<hr>
-<h3 id="路由寻址："><a href="#路由寻址：" class="headerlink" title="路由寻址："></a>路由寻址：</h3><p>IP包的传输要通过路由器的接力。每一个主机和路由中都存有一个路由表(routing table)。路由表根据目的地的IP地址，规定了等待发送的IP包所应该走的路线。</p>
-<h4 id="始发："><a href="#始发：" class="headerlink" title="始发："></a>始发：</h4><p>比如我们从主机145.17生成发送到146.21的IP数据包，剩下数据部分可以是TCP包，可以是UDP包，我们暂时不关心。注明目的地IP地址(199.165.146.21)和发出地IP地址(199.165.145.17)。主机145.17随后参照自己的路由表，看到路由表中的记录：</p>
-<p>145.17 routing table (Genmask为子网掩码,Iface用于说明使用哪个网卡接口)</p>
-<p><img src="/2019/07/28/计算机网络Day3-网络层/2.png" alt></p>
-<p>这里有两行记录：</p>
-<ul>
-<li>第一行，如果IP目的地是199.165.145.0这个网络的主机，那么只需要自己在eth0上的网卡直接传送(“本地社区”：直接送达)，不需要前往路由器(Gateway 0.0.0.0 =      “本地送信”)。</li>
-<li>第二行，所有不符合第一行的IP目的地，都应该送往Gateway      199.165.145.17，也就是中间路由器接入在eth0的网卡IP地址。因为 目的地址和子网掩码全为 0.0.0.0 是缺省路由（当匹配不到路由明细时，就会往这个接口发出） </li>
+<li>发现交互了一些信息，我们查看session请求响应条目，它是个POST 请求信息（就是它了！）</li>
+<li>状态码是302，为重定向，说明我们登陆的时候，经过了一个页面。</li>
 </ul>
 <br>
 
+<p>往下拉，查看Request Headers 和 From Data 信息：</p>
+<p><img src="/2019/08/15/爬虫Day14-模拟登陆Github/3.png" alt></p>
+<p>发现有个from Data ，这对应 POST请求发送的Data表单 。 里面字段信息有 login、password （账号密码），另外还有utf8、commit、authenticity_token 这些其他字段。</p>
+<p>有些字段可以直接构建，一些字段参数不知道其含义，只能一个一个测试。比如这里的 authenticity_token </p>
 <br>
 
-
-
-<h4 id="中转"><a href="#中转" class="headerlink" title="中转"></a>中转</h4><p>我们的IP包目的地为199.165.146.21，不符合第一行，所以按照第二行，发送到中间的路由器。主机145.17会将IP包放入帧的payload，并在帧的头部写上199.165.145.17对应的MAC地址，这样，就可以在局域网中传送了。</p>
-<p>中间的路由器在收到IP包之后(实际上是收到以太协议的帧，然后从帧中的payload读取IP包)，提取目的地IP地址，然后对照自己的路由表：</p>
-<p><img src="/2019/07/28/计算机网络Day3-网络层/3.png" alt></p>
-  <br>
-
+<p>通过观察，我们发现在登录之前我们会访问到一个登录页面，此页面是通过 GET 形式访问的。输入用户名密码，点击登录按钮，浏览器发送这两部分信息。 <strong>也就是说 Cookies 和 authenticity_token 是在访问登录页的时候设置的。</strong></p>
+<blockquote>
+<p>一些临时变量的参数，肯定是在登陆之前附加的参数（这是个先有鸡后有蛋的故事）</p>
+</blockquote>
 <br>
 
+<p>于是我们再次退出登陆，清除Cookies，寻找Cookie、 authenticity_token 参数是从哪来的。</p>
+<ul>
+<li>发现 交互的报文中，Response Headers 有一个 Set-Cookie 字段。这就是设置 Cookies 的过程。</li>
+<li>然后在网页的源码探寻，搜索相关字段，发现源代码里面隐藏着 authenticity_token信息，它是一个隐藏式表单元素。</li>
+</ul>
+<p><img src="/2019/08/15/爬虫Day14-模拟登陆Github/4.png" alt></p>
+<p>那么我们就拿到了POST的请求参数了。 可以进行模拟登陆了~</p>
+<p><br><br></p>
+<h3 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Login</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            <span class="string">'host'</span>: <span class="string">'github.com'</span>,</span><br><span class="line">            <span class="string">'Referer'</span>: <span class="string">'https://github.com/login'</span>,</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36'</span></span><br><span class="line">        &#125;</span><br><span class="line">        self.login_url = <span class="string">'https://github.com/login'</span>  <span class="comment"># 登陆之前的URL</span></span><br><span class="line">        self.post_url = <span class="string">'https://github.com/session'</span>  <span class="comment"># 发送POST请求的URL</span></span><br><span class="line">        self.session = requests.Session()            <span class="comment"># 由Session实例化的对象，Cookies会自动保存</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">back_tokenI</span><span class="params">(self)</span>:</span></span><br><span class="line">        response = self.session.get(self.login_url, headers=self.headers)</span><br><span class="line">        selector = etree.HTML(response.text)</span><br><span class="line">        token = selector.xpath(<span class="string">'//div//input[2]/@value'</span>)[<span class="number">0</span>]  <span class="comment"># 选中 authenticity_token 参数的值</span></span><br><span class="line">        <span class="keyword">return</span> token</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self, username, password)</span>:</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">'commit'</span>: <span class="string">'Sign in'</span>,</span><br><span class="line">            <span class="string">'authenticity_token'</span>: self.back_tokenI(),</span><br><span class="line">            <span class="string">'utf8'</span>: <span class="string">'✓'</span>,</span><br><span class="line">            <span class="string">'login'</span>: username,</span><br><span class="line">            <span class="string">'password'</span>: password</span><br><span class="line">        &#125;</span><br><span class="line">        response = self.session.post(url=self.post_url, headers=self.headers, data=data)</span><br><span class="line">        <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">            print(<span class="string">'模拟请求成功了！！！'</span>)</span><br><span class="line">            <span class="keyword">return</span> response.text          <span class="comment"># 返回登陆成功之后的数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c1 = Login()</span><br><span class="line">c1.login(<span class="string">'username'</span>,<span class="string">'password'</span>)</span><br></pre></td></tr></table></figure>
 
-
-<h4 id="送达："><a href="#送达：" class="headerlink" title="送达："></a>送达：</h4><p>数据包的目的地符合第二行，所以将IP放入一个新的帧中， 在帧的头部写上199.165.146.21的MAC地址，直接发往主机146.21。</p>
-<p> <strong>总结：</strong></p>
-<p>这样，我们就完成了“路由”的过程。整个过程中，IP包不断被主机和路由封装入帧并拆开，然后借助连接层，在局域网的各个NIC之间传送帧。整个过程中，我们的IP包的内容保持完整，没有发生变化（有变化的是TTL值、FCS校验码等字段）。最终的效果是一个IP包从一个主机传送到另一个主机。利用IP包，我们不需要去操心底层(比如连接层)发生了什么。</p>
-<hr>
-<h3 id="路由协议："><a href="#路由协议：" class="headerlink" title="路由协议："></a>路由协议：</h3><p>之前的信息传递基于一个假设：每个人手里都有份准确的地图。用计算机的话来说，就是每个主机和路由上都已经有一张路由表。这个路由表描述了网络上的路径信息。如果你了解自己的网络连接，可以手写自己主机的路由表。但是，一个路由器可能有多个出口，所以路由表可能会很长。更重要的是，周围连接的其他路由器可能发生变动(比如新增路由器或者拓扑变更)，我们就需要路由表能及时将交通导向其他的出口。我们需要一种更加智能的探测周围的网络拓扑结构，并自动生成路由表—— 路由协议</p>
-<p>一些比较出名的路由协议有： OSPF、BGP、ISIS 等</p>
-<p>这里不过多介绍，不然可以讲一天   =.=</p>
+<ul>
+<li>注意我们这里使用的Session（）实例化的对象发送请求的，这个方法构建的对象，在访问页面的时候，会自动帮我们保存 Cookies值 。这样我们就不用特定设置Cookies 参数了。</li>
+</ul>
+<p><br><br></p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>其实这种携带参数请求的模拟登陆并不复杂，主要是它携带的参数有多个，你需要一个个去试，没有其他规律可循。当然，有时候会碰到 salt 加密或CSS反爬，这个就需要其他方面的知识点了。</p>
+<p>这篇Github模拟登陆就说到这里啦，下期见，peace~</p>
 
       
     </div>
@@ -469,7 +460,7 @@
           
             <a href="/tags/技术/" rel="tag"># 技术</a>
           
-            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -482,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/28/计算机网络Day2-数据链路层/" rel="next" title="计算机网络Day2-数据链路层">
-                <i class="fa fa-chevron-left"></i> 计算机网络Day2-数据链路层
+              <a href="/2019/08/15/网络编程Day7-事件驱动模型/" rel="next" title="网络编程Day7-事件驱动模型">
+                <i class="fa fa-chevron-left"></i> 网络编程Day7-事件驱动模型
               </a>
             
           </div>
@@ -491,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/28/计算机网络Day4-TCP协议/" rel="prev" title="计算机网络Day4-TCP协议">
-                计算机网络Day4-TCP协议 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -653,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层："><span class="nav-number">1.</span> <span class="nav-text">网络层：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网卡与路由器"><span class="nav-number">2.</span> <span class="nav-text">网卡与路由器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由寻址："><span class="nav-number">3.</span> <span class="nav-text">路由寻址：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#始发："><span class="nav-number">3.1.</span> <span class="nav-text">始发：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中转"><span class="nav-number">3.2.</span> <span class="nav-text">中转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#送达："><span class="nav-number">3.3.</span> <span class="nav-text">送达：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#路由协议："><span class="nav-number">4.</span> <span class="nav-text">路由协议：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟登陆"><span class="nav-number">2.</span> <span class="nav-text">模拟登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码示例："><span class="nav-number">3.</span> <span class="nav-text">代码示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">4.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>
