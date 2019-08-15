@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Python,">
 
 
 
@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小小世界">
-<meta property="og:url" content="http://yoursite.com/tags/技术/page/3/index.html">
+<meta name="description" content="事件驱动性思想事件驱动模型不是什么具体的东西，而是一种“思想”。事件驱动编程是一种编程范式，这里程序的执行流由外部事件来决定。它的特点是包含一个事件循环，当外部事件发生时使用回调机制来触发相应的处理。 关于编程范式，在这里要说说传统编程和事件驱动型编程的区别： 传统编程传统的编程是如下线性模式的： 1开始---&amp;gt;代码块A---&amp;gt;代码块B---&amp;gt;代码块C......---&amp;gt;结">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络编程Day7-事件驱动模型">
+<meta property="og:url" content="http://yoursite.com/2019/08/15/网络编程Day7-事件驱动模型/index.html">
 <meta property="og:site_name" content="小小世界">
+<meta property="og:description" content="事件驱动性思想事件驱动模型不是什么具体的东西，而是一种“思想”。事件驱动编程是一种编程范式，这里程序的执行流由外部事件来决定。它的特点是包含一个事件循环，当外部事件发生时使用回调机制来触发相应的处理。 关于编程范式，在这里要说说传统编程和事件驱动型编程的区别： 传统编程传统的编程是如下线性模式的： 1开始---&amp;gt;代码块A---&amp;gt;代码块B---&amp;gt;代码块C......---&amp;gt;结">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/15/网络编程Day7-事件驱动模型/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/15/网络编程Day7-事件驱动模型/2.png">
+<meta property="og:updated_time" content="2019-08-15T11:59:44.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小小世界">
+<meta name="twitter:title" content="网络编程Day7-事件驱动模型">
+<meta name="twitter:description" content="事件驱动性思想事件驱动模型不是什么具体的东西，而是一种“思想”。事件驱动编程是一种编程范式，这里程序的执行流由外部事件来决定。它的特点是包含一个事件循环，当外部事件发生时使用回调机制来触发相应的处理。 关于编程范式，在这里要说说传统编程和事件驱动型编程的区别： 传统编程传统的编程是如下线性模式的： 1开始---&amp;gt;代码块A---&amp;gt;代码块B---&amp;gt;代码块C......---&amp;gt;结">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/15/网络编程Day7-事件驱动模型/1.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/技术/page/3/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/15/网络编程Day7-事件驱动模型/">
 
 
 
 
 
-  <title>Tag: 技术 | 小小世界</title>
+  <title>网络编程Day7-事件驱动模型 | 小小世界</title>
   
 
 
@@ -140,7 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/echoxxzhang/echoxxzhang.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,134 +274,242 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>技术<small>Tag</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/网络编程Day7-事件驱动模型/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/max.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小世界">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/07/15/爬虫Day4-urllib实战/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day4-urllib实战</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">网络编程Day7-事件驱动模型</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-15T09:24:08+08:00" content="2019-07-15">
-          07-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-15T19:32:30+08:00">
+                2019-08-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络编程/" itemprop="url" rel="index">
+                    <span itemprop="name">网络编程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/15/网络编程Day7-事件驱动模型/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/15/网络编程Day7-事件驱动模型/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/10/爬虫Day3-urllib介绍/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day3-urllib介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-10T09:40:08+08:00" content="2019-07-10">
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
+        <h3 id="事件驱动性思想"><a href="#事件驱动性思想" class="headerlink" title="事件驱动性思想"></a>事件驱动性思想</h3><p>事件驱动模型不是什么具体的东西，而是一种“思想”。事件驱动编程是一种<strong>编程范式</strong>，这里程序的执行流由外部事件来决定。它的特点是包含一个事件循环，当外部事件发生时使用回调机制来触发相应的处理。</p>
+<p>关于编程范式，在这里要说说传统编程和事件驱动型编程的区别：</p>
+<h4 id="传统编程"><a href="#传统编程" class="headerlink" title="传统编程"></a>传统编程</h4><p>传统的编程是如下线性模式的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开始---&gt;代码块A---&gt;代码块B---&gt;代码块C......---&gt;结束</span><br></pre></td></tr></table></figure>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<br>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/09/爬虫Day2-爬虫基础/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day2_爬虫基础</span>
-              
-            </a>
-        
-      </h2>
+<h4 id="事件驱动型"><a href="#事件驱动型" class="headerlink" title="事件驱动型"></a>事件驱动型</h4><p> 对于事件驱动型程序模型，它的流程大致如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开始---&gt;初始化---&gt;等待信号---&gt;特定信号---&gt;相应处理</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-09T10:05:04+08:00" content="2019-07-09">
-          07-09
-        </time>
-      </div>
+<ul>
+<li><p>我们看到了事件驱动型和传统编程的编程风格是完全不同的</p>
+</li>
+<li><p>事件驱动程序在启动之后，就在那等待，等待什么呢？<strong>等待被事件触发</strong>。传统编程下也有“等待”的时候，例如：input()，需要用户输入交互数据。但这种等待是有<strong>目的性</strong>的：期待着用户某些行为，或输入一个特定的字符串、数字等等。如果用户输入不规范，还需要提醒他，并做处理。</p>
+</li>
+<li><p>而事件驱动程序的等待则是<strong>没有目的性的</strong>，也不强制用户输入或者干什么。只要某一事件发生，那程序就会做出相应的“反应”。这些事件包括：输入信息、鼠标、敲击键盘上某个键还有系统内部定时器触发。</p>
+<p><br> <br></p>
+</li>
+</ul>
+<h3 id="事件驱动模型介绍"><a href="#事件驱动模型介绍" class="headerlink" title="事件驱动模型介绍"></a>事件驱动模型介绍</h3><p>通常，我们写服务器处理模型的程序时，有以下几种模型：</p>
+<ol>
+<li>每收到一个请求，创建一个新的进程，来处理该请求； </li>
+<li>每收到一个请求，创建一个新的线程，来处理该请求； </li>
+<li>每收到一个请求，放入一个事件列表，让主进程通过非阻塞I/O方式来处理请求</li>
+</ol>
+<p>第一种第二种都挺消耗资源的，第三种就是协程、事件驱动的方式，一般普遍认为第3种方式是大多数网络服务器采用的方式。</p>
+<p>下图就是典型的事件驱动模型：</p>
+<p><img src="/2019/08/15/网络编程Day7-事件驱动模型/1.png" alt></p>
+<ul>
+<li><p>onclick 绑定着 一个 fun（）函数，当事件被触发时（这里是被点击），相应的处理模块，就会运行。</p>
+<br>
 
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/06/爬虫Day1-网页基础/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day1-网页基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-06T20:49:24+08:00" content="2019-07-06">
-          07-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+</li>
+</ul>
+<p><strong>有了这种思想，我们就可以监测用户行为，从而发送响应内容了。</strong></p>
+<p>那么，如何去检测用户什么时候点击、点的哪里呢？</p>
+<p> <br> <br></p>
+<h3 id="检测点击的方法"><a href="#检测点击的方法" class="headerlink" title="检测点击的方法"></a>检测点击的方法</h3><p><strong>①创建一个线程循环</strong></p>
+<p>这个方式有以下几个缺点：</p>
+<ol>
+<li>CPU资源浪费，可能鼠标点击的频率非常小，但是扫描线程还是会一直循环检测，这会造成很多的CPU资源浪费</li>
+<li>如果扫描鼠标点击的接口是阻塞的，又会出现下面这样的问题，我们无法检测键盘是否被按下，因为扫描鼠标时被堵塞了，那么可能永远不会去扫描键盘；（此时，一个线程无法解决问题）</li>
+<li>如果一个循环需要扫描的设备非常多，这又会引来响应时间的问题</li>
+</ol>
+<p><strong>②事件驱动模型思想</strong></p>
+<p>目前大部分的UI编程都是事件驱动模型，如很多UI平台都会提供onClick()事件，这个事件就代表鼠标按下事件。事件驱动模型大体思路如下：</p>
+<ol>
+<li>有一个事件（消息）队列；</li>
+<li>鼠标按下时，往这个队列中增加一个点击事件（消息）；</li>
+<li>有个循环，不断从队列取出事件，根据不同的事件，调用不同的函数，如onClick()、onKeyDown()等；</li>
+<li>事件（消息）一般都各自保存各自的处理函数指针，这样，每个消息都有独立的处理函数； </li>
+</ol>
+<p>模型如图所示：</p>
+<p><img src="/2019/08/15/网络编程Day7-事件驱动模型/2.png" alt></p>
+<p> <br> <br></p>
+<blockquote>
+<p>okk，网络编程系列更新到此结束啦，跟计算机网络系列一样，都是  day7，挺巧的哈哈哈</p>
+<p> 以后新增的更新系列应该是操作系统方面吧（Linux），当然，爬虫系列是不会断更的。byebye~</p>
+</blockquote>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/14/网络编程Day6-队列/" rel="next" title="网络编程Day6-队列">
+                <i class="fa fa-chevron-left"></i> 网络编程Day6-队列
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/技术/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/技术/">1</a><a class="page-number" href="/tags/技术/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -401,6 +517,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -421,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -502,6 +638,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件驱动性思想"><span class="nav-number">1.</span> <span class="nav-text">事件驱动性思想</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统编程"><span class="nav-number">1.1.</span> <span class="nav-text">传统编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件驱动型"><span class="nav-number">1.2.</span> <span class="nav-text">事件驱动型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件驱动模型介绍"><span class="nav-number">2.</span> <span class="nav-text">事件驱动模型介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测点击的方法"><span class="nav-number">3.</span> <span class="nav-text">检测点击的方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -663,6 +815,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -709,6 +865,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'echoxxzhang',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '3455ffc96ac8209cf02b514a399c9514274071c4',
+            
+                client_id: 'abf5af7deec7b35ad17c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
