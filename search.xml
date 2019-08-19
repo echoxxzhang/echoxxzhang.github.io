@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[爬虫Day15-识别图形验证码]]></title>
+    <url>%2F2019%2F08%2F19%2F%E7%88%AC%E8%99%ABDay15-%E8%AF%86%E5%88%AB%E5%9B%BE%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。 环境准备 识别图形验证码需要库 tesserocr 和 Pillow。请自行百度安装 友情提示一句，如果你也是使用的 windows 系统，那么你也会像我一样，碰好多个坑（捂脸） tesserocr的使用我们先保存一张验证码到本地，用来测试使用。名为 code.jpg 如下图： 第一种方法： 12import tesserocrprint(tesserocr.file_to_text('code.jpg')) 通过两行代码我们就将验证码识别出来，是不是很棒！ 第二种方法： 123456import tesserocrfrom PIL import Imageimage = Image.open('code.jpg') # 使用open方法打开验证码的图，获得一个image对象result = tesserocr.image_to_text(image) # 调用 image_to_text（）方法将图片转字符串print(result) 运行结果如下： 可以看到多出来个空白格，对于一些复杂的线条，tesseroct库会识别失效，这个我们后面会说。 并且，第二种方法是基于打开图片后的image对象进行操作的，而且识别效果更高。建议采用第二种写法噢~ 转灰度、二值化上面的方法虽然快捷、但是一旦遇到有复杂线条干扰的验证码，识别准确度就会大大下降。我们可以通过转灰度、二值化进行加工处理，让图片变得更容易电脑识别。 先了解一下这个convert 方法： convert（）：将当前图像转换为其他模式，并且返回新的图像。 代码实现： 12345678910111213141516171819import tesserocrfrom PIL import Imageimage = Image.open('code.jpg')image = image.convert('L')threshold = 127 # 二值化阈值 数值越低接近白，越高越黑table = []for i in range(256): if i &lt; threshold: table.append(0) else: table.append(1)image = image.point(table, '1')image.show()result = tesserocr.image_to_text(image)print(result) 利用Image对象的convert（）方法参数传入’L’，即可将图片转化为灰度图像 传入数字”1” 即对图片进行二值化处理，convert()方法采用的是默认阈值为127。不过我们不能直接转化原图，要将原图先转为灰度图像，然后再指定二值化阔值 threshold 变量存储的二值化阈值的规律是：数值越低接近白，越高越黑（并且是从左到右渲染的） images.point方法：返回给定查找表对应的图像像素值的拷贝。变量table为图像的每个通道设置256个值。 它会为输出图像指定一个新的模式（mode指定的模式） 转灰度、二值化的变化过程： 可以看到，一些复杂的线条就被我们清理掉了，剩下白色背景、黑色字体的图片（tesseroct最喜欢这个了） 运行结果： 经过后期处理之后，现在的识别准确度大大提高，对于此张验证码，我们做到了完美识别！ 写在后面验证码绝对是反爬工程师手中的一把利器，可以阻挡住多数低级爬虫。 这篇只是介绍了下图形验证码，对于验证码，还需要其他方面知识的铺垫、例如机器学习、一定的数学基础等等。 当你学会识别大多数的验证码时，就可以自信的去敲BAT级别公司的门了。]]></content>
+      <categories>
+        <category>Python爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[爬虫Day14-模拟登陆Github]]></title>
     <url>%2F2019%2F08%2F15%2F%E7%88%AC%E8%99%ABDay14-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86Github%2F</url>
     <content type="text"><![CDATA[前言爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。 我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等 为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人的个人信息，如果有，就登陆成功。 模拟登陆首先要分析登录的过程，需要探究后台的登录请求是怎样发送的，登录之后又有怎样的处理过程。 如果已经登录 GitHub，先退出登录，同时清除 Cookies。 打开 GitHub 的登录页面，链接为 https://github.com/login 。 然后输入GitHub 的用户名和密码，打开开发者工具，将 Preserve Log 选项勾选上，这表示显示持续日志（preserve log的作用是，保持下面的所有的网络请求不被冲掉。因为当网页刷新的时候，如果没有选中这个按钮，之前的访问url记录会被冲掉。） 如下图所示： 点击登陆之后 发现交互了一些信息，我们查看session请求响应条目，它是个POST 请求信息（就是它了！） 状态码是302，为重定向，说明我们登陆的时候，经过了一个页面。 往下拉，查看Request Headers 和 From Data 信息： 发现有个from Data ，这对应 POST请求发送的Data表单 。 里面字段信息有 login、password （账号密码），另外还有utf8、commit、authenticity_token 这些其他字段。 有些字段可以直接构建，一些字段参数不知道其含义，只能一个一个测试。比如这里的 authenticity_token 通过观察，我们发现在登录之前我们会访问到一个登录页面，此页面是通过 GET 形式访问的。输入用户名密码，点击登录按钮，浏览器发送这两部分信息。 也就是说 Cookies 和 authenticity_token 是在访问登录页的时候设置的。 一些临时变量的参数，肯定是在登陆之前附加的参数（这是个先有鸡后有蛋的故事） 于是我们再次退出登陆，清除Cookies，寻找Cookie、 authenticity_token 参数是从哪来的。 发现 交互的报文中，Response Headers 有一个 Set-Cookie 字段。这就是设置 Cookies 的过程。 然后在网页的源码探寻，搜索相关字段，发现源代码里面隐藏着 authenticity_token信息，它是一个隐藏式表单元素。 那么我们就拿到了POST的请求参数了。 可以进行模拟登陆了~ 代码示例：12345678910111213141516171819202122232425262728293031323334353637import requestsfrom lxml import etreeclass Login: def __init__(self): self.headers = &#123; 'host': 'github.com', 'Referer': 'https://github.com/login', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36' &#125; self.login_url = 'https://github.com/login' # 登陆之前的URL self.post_url = 'https://github.com/session' # 发送POST请求的URL self.session = requests.Session() # 由Session实例化的对象，Cookies会自动保存 def back_tokenI(self): response = self.session.get(self.login_url, headers=self.headers) selector = etree.HTML(response.text) token = selector.xpath('//div//input[2]/@value')[0] # 选中 authenticity_token 参数的值 return token def login(self, username, password): data = &#123; 'commit': 'Sign in', 'authenticity_token': self.back_tokenI(), 'utf8': '✓', 'login': username, 'password': password &#125; response = self.session.post(url=self.post_url, headers=self.headers, data=data) if response.status_code == 200: print('模拟请求成功了！！！') return response.text # 返回登陆成功之后的数据c1 = Login()c1.login('username','password') 注意我们这里使用的Session（）实例化的对象发送请求的，这个方法构建的对象，在访问页面的时候，会自动帮我们保存 Cookies值 。这样我们就不用特定设置Cookies 参数了。 写在最后其实这种携带参数请求的模拟登陆并不复杂，主要是它携带的参数有多个，你需要一个个去试，没有其他规律可循。当然，有时候会碰到 salt 加密或CSS反爬，这个就需要其他方面的知识点了。 这篇Github模拟登陆就说到这里啦，下期见，peace~]]></content>
@@ -8,8 +20,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -53,8 +65,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -76,8 +88,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -115,8 +127,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -138,8 +150,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -150,8 +162,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -173,8 +185,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -280,8 +292,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -292,8 +304,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -304,8 +316,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -338,8 +350,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -350,8 +362,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -362,8 +374,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -374,8 +386,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
 </search>
