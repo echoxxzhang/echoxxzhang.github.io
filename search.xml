@@ -8,8 +8,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -20,8 +20,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -65,8 +65,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -88,8 +88,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -107,6 +107,12 @@
     <title><![CDATA[网络编程Day3-子线程]]></title>
     <url>%2F2019%2F08%2F10%2F%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8BDay3-%E5%AD%90%E7%BA%BF%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。 创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading ② 基于Thread类，我们重写模块。通过重写run方法，调用这个模块 线程的运行规律我们开启了两个子线程，依次让这两个子线程执行一个hello函数，里面使用sleep维持函数的执行时间 观察发现： 我们知道，当单线程运行时，函数是从上到下按顺序执行的，那么 两个sleep函数，则要耗费 6s 以上的时间。但是我们采用了子进程之后，执行时间 只有3秒。 主线程程序按顺序执行，子线程的函数同时也执行（与主程序并驾齐驱，称为并发）三秒后，整个进程才真正结束 当主线程完成想退出时，会检验子线程是否完成，如果子线程未完成，则主线程会等待子线程完成后再退出。 Join方法概念：等待子线程运行完毕后再执行下一步操作 我们知道，子线程的运行默认是并发的，也就是说，不会因为子线程函数运行时，程序就卡在那。join方法可以实现等待子线程运行完后再进行下一步操作 setDaemon方法setDaemon又称为守护线程，被设置为守护进程的子线程，会随着主线程运行完毕而强行终止。（程序是否运行完的判断不再依据守护进程）。 同时，setDaemon方法必须置于 start（）之前 setDaemon（）默认是 Flase，表示未启动 其他实例方法：无论是start 还是 join ，亦或者是 setDarmon方法，都是我们通过Treading.Thread下实例的方法，同时还有： run（）是所有实例化的子线程都会执行的函数 start（）是将子线程设置为等待被CPU调用的状态]]></content>
+      <categories>
+        <category>网络编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[网络编程Day2-socket原理]]></title>
@@ -127,8 +133,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -150,8 +156,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -162,8 +168,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -185,8 +191,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -292,8 +298,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -304,8 +310,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -316,8 +322,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -350,8 +356,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -362,8 +368,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -374,8 +380,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -386,8 +392,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>
