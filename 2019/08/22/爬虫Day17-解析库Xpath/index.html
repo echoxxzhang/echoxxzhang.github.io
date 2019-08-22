@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python,">
+  <meta name="keywords" content="技术,Python,">
 
 
 
@@ -79,24 +79,24 @@
 
 
 
-<meta name="description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
-<meta name="keywords" content="Python">
+<meta name="description" content="前言我们在之前介绍如何解析响应数据时讲到了 BeautifulSoup 这个解析库，传送门： 爬虫Day6-Beautiful介绍 但学习之后我们发现，BeautifulSoup 是依赖解析器的，在实际开发环境中，我们常常遇到一些特殊情况，例如编码格式导致解析时发现页面数据缺失等等情景。 这时候，除了更换解析器这个办法之外，我们还可以使用其他的解析库，例如 Xpath。   Xpath介绍XPat">
+<meta name="keywords" content="技术,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络编程Day3-子线程">
-<meta property="og:url" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/index.html">
+<meta property="og:title" content="爬虫Day17-解析库Xpath">
+<meta property="og:url" content="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
+<meta property="og:description" content="前言我们在之前介绍如何解析响应数据时讲到了 BeautifulSoup 这个解析库，传送门： 爬虫Day6-Beautiful介绍 但学习之后我们发现，BeautifulSoup 是依赖解析器的，在实际开发环境中，我们常常遇到一些特殊情况，例如编码格式导致解析时发现页面数据缺失等等情景。 这时候，除了更换解析器这个办法之外，我们还可以使用其他的解析库，例如 Xpath。   Xpath介绍XPat">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/4.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/5.png">
-<meta property="og:updated_time" content="2019-08-20T08:11:38.959Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/5.png">
+<meta property="og:updated_time" content="2019-08-22T08:43:15.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网络编程Day3-子线程">
-<meta name="twitter:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/1.png">
+<meta name="twitter:title" content="爬虫Day17-解析库Xpath">
+<meta name="twitter:description" content="前言我们在之前介绍如何解析响应数据时讲到了 BeautifulSoup 这个解析库，传送门： 爬虫Day6-Beautiful介绍 但学习之后我们发现，BeautifulSoup 是依赖解析器的，在实际开发环境中，我们常常遇到一些特殊情况，例如编码格式导致解析时发现页面数据缺失等等情景。 这时候，除了更换解析器这个办法之外，我们还可以使用其他的解析库，例如 Xpath。   Xpath介绍XPat">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/1.png">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/10/网络编程Day3-子线程/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/">
 
 
 
 
 
-  <title>网络编程Day3-子线程 | 小小世界</title>
+  <title>爬虫Day17-解析库Xpath | 小小世界</title>
   
 
 
@@ -291,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/网络编程Day3-子线程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/22/爬虫Day17-解析库Xpath/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -308,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">网络编程Day3-子线程</h1>
+          <h1 class="post-title" itemprop="name headline">爬虫Day17-解析库Xpath</h1>
         
 
         <div class="post-meta">
@@ -320,8 +320,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T14:49:12+08:00">
-                2019-08-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-22T16:05:44+08:00">
+                2019-08-22
               </time>
             
 
@@ -343,8 +343,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
+                  <a href="/categories/Python爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">Python爬虫</span>
                   </a>
                 </span>
 
@@ -361,8 +361,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/10/网络编程Day3-子线程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/10/网络编程Day3-子线程/" itemprop="commentsCount"></span>
+                <a href="/2019/08/22/爬虫Day17-解析库Xpath/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/22/爬虫Day17-解析库Xpath/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -395,41 +395,80 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前我们讨论了进程与线程，<a href="/2019/08/05/网络编程Day1-进程线程概念/" title="网络编程Day1-进程线程概念">网络编程Day1-进程线程概念</a>，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们在之前介绍如何解析响应数据时讲到了 BeautifulSoup 这个解析库，传送门： <a href="/2019/07/24/爬虫Day6-BeautifulSoup介绍/" title="爬虫Day6-Beautiful介绍">爬虫Day6-Beautiful介绍</a></p>
+<p>但学习之后我们发现，<strong>BeautifulSoup 是依赖解析器的</strong>，在实际开发环境中，我们常常遇到一些特殊情况，例如编码格式导致解析时发现页面数据缺失等等情景。</p>
+<p>这时候，除了更换解析器这个办法之外，我们还可以使用其他的解析库，例如 Xpath。</p>
 <br>
 
-<h3 id="创建子线程"><a href="#创建子线程" class="headerlink" title="创建子线程"></a>创建子线程</h3><p>创建线程有两种方法：</p>
-<p>① 使用python替我们封装好的模块：threading</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/1.png" alt></p>
+<h3 id="Xpath介绍"><a href="#Xpath介绍" class="headerlink" title="Xpath介绍"></a>Xpath介绍</h3><p>XPath，全称 XML Path Language，即 XML 路径语言，它是一门在XML文档中查找信息的语言（XML也是一种标签化语言）。<strong>XPath 最初设计是用来搜寻XML文档的，但是它同样适用于HTML文档的搜索</strong>。</p>
+<p>Python 标准库中自带了 xml 模块，但是性能不够好，而且缺乏一些人性化的 API，相比之下，第三方库 lxml 是用<br>Cython 实现的，而且增加了很多实用的功能，可谓爬虫处理网页数据的一件利器。lxml 大部分功能都存在<br>lxml.etree中。</p>
 <br>
 
-<p>② 基于Thread类，我们重写模块。通过重写run方法，调用这个模块</p>
-<p><br><br></p>
-<h3 id="线程的运行规律"><a href="#线程的运行规律" class="headerlink" title="线程的运行规律"></a>线程的运行规律</h3><p>我们开启了两个子线程，依次让这两个子线程执行一个hello函数，里面使用sleep维持函数的执行时间</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/2.png" alt></p>
-<p>观察发现：  </p>
+<p><strong>Xpath 常用规则</strong></p>
+<p><img src="/2019/08/22/爬虫Day17-解析库Xpath/1.png" alt></p>
 <ul>
-<li>我们知道，当单线程运行时，函数是从上到下按顺序执行的，那么 两个sleep函数，则要耗费 6s 以上的时间。但是我们采用了子进程之后，执行时间 只有3秒。</li>
-<li>主线程程序按顺序执行，子线程的函数同时也执行（与主程序并驾齐驱，称为并发）三秒后，整个进程才真正结束</li>
-<li><strong>当主线程完成想退出时，会检验子线程是否完成，如果子线程未完成，则主线程会等待子线程完成后再退出。</strong></li>
+<li>每一条 / 都表示一层嵌套关系，我们需要对HTML结构进行一定的了解，使用Xpath 才更加得心应手</li>
+<li>// 匹配的节点好比喻成文件系统的绝对路径，如果有相符的节点名称，那么就会被匹配到</li>
+<li>@ 这个符号选取属性，我们一般用来获取 URL ，例如：@href</li>
+</ul>
+<br>
+
+<p><strong>下面列出用法举例：</strong></p>
+<p><img src="/2019/08/22/爬虫Day17-解析库Xpath/2.png" alt></p>
+<p><br><br></p>
+<h3 id="LXML-库-的使用"><a href="#LXML-库-的使用" class="headerlink" title="LXML 库 的使用"></a>LXML 库 的使用</h3><h4 id="读入HTML-文本"><a href="#读入HTML-文本" class="headerlink" title="读入HTML 文本"></a>读入HTML 文本</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line">text = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-0"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-1"&gt;&lt;a href="link2.html"&gt;second item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-inactive"&gt;&lt;a href="link3.html"&gt;third item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-1"&gt;&lt;a href="link4.html"&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-0"&gt;&lt;a href="link5.html"&gt;fifth item&lt;/a&gt;</span></span><br><span class="line"><span class="string">     &lt;/ul&gt;</span></span><br><span class="line"><span class="string"> &lt;/div&gt;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">html = etree.HTML(text)    <span class="comment"># 初始化生成一个XPath解析对象</span></span><br><span class="line">result = etree.tostring(html)</span><br><span class="line">print(type(result))     <span class="comment"># bytes类型</span></span><br><span class="line">print(result.decode(<span class="string">'utf-8'</span>))   <span class="comment"># 将二进制内容解码成str类型的字符串</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>传入 HTML 文本，会自动修正（补齐缺漏的节点标签）且生成一个XPath解析对象，后续的解析都是根据<strong>解析对象来调用xpath方法进行节点选择</strong></li>
+<li>由于初始化 HTML 文本返回的结果是bytes类型，我们打印出来时，需要转为utf-8。</li>
+</ul>
+<br>
+
+<h4 id="读入HTML-纯文件"><a href="#读入HTML-纯文件" class="headerlink" title="读入HTML 纯文件"></a>读入HTML 纯文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">html = etree.parse(<span class="string">'test.html'</span>, etree.HTMLParser())</span><br><span class="line"></span><br><span class="line">result = etree.tostring(html)   <span class="comment"># 解析成字节</span></span><br><span class="line"><span class="comment">#        etree.tolist（html）   解析成列表</span></span><br><span class="line">print(result.decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>test.html是我们创建的html文件，里面存放一些html文本</li>
+<li>跟直接读取html文本不同的是，文件读取会多出 DOCTYPE 的声明，但是对内容解析没有影响</li>
+<li>tostring 方法 可以实现 将 内容结构化打印出来（比较直观）</li>
+</ul>
+<br>
+
+<h3 id="xpath-选择节点"><a href="#xpath-选择节点" class="headerlink" title="xpath 选择节点"></a>xpath 选择节点</h3><p>关于怎么选择节点，除了上面讲的 xpath 常用规则之外，还有一些关于 属性匹配、属性获取的使用方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line">text = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;div&gt;</span></span><br><span class="line"><span class="string">    &lt;ul&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-0"&gt;&lt;a href="link1.html"&gt;first item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-1"&gt;&lt;a href="link2.html"&gt;second item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-inactive"&gt;&lt;a href="link3.html"&gt;third item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-1"&gt;&lt;a href="link4.html"&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">         &lt;li class="item-0"&gt;&lt;a href="link5.html"&gt;fifth item&lt;/a&gt;</span></span><br><span class="line"><span class="string">     &lt;/ul&gt;</span></span><br><span class="line"><span class="string"> &lt;/div&gt;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># //代表获取子孙节点，*代表获取所有</span></span><br><span class="line">result = html.xpath(<span class="string">'//*'</span>)  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定节点名称，比如要获取所有li节点</span></span><br><span class="line">result2 = html.xpath(<span class="string">'//li'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定li标签下的直接子节点a</span></span><br><span class="line">result3 = html.xpath(<span class="string">'//li/a'</span>)     </span><br><span class="line"></span><br><span class="line"><span class="comment"># @符号的过滤   选取 class 为 item-1的li节点</span></span><br><span class="line">result5 = html.xpath(<span class="string">'//li[@class="item-1"]'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取指定节点父节点的类值</span></span><br><span class="line">result4 = html.xpath(<span class="string">'//a[@href="link4.html"]/../@class'</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>属性获取：<strong>@href 即可获取节点的</strong> <strong>href 属性</strong></li>
+<li>属性匹配：使用中括号，@属性名 = 值 的方式来限定某个属性</li>
 </ul>
 <p><br><br></p>
-<h3 id="Join方法"><a href="#Join方法" class="headerlink" title="Join方法"></a>Join方法</h3><p>概念：<strong>等待</strong>子线程运行完毕后再执行下一步操作</p>
-<p>我们知道，子线程的运行默认是并发的，也就是说，不会因为子线程函数运行时，程序就卡在那。join方法可以实现等待子线程运行完后再进行下一步操作</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/3.png" alt></p>
-<p><br><br></p>
-<h3 id="setDaemon方法"><a href="#setDaemon方法" class="headerlink" title="setDaemon方法"></a>setDaemon方法</h3><p>setDaemon又称为守护线程，被设置为守护进程的子线程，会随着主线程运行完毕而强行终止。（程序是否运行完的判断不再依据守护进程）。 同时，setDaemon方法必须置于 start（）之前</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/4.png" alt></p>
+<h4 id="获取文本"><a href="#获取文本" class="headerlink" title="获取文本"></a>获取文本</h4><p>用 XPath 中的 text() 方法可以获取节点中的文本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result6 = html.xpath(<span class="string">'//li[@class ="item-0"]/a/text()'</span>)   <span class="comment">#获取a节点下的内容</span></span><br><span class="line">result7 = html.xpath(<span class="string">'//li[@class ="item-0"]//text()'</span>) <span class="comment">#获取li下所有子孙节点的内容</span></span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>setDaemon（）默认是 Flase，表示未启动</li>
+<li>这里要注意，text（）方法要结合着前面的”/“或“//” 标签看，如果是 “/” 的话，就输出当前子节点的文本；如果是 “//” 的话，就输出当前节点的所有子孙节点的文本</li>
 </ul>
 <p><br><br></p>
-<h3 id="其他实例方法："><a href="#其他实例方法：" class="headerlink" title="其他实例方法："></a>其他实例方法：</h3><p>无论是start 还是 join ，亦或者是 setDarmon方法，都是我们通过Treading.Thread下实例的方法，同时还有：</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/5.png" alt></p>
+<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4><p>如果 HTML 文本中的 li 节点的 class 属性有两个值 ，例如 “class =li  li-first”  </p>
+<p>遇到这种情况，我们可以用contains()函数或者将多个值写全，才能匹配到该节点。</p>
+<p><img src="/2019/08/22/爬虫Day17-解析库Xpath/3.png" alt></p>
+<p><br><br></p>
+<h4 id="多属性匹配"><a href="#多属性匹配" class="headerlink" title="多属性匹配"></a>多属性匹配</h4><p>如果需要根据多个属性才能确定一个节点，这是就需要同时匹配多个属性才可以，那么这里可以<strong>使用运算符</strong> <strong>and 来连接</strong>（xml还支持其他运算符）</p>
+<p><img src="/2019/08/22/爬虫Day17-解析库Xpath/4.png" alt></p>
 <ul>
-<li>run（）是所有实例化的子线程都会执行的函数</li>
-<li>start（）是将子线程设置为等待被CPU调用的状态</li>
+<li>and 表示 “与” 的关系，只有同时满足两个属性匹配表达式，该节点才会被选中。</li>
 </ul>
+<p><br><br></p>
+<h4 id="按序选择"><a href="#按序选择" class="headerlink" title="按序选择"></a>按序选择</h4><p>有时候我们在选择的时候可能某些属性同时匹配了多个节点，但是我们只想要其中的某个节点，如第二个节点，或者最后一个节点，这时该怎么办呢？</p>
+<p><strong>这时可以利用中括号传入索引的方法获取特定次序的节点</strong></p>
+<p>类似于列表的切片，不过需要注意：</p>
+<ul>
+<li><strong>这里的切片的索引是从1开始的</strong></li>
+<li>支持last、position等函数</li>
+<li>还支持+-&lt;&gt;的推算</li>
+</ul>
+<p><img src="/2019/08/22/爬虫Day17-解析库Xpath/5.png" alt></p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>这一篇还是干货满满的，哈哈哈，慢慢吸收吧~ 关于节点选择的编写，写熟了自然就会了。</p>
+<p>下回见，peace~</p>
 
       
     </div>
@@ -447,6 +486,8 @@
       
         <div class="post-tags">
           
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
             <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
@@ -460,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/10/网络编程Day2-socket原理/" rel="next" title="网络编程Day2-socket原理">
-                <i class="fa fa-chevron-left"></i> 网络编程Day2-socket原理
+              <a href="/2019/08/21/爬虫Day16-文件数据存储/" rel="next" title="爬虫Day16-文件数据存储">
+                <i class="fa fa-chevron-left"></i> 爬虫Day16-文件数据存储
               </a>
             
           </div>
@@ -469,10 +510,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/10/网络编程Day4-并发并行与同步异步/" rel="prev" title="网络编程Day4-并发并行与同步异步">
-                网络编程Day4-并发并行与同步异步 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -631,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子线程"><span class="nav-number">2.</span> <span class="nav-text">创建子线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的运行规律"><span class="nav-number">3.</span> <span class="nav-text">线程的运行规律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Join方法"><span class="nav-number">4.</span> <span class="nav-text">Join方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setDaemon方法"><span class="nav-number">5.</span> <span class="nav-text">setDaemon方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他实例方法："><span class="nav-number">6.</span> <span class="nav-text">其他实例方法：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Xpath介绍"><span class="nav-number">2.</span> <span class="nav-text">Xpath介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LXML-库-的使用"><span class="nav-number">3.</span> <span class="nav-text">LXML 库 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读入HTML-文本"><span class="nav-number">3.1.</span> <span class="nav-text">读入HTML 文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读入HTML-纯文件"><span class="nav-number">3.2.</span> <span class="nav-text">读入HTML 纯文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xpath-选择节点"><span class="nav-number">4.</span> <span class="nav-text">xpath 选择节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取文本"><span class="nav-number">4.1.</span> <span class="nav-text">获取文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模糊查询"><span class="nav-number">4.2.</span> <span class="nav-text">模糊查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多属性匹配"><span class="nav-number">4.3.</span> <span class="nav-text">多属性匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#按序选择"><span class="nav-number">4.4.</span> <span class="nav-text">按序选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>

@@ -93,7 +93,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/2.jpg">
-<meta property="og:updated_time" content="2019-08-22T02:09:16.934Z">
+<meta property="og:updated_time" content="2019-08-22T02:40:09.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day15-识别图形验证码">
 <meta name="twitter:description" content="前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。    环境准备 识别图形验证码需要库 tesseract 和 Pillow。请自行百度安装。 Pillow 是从 P">
@@ -403,7 +403,8 @@
 
 <p><strong>环境准备</strong></p>
 <p>识别图形验证码需要库 tesseract 和 Pillow。请自行百度安装。</p>
-<p>Pillow 是从 Python 图像库（Python Imaging Library，<strong>PIL</strong>）分出来的，而关于tesseract，在python3中，它的库为tesserocr。在python 中的库相当于软件的包装器，可以帮助我们调用软件。</p>
+<p>Pillow 是从 Python 图像库（Python Imaging Library，<strong>PIL</strong>）分出来的；而关于tesseract，在python中它的库为tesserocr。</p>
+<p>有人分不清为什么安装了软件还要安装模块，其实是这样的：在python 中的库相当于<strong>软件的包装器</strong>，可以帮助我们调用软件。</p>
 <br>
 
 <h3 id="tesseract-的使用"><a href="#tesseract-的使用" class="headerlink" title="tesseract 的使用"></a>tesseract 的使用</h3><p>我们先保存一张验证码到本地，用来测试使用。名为 code.jpg</p>
@@ -595,7 +596,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
