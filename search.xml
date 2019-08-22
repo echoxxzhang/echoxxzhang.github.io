@@ -8,20 +8,20 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[爬虫Day15-识别图形验证码]]></title>
     <url>%2F2019%2F08%2F19%2F%E7%88%AC%E8%99%ABDay15-%E8%AF%86%E5%88%AB%E5%9B%BE%E5%BD%A2%E9%AA%8C%E8%AF%81%E7%A0%81%2F</url>
-    <content type="text"><![CDATA[前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。 环境准备 识别图形验证码需要库 tesserocr 和 Pillow。请自行百度安装 友情提示一句，如果你也是使用的 windows 系统，那么你也会像我一样，碰好多个坑（捂脸） tesserocr的使用我们先保存一张验证码到本地，用来测试使用。名为 code.jpg 如下图： 第一种方法： 12import tesserocrprint(tesserocr.file_to_text('code.jpg')) 通过两行代码我们就将验证码识别出来，是不是很棒！ 第二种方法： 123456import tesserocrfrom PIL import Imageimage = Image.open('code.jpg') # 使用open方法打开验证码的图，获得一个image对象result = tesserocr.image_to_text(image) # 调用 image_to_text（）方法将图片转字符串print(result) 运行结果如下： 可以看到多出来个空白格，对于一些复杂的线条，tesseroct库会识别失效，这个我们后面会说。 并且，第二种方法是基于打开图片后的image对象进行操作的，而且识别效果更高。建议采用第二种写法噢~ 转灰度、二值化上面的方法虽然快捷、但是一旦遇到有复杂线条干扰的验证码，识别准确度就会大大下降。我们可以通过转灰度、二值化进行加工处理，让图片变得更容易电脑识别。 先了解一下这个convert 方法： convert（）：将当前图像转换为其他模式，并且返回新的图像。 代码实现： 12345678910111213141516171819import tesserocrfrom PIL import Imageimage = Image.open('code.jpg')image = image.convert('L')threshold = 127 # 二值化阈值 数值越低接近白，越高越黑table = []for i in range(256): if i &lt; threshold: table.append(0) else: table.append(1)image = image.point(table, '1')image.show()result = tesserocr.image_to_text(image)print(result) 利用Image对象的convert（）方法参数传入’L’，即可将图片转化为灰度图像 传入数字”1” 即对图片进行二值化处理，convert()方法采用的是默认阈值为127。不过我们不能直接转化原图，要将原图先转为灰度图像，然后再指定二值化阔值 threshold 变量存储的二值化阈值的规律是：数值越低接近白，越高越黑（并且是从左到右渲染的） images.point方法：返回给定查找表对应的图像像素值的拷贝。变量table为图像的每个通道设置256个值。 它会为输出图像指定一个新的模式（mode指定的模式） 转灰度、二值化的变化过程： 可以看到，一些复杂的线条就被我们清理掉了，剩下白色背景、黑色字体的图片（tesseroct最喜欢这个了） 运行结果： 经过后期处理之后，现在的识别准确度大大提高，对于此张验证码，我们做到了完美识别！ 写在后面验证码绝对是反爬工程师手中的一把利器，可以阻挡住多数低级爬虫。 这篇只是介绍了下图形验证码，对于验证码，还需要其他方面知识的铺垫、例如机器学习、一定的数学基础等等。 当你学会识别大多数的验证码时，就可以自信的去敲BAT级别公司的门了。]]></content>
+    <content type="text"><![CDATA[前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。 环境准备 识别图形验证码需要库 tesseract 和 Pillow。请自行百度安装。 Pillow 是从 Python 图像库（Python Imaging Library，PIL）分出来的，而关于tesseract，在python3中，它的库为tesserocr。在python 中的库相当于软件的包装器，可以帮助我们调用软件。 tesseract 的使用我们先保存一张验证码到本地，用来测试使用。名为 code.jpg 如下图： 第一种方法： 12import tesserocrprint(tesserocr.file_to_text('code.jpg')) 通过两行代码我们就将验证码识别出来，是不是很棒！ 第二种方法： 123456import tesserocrfrom PIL import Imageimage = Image.open('code.jpg') # 使用open方法打开验证码的图，获得一个image对象result = tesserocr.image_to_text(image) # 调用 image_to_text（）方法将图片转字符串print(result) 运行结果如下： 可以看到多出来个空白格，对于一些复杂的线条，tesseroct库会识别失效，这个我们后面会说。 并且，第二种方法是基于打开图片后的image对象进行操作的，而且识别效果更高。建议采用第二种写法噢~ 转灰度、二值化上面的方法虽然快捷、但是一旦遇到有复杂线条干扰的验证码，识别准确度就会大大下降。我们可以通过转灰度、二值化进行加工处理，让图片变得更容易电脑识别。 先了解一下这个convert 方法： convert（）：将当前图像转换为其他模式，并且返回新的图像。 代码实现： 12345678910111213141516171819import tesserocrfrom PIL import Imageimage = Image.open('code.jpg')image = image.convert('L')threshold = 127 # 二值化阈值 数值越低接近白，越高越黑table = []for i in range(256): if i &lt; threshold: table.append(0) else: table.append(1)image = image.point(table, '1')image.show()result = tesserocr.image_to_text(image)print(result) 利用Image对象的convert（）方法参数传入’L’，即可将图片转化为灰度图像 传入数字”1” 即对图片进行二值化处理，convert()方法采用的是默认阈值为127。不过我们不能直接转化原图，要将原图先转为灰度图像，然后再指定二值化阔值 threshold 变量存储的二值化阈值的规律是：数值越低接近白，越高越黑（并且是从左到右渲染的） images.point方法：返回给定查找表对应的图像像素值的拷贝。变量table为图像的每个通道设置256个值。 它会为输出图像指定一个新的模式（mode指定的模式） 转灰度、二值化的变化过程： 可以看到，一些复杂的线条就被我们清理掉了，剩下白色背景、黑色字体的图片（tesseroct最喜欢这个了） 运行结果： 经过后期处理之后，现在的识别准确度大大提高，对于此张验证码，我们做到了完美识别！ 写在后面验证码绝对是反爬工程师手中的一把利器，可以阻挡住多数低级爬虫。 这篇只是介绍了下图形验证码，对于验证码，还需要其他方面知识的铺垫、例如机器学习、一定的数学基础等等。 当你学会识别大多数的验证码时，就可以自信的去敲BAT级别公司的门了。]]></content>
       <categories>
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -32,8 +32,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -77,8 +77,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -100,8 +100,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -145,8 +145,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -168,8 +168,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -180,8 +180,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -203,8 +203,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -310,8 +310,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -322,8 +322,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -334,8 +334,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -368,8 +368,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -380,8 +380,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -392,8 +392,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>
@@ -404,8 +404,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>技术</tag>
         <tag>Python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
 </search>

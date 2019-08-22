@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,Python,">
+  <meta name="keywords" content="Python,技术,">
 
 
 
@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。    环境准备 识别图形验证码需要库 tesserocr 和 Pillow。请自行百度安装 友情提示一句，如果你也是">
-<meta name="keywords" content="技术,Python">
+<meta name="description" content="前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。    环境准备 识别图形验证码需要库 tesseract 和 Pillow。请自行百度安装。 Pillow 是从 P">
+<meta name="keywords" content="Python,技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫Day15-识别图形验证码">
 <meta property="og:url" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。    环境准备 识别图形验证码需要库 tesserocr 和 Pillow。请自行百度安装 友情提示一句，如果你也是">
+<meta property="og:description" content="前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。    环境准备 识别图形验证码需要库 tesseract 和 Pillow。请自行百度安装。 Pillow 是从 P">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/code2.jpg">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/2.jpg">
-<meta property="og:updated_time" content="2019-08-19T08:25:11.156Z">
+<meta property="og:updated_time" content="2019-08-22T02:09:16.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫Day15-识别图形验证码">
-<meta name="twitter:description" content="前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。    环境准备 识别图形验证码需要库 tesserocr 和 Pillow。请自行百度安装 友情提示一句，如果你也是">
+<meta name="twitter:description" content="前言上一篇的模拟登陆 爬虫Day14-模拟登陆Github 提到，具体的反爬手段还有验证码，而验证码又分为很多类：图形验证码、极验滑动验证码、点触验证码等等。对于简单的验证码，我们可以利用脚本识别，如果是比较复杂的验证码，建议外接到打码平台，省时省力。 今天我们要讲的是图形验证码。    环境准备 识别图形验证码需要库 tesseract 和 Pillow。请自行百度安装。 Pillow 是从 P">
 <meta name="twitter:image" content="http://yoursite.com/2019/08/19/爬虫Day15-识别图形验证码/1.jpg">
 
 
@@ -402,11 +402,11 @@
 <br>
 
 <p><strong>环境准备</strong></p>
-<p>识别图形验证码需要库 tesserocr 和 Pillow。请自行百度安装</p>
-<p>友情提示一句，如果你也是使用的 windows 系统，那么你也会像我一样，碰好多个坑（捂脸）</p>
+<p>识别图形验证码需要库 tesseract 和 Pillow。请自行百度安装。</p>
+<p>Pillow 是从 Python 图像库（Python Imaging Library，<strong>PIL</strong>）分出来的，而关于tesseract，在python3中，它的库为tesserocr。在python 中的库相当于软件的包装器，可以帮助我们调用软件。</p>
 <br>
 
-<h3 id="tesserocr的使用"><a href="#tesserocr的使用" class="headerlink" title="tesserocr的使用"></a>tesserocr的使用</h3><p>我们先保存一张验证码到本地，用来测试使用。名为 code.jpg</p>
+<h3 id="tesseract-的使用"><a href="#tesseract-的使用" class="headerlink" title="tesseract 的使用"></a>tesseract 的使用</h3><p>我们先保存一张验证码到本地，用来测试使用。名为 code.jpg</p>
 <p>如下图：</p>
 <p><img src="/2019/08/19/爬虫Day15-识别图形验证码/code2.jpg" alt></p>
 <p><strong>第一种方法：</strong></p>
@@ -482,9 +482,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/技术/" rel="tag"># 技术</a>
-          
             <a href="/tags/Python/" rel="tag"># Python</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
           
         </div>
       
@@ -668,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tesserocr的使用"><span class="nav-number">2.</span> <span class="nav-text">tesserocr的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转灰度、二值化"><span class="nav-number">3.</span> <span class="nav-text">转灰度、二值化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转灰度、二值化的变化过程："><span class="nav-number">3.1.</span> <span class="nav-text">转灰度、二值化的变化过程：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在后面"><span class="nav-number">4.</span> <span class="nav-text">写在后面</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tesseract-的使用"><span class="nav-number">2.</span> <span class="nav-text">tesseract 的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转灰度、二值化"><span class="nav-number">3.</span> <span class="nav-text">转灰度、二值化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#转灰度、二值化的变化过程："><span class="nav-number">3.1.</span> <span class="nav-text">转灰度、二值化的变化过程：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在后面"><span class="nav-number">4.</span> <span class="nav-text">写在后面</span></a></li></ol></div>
             
 
           </div>
