@@ -8,8 +8,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -20,20 +20,20 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[爬虫Day14-模拟登陆Github]]></title>
     <url>%2F2019%2F08%2F15%2F%E7%88%AC%E8%99%ABDay14-%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86Github%2F</url>
-    <content type="text"><![CDATA[前言爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。 我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等 为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人的个人信息，如果有，就登陆成功。 模拟登陆首先要分析登录的过程，需要探究后台的登录请求是怎样发送的，登录之后又有怎样的处理过程。 如果已经登录 GitHub，先退出登录，同时清除 Cookies。 打开 GitHub 的登录页面，链接为 https://github.com/login 。 然后输入GitHub 的用户名和密码，打开开发者工具，将 Preserve Log 选项勾选上，这表示显示持续日志（preserve log的作用是，保持下面的所有的网络请求不被冲掉。因为当网页刷新的时候，如果没有选中这个按钮，之前的访问url记录会被冲掉。） 如下图所示： 点击登陆之后 发现交互了一些信息，我们查看session请求响应条目，它是个POST 请求信息（就是它了！） 状态码是302，为重定向，说明我们登陆的时候，经过了一个页面。 往下拉，查看Request Headers 和 From Data 信息： 发现有个from Data ，这对应 POST请求发送的Data表单 。 里面字段信息有 login、password （账号密码），另外还有utf8、commit、authenticity_token 这些其他字段。 有些字段可以直接构建，一些字段参数不知道其含义，只能一个一个测试。比如这里的 authenticity_token 通过观察，我们发现在登录之前我们会访问到一个登录页面，此页面是通过 GET 形式访问的。输入用户名密码，点击登录按钮，浏览器发送这两部分信息。 也就是说 Cookies 和 authenticity_token 是在访问登录页的时候设置的。 一些临时变量的参数，肯定是在登陆之前附加的参数（这是个先有鸡后有蛋的故事） 于是我们再次退出登陆，清除Cookies，寻找Cookie、 authenticity_token 参数是从哪来的。 发现 交互的报文中，Response Headers 有一个 Set-Cookie 字段。这就是设置 Cookies 的过程。 然后在网页的源码探寻，搜索相关字段，发现源代码里面隐藏着 authenticity_token信息，它是一个隐藏式表单元素。 那么我们就拿到了POST的请求参数了。 可以进行模拟登陆了~ 代码示例：12345678910111213141516171819202122232425262728293031323334353637import requestsfrom lxml import etreeclass Login: def __init__(self): self.headers = &#123; 'host': 'github.com', 'Referer': 'https://github.com/login', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36' &#125; self.login_url = 'https://github.com/login' # 登陆之前的URL self.post_url = 'https://github.com/session' # 发送POST请求的URL self.session = requests.Session() # 由Session实例化的对象，Cookies会自动保存 def back_tokenI(self): response = self.session.get(self.login_url, headers=self.headers) selector = etree.HTML(response.text) token = selector.xpath('//div//input[2]/@value')[0] # 选中 authenticity_token 参数的值 return token def login(self, username, password): data = &#123; 'commit': 'Sign in', 'authenticity_token': self.back_tokenI(), 'utf8': '✓', 'login': username, 'password': password &#125; response = self.session.post(url=self.post_url, headers=self.headers, data=data) if response.status_code == 200: print('模拟请求成功了！！！') return response.text # 返回登陆成功之后的数据c1 = Login()c1.login('username','password') 注意我们这里使用的Session（）实例化的对象发送请求的，这个方法构建的对象，在访问页面的时候，会自动帮我们保存 Cookies值 。这样我们就不用特定设置Cookies 参数了。 写在最后其实这种携带参数请求的模拟登陆并不复杂，主要是它携带的参数有多个，你需要一个个去试，没有其他规律可循。当然，有时候会碰到 salt 加密或CSS反爬，这个就需要其他方面的知识点了。 这篇Github模拟登陆就说到这里啦，下期见，peace~]]></content>
+    <content type="text"><![CDATA[前言爬虫中比较重要的一环，当然是模拟登陆了，期间可能会遇到验证码等反爬行为，今天要讲的模拟登陆Github，是比较简单的类型：构建请求参数。但这也是最为常见的登陆形式。 我们知道，要想登陆到站点，肯定交互了账号密码、Cookies值的设定等等 为了安全性考虑，大多数请求形式使用POST方式进行交互，账号信息包含在一个From Data 的表单中，服务器拿到了信息之后，会到数据库进行比对，是否有此人的个人信息，如果有，就登陆成功。 模拟登陆首先要分析登录的过程，需要探究后台的登录请求是怎样发送的，登录之后又有怎样的处理过程。 如果已经登录 GitHub，先退出登录，同时清除 Cookies。 打开 GitHub 的登录页面，链接为 https://github.com/login 。 然后输入GitHub 的用户名和密码，打开开发者工具，将 Preserve Log 选项勾选上，这表示显示持续日志（preserve log的作用是，保持下面的所有的网络请求不被冲掉。因为当网页刷新的时候，如果没有选中这个按钮，之前的访问url记录会被冲掉。） 如下图所示： 点击登陆之后 发现交互了一些信息，我们查看session请求响应条目，它是个POST 请求信息（就是它了！） 状态码是302，为重定向，说明我们登陆的时候，经过了一个页面。 往下拉，查看Request Headers 和 From Data 信息： 发现有个from Data ，这对应 POST请求发送的Data表单 。 里面字段信息有 login、password （账号密码），另外还有utf8、commit、authenticity_token 这些其他字段。 有些字段可以直接构建，一些字段参数不知道其含义，只能一个一个测试。比如这里的 authenticity_token 通过观察，我们发现在登录之前我们会访问到一个登录页面，此页面是通过 GET 形式访问的。输入用户名密码，点击登录按钮，浏览器发送这两部分信息。 也就是说 Cookies 和 authenticity_token 是在访问登录页的时候设置的。 一些临时变量的参数，肯定是在登陆之前附加的参数（这是个先有鸡后有蛋的故事） token 是类似令牌的东西，这种令牌要么是用户注册的时候分配给用户，要么就是在用户调用的时候才提供，可能是长期固定的值，也可能是频繁变化的，通过服务器对用户名和密码的组合处理后生成。 我们应该弄懂 token 是如何生成的，才能完成表单提交。 于是我们再次退出登陆，清除Cookies，寻找Cookie、 authenticity_token 参数是从哪来的。 发现 交互的报文中，Response Headers 有一个 Set-Cookie 字段。这就是设置 Cookies 的过程。 然后在网页的源码探寻，搜索相关字段，发现源代码里面隐藏着 authenticity_token信息，它是一个隐藏式表单元素。 那么我们就拿到了POST的请求参数了。 可以进行模拟登陆了~ 代码示例：12345678910111213141516171819202122232425262728293031323334353637import requestsfrom lxml import etreeclass Login: def __init__(self): self.headers = &#123; 'host': 'github.com', 'Referer': 'https://github.com/login', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36' &#125; self.login_url = 'https://github.com/login' # 登陆之前的URL self.post_url = 'https://github.com/session' # 发送POST请求的URL self.session = requests.Session() # 由Session实例化的对象，Cookies会自动保存 def back_tokenI(self): response = self.session.get(self.login_url, headers=self.headers) selector = etree.HTML(response.text) token = selector.xpath('//div//input[2]/@value')[0] # 选中 authenticity_token 参数的值 return token def login(self, username, password): data = &#123; 'commit': 'Sign in', 'authenticity_token': self.back_tokenI(), 'utf8': '✓', 'login': username, 'password': password &#125; response = self.session.post(url=self.post_url, headers=self.headers, data=data) if response.status_code == 200: print('模拟请求成功了！！！') return response.text # 返回登陆成功之后的数据c1 = Login()c1.login('username','password') 注意我们这里使用的Session（）实例化的对象发送请求的，这个方法构建的对象，在访问页面的时候，会自动帮我们保存 Cookies值 。这样我们就不用特定设置Cookies 参数了。 写在最后其实这种携带参数请求的模拟登陆并不复杂，主要是它携带的参数有多个，你需要一个个去试，没有其他规律可循。当然，有时候会碰到 salt 加密或CSS反爬，这个就需要其他方面的知识点了。 这篇Github模拟登陆就说到这里啦，下期见，peace~]]></content>
       <categories>
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -77,8 +77,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -100,8 +100,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -145,8 +145,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -168,8 +168,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -180,8 +180,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -203,8 +203,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -310,8 +310,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -322,8 +322,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -334,8 +334,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -368,8 +368,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -380,8 +380,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -392,8 +392,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -404,8 +404,8 @@
         <category>Python爬虫</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>技术</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>
