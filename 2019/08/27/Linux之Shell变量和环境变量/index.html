@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,技术,">
 
 
 
@@ -79,13 +79,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小小世界">
-<meta property="og:url" content="http://yoursite.com/archives/2019/page/5/index.html">
+<meta name="description" content="Shell 变量所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。 我们可以用 declare 预声明一个变量，或者即用即创建： Name=zihao（变量名不需要加美元符号$，PHP语言中变量需要） 需要特别注意的是：变量名和等号">
+<meta name="keywords" content="Linux,技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux之Shell变量和环境变量">
+<meta property="og:url" content="http://yoursite.com/2019/08/27/Linux之Shell变量和环境变量/index.html">
 <meta property="og:site_name" content="小小世界">
+<meta property="og:description" content="Shell 变量所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。 我们可以用 declare 预声明一个变量，或者即用即创建： Name=zihao（变量名不需要加美元符号$，PHP语言中变量需要） 需要特别注意的是：变量名和等号">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之Shell变量和环境变量/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之Shell变量和环境变量/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之Shell变量和环境变量/3.png">
+<meta property="og:updated_time" content="2019-08-27T07:27:51.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小小世界">
+<meta name="twitter:title" content="Linux之Shell变量和环境变量">
+<meta name="twitter:description" content="Shell 变量所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。 我们可以用 declare 预声明一个变量，或者即用即创建： Name=zihao（变量名不需要加美元符号$，PHP语言中变量需要） 需要特别注意的是：变量名和等号">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/27/Linux之Shell变量和环境变量/7.png">
 
 
 
@@ -115,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/page/5/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/27/Linux之Shell变量和环境变量/">
 
 
 
 
 
-  <title>Archive | 小小世界</title>
+  <title>Linux之Shell变量和环境变量 | 小小世界</title>
   
 
 
@@ -140,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/echoxxzhang/echoxxzhang.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,215 +275,262 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 45 posts in total. Keep on posting.
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/Linux之Shell变量和环境变量/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/max.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小世界">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">Linux之Shell变量和环境变量</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-27T15:03:29+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/16/编程新手的必修课/" itemprop="url">
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">编程新手的必修课</span>
+                <span class="post-meta-item-text">In</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-16T10:56:19+08:00" content="2019-07-16">
-          07-16
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/27/Linux之Shell变量和环境变量/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/27/Linux之Shell变量和环境变量/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/15/爬虫Day4-urllib实战/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day4-urllib实战</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-15T09:24:08+08:00" content="2019-07-15">
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/10/爬虫Day3-urllib介绍/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day3-urllib介绍</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-10T09:40:08+08:00" content="2019-07-10">
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
+        <h3 id="Shell-变量"><a href="#Shell-变量" class="headerlink" title="Shell 变量"></a>Shell 变量</h3><p>所谓变量就是计算机中用于记录一个值（不一定是数值，也可以是字符或字符串）的符号，而这些符号将用于不同的运算处理中。通常变量与值是一对一的关系，可以通过表达式读取它的值并赋值给其它变量，也可以直接指定数值赋值给任意变量。</p>
+<p>我们可以用 declare 预声明一个变量，或者<strong>即用即创建</strong>：</p>
+<p>Name=zihao（变量名不需要加美元符号$，PHP语言中变量需要）</p>
+<p>需要特别注意的是：<strong>变量名和等号之间不能有空格。</strong></p>
+<br>
 
-        
-        
-        
+<p>同时，变量名的命名须遵循如下规则：</p>
+<ul>
+<li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。</li>
+<li>中间不能有空格，可以使用下划线（_）。</li>
+<li>不能使用标点符号。</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
+</ul>
+<br>
 
-        
-        
+<h4 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h4><p><img src="/2019/08/27/Linux之Shell变量和环境变量/7.png" alt></p>
+<ul>
+<li>建议使用变量时，将变量名加上花括号。有利于帮助解释器识别变量的边界，这是个好习惯。</li>
+</ul>
+<br>
 
-        
+<h4 id="只读变量"><a href="#只读变量" class="headerlink" title="只读变量"></a>只读变量</h4><p>在变量被创建了之后，使用 readonly 命令可以将变量定义为只读变量，只读变量的值只能被删除、但是不能被修改。</p>
+<p>格式：“readonly  变量名”</p>
+<br>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h4 id="删除变量"><a href="#删除变量" class="headerlink" title="删除变量"></a>删除变量</h4><p>使用 unset 命令可以删除变量。</p>
+<p><img src="/2019/08/27/Linux之Shell变量和环境变量/2.png" alt></p>
+<p><br><br></p>
+<hr>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><p> Shell 的环境变量作用于自身和它的子进程。在所有的 UNIX 和类 UNIX 系统中，每个进程都有其各自的环境变量设置，且默认情况下，<strong>当一个进程被创建时，除了创建过程中明确指定的话，它将继承其父进程的绝大部分环境设置。</strong></p>
+<p><strong>也就是说，Shell 中运行的大部分命令都将以 Shell 的子进程的方式运行。</strong></p>
+<br>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/09/爬虫Day2-爬虫基础/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day2_爬虫基础</span>
-              
-            </a>
-        
-      </h2>
+<p>通常我们会涉及到的变量类型有三种：</p>
+<ol>
+<li>当前 Shell 进程私有用户自定义变量，只在当前 Shell 中有效。</li>
+<li>Shell 本身内建的变量。</li>
+<li>从自定义变量导出的环境变量。</li>
+</ol>
+<p>注： 为了与普通变量区分，通常我们习惯将环境变量名设为大写。</p>
+<br>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-09T10:05:04+08:00" content="2019-07-09">
-          07-09
-        </time>
-      </div>
+<hr>
+<h3 id="命令的查找顺序"><a href="#命令的查找顺序" class="headerlink" title="命令的查找顺序"></a>命令的查找顺序</h3><p>环境变量的作用是什么呢？或者说，当我们在 Shell 中输入一个命令，Shell 是怎么知道去哪找到这个命令然后执行的呢？这是通过<strong>环境变量</strong> <code>PATH</code> 来进行搜索的。</p>
+<p>在Linux系统中一切都是文件，Linux命令也不例外。那么，在用户执行了一条命令之后，Linux系统中到底发生了什么事情呢？简单来说，命令在Linux中的执行分为4个步骤。</p>
+<blockquote>
+<p>第1步：判断用户是否以绝对路径或相对路径的方式输入命令（如/bin/ls），如果是的话则直接执行。</p>
+<p>第2步：Linux系统检查用户输入的命令是否为“别名命令”，即用一个自定义的命令名称来替换原本的命令名称。可以用<strong>alias</strong>命令来创建一个属于自己的命令别名，格式为“alias 别名=命令”。若要取消一个命令别名，则是用unalias命令，格式为“unalias 别名”。我们之前在使用rm命令删除文件时，Linux系统都会要求我们再确认是否执行删除操作，其实这就是Linux系统为了防止用户误删除文件而特意设置的rm别名命令。</p>
+<p>第3步：Bash解释器判断用户输入的是内部命令还是外部命令。内部命令是解释器内部的指令，会被直接执行；而用户在绝大部分时间输入的是外部命令，这些命令交由步骤4继续处理。可以使用“type 命令名称”来判断用户输入的命令是内部命令还是外部命令。</p>
+<p>第4步：系统在多个路径中查找用户输入的命令文件，而定义这些路径的变量叫作PATH，输入命令时Bash解释器就会在这些位置中逐个查找。<strong>PATH是由多个路径值组成的变量，每个路径值之间用冒号间隔，对这些路径的增加和删除操作将影响到 Bash 解释器对 Linux命令的查找。</strong></p>
+</blockquote>
+ <br>
 
-    </header>
-  </article>
+ <br>
+
+<h4 id="自定义环境变量"><a href="#自定义环境变量" class="headerlink" title="自定义环境变量"></a>自定义环境变量</h4><p>其实变量是由固定的变量名与用户或系统设置的变量值两部分组成的，我们也可以自行创建变量，来满足工作需求。</p>
+<p><img src="/2019/08/27/Linux之Shell变量和环境变量/3.png" alt></p>
+<br>
+
+<p>但是，这样的环境变量不具有全局性，作用范围也有限，默认情况下不能被其他用户使用。如果工作需要，可以使用<code>export</code>命令将其提升为全局变量，这样其他用户也就可以使用它（全局变量：多用户都能使用）</p>
+<br>
 
 
 
+<h4 id="永久生效的环境变量"><a href="#永久生效的环境变量" class="headerlink" title="永久生效的环境变量"></a>永久生效的环境变量</h4><p>当关机后，或者关闭当前的 shell 之后，环境变量就会清空。如何让环境变量永久生效呢？</p>
+<p>按变量的生存周期来划分，Linux 变量可分为两类：</p>
+<ol>
+<li><p>永久的：需要<strong>修改配置文件</strong>，变量永久生效；</p>
+</li>
+<li><p>临时的：使用 export 命令行声明即可，变量在关闭 shell 时失效。</p>
+<br>
+
+</li>
+</ol>
+<p><strong>关于配置文件</strong></p>
+<p>两个关于变量的重要文件： /etc/bashrc 和 /etc/profile ，它们分别存放的是 shell 变量和环境变量。</p>
+<p>这个 .profile 只对当前用户永久生效。而写在 /etc/profile 里面的是对所有用户永久生效，所以如果想要添加一个永久生效的环境变量，只需要打开 /etc/profile，在最后加上你想添加的环境变量就好了。</p>
+ <br>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/06/爬虫Day1-网页基础/" itemprop="url">
-              
-                <span itemprop="name">爬虫Day1-网页基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-06T20:49:24+08:00" content="2019-07-06">
-          07-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/27/Linux之Shell脚本进阶/" rel="next" title="Linux之Shell脚本进阶">
+                <i class="fa fa-chevron-left"></i> Linux之Shell脚本进阶
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -482,6 +538,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -502,8 +569,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -583,6 +659,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell-变量"><span class="nav-number">1.</span> <span class="nav-text">Shell 变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的使用"><span class="nav-number">1.1.</span> <span class="nav-text">变量的使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#只读变量"><span class="nav-number">1.2.</span> <span class="nav-text">只读变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除变量"><span class="nav-number">1.3.</span> <span class="nav-text">删除变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">2.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令的查找顺序"><span class="nav-number">3.</span> <span class="nav-text">命令的查找顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义环境变量"><span class="nav-number">3.1.</span> <span class="nav-text">自定义环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#永久生效的环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">永久生效的环境变量</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -744,6 +836,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -790,6 +886,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'echoxxzhang',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '3455ffc96ac8209cf02b514a399c9514274071c4',
+            
+                client_id: 'abf5af7deec7b35ad17c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 

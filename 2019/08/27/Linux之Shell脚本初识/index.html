@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,Linux,">
+  <meta name="keywords" content="Linux,技术,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="Shell 脚本是什么可以将Shell终端解释器当作用户与Linux系统内部的通信媒介，除了能够支持各种变量与参数外，还提供了诸如循环、分支等高级编程语言才有的控制结构特性。要想正确使用Shell中的这些功能特性，准确下达命令尤为重要。Shell脚本命令的工作方式有两种：交互式和批处理。  交互式（Interactive）：用户每输入一条命令就立即执行。（之前我们遇到的都是） 批处理（Batch）">
-<meta name="keywords" content="技术,Linux">
+<meta name="keywords" content="Linux,技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux之Shell脚本初识">
 <meta property="og:url" content="http://yoursite.com/2019/08/27/Linux之Shell脚本初识/index.html">
@@ -88,9 +88,9 @@
 <meta property="og:description" content="Shell 脚本是什么可以将Shell终端解释器当作用户与Linux系统内部的通信媒介，除了能够支持各种变量与参数外，还提供了诸如循环、分支等高级编程语言才有的控制结构特性。要想正确使用Shell中的这些功能特性，准确下达命令尤为重要。Shell脚本命令的工作方式有两种：交互式和批处理。  交互式（Interactive）：用户每输入一条命令就立即执行。（之前我们遇到的都是） 批处理（Batch）">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之Shell脚本初识/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之Shell脚本初识/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之Shell脚本初识/4.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之Shell脚本初识/7.png">
-<meta property="og:updated_time" content="2019-08-27T03:44:59.154Z">
+<meta property="og:updated_time" content="2019-08-27T07:29:09.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux之Shell脚本初识">
 <meta name="twitter:description" content="Shell 脚本是什么可以将Shell终端解释器当作用户与Linux系统内部的通信媒介，除了能够支持各种变量与参数外，还提供了诸如循环、分支等高级编程语言才有的控制结构特性。要想正确使用Shell中的这些功能特性，准确下达命令尤为重要。Shell脚本命令的工作方式有两种：交互式和批处理。  交互式（Interactive）：用户每输入一条命令就立即执行。（之前我们遇到的都是） 批处理（Batch）">
@@ -402,7 +402,8 @@
 
 <h3 id="构建Shell-脚本"><a href="#构建Shell-脚本" class="headerlink" title="构建Shell 脚本"></a>构建Shell 脚本</h3><p>编写Shell脚本，可以通过vim 进行文本编辑，输入批处理的命令集，然后保存并退出。vim 编辑器是所有Unix及Linux 系统下标准的编辑器，它的强大不逊色于任何最新的文本编辑器。</p>
 <p>其实使用Vim编辑器把Linux命令按照顺序依次写入到一个文件中，这就是一个简单的脚本了。</p>
-<h4 id="Shell-脚本举例"><a href="#Shell-脚本举例" class="headerlink" title="Shell 脚本举例"></a>Shell 脚本举例</h4><p><img src="/2019/08/27/Linux之Shell脚本初识/5.png" alt></p>
+<p><strong>Shell 脚本举例</strong></p>
+<p><img src="/2019/08/27/Linux之Shell脚本初识/5.png" alt></p>
 <p>Shell脚本文件的名称可以任意，但为了避免被误以为是普通文件，<strong>建议将 .sh 后缀加上，以表示是一个脚本文件。</strong></p>
 <p>在上面的这个example.sh脚本中实际上出现了三种不同的元素：</p>
 <ul>
@@ -436,6 +437,106 @@
 </ol>
 <br>
 
+<p><em>下面介绍一下三种模式一些指令。</em></p>
+<h4 id="命令行模式"><a href="#命令行模式" class="headerlink" title="命令行模式"></a>命令行模式</h4><table>
+<thead>
+<tr>
+<th>组合键（命令）</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dd</td>
+<td>删除光标所在的那一行</td>
+</tr>
+<tr>
+<td>u</td>
+<td>撤销上一步操作</td>
+</tr>
+<tr>
+<td>Ctrl+r</td>
+<td>恢复上一步操作</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>n为数字，删除光标所在的向下n行</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制光标所在的那一行</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>n为数字，复制光标所在的向下n行</td>
+</tr>
+<tr>
+<td>p</td>
+<td>将已复制的数据在光标的下一行粘贴</td>
+</tr>
+<tr>
+<td>实现剪切操作：</td>
+<td>dd+p</td>
+</tr>
+<tr>
+<td>G</td>
+<td>光标移动到这个文件的最后一行</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>移动到文件的第n行</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到文件的第一行</td>
+</tr>
+</tbody></table>
+<br>
+
+<h4 id="编辑模式："><a href="#编辑模式：" class="headerlink" title="编辑模式："></a>编辑模式：</h4><table>
+<thead>
+<tr>
+<th>组合键（命令）</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i：</td>
+<td>在当前光标所在字符的前面，转为输入模式</td>
+</tr>
+<tr>
+<td>I：</td>
+<td>在当前光标所在行的行首转换为输入模式</td>
+</tr>
+<tr>
+<td>a：</td>
+<td>在当前光标所在字符的后面，转为输入模式</td>
+</tr>
+<tr>
+<td>A：</td>
+<td>在光标所在行的行尾，转换为输入模式</td>
+</tr>
+<tr>
+<td>o：</td>
+<td>在当前光标所在行的下方，新建一行，并转为输入模式</td>
+</tr>
+<tr>
+<td>O：</td>
+<td>在当前光标所在行的上方，新建一行，并转为输入模式</td>
+</tr>
+<tr>
+<td>s：</td>
+<td>删除光标所在字符</td>
+</tr>
+<tr>
+<td>r：</td>
+<td>替换光标处字符</td>
+</tr>
+</tbody></table>
+<br>
+
+<h4 id="末行模式："><a href="#末行模式：" class="headerlink" title="末行模式："></a>末行模式：</h4><p><img src="/2019/08/27/Linux之Shell脚本初识/1.png" alt></p>
+<br>
+
 <p><em>脚本编写之后，我们就可以运行它啦！</em></p>
 <br>
 
@@ -444,26 +545,6 @@
 <li>其返回的结果，就是我们在脚本中输入的命令啦。这就实现了批处理的效果。</li>
 </ul>
 <br>
-
-<hr>
-<h3 id="Shell-变量"><a href="#Shell-变量" class="headerlink" title="Shell 变量"></a>Shell 变量</h3><p>定义变量时，变量名不需要加美元符号（$，PHP语言中变量需要），如： Name=zihao</p>
-<p>需要注意的是：<strong>变量名和等号之间不能有空格。</strong></p>
-<br>
-
-<p>同时，变量名的命名须遵循如下规则：</p>
-<ul>
-<li>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。</li>
-<li>中间不能有空格，可以使用下划线（_）。</li>
-<li>不能使用标点符号。</li>
-<li>不能使用bash里的关键字（可用help命令查看保留关键字）。</li>
-</ul>
-<br>
-
-<h4 id="变量的使用"><a href="#变量的使用" class="headerlink" title="变量的使用"></a>变量的使用</h4><p><img src="/2019/08/27/Linux之Shell脚本初识/7.png" alt></p>
-<ul>
-<li>建议使用变量时，将变量名加上花括号。有利于帮助解释器识别变量的边界，这是个好习惯。</li>
-</ul>
-
       
     </div>
     
@@ -480,9 +561,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/技术/" rel="tag"># 技术</a>
-          
             <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
           
         </div>
       
@@ -593,7 +674,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -666,7 +747,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell-脚本是什么"><span class="nav-number">1.</span> <span class="nav-text">Shell 脚本是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建Shell-脚本"><span class="nav-number">2.</span> <span class="nav-text">构建Shell 脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Shell-脚本举例"><span class="nav-number">2.1.</span> <span class="nav-text">Shell 脚本举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim-编辑器"><span class="nav-number">2.2.</span> <span class="nav-text">Vim 编辑器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行Shell-脚本"><span class="nav-number">3.</span> <span class="nav-text">运行Shell 脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell-变量"><span class="nav-number">4.</span> <span class="nav-text">Shell 变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量的使用"><span class="nav-number">4.1.</span> <span class="nav-text">变量的使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shell-脚本是什么"><span class="nav-number">1.</span> <span class="nav-text">Shell 脚本是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建Shell-脚本"><span class="nav-number">2.</span> <span class="nav-text">构建Shell 脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vim-编辑器"><span class="nav-number">2.1.</span> <span class="nav-text">Vim 编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令行模式"><span class="nav-number">2.2.</span> <span class="nav-text">命令行模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编辑模式："><span class="nav-number">2.3.</span> <span class="nav-text">编辑模式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#末行模式："><span class="nav-number">2.4.</span> <span class="nav-text">末行模式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行Shell-脚本"><span class="nav-number">3.</span> <span class="nav-text">运行Shell 脚本</span></a></li></ol></div>
             
 
           </div>

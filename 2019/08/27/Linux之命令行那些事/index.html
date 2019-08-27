@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,Linux,">
+  <meta name="keywords" content="Linux,技术,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="输入输出重定向输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 在日常的学习和工作中，相较于输入重定向，我们使用输出重定向的频率更高，所以又将输出重定向分为了标准输出重定向和错误输出重定向两种不同的技术，以及清空写入（&amp;gt;）与追加写入（&amp;gt;&amp;gt;）两种模式。    标准输入输出默认情况下，command &amp;gt; file 将 stdou">
-<meta name="keywords" content="技术,Linux">
+<meta name="keywords" content="Linux,技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux之命令行那些事">
 <meta property="og:url" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/index.html">
@@ -90,8 +90,9 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/4.png">
-<meta property="og:updated_time" content="2019-08-27T03:34:20.656Z">
+<meta property="og:updated_time" content="2019-08-27T06:44:45.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux之命令行那些事">
 <meta name="twitter:description" content="输入输出重定向输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 在日常的学习和工作中，相较于输入重定向，我们使用输出重定向的频率更高，所以又将输出重定向分为了标准输出重定向和错误输出重定向两种不同的技术，以及清空写入（&amp;gt;）与追加写入（&amp;gt;&amp;gt;）两种模式。    标准输入输出默认情况下，command &amp;gt; file 将 stdou">
@@ -416,11 +417,18 @@
 <h3 id="命令通配符"><a href="#命令通配符" class="headerlink" title="命令通配符"></a>命令通配符</h3><p>假设想要批量查看所有日记文件的相关权限属性，我们应该如何做呢？难道一个个去查吗？ 当然不是的，日志文件命名格式大多相同，我们可以利用命令通配符将其选中，然后排列查看。</p>
 <p>顾名思义，通配符就是通用的匹配信息的符号，比如星号（*）代表匹配零个或多个字符，问号（?）代表匹配单个字符，中括号内加上数字[0-9]代表匹配0～9之间的单个数字的字符，而中括号内加上字母[abc]则是代表匹配a、b、c三个字符中的任意一个字符。（有没有发现很像正则！）</p>
 <p><strong>实例：</strong></p>
+<p>可以看到现在有多个日志文件，其中混入了几个命名格式与其他大多数不同的文件。假设我们要将其删除，我们如何使用一句命令进行批处理删除呢？</p>
 <p><img src="/2019/08/27/Linux之命令行那些事/3.png" alt></p>
 <ul>
 <li>实现了删除某些不同日期文件格式文件的需求</li>
 <li>Shell解释器 会拿着你编写的命令通配符，与路径中的文件一一匹配，然后返回匹配成功的文件。</li>
 </ul>
+<br>
+
+<p><strong>实例2：</strong></p>
+<p>如果我们想创建的文件，它的名字都类似:file0.txt,file1.txt … … file9.txt等等。</p>
+<p>如何实现一个命令批量创建？</p>
+<p><img src="/2019/08/27/Linux之命令行那些事/5.png" alt></p>
 <p><br><br></p>
 <h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><p>关于命令通配符，有时候会有特殊情况发现，比如说，文件的命名中有特殊字符（元字符、通配符等等），这时候就需要转义字符出马了。</p>
 <p><strong>4个最常用的转义字符</strong></p>
@@ -455,9 +463,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/技术/" rel="tag"># 技术</a>
-          
             <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
           
         </div>
       
@@ -568,7 +576,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
