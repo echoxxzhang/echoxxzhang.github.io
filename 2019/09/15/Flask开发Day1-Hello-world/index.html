@@ -89,7 +89,8 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/Flask开发Day1-Hello-world/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/15/Flask开发Day1-Hello-world/2.png">
-<meta property="og:updated_time" content="2019-09-15T02:02:34.382Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/15/Flask开发Day1-Hello-world/3.png">
+<meta property="og:updated_time" content="2019-09-15T23:45:31.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask开发Day1-Hello world">
 <meta name="twitter:description" content="前言打算自己独自做一个小项目：半年时间内，用python+python周边库搭建出一个网站，这个网站服务端运用爬虫技术爬取一些数据，可以提供网页点播音乐功能。 其中 Flask作为Web服务主库，BeautifulSoup、requests作为爬虫主库，Mysql作为数据库。 所以，这个系列是我的笔记，也记录了这个项目中磕磕碰碰的坑。   环境搭建 python3.x windows 10 需要的">
@@ -428,6 +429,7 @@
 
 <ul>
 <li>使用这个命令来让Python运行<code>venv</code>包，它会创建一个名为<code>venv</code>的虚拟环境。 命令中的第一个“venv”是Python虚拟环境包的名称，第二个是要用于这个特定环境的虚拟环境名称。</li>
+<li><strong>注意，整个项目文件中，不要出现中文路径</strong></li>
 </ul>
 <br>
 
@@ -493,32 +495,38 @@
 <br>
 
 <p><strong>以上，我们就把一个简单的”Hello World“的Flask小应用做好了！</strong></p>
+<p>flask<code>命令由 Flask 安装，而不是你的应用。为了可以使用，它必须被告知可 以在哪里找到你的应用。</code>FLASK_APP` 环境变量用于定义如何载入应用。</p>
 <p>在运行之前，需要通过设置<code>FLASK_APP</code>环境变量告诉Flask如何导入它：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ set FLASK_APP=start.py</span><br></pre></td></tr></table></figure>
 
 <br>
 
+<h4 id="调试程序"><a href="#调试程序" class="headerlink" title="调试程序"></a>调试程序</h4><p>在终端键入<code>flask run</code>命令可以启动开发服务器，它在大多数情况下替代 <code>Flask run</code>方法。</p>
 <p>运行如下命令来运行你的第一个Web应用吧：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ flask run</span><br><span class="line"> * Serving Flask app &quot;microblog&quot;</span><br><span class="line"> * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ flask run</span><br><span class="line"> * Serving Flask app <span class="string">"start"</span></span><br><span class="line"> * Running on http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">5000</span>/ (Press CTRL+C to quit)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><code>flask run</code>的输出表明服务器正在运行在IP地址127.0.0.1上，这是本机的回环IP地址。</li>
-<li>我们访问<a href="http://127.0.0.1:5000/" target="_blank" rel="noopener">http://127.0.0.1:5000/</a>  或 <a href="http://localhost:5000/index" target="_blank" rel="noopener">http://localhost:5000/index</a> 这个地址，就可以看到我们的web应用！（在routes.py定义的）</li>
+<li>flask run`的输出表明服务器正在运行在IP地址127.0.0.1上，这是本机的回环IP地址。</li>
+<li>我们访问<a href="http://127.0.0.1:5000/" target="_blank" rel="noopener">http://127.0.0.1:5000/</a>  或 <a href="http://localhost:5000/index" target="_blank" rel="noopener">http://localhost:5000/index</a> 这个地址，就可以看到我们的web应用！（在routes.py定义的路由）</li>
 </ul>
+<br>
+
+<h4 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h4><p><img src="/2019/09/15/Flask开发Day1-Hello-world/3.png" alt></p>
+<br>
+
 <br>
 
 <h4 id="环境变量设置"><a href="#环境变量设置" class="headerlink" title="环境变量设置"></a>环境变量设置</h4><p>还记得在环境准备说的python-dotenv这个包吗，上面在终端会话中直接设置的环境变量不会永久生效，因此你不得不在每次新开终端时设定 <code>FLASK_APP</code> 环境变量，利用python-dotenv，我们可以”一劳永逸“。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ pip install python-dotenv</span><br></pre></td></tr></table></figure>
 
-<p>此时，在项目的根目录下新建一个名为 <code>.flaskenv</code> 的文件，写以下下内容：</p>
+<p>此时，在项目的根目录下新建一个名为 <code>.flaskenv</code> 的文件（建议在文本编辑器里面创建），写以下下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLASK_APP=start.py</span><br></pre></td></tr></table></figure>
 
 <p>通过此项设置，<code>FLASK_APP</code>就可以自动加载了。</p>
 <br>
 
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>当学会基础的语法后，我们就可以进入项目实战，编程就是这么一回事。</p>
-<p>不要把学习当成修养内功一般，到时候连如何编写代码都不懂，那就扯淡了。。。</p>
-<p>但遇到问题时，记得上网，因为每个人的电脑总有些特别，不要指望着教材上面的东西一下子可以指引你做出东西，任何东西都是要靠自己实现的。庆幸的是在大多数情况下，你遇到的难题，绝对不是第一个碰到的。</p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>当学会基础的语法后，我们就可以进入项目实战，编程就是这么一回事。这也是我学习Flask的目的。</p>
+<p>编程绝对是动手大于理论的一门学科。</p>
 
       
     </div>
@@ -558,6 +566,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/15/Flask开发Day2-模板页面/" rel="prev" title="Flask开发Day2-模板页面">
+                Flask开发Day2-模板页面 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -643,7 +655,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -716,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python"><span class="nav-number">2.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flask"><span class="nav-number">2.2.</span> <span class="nav-text">Flask</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目开始"><span class="nav-number">3.</span> <span class="nav-text">项目开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“Hello-World”-Flask-应用"><span class="nav-number">4.</span> <span class="nav-text">“Hello World” Flask 应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用包"><span class="nav-number">4.1.</span> <span class="nav-text">应用包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#init-文件"><span class="nav-number">4.2.</span> <span class="nav-text">__init__文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写-app-routes-py-脚本"><span class="nav-number">4.3.</span> <span class="nav-text">编写 app/routes.py 脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用程序"><span class="nav-number">4.4.</span> <span class="nav-text">应用程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量设置"><span class="nav-number">4.5.</span> <span class="nav-text">环境变量设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Python"><span class="nav-number">2.1.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Flask"><span class="nav-number">2.2.</span> <span class="nav-text">Flask</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目开始"><span class="nav-number">3.</span> <span class="nav-text">项目开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“Hello-World”-Flask-应用"><span class="nav-number">4.</span> <span class="nav-text">“Hello World” Flask 应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用包"><span class="nav-number">4.1.</span> <span class="nav-text">应用包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#init-文件"><span class="nav-number">4.2.</span> <span class="nav-text">__init__文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写-app-routes-py-脚本"><span class="nav-number">4.3.</span> <span class="nav-text">编写 app/routes.py 脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用程序"><span class="nav-number">4.4.</span> <span class="nav-text">应用程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试程序"><span class="nav-number">4.5.</span> <span class="nav-text">调试程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行结果"><span class="nav-number">4.6.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量设置"><span class="nav-number">4.7.</span> <span class="nav-text">环境变量设置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>
