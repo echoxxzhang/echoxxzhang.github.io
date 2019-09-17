@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Python,">
+  <meta name="keywords" content="技术,">
 
 
 
@@ -79,24 +79,22 @@
 
 
 
-<meta name="description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
-<meta name="keywords" content="Python">
+<meta name="description" content="前言Web表单是所有Web应用程序中最基本的组成部分之一。表单实现的功能可以有：用户发表动态、登陆认证等 在Flask框架中，有一个专门的插件来处理Web表单，插件是Flask生态中的很重要的一部分，Flask故意设计为只包含核心功能以保持代码的整洁（包括第二章说的jinja2，它就是一个插件，只不过内置了而已），并暴露接口以对接解决不同问题。 Flask插件都是常规的Python三方包，可以使用">
+<meta name="keywords" content="技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="网络编程Day3-子线程">
-<meta property="og:url" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/index.html">
+<meta property="og:title" content="Flask开发Day3-Web表单">
+<meta property="og:url" content="http://yoursite.com/2019/09/17/Flask开发Day3-Web表单/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
+<meta property="og:description" content="前言Web表单是所有Web应用程序中最基本的组成部分之一。表单实现的功能可以有：用户发表动态、登陆认证等 在Flask框架中，有一个专门的插件来处理Web表单，插件是Flask生态中的很重要的一部分，Flask故意设计为只包含核心功能以保持代码的整洁（包括第二章说的jinja2，它就是一个插件，只不过内置了而已），并暴露接口以对接解决不同问题。 Flask插件都是常规的Python三方包，可以使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/4.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/5.png">
-<meta property="og:updated_time" content="2019-08-20T08:11:38.959Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/17/Flask开发Day3-Web表单/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/17/Flask开发Day3-Web表单/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/17/Flask开发Day3-Web表单/1.gif">
+<meta property="og:updated_time" content="2019-09-17T01:21:57.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网络编程Day3-子线程">
-<meta name="twitter:description" content="前言之前我们讨论了进程与线程，网络编程Day1-进程线程概念，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。   创建子线程创建线程有两种方法： ① 使用python替我们封装好的模块：threading    ② 基于Thread类，我们重写模块。通过重写run方法，调用这个">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/10/网络编程Day3-子线程/1.png">
+<meta name="twitter:title" content="Flask开发Day3-Web表单">
+<meta name="twitter:description" content="前言Web表单是所有Web应用程序中最基本的组成部分之一。表单实现的功能可以有：用户发表动态、登陆认证等 在Flask框架中，有一个专门的插件来处理Web表单，插件是Flask生态中的很重要的一部分，Flask故意设计为只包含核心功能以保持代码的整洁（包括第二章说的jinja2，它就是一个插件，只不过内置了而已），并暴露接口以对接解决不同问题。 Flask插件都是常规的Python三方包，可以使用">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/17/Flask开发Day3-Web表单/1.png">
 
 
 
@@ -126,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/10/网络编程Day3-子线程/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/17/Flask开发Day3-Web表单/">
 
 
 
 
 
-  <title>网络编程Day3-子线程 | 小小世界</title>
+  <title>Flask开发Day3-Web表单 | 小小世界</title>
   
 
 
@@ -291,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/网络编程Day3-子线程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/17/Flask开发Day3-Web表单/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -308,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">网络编程Day3-子线程</h1>
+          <h1 class="post-title" itemprop="name headline">Flask开发Day3-Web表单</h1>
         
 
         <div class="post-meta">
@@ -320,8 +318,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T14:49:12+08:00">
-                2019-08-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-17T08:04:44+08:00">
+                2019-09-17
               </time>
             
 
@@ -343,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/网络编程/" itemprop="url" rel="index">
-                    <span itemprop="name">网络编程</span>
+                  <a href="/categories/后端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">后端开发</span>
                   </a>
                 </span>
 
@@ -361,8 +359,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/10/网络编程Day3-子线程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/10/网络编程Day3-子线程/" itemprop="commentsCount"></span>
+                <a href="/2019/09/17/Flask开发Day3-Web表单/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/09/17/Flask开发Day3-Web表单/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -395,41 +393,109 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前我们讨论了进程与线程，<a href="/2019/08/05/网络编程Day1-进程线程概念/" title="网络编程Day1-进程线程概念">网络编程Day1-进程线程概念</a>，那么，在python中如何调用呢？今天这一篇，就是介绍如何创建子线程进行调用的。并且在学习如何创建子线程之后，子进程的创建也就会了，因为他们的 API 接口都是一样的。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>Web表单是所有Web应用程序中最基本的组成部分之一。表单实现的功能可以有：用户发表动态、登陆认证等</p>
+<p>在Flask框架中，有一个专门的插件来处理Web表单，插件是Flask生态中的很重要的一部分，Flask故意设计为只包含核心功能以保持代码的整洁（包括第二章说的jinja2，它就是一个插件，只不过内置了而已），并暴露接口以对接解决不同问题。</p>
+<p>Flask插件都是常规的Python三方包，可以使用<code>pip</code>安装：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(venv) $ pip install flask-wtf</span><br></pre></td></tr></table></figure>
+
 <br>
 
-<h3 id="创建子线程"><a href="#创建子线程" class="headerlink" title="创建子线程"></a>创建子线程</h3><p>创建线程有两种方法：</p>
-<p>① 使用python替我们封装好的模块：threading</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/1.png" alt></p>
+<h3 id="配置Flask-WTF表单"><a href="#配置Flask-WTF表单" class="headerlink" title="配置Flask_WTF表单"></a>配置Flask_WTF表单</h3><h4 id="SECRET-KEY"><a href="#SECRET-KEY" class="headerlink" title="SECRET_KEY"></a>SECRET_KEY</h4><p>对于新引入的插件，我们需要配置它，才能够对接使用——你需要决定传入什么样的配置变量列表到框架中。最基本的解决方案是使用<code>app.config</code>对象，它是一个类似字典的对象，可以将配置以键值的方式存储其中。</p>
+<p>由于松耦合思想，我们可以在<strong>项目的顶层目录</strong>创建一个config.py文件专门来存储这些配置信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span><span class="params">(object)</span>:</span></span><br><span class="line">    SECRET_KEY = os.environ.get(<span class="string">'SECRET_KEY'</span>) <span class="keyword">or</span> <span class="string">'this is my blog'</span></span><br></pre></td></tr></table></figure>
+
+<p><code>SECRET_KEY</code>是我添加的配置选项，对大多数Flask应用来说，它都是极其重要的。Flask及其一些扩展使用密钥的值作为加密密钥，<strong>用于生成签名或令牌</strong>。用于抵御CSRF攻击，<strong>并且，这个密钥是必配项。</strong>（不然打不开网页，它会提示你相关信息）</p>
+<p>密钥被定义成由<code>or</code>运算符连接两个项的表达式。第一个项查找环境变量<code>SECRET_KEY</code>的值，第二个项是一个硬编码的字符串。（由你自己定义，什么都行，但是要保密一些）。这种首先检查环境变量中是否存在这个配置，找不到的情况下就使用硬编码字符串的配置变量。</p>
 <br>
 
-<p>② 基于Thread类，我们重写模块。通过重写run方法，调用这个模块</p>
-<p><br><br></p>
-<h3 id="线程的运行规律"><a href="#线程的运行规律" class="headerlink" title="线程的运行规律"></a>线程的运行规律</h3><p>我们开启了两个子线程，依次让这两个子线程执行一个hello函数，里面使用sleep维持函数的执行时间</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/2.png" alt></p>
-<p>观察发现：  </p>
+<h4 id="应用配置"><a href="#应用配置" class="headerlink" title="应用配置"></a>应用配置</h4><p>拥有配置文件之后，我们要需要启动它（在<code>__init__.py</code>文件中修改如下）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> Config     <span class="comment">#  new1</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(Config)  <span class="comment"># new2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> routes</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>导入了config这个配置文件的内容</li>
+<li>使用app.config.from_object( )方法来通知Flask读取并使用配置信息 </li>
+</ol>
+<br>
+
+<h4 id="用户登陆表单"><a href="#用户登陆表单" class="headerlink" title="用户登陆表单"></a>用户登陆表单</h4><p>Flask-WTF插件使用Python类来表示Web表单。表单类只需将表单的字段定义为类属性即可。我们将表单类单独存储到名为<em>app/forms.py</em>的模块中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_wtf <span class="keyword">import</span> FlaskForm</span><br><span class="line"><span class="keyword">from</span> wtforms <span class="keyword">import</span> StringField, PasswordField, BooleanField, SubmitField</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> DataRequired</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginForm</span><span class="params">(FlaskForm)</span>:</span></span><br><span class="line">    username = StringField(<span class="string">'Username'</span>, validators=[DataRequired()])</span><br><span class="line">    password = PasswordField(<span class="string">'Password'</span>, validators=[DataRequired()])</span><br><span class="line">    remember_me = BooleanField(<span class="string">'Remember Me'</span>)</span><br><span class="line">    submit = SubmitField(<span class="string">'Sign In'</span>)</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>我们知道，当单线程运行时，函数是从上到下按顺序执行的，那么 两个sleep函数，则要耗费 6s 以上的时间。但是我们采用了子进程之后，执行时间 只有3秒。</li>
-<li>主线程程序按顺序执行，子线程的函数同时也执行（与主程序并驾齐驱，称为并发）三秒后，整个进程才真正结束</li>
-<li><strong>当主线程完成想退出时，会检验子线程是否完成，如果子线程未完成，则主线程会等待子线程完成后再退出。</strong></li>
+<li>Flask-WTF插件本身不提供字段类型，所有表示表单字段的类都存放于wtforms模块中，这里通过几个类就定义了表单类型，作用与我们在HTML中书写标签是类似的。</li>
+<li>可选参数<code>validators</code>用于验证输入字段是否符合预期（用于控制表单），<code>DataRequired</code>验证器仅验证字段输入是否为空。（表示“被要求的”，即不能为空）</li>
 </ul>
-<p><br><br></p>
-<h3 id="Join方法"><a href="#Join方法" class="headerlink" title="Join方法"></a>Join方法</h3><p>概念：<strong>等待</strong>子线程运行完毕后再执行下一步操作</p>
-<p>我们知道，子线程的运行默认是并发的，也就是说，不会因为子线程函数运行时，程序就卡在那。join方法可以实现等待子线程运行完后再进行下一步操作</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/3.png" alt></p>
-<p><br><br></p>
-<h3 id="setDaemon方法"><a href="#setDaemon方法" class="headerlink" title="setDaemon方法"></a>setDaemon方法</h3><p>setDaemon又称为守护线程，被设置为守护进程的子线程，会随着主线程运行完毕而强行终止。（程序是否运行完的判断不再依据守护进程）。 同时，setDaemon方法必须置于 start（）之前</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/4.png" alt></p>
+<br>
+
+<h4 id="渲染表单"><a href="#渲染表单" class="headerlink" title="渲染表单"></a>渲染表单</h4><p>下一步是将表单添加到HTML模板以便渲染到网页上。还记得我们之前第二章介绍过的做法吗，道理是一样的！</p>
+<p>我将把登录模板存储在文件<code>app/templates/login.html</code> 中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot; %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    &lt;h1&gt;Sign In&lt;/h1&gt;</span><br><span class="line">    &lt;form action=&quot;&quot; method=&quot;post&quot; novalidate&gt;</span><br><span class="line">        &#123;&#123; form.hidden_tag() &#125;&#125;</span><br><span class="line">        &lt;p&gt;</span><br><span class="line">            &#123;&#123; form.username.label &#125;&#125;&lt;br&gt;</span><br><span class="line">            &#123;&#123; form.username(size=32) &#125;&#125;</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">        &lt;p&gt;</span><br><span class="line">            &#123;&#123; form.password.label &#125;&#125;&lt;br&gt;</span><br><span class="line">            &#123;&#123; form.password(size=32) &#125;&#125;</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123; form.remember_me() &#125;&#125; &#123;&#123; form.remember_me.label &#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123; form.submit() &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们以前可能没见过这个模板中引用的语法：form.hidden_tag（）、form.username.label、form.username( )，接下来我会对其一一介绍。</p>
 <ul>
-<li>setDaemon（）默认是 Flase，表示未启动</li>
+<li><p><code>form.hidden_tag()</code>模板参数生成了一个隐藏字段，其中包含一个token。 对于保护表单（通俗的讲，这里的token和我们配置的<code>SECRET_KEY</code>变量就保护了表单免受CSRF攻击）。</p>
+</li>
+<li><p>这里引用的form，其实就是LoginForm表单类的实例，那么继承于LoginForm的实例，就有其相关的类属性（定义的字段类型）。</p>
+</li>
+<li><p>那么有了字段类型的属性之后，我们就可以引用它，使其渲染到页面啦。form.username.label的作用就在于此，这就应用了我们在<code>form.py</code>定义的 username 字段。</p>
+</li>
+<li><p>而form.username(size=32 )的意思是：此模板中的username和password字段将<code>size</code>作为参数，将其作为属性添加到<code>&lt;input&gt;</code> HTML元素中。<strong>同时最重要的是：form.field_name(）是体现字段特性的一个方法。</strong></p>
+</li>
 </ul>
-<p><br><br></p>
-<h3 id="其他实例方法："><a href="#其他实例方法：" class="headerlink" title="其他实例方法："></a>其他实例方法：</h3><p>无论是start 还是 join ，亦或者是 setDarmon方法，都是我们通过Treading.Thread下实例的方法，同时还有：</p>
-<p><img src="/2019/08/10/网络编程Day3-子线程/5.png" alt></p>
+<br>
+
+<h4 id="表单视图"><a href="#表单视图" class="headerlink" title="表单视图"></a>表单视图</h4><p>完成这个表单的最后一步就是编写一个新的视图函数来渲染上面创建的模板。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template</span><br><span class="line"><span class="keyword">from</span> app <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> app.forms <span class="keyword">import</span> LoginForm</span><br><span class="line"></span><br><span class="line"><span class="comment"># ...省略的代码</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/login')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line">    form = LoginForm()</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'login.html'</span>, title=<span class="string">'Sign In'</span>, form=form)</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>run（）是所有实例化的子线程都会执行的函数</li>
-<li>start（）是将子线程设置为等待被CPU调用的状态</li>
+<li>注意这里参数传递的使用：<code>form=form</code>，第一个form是模板中引用的变量名称，第二个form是实例化的对象。（python中参数传递都经常使用这种方式）</li>
 </ul>
+<br>
+
+<h4 id="添加登陆链接"><a href="#添加登陆链接" class="headerlink" title="添加登陆链接"></a>添加登陆链接</h4><p>在基础模板<em>templates/base.html</em>的导航栏上添加登录的链接，以便访问：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    Microblog:</span><br><span class="line">    &lt;a href=&quot;/index&quot;&gt;Home&lt;/a&gt;</span><br><span class="line">    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><strong>页面效果：</strong></p>
+<p><img src="/2019/09/17/Flask开发Day3-Web表单/1.png" alt></p>
+<p><br><br></p>
+<h3 id="接收表单数据"><a href="#接收表单数据" class="headerlink" title="接收表单数据"></a>接收表单数据</h3><p>点击提交按钮，浏览器将显示“Method Not Allowed”错误。要知道，我们只实现了如何显示表单，但没有逻辑处理表单数据，这也是报错的原因所在。</p>
+<p>Flask-WTF可以轻松完成这部分工作， 以下是视图函数的更新版本，它接受和验证用户提交的数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template, flash, redirect</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/login', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">()</span>:</span></span><br><span class="line">    form = LoginForm()</span><br><span class="line">    <span class="keyword">if</span> form.validate_on_submit():</span><br><span class="line">        flash(<span class="string">'Login requested for user &#123;&#125;, remember_me=&#123;&#125;'</span>.format(</span><br><span class="line">            form.username.data, form.remember_me.data))</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">'/index'</span>)</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'login.html'</span>, title=<span class="string">'Sign In'</span>, form=form)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>装饰器中传入 methods 参数，它告诉Flask这个视图函数接受<code>GET</code>和<code>POST</code>请求（客户端向服务端发送数据一般都为POST请求，通过传入<code>methods</code>参数，你就能告诉Flask哪些请求方法可以被接受。）</p>
+</li>
+<li><p><code>form.validate_on_submit()</code>实例方法会执行form校验的工作。当浏览器发起<code>GET</code>请求的时候，它返回<code>False</code>，这样视图函数就会跳过<code>if</code>块中的代码，直接转到视图函数的最后一句来渲染模板。</p>
+</li>
+<li><p>当用户在浏览器点击提交按钮后，浏览器会发送<code>POST</code>请求。<code>form.validate_on_submit()</code>就会获取到所有的数据，运行字段各自的验证器，全部通过之后就会返回<code>True</code>，这表示数据有效。</p>
+</li>
+<li><p>如果我们想要将某些内容显示给用户看，就可以使用flash（）。当你调用<code>flash()</code>函数后，Flask会存储这个消息（但不会直接出现在页面上，模板需要将消息渲染到基础模板中，才能让所有派生出来的模板都能显示出来。）</p>
+</li>
+<li><p><code>redirect()</code>这个函数指引浏览器自动重定向到它的参数所关联的URL。当前视图函数使用它将用户重定向到应用的主页。</p>
+</li>
+</ul>
+<br>
+
+<p>接下来我们更新一下base.html模板，让其接受我们编写的逻辑代码，内容如下：</p>
+<p><img src="/2019/09/17/Flask开发Day3-Web表单/2.png" alt></p>
+<ul>
+<li>get_flashed_messages()函数将flash存储的信息获取出来。我们使用for循环将其打印输出。</li>
+</ul>
+<br>
+
+<p><strong>页面逻辑实现：</strong></p>
+<p><img src="/2019/09/17/Flask开发Day3-Web表单/1.gif" alt></p>
+<p><br><br></p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>这样我们就完成了Web表单的基本功能了（填写数据、提交数据）。</p>
+<p>让我们回顾一下流程操作：</p>
+<ol>
+<li>引入插件、配置插件</li>
+<li>应用配置</li>
+<li>编写表单字段信息</li>
+<li>渲染表单到页面</li>
+<li>接受表单数据的逻辑</li>
+</ol>
 
       
     </div>
@@ -447,7 +513,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/技术/" rel="tag"># 技术</a>
           
         </div>
       
@@ -460,8 +526,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/10/网络编程Day2-socket原理/" rel="next" title="网络编程Day2-socket原理">
-                <i class="fa fa-chevron-left"></i> 网络编程Day2-socket原理
+              <a href="/2019/09/15/Flask开发Day2-模板页面/" rel="next" title="Flask开发Day2-模板页面">
+                <i class="fa fa-chevron-left"></i> Flask开发Day2-模板页面
               </a>
             
           </div>
@@ -469,10 +535,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/10/网络编程Day4-并发并行与同步异步/" rel="prev" title="网络编程Day4-并发并行与同步异步">
-                网络编程Day4-并发并行与同步异步 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -631,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建子线程"><span class="nav-number">2.</span> <span class="nav-text">创建子线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程的运行规律"><span class="nav-number">3.</span> <span class="nav-text">线程的运行规律</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Join方法"><span class="nav-number">4.</span> <span class="nav-text">Join方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setDaemon方法"><span class="nav-number">5.</span> <span class="nav-text">setDaemon方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他实例方法："><span class="nav-number">6.</span> <span class="nav-text">其他实例方法：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Flask-WTF表单"><span class="nav-number">2.</span> <span class="nav-text">配置Flask_WTF表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SECRET-KEY"><span class="nav-number">2.1.</span> <span class="nav-text">SECRET_KEY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用配置"><span class="nav-number">2.2.</span> <span class="nav-text">应用配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户登陆表单"><span class="nav-number">2.3.</span> <span class="nav-text">用户登陆表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染表单"><span class="nav-number">2.4.</span> <span class="nav-text">渲染表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单视图"><span class="nav-number">2.5.</span> <span class="nav-text">表单视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加登陆链接"><span class="nav-number">2.6.</span> <span class="nav-text">添加登陆链接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收表单数据"><span class="nav-number">3.</span> <span class="nav-text">接收表单数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">4.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>
