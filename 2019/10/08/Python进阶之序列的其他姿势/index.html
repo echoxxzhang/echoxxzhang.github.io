@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/10/08/Python进阶之序列的其他姿势/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/08/Python进阶之序列的其他姿势/6.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/08/Python进阶之序列的其他姿势/7.png">
-<meta property="og:updated_time" content="2019-10-09T06:26:54.401Z">
+<meta property="og:updated_time" content="2019-10-09T11:33:46.706Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python进阶之序列的其他姿势">
 <meta name="twitter:description" content="前言开始连载python进阶系列的博文~  这个系列是属于掌握python基础之后的一些进阶知识，从底层出发，探索怎么实现的过程。同时，还要掌握 pythonic 的书写方式，理解python独特的魅力~  come on！  PS：因为是进阶python，因此假定读者都是具有一定python基础知识。    Python的序列类型python 基本数据类型中，涉及序列概念的有：元组、列表、字典、">
@@ -467,7 +467,7 @@
 <br>
 
 <p><strong>切片的设计思想：</strong></p>
-<p>我们知道，切片是左闭右开的，可为什么它的设计思想是左闭右开的呢？或者说，这么设计有什么独特的好处？</p>
+<p>我们知道，切片是左闭右开的（包含左边，不包含右边），可为什么它的设计思想是左闭右开的呢？或者说，这么设计有什么独特的好处？</p>
 <ol>
 <li><p>python是以0作为起始下标的，当只有最后一个位置信息时，我们可以快速看出切片和区间里有几个元素，比如：range(2) 和 list[:2] 都是返回三个元素。（而不用每次都 -1）</p>
 </li>
@@ -534,6 +534,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/09/Python进阶之字典背后的秘密/" rel="prev" title="Python进阶之字典背后的秘密">
+                Python进阶之字典背后的秘密 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -619,7 +623,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
