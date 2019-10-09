@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机基础知识之操作系统/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机基础知识之操作系统/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机基础知识之操作系统/3.png">
-<meta property="og:updated_time" content="2019-09-27T01:17:20.561Z">
+<meta property="og:updated_time" content="2019-10-07T22:53:39.713Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机基础知识之操作系统">
 <meta name="twitter:description" content="操作系统的诞生现代计算机系统是由一个或者多个处理器，主存，磁盘，打印机，键盘，鼠标显示器，网络接口以及各种其他输入输出设备组成的复杂系统，每位程序员不可能掌握所有系统实现细节，并且管理优化这些部件是一件挑战性极强的工作。所以，我们需要为计算机安装一层软件，也就是操作系统。操作系统的任务就是用户程序提供一个简单清晰的计算机模型，并管理以上所有设备。    操作系统所处位置图例：   我们将整个计算机">
@@ -427,6 +427,8 @@
 <li>把程序A分配到内存地址0~999</li>
 <li>把程序B分配到内存地址1000~1999</li>
 </ul>
+<br>
+
 <p><strong>分配内存地址面临的一个问题：</strong></p>
 <p>如果一个程序请求更多内存，操作系统会决定是否同意，以及决定分配具体哪些内存块。这样虽然灵活性很好，但是会遇到个问题，由于更多的内存块是后续申请的，同个程序的内存块可能分配到非连续的情况。</p>
 <p><img src="/2019/07/28/计算机基础知识之操作系统/2.png" alt></p>
@@ -438,7 +440,8 @@
 
 <h3 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h3><p>其实真正的程序可能会分配到内存中数十个地方，这对于程序员来说很难跟踪，为了隐藏这种复杂性，操作系统会把内存进行“虚拟化”—— 称为虚拟内存，程序可以假定内存总是从地址0开始，而实际物理地址，被操作系统隐藏和抽象了。</p>
 <p><img src="/2019/07/28/计算机基础知识之操作系统/3.png" alt></p>
-<p>如上图所示，此时程序B的虚拟内存地址为0<del>999，而实际的物理地址，却是1000</del>1999。程序员不用关心实际的内存地址，<strong>操作系统会自动处理虚拟内存和物理内存之间的映射</strong>。</p>
+<p> 如上图所示，此时程序B的虚拟内存地址为0<del>999，而实际的物理地址，却是1000</del>1999。</p>
+<p>什么意思呢？或者说，这么做的好处是什么？  <strong>有了虚拟内存之后，程序员不用关心实际的内存地址，操作系统会自动处理虚拟内存和物理内存之间的映射</strong>。</p>
 <p>这种功能对于程序A的情况更为有用： 程序A的物理内存是不连续的，而从程序A的角度上看，它是连续的（虚拟内存）</p>
 <p>这种机制使程序的内存大小可以灵活增减，叫<strong>“动态内存分配”</strong>，它的简化，为操作系统同时运行多个程序提供了更大的灵活性</p>
  <br>
@@ -466,6 +469,11 @@
 <li>第二部分是一堆有用的工具（比如程序和运行库） </li>
 </ol>
 <p>UNIX的另一个特点就是被归类为分时操作系统，所谓分时操作系统，值得就是计算机将CPU的处理以时间段进行划分，优先级高的优先执行，若执行程序优先级降低，则推出执行，转而执行优先级更高的程序和事务。分时操作系统的执行效率是非常高的。</p>
+<br>
+
+<blockquote>
+<p>unix等操作系统我们后面会接着讲，这里这是大概的说了一下~</p>
+</blockquote>
 
       
     </div>
@@ -594,7 +602,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -605,7 +613,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
