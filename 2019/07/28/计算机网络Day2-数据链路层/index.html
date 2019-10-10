@@ -88,7 +88,7 @@
 <meta property="og:description" content="以太网的帧格式帧本身是一段有限的0/1序列。它可以分为以下几部分：   Preameble 和 SFD：   帧的最初7个字节被称为前导码，前导码是包括 七个字节的二进制0  1交替的代码  共56位。  定界符是由一个字节的01  交替的  二进制序列 ，他的作用是使接收端对数据帧的第一位进行定位   通常，我们都会预定好以一定的频率发送0/1序列(比如每秒10bit)。如果接收设备以其他频率接">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/28/计算机网络Day2-数据链路层/2.png">
-<meta property="og:updated_time" content="2019-08-03T05:50:01.900Z">
+<meta property="og:updated_time" content="2019-10-09T23:27:01.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day2-数据链路层">
 <meta name="twitter:description" content="以太网的帧格式帧本身是一段有限的0/1序列。它可以分为以下几部分：   Preameble 和 SFD：   帧的最初7个字节被称为前导码，前导码是包括 七个字节的二进制0  1交替的代码  共56位。  定界符是由一个字节的01  交替的  二进制序列 ，他的作用是使接收端对数据帧的第一位进行定位   通常，我们都会预定好以一定的频率发送0/1序列(比如每秒10bit)。如果接收设备以其他频率接">
@@ -308,6 +308,7 @@
         
 
         <div class="post-meta">
+		
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -394,7 +395,7 @@
         <h3 id="以太网的帧格式"><a href="#以太网的帧格式" class="headerlink" title="以太网的帧格式"></a>以太网的帧格式</h3><p>帧本身是一段有限的0/1序列。它可以分为以下几部分：</p>
 <p><img src="/2019/07/28/计算机网络Day2-数据链路层/2.png" alt></p>
 <ol>
-<li>Preameble 和 SFD：</li>
+<li><strong>Preameble 和 SFD：</strong></li>
 </ol>
 <ul>
 <li><p>帧的最初7个字节被称为前导码，前导码是包括 七个字节的二进制0  1交替的代码  共56位。</p>
@@ -408,15 +409,15 @@
 
 
 <ol start="2">
-<li>dst 和 src</li>
+<li><strong>DST 和 src</strong></li>
 </ol>
-<p>紧跟着后面的是6 字节的目的地和6 字节的源地址。要注意，这里写的是MAC地址。MAC地址是物理设备自带的序号，只能在同一个以太网中被识别</p>
+<p>紧跟着后面的是6 字节的目的地（DST）和6 字节的源地址（src）。要注意，这里写的是MAC地址。MAC地址是物理设备自带的序号，只能在同一个以太网中被识别。而不同局域网的通信，则要在网络层协议中解决。</p>
   <br>
 
 
 
 <ol start="3">
-<li>Data</li>
+<li><strong>Data</strong></li>
 </ol>
 <p>数据一般包含有符合更高层协议的数据，比如IP包。连接层协议本身并不在乎数据是什么，它只负责传输。注意，数据尾部可能填充有一串0(PAD区域)。填充0的原因是，一个帧需要超过一定的最小长度。</p>
 <p>数据的字节长限制为 64～1500字节：</p>
@@ -431,19 +432,24 @@
 </li>
 </ul>
 <ol start="4">
-<li>Type字段：</li>
+<li><strong>Type字段：</strong></li>
 </ol>
 <p>type字段两个字节，它用于区分两种帧类型，当type字段值小于1500，则是IEEE802.3格式。当type字段值大于或等于1536，帧使用的是以太Ethernet格式。0×0800标识IP，0×0806标识ARP) </p>
 <br>
 
 <ol start="5">
-<li>FCS效验码</li>
+<li><strong>FCS效验码</strong></li>
 </ol>
 <p>接着是校验序列(FCS, Frame Check Sequence)。校验序列是为了检验数据的传输是否发生错误。在物理层，我们通过一些物理信号来表示0/1序列(比如高压/低压，高频率/低频率等)，但这些物理信号可能在传输过程中受到影响，以致于发生错误。</p>
 <p> FCS采用了循环冗余校验(CRC, Cyclic Redundancy Check)算法。利用特定的算法得到的余数与实际拿到数据包的FCS进行比较， 如果两者不相符，我们就知道数据在传输的过程中出现错误，不能使用。</p>
+ <br>
+
+<p>链路层的通信依据就是通过以上字段，它控制我们如何在局域网中的转发通信。</p>
+ <br>
+
 <hr>
 <p><em>以上的数据包封装需要MAC 地址，本端的MAC地址我们知道（由厂商分配写好），那么对端的MAC地址我们如何得知呢？</em></p>
-<h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><p>ARP协议介于连接层和网络层之间，ARP包需要包裹在一个帧中。它的工作方式如下：主机会发出一个ARP包，该ARP包中包含有自己的IP地址和MAC地址。通过ARP包，主机以广播的形式询问局域网上所有的主机和路由：我是IP地址xxxx，我的MAC地址是xxxx，有人知道199.165.146.4的MAC地址吗？拥有该IP地址的主机会回复发出请求的主机：哦，我知道，这个IP地址属于我的一个NIC，它的MAC地址是xxxxxx。由于发送ARP请求的主机采取的是广播形式，并附带有自己的IP地址和MAC地址，其他的主机和路由会同时检查自己的ARP cache，如果不符合，则更新自己的ARP cache。</p>
+<h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><p>ARP协议介于连接层和网络层之间，ARP包需要包裹在一个帧中。它的工作方式如下：主机会发出一个ARP包，该ARP包中包含有自己的IP地址和MAC地址。通过ARP包，主机以广播的形式询问局域网上所有的主机和路由：我是IP地址xxxx，我的MAC地址是xxxx，有人知道199.165.146.4（目的端IP地址）的MAC地址吗？拥有该IP地址的主机会回复发出请求的主机：哦，我知道，这个IP地址属于我的一个NIC，它的MAC地址是xxxxxx。由于发送ARP请求的主机采取的是广播形式，并附带有自己的IP地址和MAC地址，其他的主机和路由会同时检查自己的ARP cache，如果不符合，则更新自己的ARP cache。</p>
 <p>这样，经过几次ARP请求之后，ARP cache会达到稳定。如果局域网上设备发生变动，ARP重复上面过程。</p>
 <p><strong>总的来说： APR协议就是通过IP 地址请求对端的MAC地址的过程。</strong></p>
  <br>
@@ -451,8 +457,8 @@
 
 
 <p><strong>免费arp ：</strong></p>
-<p>主机被分配IP地址或者IP地址发生变更之后，检测该网段是否唯一，避免冲突。主机用过发送一个arp request 报文进行检测，将广播报文中目的ip地址设置为自己的IP地址。当收到其他主机的回复时，则表示该网段被占用。</p>
-  <br>
+<p>主机被分配IP地址或者IP地址发生变更之后，检测该网段是否唯一，避免冲突。主机用过发送一个arp request 报文进行检测，将广播报文中目的ip地址设置为自己的IP地址。当收到其他主机的回复时，则表示该网段被占用。 <br></p>
+<br>
 
 <br>
 
@@ -462,8 +468,6 @@
 <p>ICMP基于IP协议。也就是说，一个ICMP包需要封装在IP包中，然后在互联网传送。ICMP是IP套装的必须部分，也就是说，任何一个支持IP协议的计算机，都要同时实现ICMP。</p>
 </blockquote>
  <br>
-
-<br>
 
 
 
@@ -493,6 +497,7 @@
 
 <p><strong>交换机：</strong></p>
 <p>交换器克服集线器的缺陷。交换器记录有各个设备的MAC地址。当帧发送到交换器时，交换器会检查DST，然后将帧只发送到对应端口。交换器允许多路同时通信。由于交换器的优越性，交换器基本上取代了集线器。</p>
+<p> 多数分组交换机在链路的输入端使用存储转发传输机制。向目的端发送报文时，源将报文分为多个较小的数据块，称为分组，提高了灵活性和转发速率。到达目的端后，在根据偏移量等字段控制其组合成一个完整的报文。</p>
 
       
     </div>
@@ -623,7 +628,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
