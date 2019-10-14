@@ -79,21 +79,20 @@
 
 
 
-<meta name="description" content="这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP  DNS协议域名(domain name)是IP地址的代号。域名通常是由字符构成的。对于人类来说，字符构成的域名，比如www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统(DNS, domain name system)就负责将域名翻译为对应的IP地址。在">
+<meta name="description" content="前言这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP   DNS协议域名(domain name)是IP地址的代号。域名通常是由字符构成的。对于人类来说，字符构成的域名，比如www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统(DNS, domain name system)就负责将域名翻译为对应的IP地址">
 <meta name="keywords" content="技术,计算机网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络Day6-应用层协议">
 <meta property="og:url" content="http://yoursite.com/2019/07/29/计算机网络Day6-应用层协议/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP  DNS协议域名(domain name)是IP地址的代号。域名通常是由字符构成的。对于人类来说，字符构成的域名，比如www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统(DNS, domain name system)就负责将域名翻译为对应的IP地址。在">
+<meta property="og:description" content="前言这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP   DNS协议域名(domain name)是IP地址的代号。域名通常是由字符构成的。对于人类来说，字符构成的域名，比如www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统(DNS, domain name system)就负责将域名翻译为对应的IP地址">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/29/计算机网络Day6-应用层协议/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/29/计算机网络Day6-应用层协议/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/29/计算机网络Day6-应用层协议/4.jpg">
-<meta property="og:updated_time" content="2019-08-03T05:51:40.572Z">
+<meta property="og:updated_time" content="2019-10-10T23:10:08.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络Day6-应用层协议">
-<meta name="twitter:description" content="这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP  DNS协议域名(domain name)是IP地址的代号。域名通常是由字符构成的。对于人类来说，字符构成的域名，比如www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统(DNS, domain name system)就负责将域名翻译为对应的IP地址。在">
+<meta name="twitter:description" content="前言这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP   DNS协议域名(domain name)是IP地址的代号。域名通常是由字符构成的。对于人类来说，字符构成的域名，比如www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统(DNS, domain name system)就负责将域名翻译为对应的IP地址">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/29/计算机网络Day6-应用层协议/1.png">
 
 
@@ -394,9 +393,9 @@
       
 
       
-        <blockquote>
-<p>这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP</p>
-</blockquote>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这一篇文章主要讲述的是应用层协议的几个协议 —— DNS 、 HTTP 和 DHCP</p>
+<br>
+
 <h3 id="DNS协议"><a href="#DNS协议" class="headerlink" title="DNS协议"></a>DNS协议</h3><p>域名(domain name)是IP地址的代号。域名通常是由字符构成的。对于人类来说，字符构成的域名，比如<a href="http://www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统" target="_blank" rel="noopener">www.yahoo.com，要比纯粹数字构成的IP地址(106.10.170.118)容易记忆。域名解析系统</a>(DNS, domain name system)就负责将域名翻译为对应的IP地址。在DNS的帮助下，我们可以在浏览器的地址栏输入域名，而不是IP地址。</p>
 <p>另一方面，处于维护和运营的原因，一些网站可能会变更IP地址。这些网站可以更改DNS中的对应关系，从而保持域名不变，而IP地址更新。由于大部分用户记录的都是域名，这样就可以降低IP变更带来的影响。</p>
   <br>
@@ -413,7 +412,7 @@
 
 
 
-<h4 id="查询的顺序："><a href="#查询的顺序：" class="headerlink" title="查询的顺序："></a>查询的顺序：</h4><p>中间节点根据域名的构成，将DNS查询引导向下一级的服务器。比如说一个域名cs.berkeley.edu，DNS解析会将域名分割为cs, berkeley, edu，然后按照相反的顺序查询(edu, berkeley, cs)。出口DNS首先根据edu，将查询指向下一层的edu节点。然后edu节点根据berkeley，将查询指向下一层的berkeley节点。这台berkeley服务器上存储有cs.berkeley.edu的IP地址。所以，中间节点不断重新定向，并将我们引导到正确的记录。</p>
+<h4 id="域名解析顺序："><a href="#域名解析顺序：" class="headerlink" title="域名解析顺序："></a>域名解析顺序：</h4><p>中间节点根据域名的构成，将DNS查询引导向下一级的服务器。比如说一个域名cs.berkeley.edu，DNS解析会将域名分割为cs, berkeley, edu，然后按照相反的顺序查询(edu, berkeley, cs)。出口DNS首先根据edu，将查询指向下一层的edu节点。然后edu节点根据berkeley，将查询指向下一层的berkeley节点。这台berkeley服务器上存储有cs.berkeley.edu的IP地址。所以，中间节点不断重新定向，并将我们引导到正确的记录。</p>
 <p>在整个DNS查询过程中，无论是重新定向还是最终取得对应关系，都是用户计算机和DNS服务器使用DNS协议通信。用户计算机根据DNS服务器的反馈，依次与下一层的DNS服务器建立通信。用户计算机经过递归查询，最终和末端节点通信，并获得IP地址。</p>
   <br>
 
@@ -423,36 +422,42 @@
 
 <h4 id="DNS缓存"><a href="#DNS缓存" class="headerlink" title="DNS缓存"></a>DNS缓存</h4><p>用户计算机的操作系统中的域名解析模块(DNS Resolver)负责域名解析的相关工作。任何一个应用程序(邮件，浏览器)都可以通过调用该模块来进行域名解析。</p>
 <p>并不是每次域名解析都要完整的经历解析过程。DNS Resolver通常有DNS缓存(cache)，用来记录最近使用和查询的域名/IP关系。在进行DNS查询之前，计算机会先查询cache中是否有相关记录。这样，重复使用的域名就不用总要经过整个递归查询过程。</p>
+ <br>
+
+
+
 <hr>
-<h3 id="HTTP协议："><a href="#HTTP协议：" class="headerlink" title="HTTP协议："></a>HTTP协议：</h3><p>我们在TCP流通信中说明了，TCP协议实现了数据流的传输。然而，在实践中发现，人们往往习惯以文件为单位传输资源，比如文本文件，图像文件，超文本文档(hypertext document)。超文本文档中包含有超链接，指向其他的资源。超文本文档是万维网(World Wide Web，即www)的基础。</p>
-<p>HTTP协议是应用层协议，它随着万维网发展起来。HTTP协议最初只是一套实践标准。其本质目的是，如何在万维网的网络环境下，更好的使用TCP协议(尽管HTTP协议也可以用UDP协议作为底层，但绝大部分都是基于TCP协议)，以实现文件，特别是超文本文件的传输。</p>
-<p>早期的HTTP协议主要是传输静态文件，也就是存储在服务器上的文件。随着万维网的发展，HTTP协议被用于传输“动态文件”，这样的文件是服务器上的程序根据HTTP请求即时生成的文件。我们将HTTP的传输对象统称为资源(resource)。</p>
+<h3 id="HTTP协议："><a href="#HTTP协议：" class="headerlink" title="HTTP协议："></a>HTTP协议：</h3><p>我们在TCP流通信中说明了，TCP协议实现了数据流的传输。然而，在实践中发现，人们往往习惯以文件为单位传输资源，比如文本文件，图像文件，超文本文档(hypertext document)。超文本文档中包含有超链接，指向其他的资源。</p>
+<p>HTTP协议是应用层协议，它随着万维网发展起来。其本质目的是，如何在万维网的网络环境下，更好的使用TCP协议(尽管HTTP协议也可以用UDP协议作为底层，但绝大部分都是基于TCP协议)，以<strong>实现超文本文件的传输。</strong></p>
+<p>也就是说，HTTP实现数据的传输。</p>
   <br>
 
 <br>
 
-<h4 id="HTTP交互过程"><a href="#HTTP交互过程" class="headerlink" title="HTTP交互过程"></a>HTTP交互过程</h4><p>HTTP协议的通信是一次request-responce交流。客户端(guest)向服务器发出请求(request)，服务器(server)回复(response)客户端。 </p>
+<h4 id="HTTP交互过程"><a href="#HTTP交互过程" class="headerlink" title="HTTP交互过程"></a>HTTP交互过程</h4><p><strong>HTTP交互是典型的C/S架构。</strong></p>
+<p>HTTP协议的通信是一次request-responce交流。客户端(guest)向服务器发出请求(request)，服务器(server)回复(response)客户端。 </p>
 <p><img src="/2019/07/29/计算机网络Day6-应用层协议/1.png" alt="客户机服务器交互过程"> </p>
 <p>通过上图一问一答式的交互，就完成了资源请求与资源响应。HTTP协议规定了请求和回复需要遵循的格式。请求和回复需要满足下面的格式:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">起始行(start line)</span><br><span class="line"></span><br><span class="line">头信息(headers)</span><br><span class="line"></span><br><span class="line">主体(entity body)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>起始行只有一行。它包含了请求/回复最重要的信息。请求的起始行表示“想要什么”。回复的起始行表示”响应的简要信息”。</p>
+<li><p>请求的起始行表示“想要什么”。回复的起始行表示”响应的简要信息”。</p>
 </li>
-<li><p>头信息可以有多行。每一行是一对键值对(key-value pair)，比如:Content-type: text/plain 它表示，包含有一个名为Content-type的参数，该参数的值为text/plain。头信息是对起始行的补充。请求的头信息对服务器有指导意义</p>
+<li><p>头信息可以有多行。每一行是一对键值对(key-value pair)</p>
 </li>
-<li><p>主体部分包含了具体的资源。上图的请求中并没有主体，因为这是个GET请求 (请求是可以有主体内容的)。回复中包含的主体是一段文本文字(Hello World!)。</p>
+<li><p>主体部分包含了具体的资源，这是个GET请求 (请求是可以有主体内容的，但前期是POST请求)。回复中包含的主体是一段文本文字(Hello World!)。</p>
 </li>
 </ul>
-<h4 id="请求报文："><a href="#请求报文：" class="headerlink" title="请求报文："></a>请求报文：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我们深入一些细节。先来看一下请求：</span><br><span class="line">GET /index.html HTTP/1.1    # 起始行</span><br><span class="line">Host:www.example.com        # 头信息</span><br></pre></td></tr></table></figure>
+ <br>
+
+<h4 id="请求报文："><a href="#请求报文：" class="headerlink" title="请求报文："></a>请求报文：</h4><p>我们深入一些细节。先来看一下请求报文的详细情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /index.html HTTP/1.1    # 起始行</span><br><span class="line">Host:www.example.com        # 头信息</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li>起始行 ： GET /index.html HTTP/1.1</li>
 </ol>
 <ul>
-<li>GET 方法。用于说明想要服务器执行的操作。</li>
-<li>/index.html      资源的路径。这里指向服务器上的index.html文件。</li>
-<li>HTTP/1.1 协议的版本。HTTP第一个广泛使用的版本是1.0，当前版本为1.1。</li>
+<li>声明是GET方法</li>
 </ul>
 <ol start="2">
 <li>头信息 ：Host:<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a></li>
@@ -461,8 +466,6 @@
  <br>
 
 <br>
-
-
 
 <h4 id="响应报文："><a href="#响应报文：" class="headerlink" title="响应报文："></a>响应报文：</h4><p><strong>服务器在接收到请求之后，会根据程序，生成对应于该请求的回复，比如：</strong> </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK            # 起始行</span><br><span class="line">Content-type: text/plain   # 头部字段标识</span><br><span class="line">Hello World!               # 响应内容</span><br></pre></td></tr></table></figure>
@@ -473,18 +476,9 @@
 <li>200 状态码(status code)。</li>
 <li>OK 状态描述</li>
 </ul>
-<p>OK是对状态码200的文字描述，它只是为了便于人类的阅读。电脑只关心三位的状态码(status code)，200 表示访问正常</p>
-<p>其它常见的状态码还有:</p>
-<p>302，重新定向(redirect): 我这里没有你想要的资源，但我知道另一个地方xxx有，你可以去那里找。</p>
-<p>404，无法找到(not found): 我找不到你想要的资源，无能为力。 (重新定向时，客户端可以根据302的建议前往xxx寻找资源，也可以忽略该建议。)</p>
-<p>二、字段：Content-type：说明了主体所包含的资源的类型。根据类型的不同，客户端可以启动不同的处理程序(比如显示图像文件，播放声音文件等等)。下面是一些常见的资源：</p>
-<ul>
-<li>text/plain 普通文本</li>
-<li>text/html HTML文本</li>
-<li>image/jpeg jpeg图片</li>
-<li>image/gif gif图片</li>
-</ul>
-<p>三、响应内容：服务器响应的内容主要信息都存放于此</p>
+<p>OK是对状态码200的文字描述，电脑只关心三位的状态码(status code)，200 表示访问正常</p>
+<p>二、头部字段标识：Content-type：说明了主体所包含的资源的类型。</p>
+<p>三、响应内容：服务器响应的内容主要信息都存放于此。如果请求一个网页，它的响应体就是网页的HTML代码，或者是Json格式的数据；请求一张图片，它的响应体就是图片的二进制数据。</p>
   <br>
 
 <br>
@@ -492,41 +486,33 @@
 
 
 <h4 id="HTTP无状态"><a href="#HTTP无状态" class="headerlink" title="HTTP无状态"></a>HTTP无状态</h4><p>根据早期的HTTP协议，每次request-reponse时，都要重新建立TCP连接。<strong>TCP连接每次都重新建立</strong>，所以服务器无法知道上次请求和本次请求是否来自于同一个客户端。因此，HTTP通信是无状态(stateless)的。服务器认为每次请求都是一个全新的请求，无论该请求是否来自同一地址。</p>
-<p>详细的 HTTP 协议介绍 可以阅读 我之前的爬虫文章：</p>
-<a href="/2019/07/06/爬虫Day1-网页基础/" title="爬虫Day1-网页基础">爬虫Day1-网页基础</a>  
-
-
-
+<p>详细的 HTTP 协议介绍 可以阅读 我之前的爬虫文章：<a href="/2019/07/06/爬虫Day1-网页基础/" title="爬虫Day1-网页基础">爬虫Day1-网页基础</a>  </p>
 <hr>
 <h3 id="DHCP协议："><a href="#DHCP协议：" class="headerlink" title="DHCP协议："></a>DHCP协议：</h3><p>DHCP协议用于动态的配置电脑的网络相关参数，如主机的IP地址，路由器出口地址、DNS域名服务器地址等。一台电脑只要接上网，就可以通过DHCP协议获得相关配置（例如IP地址等配置信息）</p>
-<p>DHCP协议全称为“动态主机设置协议”（Dynamic Host Configuration Protocol）。通常来说，普通电脑中都内置有DHCP客户端模块。电脑接上网络后，DHCP客户端发现新连通的网络，会在该网络上找DHCP服务器。DHCP服务器将给电脑提供合理的网络配置，并把设置信息传回本机。所谓的DHCP服务器，其实就是一些运行有DHCP服务器端软件的特殊电脑。本机和DHCP服务器之间的通信，都是通过DHCP协议进行的。</p>
+<p>DHCP协议全称为“动态主机设置协议”（Dynamic Host Configuration Protocol）。</p>
+<p>通常来说，普通电脑中都内置有DHCP客户端模块。电脑接上网络后，DHCP客户端发现新连通的网络，会在该网络上找DHCP服务器。DHCP服务器将给电脑提供合理的网络配置，并把设置信息传回本机。本机和DHCP服务器之间的通信，都是通过DHCP协议进行的。 </p>
 <br>
 
 <br>  
 
-
-
 <h4 id="地址分配"><a href="#地址分配" class="headerlink" title="地址分配"></a>地址分配</h4><p>DHCP服务器的首要任务是分配IP地址。分配的IP地址要符合以下原则：</p>
 <ul>
-<li>地址合理，即对应该局域网的IP地址和子网掩码。</li>
-<li>地址空闲，同一网络下没有其他设备使用该地址。</li>
+<li><p>地址合理，即对应该局域网的IP地址和子网掩码。</p>
+</li>
+<li><p>地址空闲，同一网络下没有其他设备使用该地址。 </p>
+<br>  
+
+</li>
 </ul>
-  <br>
-
-<br>
-
-
-
-<h4 id="地址池"><a href="#地址池" class="headerlink" title="地址池"></a>地址池</h4><p>DHCP服务器上存有一个地址池，里面是可用的IP地址，当有一台主机接入该局域网时，DHCP服务器就会从地址池中取出一个IP地址分配给主机。此外，服务器还会说明IP地址的占用时间，也就是租期：</p>
+<h4 id="地址池"><a href="#地址池" class="headerlink" title="地址池"></a>地址池</h4><p>DHCP服务器上存有一个地址池，里面是可用的IP地址，当有一台主机接入该局域网时，DHCP服务器就会从地址池中取出一个IP地址分配给主机。此外，服务器还会说明IP地址的占用时间，也就是“租期”</p>
 <p>当然，主机使用网络的时间可能超过租期。如果主机在租期到时都没有联系DHCP服务器，那么DHCP服务器会收回IP地址，再分配给其他主机。可如果主机想继续使用IP地址，就要在中途申请延长租期。收到申请的DHCP服务器通常会答应主机的请求，允许它继续使用现有IP地址。 </p>
-<p>有了动态分配，DHCP服务器不但简化了网络配置过程，还可以有效利用IP地址资源。利用不断分配收回IP地址，实现地址的灵活分配使用，其利用率大大提高。</p>
   <br>
 
+
+
+<h4 id="DHCP通信过程"><a href="#DHCP通信过程" class="headerlink" title="DHCP通信过程"></a>DHCP通信过程</h4><p>DHCP协议的底层是UDP协议。使用UDP的广播，把UDP数据包发送到网络的广播地址，网络上的每个设备都能收到。因此，DHCP通信主要靠这种广播的形式进行。</p>
 <br>
 
-
-
-<h4 id="通信过程"><a href="#通信过程" class="headerlink" title="通信过程"></a>通信过程</h4><p>DHCP协议的底层是UDP协议。使用UDP的广播，把UDP数据包发送到网络的广播地址，网络上的每个设备都能收到。因此，DHCP通信主要靠这种广播的形式进行。</p>
 <p>DHCP通信分为四步：</p>
 <ol>
 <li>客户机发广播，搜寻DHCP服务器（一个网段不一定只有一台DHCP服务器）。</li>
@@ -539,10 +525,20 @@
 
 <br>
 
-<blockquote>
-<p>应用层的介绍就结束啦。最近更新可谓非常频繁了，啊哈哈</p>
-<p><img src="/2019/07/29/计算机网络Day6-应用层协议/4.jpg" alt></p>
-</blockquote>
+<h3 id="应用层通信"><a href="#应用层通信" class="headerlink" title="应用层通信"></a>应用层通信</h3><p>应用层通信可以理解为两种情景：</p>
+<p><strong>①C/S架构（又称客户端/服务端）</strong></p>
+<p>有一个总打开的主机称为服务器，他服务于来自多方的客户端，服务器有个最大的特征，就是IP大多数情况下是固定的，客户机通过域名、IP进行访问服务（具有C/S架构特别典型的例子就是FTP、Telnet）</p>
+<p>我们上面讨论的协议都是基于这个架构。</p>
+<br>
+
+<p><strong>②P2P架构（又称客户机/客户机）</strong></p>
+<p>这种通信不必通过专门的服务器，应用程序在间断连接的主机之间使用直接通信，该体系称为对等方到对等方的（典型的P2P架构的例子是文件共享）。</p>
+<br>
+
+<p>软件都是在应用层协议工作，<strong>多数应用程序是由通信进程对组成</strong>，每对中的两个进程互发报文。两个进程之间通过<strong>套接字</strong>（传输层和应用层的接口）的软件接口向网络发送报文和网络接收报文。</p>
+<br>
+
+<p>PS：更多对socket的了解可以移步我之前写的网络编程系列：<a href="/2019/08/10/网络编程Day2-socket原理/" title="网络编程Day2-socket原理">网络编程Day2-socket原理</a></p>
 
       
     </div>
@@ -673,7 +669,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -746,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS协议"><span class="nav-number">1.</span> <span class="nav-text">DNS协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS服务器"><span class="nav-number">1.1.</span> <span class="nav-text">DNS服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询的顺序："><span class="nav-number">1.2.</span> <span class="nav-text">查询的顺序：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS缓存"><span class="nav-number">1.3.</span> <span class="nav-text">DNS缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议："><span class="nav-number">2.</span> <span class="nav-text">HTTP协议：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP交互过程"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP交互过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求报文："><span class="nav-number">2.2.</span> <span class="nav-text">请求报文：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应报文："><span class="nav-number">2.3.</span> <span class="nav-text">响应报文：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP无状态"><span class="nav-number">2.4.</span> <span class="nav-text">HTTP无状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP协议："><span class="nav-number">3.</span> <span class="nav-text">DHCP协议：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#地址分配"><span class="nav-number">3.1.</span> <span class="nav-text">地址分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#地址池"><span class="nav-number">3.2.</span> <span class="nav-text">地址池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通信过程"><span class="nav-number">3.3.</span> <span class="nav-text">通信过程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS协议"><span class="nav-number">2.</span> <span class="nav-text">DNS协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS服务器"><span class="nav-number">2.1.</span> <span class="nav-text">DNS服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名解析顺序："><span class="nav-number">2.2.</span> <span class="nav-text">域名解析顺序：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DNS缓存"><span class="nav-number">2.3.</span> <span class="nav-text">DNS缓存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议："><span class="nav-number">3.</span> <span class="nav-text">HTTP协议：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP交互过程"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP交互过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#请求报文："><span class="nav-number">3.2.</span> <span class="nav-text">请求报文：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应报文："><span class="nav-number">3.3.</span> <span class="nav-text">响应报文：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTP无状态"><span class="nav-number">3.4.</span> <span class="nav-text">HTTP无状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DHCP协议："><span class="nav-number">4.</span> <span class="nav-text">DHCP协议：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#地址分配"><span class="nav-number">4.1.</span> <span class="nav-text">地址分配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#地址池"><span class="nav-number">4.2.</span> <span class="nav-text">地址池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DHCP通信过程"><span class="nav-number">4.3.</span> <span class="nav-text">DHCP通信过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层通信"><span class="nav-number">5.</span> <span class="nav-text">应用层通信</span></a></li></ol></div>
             
 
           </div>
