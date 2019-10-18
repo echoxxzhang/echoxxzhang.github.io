@@ -87,12 +87,13 @@
 <meta property="og:site_name" content="小小世界">
 <meta property="og:description" content="前言网络编程很重要，在实际开发环境中，很多地方会用到，  举个例子，当我们的爬虫速率太慢了，我们可以开多进程多线程进行爬取；遇到 I/O 密集型任务，我们可以采用多线程处理。 今天介绍的进程线程是理论基础，应该熟练掌握。不熟悉进程线程概念的同学，认真理清其中的区别噢~   操作系统还记得我们之前说过的操作系统基础吗？今天排上用场了~   忘记的童鞋可以点击下方链接看一下： 计算机基础知识之操作系统">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/1.png">
-<meta property="og:updated_time" content="2019-08-05T05:15:59.240Z">
+<meta property="og:updated_time" content="2019-10-14T23:39:43.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程Day1-进程线程概念">
 <meta name="twitter:description" content="前言网络编程很重要，在实际开发环境中，很多地方会用到，  举个例子，当我们的爬虫速率太慢了，我们可以开多进程多线程进行爬取；遇到 I/O 密集型任务，我们可以采用多线程处理。 今天介绍的进程线程是理论基础，应该熟练掌握。不熟悉进程线程概念的同学，认真理清其中的区别噢~   操作系统还记得我们之前说过的操作系统基础吗？今天排上用场了~   忘记的童鞋可以点击下方链接看一下： 计算机基础知识之操作系统">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/1.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/05/网络编程Day1-进程线程概念/2.png">
 
 
 
@@ -401,7 +402,6 @@
 
 <br>
 
-<p>现代计算机系统是由一个或者多个处理器，主存，磁盘，打印机，键盘，鼠标显示器，网络接口以及各种其他输入输出设备组成的复杂系统，每位程序员不可能掌握所有系统实现细节，并且管理优化这些部件是一件挑战性极强的工作。所以，我们需要为计算机安装一层软件，也就是操作系统。操作系统的任务就是用户程序提供一个简单清晰的计算机模型，并管理以上所有设备。</p>
 <p><strong>操作系统是一个用来协调、管理和控制计算机硬件和软件资源的系统程序，其中包括：文件系统、内存管理、设备管理和进程管理。它位于硬件和应用程序之间。</strong></p>
 <p>简单来说，操作系统是存在于用户与程序之间的”中间商”，我们负责下令调度，它负责具体工作的实现。</p>
 <br>
@@ -409,11 +409,10 @@
 <br>
 
 <h3 id="程序？进程？"><a href="#程序？进程？" class="headerlink" title="程序？进程？"></a>程序？进程？</h3><p>我们知道，每一个软件都是由一串串代码构造出来的，而在我们电脑磁盘中，任何文件类型都只能以二进制存储。</p>
-<p>那么，以一堆代码以文本形式存入一个文档，我们把这么一个二进制文件叫做程序。</p>
-<p>当我们运行这个程序时，就会读取到内存，再用相应的解释器编译执行。当程序执行起来时，我们称之为进程。在我们的电脑上，每一个运行着的软件，就是一个进程（当然有子进程，后面会说）</p>
+<p>那么，以一堆代码以文本形式存入一个文档，我们把这么一个二进制文件叫做程序。当我们运行这个程序时，就会读取到内存，再用相应的解释器编译执行。当程序执行起来时，我们称之为进程。在我们的电脑上，每一个运行着的软件，就是一个进程。</p>
 <br>
 
-<h3 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h3><p><strong>进程就是一个程序在一个数据集上的一次动态执行过程（程序运行的一种状态）</strong>。</p>
+<h4 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h4><p><strong>进程就是一个程序在一个数据集上的一次动态执行过程（程序运行的一种状态）</strong>。</p>
 <p> 进程一般由程序、数据集、进程控制块三部分组成。</p>
 <ol>
 <li>程序：我们编写的程序用来描述进程要完成哪些功能以及主逻辑；</li>
@@ -422,15 +421,23 @@
 </ol>
 <br>
 
-<h3 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h3><p>我们知道，一个CPU在<strong>同一时刻</strong>只能处理一件事情，但是呢，CPU运行速度很快，它可以实现<strong>多个进程之间来回切换</strong>来达到我们看到的多个进程同时运行的效果。</p>
+<h4 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h4><p>我们知道，一个CPU在<strong>同一时刻</strong>只能处理一件事情，但是呢，CPU运行速度很快，它可以实现<strong>多个进程之间来回切换</strong>来达到我们看到的多个进程同时运行的效果。</p>
 <p>进程是一种程序运行的状态，会涉及到状态挂起的保存，状态恢复、程序的识别、CPU资源的调用等等，因此，<strong>进程之间的切换是很消费资源的</strong>。</p>
-<p>还有就是，进程的切换，具体是怎么样的呢？  两个条件可以触发切换：</p>
+<p>因为，进程被暂时挂起后，在随后的某个时间里，该进程再次启动的状态必须和挂起之前一致。这就意味着该进程挂起时所有的信息都要记录下来（比如指针、值等等）。这样在该进程重新启动后，所执行的调用才能拿到正确的数据。</p>
+<br>
+
+<p>还有就是，进程的切换是怎么样的呢？  两个条件可以触发进程切换：</p>
 <p>① 时间轮循 ： 每隔一段时间，CPU就会切换到其他进程。</p>
 <p>② I/O操作  ： 当遇到 输入输出操作时，CPU不会傻傻的等着，直接会进行切换操作。</p>
 <br>
 
-<br>
-
+<h4 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h4><p>因此，我们得到了这么一幅图，这就是进程的状态变化：</p>
+<p><img src="/2019/08/05/网络编程Day1-进程线程概念/2.png" alt></p>
+<ul>
+<li>转换2和3都是由进程调度程序引起的，进程调度就是操作系统的一部分，系统认为一个运行进程占用处理器时间已经过长，就会发生进程转换。</li>
+<li>当遇到I/O状态时，就会发生转换1，然后CPU在没得到响应之前（收到有效输出），不会再运行阻塞状态的进程。</li>
+</ul>
+<p><br><br></p>
 <h3 id="线程定义"><a href="#线程定义" class="headerlink" title="线程定义"></a>线程定义</h3><p>线程的概念：“一个进程的独立运行片段”。</p>
 <p>我们知道了，进程虽然可以完成切换，但是十分的消耗资源。线程的出现是为了<strong>降低上下文切换的消耗</strong>，提高系统的并发性，并突破一个进程只能干一样事的缺陷，使到进程内并发成为可能。</p>
 <p><img src="/2019/08/05/网络编程Day1-进程线程概念/1.png" alt></p>
@@ -590,7 +597,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -663,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">2.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序？进程？"><span class="nav-number">3.</span> <span class="nav-text">程序？进程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的定义"><span class="nav-number">4.</span> <span class="nav-text">进程的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程切换"><span class="nav-number">5.</span> <span class="nav-text">进程切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程定义"><span class="nav-number">6.</span> <span class="nav-text">线程定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程线程的关系"><span class="nav-number">7.</span> <span class="nav-text">进程线程的关系</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统"><span class="nav-number">2.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序？进程？"><span class="nav-number">3.</span> <span class="nav-text">程序？进程？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程的定义"><span class="nav-number">3.1.</span> <span class="nav-text">进程的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程切换"><span class="nav-number">3.2.</span> <span class="nav-text">进程切换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程状态"><span class="nav-number">3.3.</span> <span class="nav-text">进程状态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程定义"><span class="nav-number">4.</span> <span class="nav-text">线程定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程线程的关系"><span class="nav-number">5.</span> <span class="nav-text">进程线程的关系</span></a></li></ol></div>
             
 
           </div>

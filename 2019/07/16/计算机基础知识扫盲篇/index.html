@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。    汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。 汇编语言的主题是汇编指令，汇编指令和机器">
+<meta name="description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。    汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。汇编语言的主题是汇编指令，汇编指令和机器指">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机基础知识扫盲篇">
 <meta property="og:url" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。    汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。 汇编语言的主题是汇编指令，汇编指令和机器">
+<meta property="og:description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。    汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。汇编语言的主题是汇编指令，汇编指令和机器指">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/3.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/4.png">
-<meta property="og:updated_time" content="2019-09-27T01:19:04.403Z">
+<meta property="og:updated_time" content="2019-10-14T12:20:21.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机基础知识扫盲篇">
-<meta name="twitter:description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。    汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。 汇编语言的主题是汇编指令，汇编指令和机器">
+<meta name="twitter:description" content="计算机组成基础谈谈汇编语言：机器语言——“计算机运行的基础” 机器语言是机器指令的集合，机器指令展开来讲就是一台机器可以正确执行的命令。电子计算机的机器指令是一列二进制数字。计算机将之转变为一列高低电平，以使计算机的电子器件受到驱动，进行运算。    汇编语言的诞生： 汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。汇编语言的主题是汇编指令，汇编指令和机器指">
 <meta name="twitter:image" content="http://yoursite.com/2019/07/16/计算机基础知识扫盲篇/1.png">
 
 
@@ -399,32 +399,21 @@
  <br>
 
 <p><strong>汇编语言的诞生：</strong></p>
-<p>汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。</p>
-<p>汇编语言的主题是汇编指令，汇编指令和机器指令的差别在于指令的表示方法上<strong>，汇编指令是机器指令便于记忆的书写格式</strong></p>
+<p>汇编语言是直接在硬件上工作的编程语言，用来替代机器语言麻烦的编程问题（难以辨别和记忆）。汇编语言的主题是汇编指令，汇编指令和机器指令的差别在于指令的表示方法上：<strong>汇编指令是机器指令便于记忆的书写格式</strong></p>
 <br>
 
 <br> 
 
 <p><strong>编译器：</strong></p>
-<p>但是计算机能读懂的只有机器指令，那么如何让计算机执行程序员用汇编语言编写的程序呢？   这时，一种能够将汇编语言转成机器指令的翻译程序——<strong>编译器</strong> 产生了。</p>
+<p>计算机能读懂的只有机器指令，那么如何让计算机执行程序员用汇编语言编写的程序呢？   这时，一种能够将汇编语言转成机器指令的翻译程序——<strong>编译器</strong> 产生了。</p>
 <p><img src="/2019/07/16/计算机基础知识扫盲篇/1.png" alt></p>
 <br>
 
-<h4 id="汇编语言的组成："><a href="#汇编语言的组成：" class="headerlink" title="汇编语言的组成："></a>汇编语言的组成：</h4><ol>
-<li><p>汇编指令：有对应的机器码，决定了汇编语言的特性</p>
-</li>
-<li><p>伪指令：没有对应的机器码，由编译器执行，计算机并不执行</p>
-</li>
-<li><p>其他符号：如+、-、*、/ 等，由编译器识别，也没有对应的机器码</p>
 <br>
 
-</li>
-</ol>
+<h3 id="计算机组成的各个部分"><a href="#计算机组成的各个部分" class="headerlink" title="计算机组成的各个部分"></a>计算机组成的各个部分</h3><h4 id="存储器："><a href="#存储器：" class="headerlink" title="存储器："></a>存储器：</h4><p>CPU是计算机的核心部件，它控制整个计算机的运作，要想让CPU工作，就必须向它提供指令和数据。<strong>指令和数据在存储器中存放</strong>，也就是平时说的内存。离开了内存，CPU也无法工作。（就像空有计算能力，却没有记忆力一般）</p>
+<p>磁盘是计算机永久性存储数据的空间所在，<strong>磁盘上的数据要想被CPU执行调用，必须先读到内存当中</strong>。</p>
 <br>
-
-<h3 id="计算机组成的各个部分"><a href="#计算机组成的各个部分" class="headerlink" title="计算机组成的各个部分"></a>计算机组成的各个部分</h3><h4 id="存储器："><a href="#存储器：" class="headerlink" title="存储器："></a>存储器：</h4><p>CPU是计算机的核心部件，它控制整个计算机的运作，要想让CPU工作，就必须向它提供指令和数据。<strong>指令和数据在存储器中存放</strong>，也就是平时说的内存。   离开了内存，CPU也无法工作。</p>
-<p>磁盘是计算机永久性存储数据的空间所在，<strong>磁盘上的数据要想被**</strong>CPU<strong>**执行调用，必须先读到内存当中</strong>。</p>
- <br>
 
 <h4 id="指令和数据："><a href="#指令和数据：" class="headerlink" title="指令和数据："></a>指令和数据：</h4><p>指令和数据是应用上的概念，在内存或磁盘上，指令和数据没有任何区别，都是二进制信息。 CPU在工作时，把有的信息看做指令，有的信息看做数据。（有特殊意义的二进制信息视为指令）</p>
  <br>
@@ -436,7 +425,7 @@
 
 <br>
 
-<h4 id="CPU对存储器的读写："><a href="#CPU对存储器的读写：" class="headerlink" title="CPU对存储器的读写："></a>CPU对存储器的读写：</h4><p>存储器被划分成多个存储单元，存储单元从零开始顺序编号，这些编号可以看作存储单元在存储器中的地址，就像每个房子的门牌号</p>
+<h4 id="CPU对存储器的读写："><a href="#CPU对存储器的读写：" class="headerlink" title="CPU对存储器的读写："></a>CPU对存储器的读写：</h4><p><strong>存储器被划分成多个存储单元，存储单元从零开始顺序编号，这些编号可以看作存储单元在存储器中的地址，就像每个房子的门牌号</strong></p>
 <p>CPU要从内容中读取数据，首先要指定存储单元的地址，也就是说它要先确定读取哪一个存储单元中的数据。</p>
 <p>另外，在微机中，不当当只有存储器这一种器件，CPU在进行读写数据操作时，需要指明它要对哪一个器件进行操作、进行哪种操作、是从中读出数据，还是写进数据。</p>
 <p>可见，CPU要想进行数据的读写，必须和外部器件（可以说成芯片）进行三类信息的交互：</p>
@@ -454,21 +443,22 @@
 <h4 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h4><ul>
 <li>地址总线：</li>
 </ul>
-<p>CPU是通过地址总线来指定存储器单元的。地址总线上能传送多少个不同的信息，CPU就可以对多少个存储单元进行寻址。</p>
+<p><strong>CPU是通过地址总线来指定存储器单元的。</strong></p>
+<p>地址总线上能传送多少个不同的信息，CPU就可以对多少个存储单元进行寻址。</p>
 <p>在电子计算机中，一根导线可以传送的稳定状态有两种，高电平或是低电平。用二进制表示就是1或者0。  有 n 根导线就能表示 2的n次方种信息。假设一个CPU有N跟地址线，则可以说这个CPU的地址总线的宽度为N，这样的CPU最多可以寻找2的N次方个内存单元。</p>
  <br>
 
 <ul>
 <li>数据总线：</li>
 </ul>
-<p>CPU与内存或其他器件之间的数据交互是通过数据总线进行传递的。</p>
+<p><strong>CPU与内存或其他器件之间的数据交互是通过数据总线进行传递的。</strong></p>
 <p>数据总线的宽度决定了CPU与外界的数据传输速度。8跟数据总线一次可传送一个8位二进制数据（即一个字节）。</p>
  <br>
 
 <ul>
 <li>控制总线：</li>
 </ul>
-<p>CPU对外部器件的控制是通过控制总线来进行的。</p>
+<p><strong>CPU对外部器件的控制是通过控制总线来进行的。</strong></p>
 <p>控制总线是一些不同控制线的集合，有多少根控制总线，就意味着CPU提供了对外部器件的多少种控制，所以，控制总线的宽度决定了CPU对外部器件的控制能力。</p>
  <br>
 
@@ -645,7 +635,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -718,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机组成基础"><span class="nav-number">1.</span> <span class="nav-text">计算机组成基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#谈谈汇编语言："><span class="nav-number">1.1.</span> <span class="nav-text">谈谈汇编语言：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#汇编语言的组成："><span class="nav-number">1.1.1.</span> <span class="nav-text">汇编语言的组成：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机组成的各个部分"><span class="nav-number">1.2.</span> <span class="nav-text">计算机组成的各个部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器："><span class="nav-number">1.2.1.</span> <span class="nav-text">存储器：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令和数据："><span class="nav-number">1.2.2.</span> <span class="nav-text">指令和数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储单元："><span class="nav-number">1.2.3.</span> <span class="nav-text">存储单元：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU对存储器的读写："><span class="nav-number">1.2.4.</span> <span class="nav-text">CPU对存储器的读写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线"><span class="nav-number">1.2.5.</span> <span class="nav-text">总线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存地址空间："><span class="nav-number">1.2.6.</span> <span class="nav-text">内存地址空间：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主板："><span class="nav-number">1.2.7.</span> <span class="nav-text">主板：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口卡："><span class="nav-number">1.2.8.</span> <span class="nav-text">接口卡：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各类存储器芯片："><span class="nav-number">1.2.9.</span> <span class="nav-text">各类存储器芯片：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机组成基础"><span class="nav-number">1.</span> <span class="nav-text">计算机组成基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#谈谈汇编语言："><span class="nav-number">1.1.</span> <span class="nav-text">谈谈汇编语言：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机组成的各个部分"><span class="nav-number">1.2.</span> <span class="nav-text">计算机组成的各个部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储器："><span class="nav-number">1.2.1.</span> <span class="nav-text">存储器：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指令和数据："><span class="nav-number">1.2.2.</span> <span class="nav-text">指令和数据：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储单元："><span class="nav-number">1.2.3.</span> <span class="nav-text">存储单元：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU对存储器的读写："><span class="nav-number">1.2.4.</span> <span class="nav-text">CPU对存储器的读写：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总线"><span class="nav-number">1.2.5.</span> <span class="nav-text">总线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存地址空间："><span class="nav-number">1.2.6.</span> <span class="nav-text">内存地址空间：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主板："><span class="nav-number">1.2.7.</span> <span class="nav-text">主板：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口卡："><span class="nav-number">1.2.8.</span> <span class="nav-text">接口卡：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各类存储器芯片："><span class="nav-number">1.2.9.</span> <span class="nav-text">各类存储器芯片：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

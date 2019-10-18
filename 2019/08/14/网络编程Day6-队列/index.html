@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/14/网络编程Day6-队列/2.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/14/网络编程Day6-队列/3.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/14/网络编程Day6-队列/4.png">
-<meta property="og:updated_time" content="2019-08-15T11:27:56.113Z">
+<meta property="og:updated_time" content="2019-10-14T07:55:17.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络编程Day6-队列">
 <meta name="twitter:description" content="前言上此我们讲到了线程： 网络编程Day3-子线程 ，那么多线程如何应用呢？   就是我们今天要讲的主题了——队列。 队列，是用来解决线程安全的一种“利器”，讲述队列之前，我们需要对一个模型进行了解。   生产者消费者模型生产者消费者模式是指通过一个容器来解决生产者和消费者的强耦合问题。 耦合： 用python代码来做比喻，如果更改一处代码，其他代码会随之受到影响的情景，我们就称之为耦合。 生产者">
@@ -403,8 +403,11 @@
 <h3 id="生产者消费者模型"><a href="#生产者消费者模型" class="headerlink" title="生产者消费者模型"></a>生产者消费者模型</h3><p>生产者消费者模式是指通过一个容器来解决生产者和消费者的<code>强耦合</code>问题。</p>
 <p><strong>耦合</strong>： 用python代码来做比喻，如果更改一处代码，其他代码会随之受到影响的情景，我们就称之为耦合。</p>
 <p>生产者和消费者彼此之间不直接通讯，而通过阻塞队列来进行通讯，所以生产者生产完数据之后不用等待消费者处理，直接扔给阻塞队列，消费者不找生产者要数据，而是直接从阻塞队列里取，阻塞队列就相当于一个缓冲区，平衡了生产者和消费者的处理能力。这是一个<strong>解耦</strong>的过程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS：python 的协程，就涉及到了生产者消费者模型的相关知识。</span><br><span class="line">协程，又称微线程，纤程。英文名Coroutine。协程的作用，是在执行函数A时，可以随时中断，去执行函数B，然后中断继续执行函数A（可以自由切换）。但这一过程并不是函数调用（没有调用语句），这一整个过程看似像多线程，然而协程只有一个线程执行。(因此也被较为伪多线程)</span><br></pre></td></tr></table></figure>
+<br>
 
+<blockquote>
+<p>PS：python 的协程，就涉及到了生产者消费者模型的相关知识。<br>协程，又称微线程，纤程。英文名Coroutine。协程的作用，是在执行函数A时，可以随时中断，去执行函数B，然后中断继续执行函数A（可以自由切换）。但这一过程并不是函数调用（没有调用语句），这一整个过程看似像多线程，然而协程只有一个线程执行。(因此也被较为伪多线程)</p>
+</blockquote>
 <p><br><br></p>
 <h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><p>队列是用于线程安全的，提供了一个适用于多线程编程的数据结构。queue是python标准库中的线程安全的队列，默认基本FIFO队列（FIFO即First in First Out,先进先出）</p>
 <p>Python Queue模块有三种队列及构造函数<strong>（返回一个数据容器）</strong>:</p>
@@ -595,7 +598,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
