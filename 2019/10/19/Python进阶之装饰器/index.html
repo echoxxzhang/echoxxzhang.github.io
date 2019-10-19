@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,Linux,">
+  <meta name="keywords" content="技术,Python,">
 
 
 
@@ -79,23 +79,24 @@
 
 
 
-<meta name="description" content="前言在Linux系统之后，有一个非常非常重要的概念就是：一切皆文件。也就是说，无论在Linux中看到的东西，都是由一个个文件构成的，例如说：命令、用户、各种配置等等。 尽管在Linux系统中一切都是文件，但是每个文件的类型不尽相同，因此Linux系统使用了不同的字符来加以区分。   查看文件各种详细属性 每一部分的意思依次为(从左往右看)：  权限信息  硬连接数（可以理解为存在 n个相同的文件）">
-<meta name="keywords" content="技术,Linux">
+<meta name="description" content="前言上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~ 需要函数本质作为理论基础，忘了的童鞋翻一翻：{ post_link Python进阶之函数的那些事 }   装饰器基础知识装饰器定义：装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。 但是装饰器是有">
+<meta name="keywords" content="技术,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux之文件和目录的权限管理">
-<meta property="og:url" content="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/index.html">
+<meta property="og:title" content="Python进阶之装饰器">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言在Linux系统之后，有一个非常非常重要的概念就是：一切皆文件。也就是说，无论在Linux中看到的东西，都是由一个个文件构成的，例如说：命令、用户、各种配置等等。 尽管在Linux系统中一切都是文件，但是每个文件的类型不尽相同，因此Linux系统使用了不同的字符来加以区分。   查看文件各种详细属性 每一部分的意思依次为(从左往右看)：  权限信息  硬连接数（可以理解为存在 n个相同的文件）">
+<meta property="og:description" content="前言上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~ 需要函数本质作为理论基础，忘了的童鞋翻一翻：{ post_link Python进阶之函数的那些事 }   装饰器基础知识装饰器定义：装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。 但是装饰器是有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/4.png">
-<meta property="og:updated_time" content="2019-08-28T02:03:27.419Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/1.gif">
+<meta property="og:updated_time" content="2019-10-19T07:55:28.209Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux之文件和目录的权限管理">
-<meta name="twitter:description" content="前言在Linux系统之后，有一个非常非常重要的概念就是：一切皆文件。也就是说，无论在Linux中看到的东西，都是由一个个文件构成的，例如说：命令、用户、各种配置等等。 尽管在Linux系统中一切都是文件，但是每个文件的类型不尽相同，因此Linux系统使用了不同的字符来加以区分。   查看文件各种详细属性 每一部分的意思依次为(从左往右看)：  权限信息  硬连接数（可以理解为存在 n个相同的文件）">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/1.png">
+<meta name="twitter:title" content="Python进阶之装饰器">
+<meta name="twitter:description" content="前言上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~ 需要函数本质作为理论基础，忘了的童鞋翻一翻：{ post_link Python进阶之函数的那些事 }   装饰器基础知识装饰器定义：装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。 但是装饰器是有">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/1.png">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/">
+  <link rel="canonical" href="http://yoursite.com/2019/10/19/Python进阶之装饰器/">
 
 
 
 
 
-  <title>Linux之文件和目录的权限管理 | 小小世界</title>
+  <title>Python进阶之装饰器 | 小小世界</title>
   
 
 
@@ -290,7 +291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/Linux之文件和目录的权限管理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/Python进阶之装饰器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -307,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux之文件和目录的权限管理</h1>
+          <h1 class="post-title" itemprop="name headline">Python进阶之装饰器</h1>
         
 
         <div class="post-meta">
@@ -320,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-28T09:16:43+08:00">
-                2019-08-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-19T11:07:54+08:00">
+                2019-10-19
               </time>
             
 
@@ -343,8 +344,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/操作系统/" itemprop="url" rel="index">
-                    <span itemprop="name">操作系统</span>
+                  <a href="/categories/Python进阶/" itemprop="url" rel="index">
+                    <span itemprop="name">Python进阶</span>
                   </a>
                 </span>
 
@@ -361,8 +362,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/08/28/Linux之文件和目录的权限管理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/28/Linux之文件和目录的权限管理/" itemprop="commentsCount"></span>
+                <a href="/2019/10/19/Python进阶之装饰器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/10/19/Python进阶之装饰器/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -395,128 +396,75 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在Linux系统之后，有一个非常非常重要的概念就是：<strong>一切皆文件</strong>。也就是说，无论在Linux中看到的东西，都是由一个个文件构成的，例如说：命令、用户、各种配置等等。</p>
-<p><strong>尽管在Linux系统中一切都是文件，但是每个文件的类型不尽相同，因此Linux系统使用了不同的字符来加以区分</strong>。</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~</p>
+<p>需要函数本质作为理论基础，忘了的童鞋翻一翻：{ post_link Python进阶之函数的那些事 }</p>
 <br>
 
-<h3 id="查看文件各种详细属性"><a href="#查看文件各种详细属性" class="headerlink" title="查看文件各种详细属性"></a>查看文件各种详细属性</h3><p><img src="/2019/08/28/Linux之文件和目录的权限管理/1.png" alt></p>
-<p>每一部分的意思依次为(从左往右看)：</p>
+<h2 id="装饰器基础知识"><a href="#装饰器基础知识" class="headerlink" title="装饰器基础知识"></a>装饰器基础知识</h2><p><strong>装饰器定义：</strong>装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。</p>
+<p>但是装饰器是有限制的：<strong>装饰器不能修改被装饰函数的源代码逻辑、装饰器不能修改被装饰函数的调用方式。</strong></p>
+<br>
+
+<p>接下来，我们先看看学习装饰器需要的功能储备吧：</p>
 <ol>
-<li>权限信息 </li>
-<li>硬连接数（可以理解为存在 n个相同的文件）</li>
-<li>属主：该用户所拥有该文件；</li>
-<li>属组：该组具有哪些用户</li>
-<li>文件大小</li>
-<li>文件创建时间</li>
-<li>文件名</li>
+<li>函数即变量（之前讲过了，这点略过）</li>
+<li>高阶函数   </li>
+<li>嵌套函数 + 闭包</li>
 </ol>
-<p>共计七部分的内容，不过文件的属性还不止这些，还有特殊权限、隐藏权限等。</p>
-<br>
-
-<p> <em>那么，先进入到今天的主题：权限信息</em></p>
-<br>
-
-<h3 id="文件权限信息"><a href="#文件权限信息" class="headerlink" title="文件权限信息"></a>文件权限信息</h3><p>我们从上面知道，文件的详细信息的第一部分就是权限信息了。但这权限信息的内容，又得分四部分看：</p>
-<p>第1位：指明该文件的类型</p>
-<table>
-<thead>
-<tr>
-<th>标识</th>
-<th>文件类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-</td>
-<td>普通文件类型</td>
-</tr>
-<tr>
-<td>d</td>
-<td>代表目录</td>
-</tr>
-<tr>
-<td>l</td>
-<td>软链接（快捷方式）</td>
-</tr>
-<tr>
-<td>b</td>
-<td>块设备</td>
-</tr>
-<tr>
-<td>p</td>
-<td>管道文件</td>
-</tr>
-<tr>
-<td>c</td>
-<td>字符设备文件</td>
-</tr>
-</tbody></table>
-<br>
-
-<p>第2-4位：文件的属主对该文件的权限（没有该权限则使用-代表）</p>
-<p>描述文件的权限共为三个标志位，分别为：读、写、执行。</p>
-<table>
-<thead>
-<tr>
-<th>标志位</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>读 r（read）</td>
-<td>表示能够读取文件的实际内容</td>
-</tr>
-<tr>
-<td>写 w（write）</td>
-<td>表示能够编辑、新增、修改、删除文件的实际内容</td>
-</tr>
-<tr>
-<td>执行 x（execute）</td>
-<td>表示能够运行一个脚本程序</td>
-</tr>
-</tbody></table>
-<p><strong>注意：目录文件的权限和文件的权限控制并不相同，等下我们后面会说。</strong></p>
-<br>
-
-<p>第5-7位：文件的属组对该文件的权限（group）</p>
-<p>第8-10位：其他用户对该文件的权限（other）</p>
-<p><strong>注意：</strong></p>
-<p><strong>一般来说，文件由谁创建的，属主和属组就是该用户，只有文件的属主才能修改权限（root 用户不受权限限制）</strong></p>
 <p><br><br></p>
-<h3 id="目录的权限管理"><a href="#目录的权限管理" class="headerlink" title="目录的权限管理"></a>目录的权限管理</h3><p>目录的权限管理和文件的权限管理的标志位含义并不相同。</p>
-<p>对目录下的文件操作，只跟目录的权限有关；对于目录下的文件内容操作，那是与文件操作相关的。比方说：<strong>文件能否被删除并不取决于自身的权限，而是看其所在目录是否有写入权限。</strong></p>
+<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>当函数可以满足以下这两个条件之一，就可以称为高阶函数。</p>
+<p>①把一个函数名当作实参传给另一个函数  </p>
+<p><img src="/2019/10/19/Python进阶之装饰器/1.png" alt></p>
 <ul>
-<li>r：可以查（ls）看目录所拥有的文件</li>
-<li>w：可以在该目录下创建、删除或重命名（修改文件不是，因为作用于文件本身，是属于文件操作的）</li>
-<li>x： 可以使用cd命令切换该目录下</li>
+<li>如上图，就是高阶函数的一种，他将hello函数传给了show_time，完成了<code>函数运行计时功能</code></li>
+<li>它实现了不修改另一个函数源代码的前提下为其添加功能,但是改变了函数的调用方式</li>
 </ul>
+<br>
+
+<p>②函数的返回值是另一个函数</p>
+<p><img src="/2019/10/19/Python进阶之装饰器/2.png" alt></p>
+<ul>
+<li>这也是高级函数的一种，它实现了不修改函数的调用方式，为其函数添加新功能这一特点。</li>
+<li>但却有局限性，添加的功能全部在运行功能函数的上方，不灵活。</li>
+</ul>
+<br>
+
+<p>这两个高级函数都实现了装饰器一部分的功能，我们需要其他知识点来完善它。</p>
+<br>
+
+<br>
+
+<h3 id="嵌套函数"><a href="#嵌套函数" class="headerlink" title="嵌套函数"></a>嵌套函数</h3><p>嵌套函数的定义是，在一个函数内又有用def 声明的另一个函数。</p>
+<p>嵌套函数是这样的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">'in the foo'</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></span><br><span class="line">		print(<span class="string">'in the bar'</span>)</span><br><span class="line">	</span><br><span class="line">	bar()   <span class="comment"># 处于foo函数体中，如果要运行，就需要先将bar函数定义</span></span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>假如有个名为 avg 的函数，它的作用是计算不断增加的系列值的均值；例如，整个历史中某个商品的平均收盘价。每天都会增加新价格，因此平均值要考虑至目前为止所有的价格。</p>
+<p>我们使用高阶函数进行编写这个函数的功能：</p>
+<p><img src="/2019/10/19/Python进阶之装饰器/3.png" alt></p>
+<p>可以看到，我们实现了功能，但是这里面隐藏了个细节——闭包！</p>
+<p>运行此函数时，返回嵌套函数的引用，那么 agv=make_averager()就得到了一个对象（averager的内存地址）,问题来了，为什么函数内部还可以调用已经运行完毕的外部函数体中的series列表？不应该是函数运行之后，该函数体就跟着销毁吗？</p>
+<p>原因是这样的：在 averager 函数中，series 是<strong>自由变量</strong>（free variable）。<strong>自由变量指未在本地作用域中绑定的变量。</strong></p>
+<p>闭包它会保留定义函数时存在的自由变量的绑定，这样调用函数时，虽然定义作用域不可用了，但是仍能使用那些绑定。</p>
 <p><br><br></p>
-<hr>
-<h3 id="属主属组的权限管理"><a href="#属主属组的权限管理" class="headerlink" title="属主属组的权限管理"></a>属主属组的权限管理</h3><p>对于相同的一个文件来说，打开的人不同，其权限也大不相同。我们可以把文件的权限（rwx）看做属性，既然是属性，那么我们就可以对其进行修改。</p>
+<h3 id="一个装饰器"><a href="#一个装饰器" class="headerlink" title="一个装饰器"></a>一个装饰器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        time.sleep(<span class="number">3</span>)     </span><br><span class="line">        func()               <span class="comment"># run函数实际的运行，是在这里</span></span><br><span class="line">        stop_time = time.time()</span><br><span class="line">        run_time = stop_time-start_time</span><br><span class="line">        </span><br><span class="line">        print(<span class="string">"运行耗费时间："</span>,run_time)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> bar  </span><br><span class="line"></span><br><span class="line"><span class="meta">@foo  # 相当于run = foo(run)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello world"</span>)  </span><br><span class="line"></span><br><span class="line">run()</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下：</p>
+<p><img src="/2019/10/19/Python进阶之装饰器/4.png" alt></p>
 <ul>
-<li>修改文件属主：chmod [参数]   权限设置    文件或目录名称</li>
-<li>修改文件属组：chown [参数]   所有者:所属组   文件或目录名称</li>
+<li>run是功能函数的函数名，表示下面的函数将作为实参传入foo。</li>
+<li>@后面跟的是添加新功能的函数（也就是装饰器），这个就类似于我们上面高阶函数第二点写过的 run = foo(run)，它使得我们不更改函数调用方式的前提下，添加新功能。</li>
+<li>这一次，我们既没有修改被装饰函数的源代码逻辑、也没有修改被装饰函数的调用方式。一个简单的装饰器就被我们做出来啦！</li>
 </ul>
 <br>
 
-<h4 id="修改属主："><a href="#修改属主：" class="headerlink" title="修改属主："></a>修改属主：</h4><p><img src="/2019/08/28/Linux之文件和目录的权限管理/2.png" alt></p>
-<ul>
-<li>+：表示加入权限</li>
-<li>-：表示去掉权限</li>
-<li>=：表示设定权限</li>
-</ul>
 <br>
 
-<h4 id="修改属组"><a href="#修改属组" class="headerlink" title="修改属组"></a>修改属组</h4><p><img src="/2019/08/28/Linux之文件和目录的权限管理/3.png" alt></p>
-<ul>
-<li>这样，我们就把文件的属组从普通用户更改为 root 了</li>
-</ul>
-<br>
 
-<h3 id="基于数字级的修改"><a href="#基于数字级的修改" class="headerlink" title="基于数字级的修改"></a>基于数字级的修改</h3><p>rwx权限，也可以使用数字进行表示（4、2、1）</p>
-<p><img src="/2019/08/28/Linux之文件和目录的权限管理/4.png" alt></p>
-<ul>
-<li>以上的664就代表 “-rw-rw-r–”这样的权限信息描述。</li>
-</ul>
+
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>今天讲解了装饰器的内部实现过程，那么这篇文章就到这里了，期待下回与你们相遇。</p>
+<p>see you~</p>
+<p><img src="/2019/10/19/Python进阶之装饰器/1.gif" alt></p>
 
       
     </div>
@@ -536,7 +484,7 @@
           
             <a href="/tags/技术/" rel="tag"># 技术</a>
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
         </div>
       
@@ -549,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/28/Linux之用户及用户组/" rel="next" title="Linux之用户及用户组">
-                <i class="fa fa-chevron-left"></i> Linux之用户及用户组
+              <a href="/2019/10/14/Python进阶之函数的那些事/" rel="next" title="Python进阶之函数的那些事">
+                <i class="fa fa-chevron-left"></i> Python进阶之函数的那些事
               </a>
             
           </div>
@@ -558,10 +506,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/06/爬虫Day18-反JS加密/" rel="prev" title="爬虫Day18-反JS加密">
-                爬虫Day18-反JS加密 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -720,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看文件各种详细属性"><span class="nav-number">2.</span> <span class="nav-text">查看文件各种详细属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件权限信息"><span class="nav-number">3.</span> <span class="nav-text">文件权限信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录的权限管理"><span class="nav-number">4.</span> <span class="nav-text">目录的权限管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属主属组的权限管理"><span class="nav-number">5.</span> <span class="nav-text">属主属组的权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#修改属主："><span class="nav-number">5.1.</span> <span class="nav-text">修改属主：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改属组"><span class="nav-number">5.2.</span> <span class="nav-text">修改属组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于数字级的修改"><span class="nav-number">6.</span> <span class="nav-text">基于数字级的修改</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器基础知识"><span class="nav-number"></span> <span class="nav-text">装饰器基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶函数"><span class="nav-number">1.</span> <span class="nav-text">高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套函数"><span class="nav-number">2.</span> <span class="nav-text">嵌套函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个装饰器"><span class="nav-number">4.</span> <span class="nav-text">一个装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></li></div>
             
 
           </div>
