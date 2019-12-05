@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet学习—Day1-C-S基础/10.png">
 <meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet学习—Day1-C-S基础/2.gif">
 <meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet学习—Day1-C-S基础/5.png">
-<meta property="og:updated_time" content="2019-12-05T08:44:35.744Z">
+<meta property="og:updated_time" content="2019-12-05T08:55:28.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet学习—Day1-C&#x2F;S基础">
 <meta name="twitter:description" content="前言好久没更新博客了，我没有偷懒哈哈哈，因为最近在学习Java基础，其他学习方向就放置了。有过一门编程基础之后，学习其他语言真的是可以为所欲为（其实没有！！） python是脚本语言，跟Java还是有很多地方不一样的。 好了，先回归正题，接下来更新的系列是：Serlvet 。这个系列要求读者有一些Java基础。（嗯，下面这些基本够了）      Serlvet 是很久之前的技术吧，先谈谈我为什么还">
@@ -483,7 +483,9 @@
 
 <h3 id="二、复写方法"><a href="#二、复写方法" class="headerlink" title="二、复写方法"></a>二、复写方法</h3><p><img src="/2019/12/01/Servlet学习—Day1-C-S基础/8.png" alt></p>
 <ul>
-<li>service方法中定义的内容，是我们每一次请求Servlet服务所运行的方法。也就是说，当我们在url上请求我们的项目时，它就会运行一次service方法</li>
+<li>service方法中定义的内容，是我们每一次请求Servlet服务所运行的方法。也就是说，当我们在url上请求我们的项目时，它就会运行一次service方法。</li>
+<li>在上面我们重写的是Servlet的接口，要实现5个方法。这样太麻烦了！而<strong>HttpServlet类已经实现了Servlet接口的所有方法</strong>，编写Servlet时，只需要<strong>继承HttpServlet，然后重写你需要的方法即可</strong>，所以上面的方法不一定每一次都要重写，我只是介绍了有这些方法而已。</li>
+<li>一般我们都是重写了doPost（）或doGet（）方法，<strong>当Servlet被访问时，会先去找service方法，如果没有，会继续找到我们复写的get、post方法（划重点）</strong></li>
 </ul>
 <br>
 
