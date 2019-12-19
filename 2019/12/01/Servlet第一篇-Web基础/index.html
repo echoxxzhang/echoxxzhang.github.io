@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="技术,JavaEE,">
 
 
 
@@ -79,13 +79,29 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="小小世界">
-<meta property="og:url" content="http://yoursite.com/categories/Servlet/index.html">
+<meta name="description" content="前言好久没更新博客了，我没有偷懒哈哈哈，因为最近在学习Java基础，其他学习方向就放置了。有过一门编程基础之后，学习其他语言真的是可以为所欲为（其实没有！！） python是脚本语言，跟Java还是有很多地方不一样的。 好了，先回归正题，接下来更新的系列是：Serlvet 。这个系列要求读者有一些Java基础。（嗯，下面这些基本够了）      Serlvet 是很久之前的技术吧，先谈谈我为什么还">
+<meta name="keywords" content="技术,JavaEE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet学习—Day1-C&#x2F;S基础">
+<meta property="og:url" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/index.html">
 <meta property="og:site_name" content="小小世界">
+<meta property="og:description" content="前言好久没更新博客了，我没有偷懒哈哈哈，因为最近在学习Java基础，其他学习方向就放置了。有过一门编程基础之后，学习其他语言真的是可以为所欲为（其实没有！！） python是脚本语言，跟Java还是有很多地方不一样的。 好了，先回归正题，接下来更新的系列是：Serlvet 。这个系列要求读者有一些Java基础。（嗯，下面这些基本够了）      Serlvet 是很久之前的技术吧，先谈谈我为什么还">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/1.gif">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/9.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/2.gif">
+<meta property="og:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/5.png">
+<meta property="og:updated_time" content="2019-12-17T04:15:26.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小小世界">
+<meta name="twitter:title" content="Servlet学习—Day1-C&#x2F;S基础">
+<meta name="twitter:description" content="前言好久没更新博客了，我没有偷懒哈哈哈，因为最近在学习Java基础，其他学习方向就放置了。有过一门编程基础之后，学习其他语言真的是可以为所欲为（其实没有！！） python是脚本语言，跟Java还是有很多地方不一样的。 好了，先回归正题，接下来更新的系列是：Serlvet 。这个系列要求读者有一些Java基础。（嗯，下面这些基本够了）      Serlvet 是很久之前的技术吧，先谈谈我为什么还">
+<meta name="twitter:image" content="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/2.png">
 
 
 
@@ -115,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/Servlet/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/">
 
 
 
 
 
-  <title>Category: Servlet | 小小世界</title>
+  <title>Servlet学习—Day1-C/S基础 | 小小世界</title>
   
 
 
@@ -140,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/echoxxzhang/echoxxzhang.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,53 +282,309 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Servlet<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/Servlet第一篇-Web基础/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/max.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小世界">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/12/01/Servlet第一篇-Web基础/" itemprop="url">
-              
-                <span itemprop="name">Servlet学习—Day1-C/S基础</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Servlet学习—Day1-C/S基础</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-01T11:08:36+08:00" content="2019-12-01">
-          12-01
-        </time>
-      </div>
+        <div class="post-meta">
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-01T11:08:36+08:00">
+                2019-12-01
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Servlet/" itemprop="url" rel="index">
+                    <span itemprop="name">Servlet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/01/Servlet第一篇-Web基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/12/01/Servlet第一篇-Web基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>好久没更新博客了，我没有偷懒哈哈哈，因为最近在学习Java基础，其他学习方向就放置了。有过一门编程基础之后，学习其他语言真的是可以为所欲为（其实没有！！）</p>
+<p>python是脚本语言，跟Java还是有很多地方不一样的。</p>
+<p>好了，先回归正题，接下来更新的系列是：<strong>Serlvet</strong> 。这个系列要求读者有一些Java基础。（嗯，下面这些基本够了）</p>
+<p><img src="/2019/12/01/Servlet第一篇-Web基础/2.png" alt></p>
+<br>
+
+<br>
+
+<p>Serlvet 是很久之前的技术吧，先谈谈我为什么还要学他。现如今的JavaEE，Spring一家独大，一门新技术的出现可能意味着其他内容的消亡。但是有一句话说的话——<strong>万变不离其宗</strong>。在我调研了几天发现 Serlvet还是被依赖的技术。所以，不仅要学，还要学深。</p>
+<p>但是例如SSH框架、JSP，就没有学习的必要了。为什么？   没有为什么，听我的，全听我的。</p>
+<p><img src="/2019/12/01/Servlet第一篇-Web基础/1.gif" alt></p>
+<br>
+
+<br>
+
+<h2 id="知识铺垫"><a href="#知识铺垫" class="headerlink" title="知识铺垫"></a>知识铺垫</h2><h3 id="HTTP基础"><a href="#HTTP基础" class="headerlink" title="HTTP基础"></a>HTTP基础</h3><p>哈哈哈，之前说的这两篇就很详细啦！！没看过的旁友迅速瞄一下。</p>
+<ol>
+<li><a href="/2019/07/29/计算机网络Day6-应用层协议/" title="计算机网络Day6-应用层协议">计算机网络Day6-应用层协议</a></li>
+<li><a href="/2019/07/06/爬虫Day1-HTML基础/" title="爬虫Day1-HTML基础">爬虫Day1-HTML基础</a>
+
+</li>
+</ol>
+<br>
+
+<h3 id="C-S架构"><a href="#C-S架构" class="headerlink" title="C/S架构"></a>C/S架构</h3><p><img src="/2019/12/01/Servlet第一篇-Web基础/3.png" alt></p>
+<p>这是个老生常谈的东西啦，看图就能看懂的（get！）</p>
+<br>
+
+<h3 id="从浏览器地址行输入一个URL"><a href="#从浏览器地址行输入一个URL" class="headerlink" title="从浏览器地址行输入一个URL"></a>从浏览器地址行输入一个URL</h3><p>这是一个面试很常考的问题：“在地址栏输入一个网址，浏览器实际上做了什么？”<br>我们知道，要在互联网上访问另一台主机（服务器也是主机），需要通过IP地址形式。但是，IP地址不便于人类记忆，因此我们采用域名形式进行映射（baidu.com），通过域名可以找到该主机。</p>
+<br>
+
+<ol>
+<li>首先浏览器会访问电脑上的hosts文件。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 如果找得到，则直接解析地址，例如localhost，映射为127.0.0.1</span><br><span class="line">- 如果没找到，则向DNS发出解析请求</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>DNF服务器收到后，会在DNS缓存中寻找该域名对应的IP地址映射。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 如果找到了，返回给浏览器</span><br><span class="line">- 如果没找到，接着向上级DNS请求解析，直到拿到解析内容为止</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这时，浏览器就拿到了网址的IP地址。</p>
+</li>
+<li><p>浏览器向该IP地址发出HTTP请求连接，可能直接请求服务器的静态资源，或者是个动态的请求信息。</p>
+</li>
+<li><p>服务器解析浏览器发来的请求（假设一切正常）</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- 如果是静态资源则直接返回</span><br><span class="line">- 如果是动态请求，例如url后面拼接的（？username=xx）。则会运行服务器端的程序，获得响应内容后再回送给浏览器</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>浏览器拿到响应内容后进行渲染，呈现页面给用户。</li>
+</ol>
+<br>
+
+<p><strong>图解：</strong></p>
+<p><img src="/2019/12/01/Servlet第一篇-Web基础/4.png" alt></p>
+<p>Just so cool，对吧~</p>
+<br>
+
+
+
+<hr>
+<h2 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h2><p>Servlet（Server Applet）是Java Servlet的简称，称为小服务程序或服务连接器，用Java编写的服务器端程序。</p>
+<p>Servlet带给我们最大的作用就是能够<strong>处理浏览器带来HTTP请求，并返回一个响应给浏览器，从而实现浏览器和服务器的交互</strong>。</p>
+<br>
+
+<blockquote>
+<p>环境准备：</p>
+<ol>
+<li>IDEA（好用）</li>
+<li>去Apache官网下载tomcat</li>
+<li>JDK8</li>
+</ol>
+<p>关于环境搭建，网上教程一大把，由于文章篇幅问题，我就不写在这里面了。</p>
+</blockquote>
+<br>
+
+<h2 id="简单的Servlet程序"><a href="#简单的Servlet程序" class="headerlink" title="简单的Servlet程序"></a>简单的Servlet程序</h2><h3 id="一、继承HttpServlet"><a href="#一、继承HttpServlet" class="headerlink" title="一、继承HttpServlet"></a>一、继承HttpServlet</h3><p><img src="/2019/12/01/Servlet第一篇-Web基础/6.png" alt></p>
+<br>
+
+<h3 id="二、复写方法"><a href="#二、复写方法" class="headerlink" title="二、复写方法"></a>二、复写方法</h3><p><img src="/2019/12/01/Servlet第一篇-Web基础/8.png" alt></p>
+<ul>
+<li>service方法中定义的内容，是我们每一次请求Servlet服务所运行的方法。也就是说，当我们在url上请求我们的项目z资源时，它就会运行一次service方法。</li>
+<li>在上面我们重写的是Servlet的接口，要实现5个方法。这样太麻烦了！而<strong>HttpServlet接口已经实现了Servlet接口的所有方法</strong>（该接口的具体实现tomcat已经帮你写好了哦，我们只关心如何“用”），编写Servlet时，只需要<strong>继承HttpServlet，然后重写你需要的方法即可</strong></li>
+<li><strong>一般我们都会重写doPost（）或doGet（）方法</strong>，当Servlet被访问时，会先去找service方法，如果没有，会继续找到我们复写的get、post方法（划重点）</li>
+</ul>
+<br>
+
+<h3 id="三、配置注解"><a href="#三、配置注解" class="headerlink" title="三、配置注解"></a>三、配置注解</h3><p>我们需要在web.xml中配置项目映射</p>
+<p><img src="/2019/12/01/Servlet第一篇-Web基础/9.png" alt></p>
+<ul>
+<li>servlet-name由我们自己分配，只要两个servlet-name相同，即可对应上。</li>
+<li>url-pattern就是我们在url上请求的资源路径，他会经过当前项目的web.xml文件进行过滤，当本项目文件没有遭到规则拦截，会去全局的web.xml继续匹配。再没有则报出404错误。</li>
+</ul>
+<br>
+
+<p><strong>当我们的servlet的版本是3.0以后时，我们可以通过更简便的方法——注解</strong></p>
+<p><img src="/2019/12/01/Servlet第一篇-Web基础/10.png" alt></p>
+<p>简单多了有没有！！！</p>
+<br>
+
+<h3 id="四、运行Servlet实例"><a href="#四、运行Servlet实例" class="headerlink" title="四、运行Servlet实例"></a>四、运行Servlet实例</h3><p><img src="/2019/12/01/Servlet第一篇-Web基础/2.gif" alt></p>
+<ul>
+<li>可以看到，在控制台输出了“HelloWorld”。我们入了个门，不是么，嘻嘻~</li>
+</ul>
+<br>
+
+
+
+<h2 id="Servlet生命周期"><a href="#Servlet生命周期" class="headerlink" title="Servlet生命周期"></a>Servlet生命周期</h2><ol>
+<li><strong>加载Servlet</strong>。当Tomcat第一次访问Servlet的时候，<strong>Tomcat会负责创建Servlet的实例</strong></li>
+<li><strong>初始化</strong>。当Servlet被实例化后，Tomcat会<strong>调用init()方法初始化这个对象</strong></li>
+<li><strong>处理服务</strong>。当浏览器<strong>访问Servlet</strong>的时候，Servlet <strong>会调用service()方法处理请求</strong></li>
+<li><strong>销毁</strong>。当Tomcat关闭时或者检测到Servlet要从Tomcat删除的时候会自动调用destroy()方法，<strong>让该实例释放掉所占的资源</strong>。</li>
+<li><strong>卸载</strong>。当Servlet调用完destroy()方法后，等待垃圾回收。</li>
+</ol>
+<ul>
+<li>简单总结：<strong>只要访问Servlet，service()就会被调用。init()只有第一次访问Servlet的时候才会被调用。 destroy()只有在Tomcat关闭的时候才会被调用。而加载与卸载这两部分不用我们关心，这是Servlet容器自动处理的。</strong></li>
+</ul>
+<p><img src="/2019/12/01/Servlet第一篇-Web基础/5.png" alt></p>
+<br>
+
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>Servlet第一节就到这了，后面还有很多知识没讲，我们下篇再见，peace！</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/JavaEE/" rel="tag"># JavaEE</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/20/Python进阶之标识与别名/" rel="next" title="Python进阶之标识与别名">
+                <i class="fa fa-chevron-left"></i> Python进阶之标识与别名
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -320,6 +592,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -340,8 +623,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -421,6 +713,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识铺垫"><span class="nav-number">2.</span> <span class="nav-text">知识铺垫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP基础"><span class="nav-number">2.1.</span> <span class="nav-text">HTTP基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-S架构"><span class="nav-number">2.2.</span> <span class="nav-text">C/S架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从浏览器地址行输入一个URL"><span class="nav-number">2.3.</span> <span class="nav-text">从浏览器地址行输入一个URL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概况"><span class="nav-number">3.</span> <span class="nav-text">概况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的Servlet程序"><span class="nav-number">4.</span> <span class="nav-text">简单的Servlet程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、继承HttpServlet"><span class="nav-number">4.1.</span> <span class="nav-text">一、继承HttpServlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、复写方法"><span class="nav-number">4.2.</span> <span class="nav-text">二、复写方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、配置注解"><span class="nav-number">4.3.</span> <span class="nav-text">三、配置注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、运行Servlet实例"><span class="nav-number">4.4.</span> <span class="nav-text">四、运行Servlet实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet生命周期"><span class="nav-number">5.</span> <span class="nav-text">Servlet生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -582,6 +890,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -628,6 +940,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'echoxxzhang',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '3455ffc96ac8209cf02b514a399c9514274071c4',
+            
+                client_id: 'abf5af7deec7b35ad17c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 

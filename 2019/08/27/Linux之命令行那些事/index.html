@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="输入输出重定向输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 在日常的学习和工作中，相较于输入重定向，我们使用输出重定向的频率更高，所以又将输出重定向分为了标准输出重定向和错误输出重定向两种不同的技术，以及清空写入（&amp;gt;）与追加写入（&amp;gt;&amp;gt;）两种模式。    标准输入输出默认情况下，command &amp;gt; file 将 stdou">
+<meta name="description" content="输入输出重定向概念：输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 接下来，引用一本英语书籍的一段话（相信小白看完了会有些不知其所然，不用急，将本篇看完，回过头来就能有新的理解）  与 Unix 主题“任何东西都是一个文件”保持一致，像 ls这样的程序实际上把他们的运行结果 输送到一个叫做标准输出的特殊文件（经常用 stdout 表示），而它们的">
 <meta name="keywords" content="技术,Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux之命令行那些事">
 <meta property="og:url" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="输入输出重定向输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 在日常的学习和工作中，相较于输入重定向，我们使用输出重定向的频率更高，所以又将输出重定向分为了标准输出重定向和错误输出重定向两种不同的技术，以及清空写入（&amp;gt;）与追加写入（&amp;gt;&amp;gt;）两种模式。    标准输入输出默认情况下，command &amp;gt; file 将 stdou">
+<meta property="og:description" content="输入输出重定向概念：输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 接下来，引用一本英语书籍的一段话（相信小白看完了会有些不知其所然，不用急，将本篇看完，回过头来就能有新的理解）  与 Unix 主题“任何东西都是一个文件”保持一致，像 ls这样的程序实际上把他们的运行结果 输送到一个叫做标准输出的特殊文件（经常用 stdout 表示），而它们的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/1.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/2.png">
@@ -93,10 +93,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/5.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/4.png">
 <meta property="og:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/7.png">
-<meta property="og:updated_time" content="2019-10-08T10:14:43.807Z">
+<meta property="og:updated_time" content="2019-12-19T13:51:23.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux之命令行那些事">
-<meta name="twitter:description" content="输入输出重定向输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 在日常的学习和工作中，相较于输入重定向，我们使用输出重定向的频率更高，所以又将输出重定向分为了标准输出重定向和错误输出重定向两种不同的技术，以及清空写入（&amp;gt;）与追加写入（&amp;gt;&amp;gt;）两种模式。    标准输入输出默认情况下，command &amp;gt; file 将 stdou">
+<meta name="twitter:description" content="输入输出重定向概念：输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。 接下来，引用一本英语书籍的一段话（相信小白看完了会有些不知其所然，不用急，将本篇看完，回过头来就能有新的理解）  与 Unix 主题“任何东西都是一个文件”保持一致，像 ls这样的程序实际上把他们的运行结果 输送到一个叫做标准输出的特殊文件（经常用 stdout 表示），而它们的">
 <meta name="twitter:image" content="http://yoursite.com/2019/08/27/Linux之命令行那些事/1.png">
 
 
@@ -397,7 +397,11 @@
       
 
       
-        <h3 id="输入输出重定向"><a href="#输入输出重定向" class="headerlink" title="输入输出重定向"></a>输入输出重定向</h3><p><strong>输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。</strong></p>
+        <h3 id="输入输出重定向"><a href="#输入输出重定向" class="headerlink" title="输入输出重定向"></a>输入输出重定向</h3><p><strong>概念：输入重定向是指把文件导入到命令中，而输出重定向则是指把原本要输出到屏幕的数据信息写入到指定文件中。</strong></p>
+<p>接下来，引用一本英语书籍的一段话（相信小白看完了会有些不知其所然，不用急，将本篇看完，回过头来就能有新的理解）</p>
+<blockquote>
+<p>与 Unix 主题“任何东西都是一个文件”保持一致，像 ls这样的程序实际上把他们的运行结果 输送到一个叫做标准输出的特殊文件（经常用 stdout 表示），而它们的状态信息则送到另一个 叫做标准错误的文件（stderr）。默认情况下，标准输出和标准错误都连接到屏幕，而不是保存到磁盘文件。除此之外，许多程序从一个叫做标准输入（stdin）的设备得到输入，默认情况下， 标准输入连接到键盘。</p>
+</blockquote>
 <p>在日常的学习和工作中，相较于输入重定向，我们使用输出重定向的频率更高，所以又将输出重定向分为了标准输出重定向和错误输出重定向两种不同的技术，以及<strong>清空写入（&gt;）</strong>与<strong>追加写入（&gt;&gt;）</strong>两种模式。</p>
 <p><img src="/2019/08/27/Linux之命令行那些事/1.png" alt></p>
 <br>
@@ -415,6 +419,8 @@
 <li><strong>对于重定向中的标准输出模式，可以省略文件描述符1不写，而错误输出模式的文件描述符2是必须要写的。</strong></li>
 <li>使用场景：当用户在执行一个自动化的Shell脚本时，这个操作会特别有用，因为它可以把整个脚本执行过程中的报错信息都记录到日志文件中，便于后期的排错工作。</li>
 </ul>
+<br>
+
 <p><br><br></p>
 <h3 id="命令通配符"><a href="#命令通配符" class="headerlink" title="命令通配符"></a>命令通配符</h3><p>假设想要批量查看所有日记文件的相关权限属性，我们应该如何做呢？难道一个个去查吗？ 当然不是的，日志文件命名格式大多相同，我们可以利用命令通配符将其选中，然后排列查看。</p>
 <p>顾名思义，通配符就是通用的匹配信息的符号，比如星号（*）代表匹配零个或多个字符，问号（?）代表匹配单个字符，中括号内加上数字[0-9]代表匹配0～9之间的单个数字的字符，而中括号内加上字母[abc]则是代表匹配a、b、c三个字符中的任意一个字符。（有没有发现很像正则！）</p>
