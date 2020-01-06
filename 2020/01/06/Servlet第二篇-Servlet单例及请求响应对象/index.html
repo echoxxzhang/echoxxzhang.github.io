@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="技术,JavaEE,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Servlet是单例的为什么Servlet是单例的浏览器多次对Servlet的请求，一般情况下，服务器只创建一个Servlet对象，也就是说，Servlet对象一旦创建了，就会驻留在内存中，为后续的请求做服务，直到服务器关闭。对应着一个Servlet的生命周期（上节已经讲过） 之所以是单例的，这是一种设计模式的选择，而不是缺陷。 每次访问请求对象和响应对象都是新的而对于每次访问请求，Servlet">
+<meta name="keywords" content="技术,JavaEE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Servlet第二篇-Servlet单例及请求响应对象">
+<meta property="og:url" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/index.html">
+<meta property="og:site_name" content="小小世界">
+<meta property="og:description" content="Servlet是单例的为什么Servlet是单例的浏览器多次对Servlet的请求，一般情况下，服务器只创建一个Servlet对象，也就是说，Servlet对象一旦创建了，就会驻留在内存中，为后续的请求做服务，直到服务器关闭。对应着一个Servlet的生命周期（上节已经讲过） 之所以是单例的，这是一种设计模式的选择，而不是缺陷。 每次访问请求对象和响应对象都是新的而对于每次访问请求，Servlet">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/6.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/7.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/4.png">
+<meta property="og:updated_time" content="2020-01-06T14:12:21.229Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Servlet第二篇-Servlet单例及请求响应对象">
+<meta name="twitter:description" content="Servlet是单例的为什么Servlet是单例的浏览器多次对Servlet的请求，一般情况下，服务器只创建一个Servlet对象，也就是说，Servlet对象一旦创建了，就会驻留在内存中，为后续的请求做服务，直到服务器关闭。对应着一个Servlet的生命周期（上节已经讲过） 之所以是单例的，这是一种设计模式的选择，而不是缺陷。 每次访问请求对象和响应对象都是新的而对于每次访问请求，Servlet">
+<meta name="twitter:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/6.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/">
+
+
+
+
+
+  <title>Servlet第二篇-Servlet单例及请求响应对象 | 小小世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/echoxxzhang/echoxxzhang.github.io" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小小世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">山不过来，我便过去</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content>
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/max.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Servlet第二篇-Servlet单例及请求响应对象</h1>
+        
+
+        <div class="post-meta">
+		
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-06T11:51:17+08:00">
+                2020-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Servlet/" itemprop="url" rel="index">
+                    <span itemprop="name">Servlet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Servlet是单例的"><a href="#Servlet是单例的" class="headerlink" title="Servlet是单例的"></a>Servlet是单例的</h2><h3 id="为什么Servlet是单例的"><a href="#为什么Servlet是单例的" class="headerlink" title="为什么Servlet是单例的"></a>为什么Servlet是单例的</h3><p>浏览器多次对Servlet的请求，一般情况下，<strong>服务器只创建一个Servlet对象</strong>，也就是说，Servlet对象一旦创建了，就会驻留在内存中，为后续的请求做服务，直到服务器关闭。对应着一个Servlet的生命周期（上节已经讲过）</p>
+<p>之所以是单例的，这是一种设计模式的选择，而不是缺陷。</p>
+<h3 id="每次访问请求对象和响应对象都是新的"><a href="#每次访问请求对象和响应对象都是新的" class="headerlink" title="每次访问请求对象和响应对象都是新的"></a>每次访问请求对象和响应对象都是新的</h3><p>而对于每次访问请求，Servlet都会创建一个新的HttpServletRequest请求对象和一个新的HttpServletResponse响应对象，然后将这两个对象作为参数传递给它调用的Servlet的service()方法，service方法再根据请求方式分别调用doPost或doGet方法。</p>
+<h3 id="单例导致的线程安全问题"><a href="#单例导致的线程安全问题" class="headerlink" title="单例导致的线程安全问题"></a>单例导致的线程安全问题</h3><p>当多个用户访问Servlet的时候，服务器会为每个用户创建一个线程。当多个用户并发访问Servlet共享资源的时候就会出现线程安全问题。</p>
+<p>因此：</p>
+<ol>
+<li>如果一个<strong>变量需要多个用户共享</strong>，则应当在访问该变量的时候，加同步机制synchronized （JavaSE基础）</li>
+<li>如果一个变量<strong>不需要共享</strong>，则直接在 doGet() 或者 doPost()定义.这样不会存在线程安全问题</li>
+</ol>
+<p><br><br></p>
+<h2 id="请求对象Request"><a href="#请求对象Request" class="headerlink" title="请求对象Request"></a>请求对象Request</h2><p>如果我们想针对请求响应的内容进行操作，我们可以通过以下API 获取请求的相关资源：</p>
+<h3 id="获取请求行数据"><a href="#获取请求行数据" class="headerlink" title="获取请求行数据"></a>获取请求行数据</h3><p>​    • String getContextPath()：获取虚拟路径<br>​    • String getRequestURI():  获取当前资源路径（真实路径是运行在服务器之后的路径，而不是存在于我们本地工作空间的目录）</p>
+<br>
+
+<h3 id="获取请求头数据"><a href="#获取请求头数据" class="headerlink" title="获取请求头数据"></a>获取请求头数据</h3><p>​    • String getHeader(String name) :通过请求头的名称获取请求头的值<br>​    • Enumeration<string> getHeaderNames(): 获取所有的请求头名称</string></p>
+<br>
+
+<h3 id="获取请求体数据"><a href="#获取请求体数据" class="headerlink" title="获取请求体数据:"></a>获取请求体数据:</h3><p>请求体:<strong>只有POST请求方式，才有请求体</strong>，在请求体中封装了POST请求的请求参数<br>    • BufferedReader getReader() : 获取字符输入流，只可以操作字符数据<br>    • ServletInputStrem getInputSterm():获取字节输入流，可以操作所有类型数据</p>
+<br>
+
+<h3 id="请求转发，跳转页面"><a href="#请求转发，跳转页面" class="headerlink" title="请求转发，跳转页面"></a>请求转发，跳转页面</h3><ul>
+<li>getRequestDispatcher(“b.jsp”).forward(request,response)：（当前页面跳转到b.jsp）</li>
+</ul>
+<br>
+
+<h3 id="获取项目的ServletContext对象"><a href="#获取项目的ServletContext对象" class="headerlink" title="获取项目的ServletContext对象"></a>获取项目的ServletContext对象</h3><p>ServletContext对象代表整个web应用，可以和程序的容器（服务器）来交互通信</p>
+<p>获取途径：</p>
+<ul>
+<li>通过request对象获取   request.getServletContext()</li>
+<li>通过HttpServlet获取     this.getServletcContext( )</li>
+</ul>
+<br>
+
+<h3 id="获取请求参数的方法（get、post方法都通用）"><a href="#获取请求参数的方法（get、post方法都通用）" class="headerlink" title="获取请求参数的方法（get、post方法都通用）"></a>获取请求参数的方法（get、post方法都通用）</h3><p>在requests对象中，获取请求参数是公用的，post和get的差别就没有了，所以我们可以在doget中调用dopost（反之亦然）。</p>
+<ul>
+<li>string getParameter(String name) ：根据参数名称获取参数值  </li>
+<li>Map&lt;string, String[]&gt; getParameterMap() ：获取所有参数的map集合  </li>
+<li>Void SetCharacterEncoding(“utf-8”)：设置post请求的编码格式  </li>
+</ul>
+<p><br><br></p>
+<h2 id="响应对象Response"><a href="#响应对象Response" class="headerlink" title="响应对象Response"></a>响应对象Response</h2><h3 id="设置cookies"><a href="#设置cookies" class="headerlink" title="设置cookies"></a>设置cookies</h3><p>void addCookie( Cookie cookie );服务端向客户端增加cookie对象</p>
+<br>
+
+<h3 id="响应重定向"><a href="#响应重定向" class="headerlink" title="响应重定向"></a>响应重定向</h3><p>void sendRedirect(String location ) throws  lOException;：页面跳转的一种方式（重定向）</p>
+<br>
+
+<h3 id="设置相应格式"><a href="#设置相应格式" class="headerlink" title="设置相应格式"></a>设置相应格式</h3><p>void setContentType（String type）：设置服务端响应的编码（设置服务端的contentType类型）<br>当响应格式是json时，应该设置为 application/json;charset=utf-8;</p>
+<p><br><br></p>
+<p>## </p>
+<ul>
+<li><br>
+
+</li>
+</ul>
+<h2 id="重定向与请求转发的区别："><a href="#重定向与请求转发的区别：" class="headerlink" title="重定向与请求转发的区别："></a>重定向与请求转发的区别：</h2><p>我们从API可以看到，request有请求转发getRequestDispatcher，而response有重定向sendRedirect。</p>
+<p>听上去好像没有什么区别，但其实这两者区别还是蛮大的。我们通过小案例看看先：</p>
+<br>
+
+<p>我编写了三个简单的jsp页面，不需要看懂，我会事无巨细的讲述里面每一句代码的意思。</p>
+<p>我们的关注点只需要在于redirect和forward。</p>
+<p>① 首先，我们编写一个HTML表单（login.jsp）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"check.jsp"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">        用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span> =<span class="string">"uname"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">        密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span> =<span class="string">"upwd"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">        提交:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登陆"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>②然后，编写一个JSP代码（check.jsp）</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">        <span class="comment">// 验证密码登录</span></span><br><span class="line">        request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        String name = request.getParameter(<span class="string">"uname"</span>);</span><br><span class="line">        String pwd = request.getParameter(<span class="string">"upwd"</span>);</span><br><span class="line">        <span class="keyword">if</span> (name.equals(<span class="string">"zs"</span>) &amp;&amp; pwd.equals(<span class="string">"abc"</span>))&#123;</span><br><span class="line">           request.getRequestDispatcher(<span class="string">"success.jsp"</span>).forward(request,response);</span><br><span class="line">            <span class="comment">// 请求转发，可以获取到数据，并且地址栏没有改变（仍然保留转发前的页面）</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            out.print(<span class="string">"用户名或密码有误"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"> %&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>&lt;%%&gt; 里面嵌套着Java代码，仅此而已。</li>
+<li>我来解释一下其中的代码：<ul>
+<li>request.setCharacterEncoding(“utf-8”)：设置请求编码为UTF-8</li>
+<li>request.getParameter(“uname”)：在介绍request的API讲过，意思是获取request请求中的uname属性。这里的传的参数对应着表单中的name属性</li>
+<li>接下来，判断是否输入名称为“zs”，以及密码为“abc”，否则打印“用户名或密码有误”</li>
+<li>request.getRequestDispatcher(“success.jsp”).forward(request,response);  调用request的getRequestDispatcher方法，其接收一个资源文件。.forward表示进行转发，携带request和response参数。<strong>也就是说，携带着此次请求的所有参数。</strong></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<p>③ 最后，编写一个验证成功的页面（success.jsp）</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">登录成功！</span><br><span class="line">&lt;%</span><br><span class="line">	out.print(request.getParameter(<span class="string">"uname"</span>));</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><br><br></p>
+<p>我们这时候，先注册表单，然后提交：</p>
+<p><img src="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/6.png" alt></p>
+<p>接着，check.jsp会接收到数据，然后转发到success.jsp。（注意：我们使用的是请求转发）</p>
+<p><img src="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/5.png" alt></p>
+<ul>
+<li>可以看到，URL并未发生转变，但是内容已经是success.jsp页面，并且已经获取到我们注册的数据 “zs”。</li>
+</ul>
+<br>
+
+<p>那么，这次获取属性就算成功了。接下来我们看看重定向。</p>
+<p>我们只需更改check.jsp的部分代码，而无需改动其他页面。</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line"><span class="keyword">if</span> (name.equals(<span class="string">"zs"</span>) &amp;&amp; pwd.equals(<span class="string">"abc"</span>))&#123;</span><br><span class="line">            response.sendRedirect(<span class="string">"success.jsp"</span>);<span class="comment">// 重定向，会导致数据丢失</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    		out.print(<span class="string">"用户名或密码有误"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>调用response的sendRedirect方法，传入一个重定向的页面。</li>
+</ul>
+<br>
+
+<p>同样的，success.jsp会进行数据展示：</p>
+<p><img src="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/7.png" alt></p>
+<ul>
+<li>但是！ 这里的uname却是null，为什么呢？ <strong>因为我们在check.jsp中获取到的参数在重定向的过程中丢失掉了。</strong></li>
+<li>而且，URL也发生变化，这里显示的success.jsp。</li>
+</ul>
+<p><br><br></p>
+<p><strong>于是，我们得出以下结论：</strong></p>
+<h3 id="请求转发-Forward的特点"><a href="#请求转发-Forward的特点" class="headerlink" title="请求转发  Forward的特点"></a>请求转发  Forward的特点</h3><pre><code>1. 转发地址栏路径不变
+2. 转发只能访问当前服务器下的资源
+3. 转发是一次请求，可以使用request对象来共享数据</code></pre><br>
+
+<h3 id="重定向redirect的特点："><a href="#重定向redirect的特点：" class="headerlink" title="重定向redirect的特点："></a>重定向redirect的特点：</h3><pre><code>1. 地址栏发生变化
+2. 重定向可以访问其他站点(服务器)的资源
+3. 重定向是两次请求。request中数据会丢失</code></pre><p><strong>请求转发和重定向图解</strong></p>
+<p><img src="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/4.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+            <a href="/tags/JavaEE/" rel="tag"># JavaEE</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/01/Servlet第一篇-Web基础/" rel="next" title="Servlet学习—Day1-C/S基础">
+                <i class="fa fa-chevron-left"></i> Servlet学习—Day1-C/S基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/max.jpg" alt>
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/echoxxzhang/echoxxzhang.github.io" title="github" target="_blank">github</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://echoxxzhang.github.io/" title="hexo" target="_blank">hexo</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet是单例的"><span class="nav-number">1.</span> <span class="nav-text">Servlet是单例的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么Servlet是单例的"><span class="nav-number">1.1.</span> <span class="nav-text">为什么Servlet是单例的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每次访问请求对象和响应对象都是新的"><span class="nav-number">1.2.</span> <span class="nav-text">每次访问请求对象和响应对象都是新的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单例导致的线程安全问题"><span class="nav-number">1.3.</span> <span class="nav-text">单例导致的线程安全问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求对象Request"><span class="nav-number">2.</span> <span class="nav-text">请求对象Request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求行数据"><span class="nav-number">2.1.</span> <span class="nav-text">获取请求行数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求头数据"><span class="nav-number">2.2.</span> <span class="nav-text">获取请求头数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求体数据"><span class="nav-number">2.3.</span> <span class="nav-text">获取请求体数据:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发，跳转页面"><span class="nav-number">2.4.</span> <span class="nav-text">请求转发，跳转页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取项目的ServletContext对象"><span class="nav-number">2.5.</span> <span class="nav-text">获取项目的ServletContext对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求参数的方法（get、post方法都通用）"><span class="nav-number">2.6.</span> <span class="nav-text">获取请求参数的方法（get、post方法都通用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应对象Response"><span class="nav-number">3.</span> <span class="nav-text">响应对象Response</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置cookies"><span class="nav-number">3.1.</span> <span class="nav-text">设置cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应重定向"><span class="nav-number">3.2.</span> <span class="nav-text">响应重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置相应格式"><span class="nav-number">3.3.</span> <span class="nav-text">设置相应格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向与请求转发的区别："><span class="nav-number">4.</span> <span class="nav-text">重定向与请求转发的区别：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发-Forward的特点"><span class="nav-number">4.1.</span> <span class="nav-text">请求转发  Forward的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向redirect的特点："><span class="nav-number">4.2.</span> <span class="nav-text">重定向redirect的特点：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'echoxxzhang',
+            repo: 'gitment-comments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '3455ffc96ac8209cf02b514a399c9514274071c4',
+            
+                client_id: 'abf5af7deec7b35ad17c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
