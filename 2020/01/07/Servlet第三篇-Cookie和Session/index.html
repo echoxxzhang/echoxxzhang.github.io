@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技术,Python,">
+  <meta name="keywords" content="技术,JavaEE,">
 
 
 
@@ -79,24 +79,21 @@
 
 
 
-<meta name="description" content="前言上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~ 需要函数本质作为理论基础，忘了的童鞋翻一翻：Python进阶之函数的那些事   装饰器基础知识装饰器定义：装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。 但是装饰器是有限制的：装饰器不能修改被装饰">
-<meta name="keywords" content="技术,Python">
+<meta name="description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }% 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用">
+<meta name="keywords" content="技术,JavaEE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python进阶之装饰器">
-<meta property="og:url" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/index.html">
+<meta property="og:title" content="Servlet第三篇-Cookie和Session">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="前言上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~ 需要函数本质作为理论基础，忘了的童鞋翻一翻：Python进阶之函数的那些事   装饰器基础知识装饰器定义：装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。 但是装饰器是有限制的：装饰器不能修改被装饰">
+<meta property="og:description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }% 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/6.png">
-<meta property="og:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/1.gif">
-<meta property="og:updated_time" content="2019-10-19T08:06:34.818Z">
+<meta property="og:image" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/3.png">
+<meta property="og:updated_time" content="2020-01-07T07:19:43.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python进阶之装饰器">
-<meta name="twitter:description" content="前言上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~ 需要函数本质作为理论基础，忘了的童鞋翻一翻：Python进阶之函数的那些事   装饰器基础知识装饰器定义：装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。 但是装饰器是有限制的：装饰器不能修改被装饰">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/19/Python进阶之装饰器/1.png">
+<meta name="twitter:title" content="Servlet第三篇-Cookie和Session">
+<meta name="twitter:description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }% 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用">
+<meta name="twitter:image" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/1.png">
 
 
 
@@ -126,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/10/19/Python进阶之装饰器/">
+  <link rel="canonical" href="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/">
 
 
 
 
 
-  <title>Python进阶之装饰器 | 小小世界</title>
+  <title>Servlet第三篇-Cookie和Session | 小小世界</title>
   
 
 
@@ -291,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/Python进阶之装饰器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content>
@@ -308,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python进阶之装饰器</h1>
+          <h1 class="post-title" itemprop="name headline">Servlet第三篇-Cookie和Session</h1>
         
 
         <div class="post-meta">
@@ -321,8 +318,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-19T11:07:54+08:00">
-                2019-10-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-07T15:03:04+08:00">
+                2020-01-07
               </time>
             
 
@@ -344,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python进阶/" itemprop="url" rel="index">
-                    <span itemprop="name">Python进阶</span>
+                  <a href="/categories/Servlet/" itemprop="url" rel="index">
+                    <span itemprop="name">Servlet</span>
                   </a>
                 </span>
 
@@ -362,8 +359,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/19/Python进阶之装饰器/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/10/19/Python进阶之装饰器/" itemprop="commentsCount"></span>
+                <a href="/2020/01/07/Servlet第三篇-Cookie和Session/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/01/07/Servlet第三篇-Cookie和Session/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -396,76 +393,142 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>上一章我们讲了函数的本质，今天我们谈谈python的装饰器，这是一个现实开发中很常用的东西，快快学起来吧~</p>
-<p>需要函数本质作为理论基础，忘了的童鞋翻一翻：<a href="/2019/10/14/Python进阶之函数的那些事/" title="Python进阶之函数的那些事">Python进阶之函数的那些事</a></p>
+        <h2 id="什么是Cookie"><a href="#什么是Cookie" class="headerlink" title="什么是Cookie"></a>什么是Cookie</h2><p>关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }%</p>
+<p>没看过没有关系！下面我就指出重点：</p>
+<p>网页之间的<strong>交互是通过HTTP协议传输数据的，</strong>而Http协议是<strong>无状态的协议</strong>。无状态的协议是什么意思呢？<strong>一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接</strong>。</p>
+<p>那么，为了识别用户，服务端给每一个用户都发一个通行证，无论谁访问的时候都需要携带通行证，这样服务器就可以从通行证上确认用户的信息。通行证就是Cookie。</p>
 <br>
 
-<h2 id="装饰器基础知识"><a href="#装饰器基础知识" class="headerlink" title="装饰器基础知识"></a>装饰器基础知识</h2><p><strong>装饰器定义：</strong>装饰器是可调用的对象，其参数是另一个函数（被装饰的函数）。 装饰器会处理被装饰的函数，然后把它返回，或者将其替换成另一个函数或可调用对象。</p>
-<p>但是装饰器是有限制的：<strong>装饰器不能修改被装饰函数的源代码逻辑、装饰器不能修改被装饰函数的调用方式。</strong></p>
+<h3 id="Cookie-API"><a href="#Cookie-API" class="headerlink" title="Cookie API"></a>Cookie API</h3><ul>
+<li>Cookie类用于创建一个Cookie对象</li>
+<li>response接口中定义了一个addCookie方法，它用于在其响应头中增加一个相应的Set-Cookie头字段</li>
+<li>request接口中定义了一个getCookies方法，它用于获取客户端提交的Cookie</li>
+</ul>
 <br>
 
-<p>接下来，我们先看看学习装饰器需要的功能储备吧：</p>
+<p>为了体验cookie的添加与获取，我编写了下面这两个jsp页面：</p>
+<p><strong>①cookie.jsp</strong></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">    String name = request.getParameter(<span class="string">"uname"</span>);</span><br><span class="line">    String pwd = request.getParameter(<span class="string">"upwd"</span>);</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;%</span><br><span class="line">    <span class="comment">// 将用户填写的信息添加到cookie中</span></span><br><span class="line">    Cookie cok1 = <span class="keyword">new</span> Cookie(<span class="string">"name"</span>, <span class="string">"sz"</span>);</span><br><span class="line">    Cookie cok2 = <span class="keyword">new</span> Cookie(<span class="string">"pwd"</span>, <span class="string">"abc"</span>);</span><br><span class="line">    response.addCookie(cok1);</span><br><span class="line">    response.addCookie(cok2);</span><br><span class="line"></span><br><span class="line">    response.sendRedirect(<span class="string">"result.jsp"</span>);</span><br><span class="line">    %&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对于我们来说，比较新鲜的就是new Cookie了，由于Cookie并不是内置对象，所以需要先new</li>
+<li>接着添加cookie，这是利用response做的</li>
+</ul>
+<br>
+
+<p><strong>②result.jsp</strong></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">        Cookie[] coks = request.getCookies();</span><br><span class="line">        <span class="keyword">for</span> (Cookie cok : coks) &#123;</span><br><span class="line">            out.print(cok.getName()+ <span class="string">"---"</span> + cok.getValue());</span><br><span class="line">            out.print(<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    %&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用高级for循环，遍历cookie，调用cookie的API方法：getName和getValue，然后打印出来</li>
+</ul>
+<br>
+
+<p>浏览器看到的效果：</p>
+<p><img src="/2020/01/07/Servlet第三篇-Cookie和Session/1.png" alt></p>
+<ul>
+<li>可以看到，cookie按照我们定义的方式打印出来了</li>
+<li>JSESSIONID标识cookie（后面会讲到），还有一个idea，是idea自动帮我们添加的</li>
+</ul>
+<p>于是，服务端可以这样，<strong>先获取name，判断用户身份，然后提供特定服务。</strong></p>
+<br>
+
+<h3 id="Cookie的有效期"><a href="#Cookie的有效期" class="headerlink" title="Cookie的有效期"></a>Cookie的有效期</h3><p><strong>Cookie的有效期是通过setMaxAge()来设置的</strong>。</p>
+<ul>
+<li>如果MaxAge为<strong>正数</strong>，<strong>浏览器会把Cookie写到硬盘中，只要还在MaxAge秒之前，登陆网站时该Cookie就有效</strong>【不论关闭了浏览器还是电脑】</li>
+<li>如果MaxAge为<strong>负数</strong>，<strong>Cookie是临时性的，仅在本浏览器内有效</strong>，关闭浏览器Cookie就失效了，Cookie不会写到硬盘中。Cookie默认值就是-1。这也就为什么在我第一个例子中，如果我没设置Cookie的有效期，在硬盘中就找不到对应的文件。</li>
+<li>如果MaxAge为<strong>0</strong>，则表示<strong>删除该Cookie</strong>。Cookie机制没有提供删除Cookie对应的方法，把MaxAge设置为0等同于删除Cookie</li>
+</ul>
+<p><br><br></p>
+<p><strong>如果我们没指定cookie的有效期，默认是在关闭浏览器时，cookie就清除。</strong></p>
+<br>
+
+<h3 id="cookie的应用"><a href="#cookie的应用" class="headerlink" title="cookie的应用"></a>cookie的应用</h3><p>cookie是这样的，第一次访问时，客户端并没有cookie，于是服务端使用set-cookie字段进行设置（cookies不是客户端自动生成的）。在第二次访问时，客户端会携带对应cookie进行访问。</p>
+<p>cookie结合session，就能实现”用户识别“的效果了。等我们讲完session，会展开描述。</p>
+<br>
+
+<hr>
+<br>
+
+<h2 id="什么是Session"><a href="#什么是Session" class="headerlink" title="什么是Session"></a>什么是Session</h2><p>Session 是另一种记录浏览器状态的机制。不同的是Cookie保存在浏览器中，Session保存在服务器中。用户使用浏览器访问服务器的时候，服务器把用户的信息以某种的形式记录在服务器，这就是Session</p>
+<p>如果说Cookie是检查用户身上的”通行证“来确认用户的身份，那么Session就是通过检查服务器上的”客户明细表“来确认用户的身份的。<strong>Session相当于在服务器中建立了一份“客户明细表”。</strong></p>
+<br>
+
+<h3 id="①生成sessionid"><a href="#①生成sessionid" class="headerlink" title="①生成sessionid"></a>①生成sessionid</h3><p>客户端第一次请求服务端时，服务端会产生个session对象(用于保存该客户的信息) ; .并且每个session对象都会有一个唯一的sessionId( 用于区分其他session) ;</p>
+<h3 id="②发送sessionid"><a href="#②发送sessionid" class="headerlink" title="②发送sessionid"></a>②发送sessionid</h3><p>同时，服务端由会产生一个cookie, 并且将该cookie的name= JSESSIONID , value=服务端sessionid的值。然后服务端会在响应客户端的同时将该cookie发送给客户端，至此客户端就有了一个cookie (JSESSIONID)</p>
+<h3 id="③sessionid识别"><a href="#③sessionid识别" class="headerlink" title="③sessionid识别"></a>③sessionid识别</h3><p>根据客户端发来的cookies字段中的JSESSION，识别会话对象</p>
+<br>
+
+<p><strong>这样，客户端和服务器端就一一联系起来了</strong></p>
+<br>
+
+<br>
+
+<h3 id="Session的API："><a href="#Session的API：" class="headerlink" title="Session的API："></a>Session的API：</h3><p><img src="/2020/01/07/Servlet第三篇-Cookie和Session/3.png" alt></p>
+<ul>
+<li>session的常用API就在这了，反正…我是不背的，用到了再查咯（我不会告诉你这就是写博客的好处之一！）</li>
+</ul>
+<br>
+
+<h2 id="用户识别"><a href="#用户识别" class="headerlink" title="用户识别"></a>用户识别</h2><p>当客户端第二次、或N次，在cookie失效之前去访问服务端，那么服务器就会拿着客户端携带的JSESSIONID与sessionid进行匹配，这样就完成了认证。</p>
+<p>于是，我们登陆了京东、淘宝之后，关闭浏览器，在一定时间内，继续登陆该网站，我们可以不需要重新登陆，这就是cookie和session的结合应用了。</p>
+<p><br><br></p>
+<h2 id="域范围对象"><a href="#域范围对象" class="headerlink" title="域范围对象"></a>域范围对象</h2><p>就着今天的session话题，我们在引入一个概念：<strong>域范围对象</strong>。其实，我们上一篇的request，response也是域范围的一种。</p>
+<p>在tomcat中，有这么四种域范围对象：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用域范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>pageContext       JSP 页面容器(page对象)</td>
+<td>当前页面有效，</td>
+</tr>
+<tr>
+<td>Request              请求对象</td>
+<td>同一次请求有效</td>
+</tr>
+<tr>
+<td>Session              会话对象</td>
+<td>同一次会话有效</td>
+</tr>
+<tr>
+<td>appliation           全局对象</td>
+<td>全局有效(整个项目有效)</td>
+</tr>
+</tbody></table>
+<br>
+
+<p><strong>以上对象共有的方法:</strong></p>
 <ol>
-<li>函数即变量（之前讲过了，这点略过）</li>
-<li>高阶函数   </li>
-<li>嵌套函数 + 闭包</li>
+<li><p>0bject   getAttribute(String name) : 根据属性名获取属性值</p>
+</li>
+<li><p>void setAttribute  (String name, Object obj) :设置属性值(新增，修改)</p>
+<p>setAttribute(“a”,”b”) 的两种情况：</p>
+<ul>
+<li>如果a对象之前不存在，则新建一个a对象;</li>
+<li>如果a之前已经存在，则将a的值改为b</li>
+</ul>
+</li>
+<li><p>void removeAttribute (String      name):根据属性名，删除对象</p>
+</li>
 </ol>
-<p><br><br></p>
-<h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><p>当函数可以满足以下这两个条件之一，就可以称为高阶函数。</p>
-<p>①把一个函数名当作实参传给另一个函数  </p>
-<p><img src="/2019/10/19/Python进阶之装饰器/1.png" alt></p>
-<ul>
-<li>如上图，就是高阶函数的一种，他将hello函数传给了show_time，完成了<code>函数运行计时功能</code></li>
-<li>它实现了不修改另一个函数源代码的前提下为其添加功能,但是改变了函数的调用方式</li>
-</ul>
 <br>
 
-<p>②函数的返回值是另一个函数</p>
-<p><img src="/2019/10/19/Python进阶之装饰器/2.png" alt></p>
-<ul>
-<li>这也是高级函数的一种，它实现了不修改函数的调用方式，为其函数添加新功能这一特点。</li>
-<li>但却有局限性，添加的功能全部在运行功能函数的上方，不灵活。</li>
-</ul>
+<p><strong>生效范围</strong></p>
+<p>1.pageContext 当前页面有效(页面跳转后无效)</p>
+<p>2.request 同一次请求有效;其他请求无效 (请求转发后有效;重定向后无效)</p>
+<p>3.session  同一次会话有效(无论怎么跳转，都有效;关闭/切换浏览器后无效;</p>
+<p>4.application  全局变量;整个项目运行期间都有效(切换浏览器仍然有效)  但是关闭服务、或者其他项目访问无效</p>
 <br>
 
-<p>这两个高级函数都实现了装饰器一部分的功能，我们需要其他知识点来完善它。</p>
+<p>知道这个有什么用呢？四种域范围对象都有属性设置、属性获得的API，这就跟域范围对象有关。我们设置的参数，根据这些域对象的生命周期相关。在项目中，我们要挑选适合的域对象来保留参数。</p>
 <br>
 
-<br>
-
-<h3 id="嵌套函数"><a href="#嵌套函数" class="headerlink" title="嵌套函数"></a>嵌套函数</h3><p>嵌套函数的定义是，在一个函数内又有用def 声明的另一个函数。</p>
-<p>嵌套函数是这样的：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">'in the foo'</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">()</span>:</span></span><br><span class="line">	    print(<span class="string">'in the bar'</span>)</span><br><span class="line">	</span><br><span class="line">	bar()   <span class="comment"># 处于foo函数体中，如果要运行，就需要先将bar函数定义</span></span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>函数的内部引用了函数外部的变量，这就是闭包。</p>
-<p>假如有个名为 avg 的函数，它的作用是计算不断增加的系列值的均值；例如，整个历史中某个商品的平均收盘价。每天都会增加新价格，因此平均值要考虑至目前为止所有的价格。</p>
-<p>我们使用高阶函数进行编写这个函数的功能：</p>
-<p><img src="/2019/10/19/Python进阶之装饰器/3.png" alt></p>
-<p>可以看到，我们实现了功能，但是这里面隐藏了个细节——闭包！</p>
-<p>运行此函数时，返回嵌套函数的引用，那么 agv=make_averager()就得到了一个对象（averager的内存地址）,问题来了，为什么函数内部还可以调用已经运行完毕的外部函数体中的series列表？不应该是函数运行之后，该函数体就跟着销毁吗？</p>
-<p>原因是这样的：在 averager 函数中，series 是<strong>自由变量</strong>（free variable）。<strong>自由变量指未在本地作用域中绑定的变量。</strong></p>
-<p>闭包它会保留定义函数时存在的自由变量的绑定，这样调用函数时，虽然定义作用域不可用了，但是仍能使用那些绑定。</p>
-<p><br><br></p>
-<h3 id="一个装饰器"><a href="#一个装饰器" class="headerlink" title="一个装饰器"></a>一个装饰器</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">(name)</span>:</span></span><br><span class="line">        start_time = time.time()</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">        func(name)  <span class="comment"># run函数实际的运行，是在这里</span></span><br><span class="line">        stop_time = time.time()</span><br><span class="line">        run_time = stop_time - start_time</span><br><span class="line"></span><br><span class="line">        print(<span class="string">"运行耗费时间："</span>, run_time)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bar</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@foo  # 相当于run = foo(run)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(name)</span>:</span></span><br><span class="line">    print(<span class="string">"I am %s"</span> % name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">run(<span class="string">"zihao"</span>)</span><br></pre></td></tr></table></figure>
-
-<p>运行结果如下：</p>
-<p><img src="/2019/10/19/Python进阶之装饰器/6.png" alt></p>
-<ul>
-<li>run是功能函数的函数名，表示下面的函数将作为实参传入foo。</li>
-<li>@后面跟的是添加新功能的函数（也就是装饰器），这个就类似于我们上面高阶函数第二点写过的 run = foo(run)，它使得我们不更改函数调用方式的前提下，添加新功能。</li>
-<li>这一次，我们既没有修改被装饰函数的源代码逻辑、也没有修改被装饰函数的调用方式。一个简单的装饰器就被我们做出来啦！</li>
-</ul>
-<br>
-
-<br>
-
-
-
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>今天讲解了装饰器的内部实现过程，那么这篇文章就到这里了，期待下回与你们相遇。</p>
-<p>see you~</p>
-<p><img src="/2019/10/19/Python进阶之装饰器/1.gif" alt></p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>ok，溜了溜了~ peace！</p>
 
       
     </div>
@@ -485,7 +548,7 @@
           
             <a href="/tags/技术/" rel="tag"># 技术</a>
           
-            <a href="/tags/Python/" rel="tag"># Python</a>
+            <a href="/tags/JavaEE/" rel="tag"># JavaEE</a>
           
         </div>
       
@@ -498,8 +561,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/14/Python进阶之函数的那些事/" rel="next" title="Python进阶之函数的那些事">
-                <i class="fa fa-chevron-left"></i> Python进阶之函数的那些事
+              <a href="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/" rel="next" title="Servlet第二篇-Servlet单例及请求响应对象">
+                <i class="fa fa-chevron-left"></i> Servlet第二篇-Servlet单例及请求响应对象
               </a>
             
           </div>
@@ -507,10 +570,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/20/Python进阶之标识与别名/" rel="prev" title="Python进阶之标识与别名">
-                Python进阶之标识与别名 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -669,7 +728,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器基础知识"><span class="nav-number"></span> <span class="nav-text">装饰器基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶函数"><span class="nav-number">1.</span> <span class="nav-text">高阶函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套函数"><span class="nav-number">2.</span> <span class="nav-text">嵌套函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个装饰器"><span class="nav-number">4.</span> <span class="nav-text">一个装饰器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Cookie"><span class="nav-number">1.</span> <span class="nav-text">什么是Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie-API"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的有效期"><span class="nav-number">1.2.</span> <span class="nav-text">Cookie的有效期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的应用"><span class="nav-number">1.3.</span> <span class="nav-text">cookie的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Session"><span class="nav-number">2.</span> <span class="nav-text">什么是Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①生成sessionid"><span class="nav-number">2.1.</span> <span class="nav-text">①生成sessionid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②发送sessionid"><span class="nav-number">2.2.</span> <span class="nav-text">②发送sessionid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#③sessionid识别"><span class="nav-number">2.3.</span> <span class="nav-text">③sessionid识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session的API："><span class="nav-number">2.4.</span> <span class="nav-text">Session的API：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户识别"><span class="nav-number">3.</span> <span class="nav-text">用户识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域范围对象"><span class="nav-number">4.</span> <span class="nav-text">域范围对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
