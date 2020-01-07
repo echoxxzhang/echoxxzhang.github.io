@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/5.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/7.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/4.png">
-<meta property="og:updated_time" content="2020-01-06T14:12:21.229Z">
+<meta property="og:updated_time" content="2020-01-06T22:33:36.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet第二篇-Servlet单例及请求响应对象">
 <meta name="twitter:description" content="Servlet是单例的为什么Servlet是单例的浏览器多次对Servlet的请求，一般情况下，服务器只创建一个Servlet对象，也就是说，Servlet对象一旦创建了，就会驻留在内存中，为后续的请求做服务，直到服务器关闭。对应着一个Servlet的生命周期（上节已经讲过） 之所以是单例的，这是一种设计模式的选择，而不是缺陷。 每次访问请求对象和响应对象都是新的而对于每次访问请求，Servlet">
@@ -406,21 +406,21 @@
 </ol>
 <p><br><br></p>
 <h2 id="请求对象Request"><a href="#请求对象Request" class="headerlink" title="请求对象Request"></a>请求对象Request</h2><p>如果我们想针对请求响应的内容进行操作，我们可以通过以下API 获取请求的相关资源：</p>
-<h3 id="获取请求行数据"><a href="#获取请求行数据" class="headerlink" title="获取请求行数据"></a>获取请求行数据</h3><p>​    • String getContextPath()：获取虚拟路径<br>​    • String getRequestURI():  获取当前资源路径（真实路径是运行在服务器之后的路径，而不是存在于我们本地工作空间的目录）</p>
+<h3 id="①获取请求行数据"><a href="#①获取请求行数据" class="headerlink" title="①获取请求行数据"></a>①获取请求行数据</h3><p>​    • String getContextPath()：获取虚拟路径<br>​    • String getRequestURI():  获取当前资源路径（真实路径是运行在服务器之后的路径，而不是存在于我们本地工作空间的目录）</p>
 <br>
 
-<h3 id="获取请求头数据"><a href="#获取请求头数据" class="headerlink" title="获取请求头数据"></a>获取请求头数据</h3><p>​    • String getHeader(String name) :通过请求头的名称获取请求头的值<br>​    • Enumeration<string> getHeaderNames(): 获取所有的请求头名称</string></p>
+<h3 id="②获取请求头数据"><a href="#②获取请求头数据" class="headerlink" title="②获取请求头数据"></a>②获取请求头数据</h3><p>​    • String getHeader(String name) :通过请求头的名称获取请求头的值<br>​    • Enumeration<string> getHeaderNames(): 获取所有的请求头名称</string></p>
 <br>
 
-<h3 id="获取请求体数据"><a href="#获取请求体数据" class="headerlink" title="获取请求体数据:"></a>获取请求体数据:</h3><p>请求体:<strong>只有POST请求方式，才有请求体</strong>，在请求体中封装了POST请求的请求参数<br>    • BufferedReader getReader() : 获取字符输入流，只可以操作字符数据<br>    • ServletInputStrem getInputSterm():获取字节输入流，可以操作所有类型数据</p>
+<h3 id="③获取请求体数据"><a href="#③获取请求体数据" class="headerlink" title="③获取请求体数据:"></a>③获取请求体数据:</h3><p>请求体:<strong>只有POST请求方式，才有请求体</strong>，在请求体中封装了POST请求的请求参数<br>    • BufferedReader getReader() : 获取字符输入流，只可以操作字符数据<br>    • ServletInputStrem getInputSterm():获取字节输入流，可以操作所有类型数据</p>
 <br>
 
-<h3 id="请求转发，跳转页面"><a href="#请求转发，跳转页面" class="headerlink" title="请求转发，跳转页面"></a>请求转发，跳转页面</h3><ul>
+<h3 id="④请求转发，跳转页面"><a href="#④请求转发，跳转页面" class="headerlink" title="④请求转发，跳转页面"></a>④请求转发，跳转页面</h3><ul>
 <li>getRequestDispatcher(“b.jsp”).forward(request,response)：（当前页面跳转到b.jsp）</li>
 </ul>
 <br>
 
-<h3 id="获取项目的ServletContext对象"><a href="#获取项目的ServletContext对象" class="headerlink" title="获取项目的ServletContext对象"></a>获取项目的ServletContext对象</h3><p>ServletContext对象代表整个web应用，可以和程序的容器（服务器）来交互通信</p>
+<h3 id="⑤获取项目的ServletContext对象"><a href="#⑤获取项目的ServletContext对象" class="headerlink" title="⑤获取项目的ServletContext对象"></a>⑤获取项目的ServletContext对象</h3><p>ServletContext对象代表整个web应用，可以和程序的容器（服务器）来交互通信</p>
 <p>获取途径：</p>
 <ul>
 <li>通过request对象获取   request.getServletContext()</li>
@@ -428,27 +428,24 @@
 </ul>
 <br>
 
-<h3 id="获取请求参数的方法（get、post方法都通用）"><a href="#获取请求参数的方法（get、post方法都通用）" class="headerlink" title="获取请求参数的方法（get、post方法都通用）"></a>获取请求参数的方法（get、post方法都通用）</h3><p>在requests对象中，获取请求参数是公用的，post和get的差别就没有了，所以我们可以在doget中调用dopost（反之亦然）。</p>
+<h3 id="⑥获取请求参数的方法（get、post方法都通用）"><a href="#⑥获取请求参数的方法（get、post方法都通用）" class="headerlink" title="⑥获取请求参数的方法（get、post方法都通用）"></a>⑥获取请求参数的方法（get、post方法都通用）</h3><p>在requests对象中，获取请求参数是公用的，post和get的差别就没有了，所以我们可以在doget中调用dopost（反之亦然）。</p>
 <ul>
 <li>string getParameter(String name) ：根据参数名称获取参数值  </li>
 <li>Map&lt;string, String[]&gt; getParameterMap() ：获取所有参数的map集合  </li>
 <li>Void SetCharacterEncoding(“utf-8”)：设置post请求的编码格式  </li>
 </ul>
 <p><br><br></p>
-<h2 id="响应对象Response"><a href="#响应对象Response" class="headerlink" title="响应对象Response"></a>响应对象Response</h2><h3 id="设置cookies"><a href="#设置cookies" class="headerlink" title="设置cookies"></a>设置cookies</h3><p>void addCookie( Cookie cookie );服务端向客户端增加cookie对象</p>
+<h2 id="响应对象Response"><a href="#响应对象Response" class="headerlink" title="响应对象Response"></a>响应对象Response</h2><h3 id="①设置cookies"><a href="#①设置cookies" class="headerlink" title="①设置cookies"></a>①设置cookies</h3><p>void addCookie( Cookie cookie );服务端向客户端增加cookie对象</p>
 <br>
 
-<h3 id="响应重定向"><a href="#响应重定向" class="headerlink" title="响应重定向"></a>响应重定向</h3><p>void sendRedirect(String location ) throws  lOException;：页面跳转的一种方式（重定向）</p>
+<h3 id="②响应重定向"><a href="#②响应重定向" class="headerlink" title="②响应重定向"></a>②响应重定向</h3><p>void sendRedirect(String location ) throws  lOException;：页面跳转的一种方式（重定向）</p>
 <br>
 
-<h3 id="设置相应格式"><a href="#设置相应格式" class="headerlink" title="设置相应格式"></a>设置相应格式</h3><p>void setContentType（String type）：设置服务端响应的编码（设置服务端的contentType类型）<br>当响应格式是json时，应该设置为 application/json;charset=utf-8;</p>
-<p><br><br></p>
-<p>## </p>
-<ul>
-<li><br>
+<h3 id="③设置相应格式"><a href="#③设置相应格式" class="headerlink" title="③设置相应格式"></a>③设置相应格式</h3><p>void setContentType（String type）：设置服务端响应的编码（设置服务端的contentType类型）<br>当响应格式是json时，应该设置为 application/json;charset=utf-8;</p>
+<br>
 
-</li>
-</ul>
+<br>
+
 <h2 id="重定向与请求转发的区别："><a href="#重定向与请求转发的区别：" class="headerlink" title="重定向与请求转发的区别："></a>重定向与请求转发的区别：</h2><p>我们从API可以看到，request有请求转发getRequestDispatcher，而response有重定向sendRedirect。</p>
 <p>听上去好像没有什么区别，但其实这两者区别还是蛮大的。我们通过小案例看看先：</p>
 <br>
@@ -469,7 +466,7 @@
 <li>request.setCharacterEncoding(“utf-8”)：设置请求编码为UTF-8</li>
 <li>request.getParameter(“uname”)：在介绍request的API讲过，意思是获取request请求中的uname属性。这里的传的参数对应着表单中的name属性</li>
 <li>接下来，判断是否输入名称为“zs”，以及密码为“abc”，否则打印“用户名或密码有误”</li>
-<li>request.getRequestDispatcher(“success.jsp”).forward(request,response);  调用request的getRequestDispatcher方法，其接收一个资源文件。.forward表示进行转发，携带request和response参数。<strong>也就是说，携带着此次请求的所有参数。</strong></li>
+<li>request.getRequestDispatcher(“success.jsp”).forward(request,response);  调用request的getRequestDispatcher方法，其接收一个资源文件。后面跟着的.forward表示进行转发，携带request和response参数。<strong>也就是说，携带着此次请求的所有参数。</strong></li>
 </ul>
 </li>
 </ul>
@@ -513,6 +510,8 @@
 2. 重定向可以访问其他站点(服务器)的资源
 3. 重定向是两次请求。request中数据会丢失</code></pre><p><strong>请求转发和重定向图解</strong></p>
 <p><img src="/2020/01/06/Servlet第二篇-Servlet单例及请求响应对象/4.png" alt></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这个实验涉及到了作用域的问题，我们下次会进行讲解</p>
+<p>下回见，peace~</p>
 
       
     </div>
@@ -712,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet是单例的"><span class="nav-number">1.</span> <span class="nav-text">Servlet是单例的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么Servlet是单例的"><span class="nav-number">1.1.</span> <span class="nav-text">为什么Servlet是单例的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每次访问请求对象和响应对象都是新的"><span class="nav-number">1.2.</span> <span class="nav-text">每次访问请求对象和响应对象都是新的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单例导致的线程安全问题"><span class="nav-number">1.3.</span> <span class="nav-text">单例导致的线程安全问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求对象Request"><span class="nav-number">2.</span> <span class="nav-text">请求对象Request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求行数据"><span class="nav-number">2.1.</span> <span class="nav-text">获取请求行数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求头数据"><span class="nav-number">2.2.</span> <span class="nav-text">获取请求头数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求体数据"><span class="nav-number">2.3.</span> <span class="nav-text">获取请求体数据:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发，跳转页面"><span class="nav-number">2.4.</span> <span class="nav-text">请求转发，跳转页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取项目的ServletContext对象"><span class="nav-number">2.5.</span> <span class="nav-text">获取项目的ServletContext对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取请求参数的方法（get、post方法都通用）"><span class="nav-number">2.6.</span> <span class="nav-text">获取请求参数的方法（get、post方法都通用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应对象Response"><span class="nav-number">3.</span> <span class="nav-text">响应对象Response</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置cookies"><span class="nav-number">3.1.</span> <span class="nav-text">设置cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应重定向"><span class="nav-number">3.2.</span> <span class="nav-text">响应重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置相应格式"><span class="nav-number">3.3.</span> <span class="nav-text">设置相应格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向与请求转发的区别："><span class="nav-number">4.</span> <span class="nav-text">重定向与请求转发的区别：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发-Forward的特点"><span class="nav-number">4.1.</span> <span class="nav-text">请求转发  Forward的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向redirect的特点："><span class="nav-number">4.2.</span> <span class="nav-text">重定向redirect的特点：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet是单例的"><span class="nav-number">1.</span> <span class="nav-text">Servlet是单例的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么Servlet是单例的"><span class="nav-number">1.1.</span> <span class="nav-text">为什么Servlet是单例的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每次访问请求对象和响应对象都是新的"><span class="nav-number">1.2.</span> <span class="nav-text">每次访问请求对象和响应对象都是新的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单例导致的线程安全问题"><span class="nav-number">1.3.</span> <span class="nav-text">单例导致的线程安全问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求对象Request"><span class="nav-number">2.</span> <span class="nav-text">请求对象Request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①获取请求行数据"><span class="nav-number">2.1.</span> <span class="nav-text">①获取请求行数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②获取请求头数据"><span class="nav-number">2.2.</span> <span class="nav-text">②获取请求头数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#③获取请求体数据"><span class="nav-number">2.3.</span> <span class="nav-text">③获取请求体数据:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#④请求转发，跳转页面"><span class="nav-number">2.4.</span> <span class="nav-text">④请求转发，跳转页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑤获取项目的ServletContext对象"><span class="nav-number">2.5.</span> <span class="nav-text">⑤获取项目的ServletContext对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⑥获取请求参数的方法（get、post方法都通用）"><span class="nav-number">2.6.</span> <span class="nav-text">⑥获取请求参数的方法（get、post方法都通用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应对象Response"><span class="nav-number">3.</span> <span class="nav-text">响应对象Response</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#①设置cookies"><span class="nav-number">3.1.</span> <span class="nav-text">①设置cookies</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#②响应重定向"><span class="nav-number">3.2.</span> <span class="nav-text">②响应重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#③设置相应格式"><span class="nav-number">3.3.</span> <span class="nav-text">③设置相应格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重定向与请求转发的区别："><span class="nav-number">4.</span> <span class="nav-text">重定向与请求转发的区别：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求转发-Forward的特点"><span class="nav-number">4.1.</span> <span class="nav-text">请求转发  Forward的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向redirect的特点："><span class="nav-number">4.2.</span> <span class="nav-text">重定向redirect的特点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
