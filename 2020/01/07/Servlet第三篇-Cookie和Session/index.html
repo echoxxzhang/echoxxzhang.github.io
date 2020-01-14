@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }% 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用">
+<meta name="description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：爬虫Day12-代理请求 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用户都发一个通行证，无论谁访问的时">
 <meta name="keywords" content="技术,JavaEE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet第三篇-Cookie和Session">
 <meta property="og:url" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/index.html">
 <meta property="og:site_name" content="小小世界">
-<meta property="og:description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }% 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用">
+<meta property="og:description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：爬虫Day12-代理请求 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用户都发一个通行证，无论谁访问的时">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/1.png">
 <meta property="og:image" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/3.png">
-<meta property="og:updated_time" content="2020-01-07T07:19:43.718Z">
+<meta property="og:updated_time" content="2020-01-14T00:33:19.661Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Servlet第三篇-Cookie和Session">
-<meta name="twitter:description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }% 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用">
+<meta name="twitter:description" content="什么是Cookie关于cookie和session，之前写的爬虫文章就讲的很清楚啦：爬虫Day12-代理请求 没看过没有关系！下面我就指出重点： 网页之间的交互是通过HTTP协议传输数据的，而Http协议是无状态的协议。无状态的协议是什么意思呢？一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。 那么，为了识别用户，服务端给每一个用户都发一个通行证，无论谁访问的时">
 <meta name="twitter:image" content="http://yoursite.com/2020/01/07/Servlet第三篇-Cookie和Session/1.png">
 
 
@@ -341,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Servlet/" itemprop="url" rel="index">
-                    <span itemprop="name">Servlet</span>
+                  <a href="/categories/JavaEE/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaEE</span>
                   </a>
                 </span>
 
@@ -393,7 +393,7 @@
       
 
       
-        <h2 id="什么是Cookie"><a href="#什么是Cookie" class="headerlink" title="什么是Cookie"></a>什么是Cookie</h2><p>关于cookie和session，之前写的爬虫文章就讲的很清楚啦：%{ post_link 爬虫Day12-代理请求 }%</p>
+        <h2 id="什么是Cookie"><a href="#什么是Cookie" class="headerlink" title="什么是Cookie"></a>什么是Cookie</h2><p>关于cookie和session，之前写的爬虫文章就讲的很清楚啦：<a href="/2019/08/11/爬虫Day12-代理请求/" title="爬虫Day12-代理请求">爬虫Day12-代理请求</a></p>
 <p>没看过没有关系！下面我就指出重点：</p>
 <p>网页之间的<strong>交互是通过HTTP协议传输数据的，</strong>而Http协议是<strong>无状态的协议</strong>。无状态的协议是什么意思呢？<strong>一旦数据提交完后，浏览器和服务器的连接就会关闭，再次交互的时候需要重新建立新的连接</strong>。</p>
 <p>那么，为了识别用户，服务端给每一个用户都发一个通行证，无论谁访问的时候都需要携带通行证，这样服务器就可以从通行证上确认用户的信息。通行证就是Cookie。</p>
@@ -436,7 +436,7 @@
 <h3 id="Cookie的有效期"><a href="#Cookie的有效期" class="headerlink" title="Cookie的有效期"></a>Cookie的有效期</h3><p><strong>Cookie的有效期是通过setMaxAge()来设置的</strong>。</p>
 <ul>
 <li>如果MaxAge为<strong>正数</strong>，<strong>浏览器会把Cookie写到硬盘中，只要还在MaxAge秒之前，登陆网站时该Cookie就有效</strong>【不论关闭了浏览器还是电脑】</li>
-<li>如果MaxAge为<strong>负数</strong>，<strong>Cookie是临时性的，仅在本浏览器内有效</strong>，关闭浏览器Cookie就失效了，Cookie不会写到硬盘中。Cookie默认值就是-1。这也就为什么在我第一个例子中，如果我没设置Cookie的有效期，在硬盘中就找不到对应的文件。</li>
+<li>如果MaxAge为<strong>负数</strong>，<strong>Cookie是临时性的，仅在本浏览器内有效</strong>，关闭浏览器Cookie就失效了，Cookie不会写到硬盘中。Cookie默认值就是-1。</li>
 <li>如果MaxAge为<strong>0</strong>，则表示<strong>删除该Cookie</strong>。Cookie机制没有提供删除Cookie对应的方法，把MaxAge设置为0等同于删除Cookie</li>
 </ul>
 <p><br><br></p>
