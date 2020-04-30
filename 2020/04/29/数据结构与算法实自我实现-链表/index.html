@@ -87,15 +87,15 @@
 <meta property="og:site_name" content="小小世界">
 <meta property="og:description" content="前言学了数据结构之后，就用编程语言去实现它，这样理解才通透。同时地，学会刷题也是很重要，例如现在人尽皆知的leetcode。   我的目标就是进大厂，而必须要过的一关就是数据结构，慢慢学吧~  行百里者半九十。   我实现数据结构的代码是java，用什么语言不重要，主要是思路正确就可以了。所以你想学习c、c++也是一样的。   然后，这个博客系列是给小白看的，所以我有一些阅读建议：  我会给出实现">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C2.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C3.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C4.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C5.png">
-<meta property="og:updated_time" content="2020-04-30T07:04:37.043Z">
+<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/5.png">
+<meta property="og:updated_time" content="2020-04-30T07:14:12.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法实自我实现-链表">
 <meta name="twitter:description" content="前言学了数据结构之后，就用编程语言去实现它，这样理解才通透。同时地，学会刷题也是很重要，例如现在人尽皆知的leetcode。   我的目标就是进大厂，而必须要过的一关就是数据结构，慢慢学吧~  行百里者半九十。   我实现数据结构的代码是java，用什么语言不重要，主要是思路正确就可以了。所以你想学习c、c++也是一样的。   然后，这个博客系列是给小白看的，所以我有一些阅读建议：  我会给出实现">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C2.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/04/29/数据结构与算法实自我实现-链表/2.png">
 
 
 
@@ -436,7 +436,7 @@
 <br>
 
 <h3 id="插入："><a href="#插入：" class="headerlink" title="插入："></a>插入：</h3><p>我们要实现的功能是，在i元素之前插入某个新节点。如图：</p>
-<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C2.png" alt></p>
+<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/2.png" alt></p>
 <p>本来第 i 个节点是直接指向第 i+1 个节点的，由于来了新节点，我们就需要更改一下指向的顺序。</p>
 <p>我们要做的具体步骤有三个：  </p>
 <p>① 找到第i个元素的节点</p>
@@ -466,7 +466,7 @@
 <hr>
 <h2 id="环形链表"><a href="#环形链表" class="headerlink" title="环形链表"></a>环形链表</h2><p>将单链表中终端结点的指针端由空指针改为指向头结点,就使整个单链表形成一个环,这种头尾相接的单链表称为单循环链表,简称循环链表( circular linked list)。</p>
 <p>循环链表如图所示：</p>
-<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C3.png" alt></p>
+<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/3.png" alt></p>
 <p>跟链表结构没有多大差别，只不过我们判断是否是尾结点的方式由 a.next == null 改成了 a.next == head（头结点）</p>
 <p>当next域指向的是头结点时，我们认为当前节点为尾结点。</p>
 <p><strong>环形链表的好处：</strong></p>
@@ -477,11 +477,11 @@
 <p><br><br></p>
 <hr>
 <h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p>双向链表，就是可以通过两个方向遍历链表，别看这图画的有些复杂，其实就是多了一个pre域（与next域相对的），用于指向上一个节点。</p>
-<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C4.png" alt></p>
+<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/4.png" alt></p>
 <p><strong>双向链表的优点：</strong></p>
 <p>双向链表相对于单链表来说,要更复杂一些,不过,双向链表使得对某个结点的前后结点的操作,带来了方便,可以有效提高算法的时间性能。说白了,就是用空间来换时间。</p>
 <p>对于双向链表的操作，也就是多了几步，但原理是一样的。下面举个添加节点的例子表明一下：</p>
-<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AE%9E%E8%87%AA%E6%88%91%E5%AE%9E%E7%8E%B0-%E9%93%BE%E8%A1%A8%5C5.png" alt></p>
+<p><img src="/2020/04/29/数据结构与算法实自我实现-链表/5.png" alt></p>
 <p>步骤①：将node（新节点）的pre域指向temp</p>
 <p>步骤②：新节点指向下一节点</p>
 <p>步骤③：下一节点的上一节点指向新节点</p>
@@ -492,7 +492,7 @@
 <br>
 
 <h3 id="添加代码实现："><a href="#添加代码实现：" class="headerlink" title="添加代码实现："></a>添加代码实现：</h3><p>假设，现在有个新节点node，temp为想要添加位置的前一个位置节点。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line">if (temp.next != null)&#123;   // 如果这个节点不是尾结点</span><br><span class="line">    </span><br><span class="line">    temp = node.pre;  // 当前节点下一节点指向node（新节点）</span><br><span class="line">    node.next = temp.next;  // 新节点指向下一节点</span><br><span class="line">    temp.next.pre = node;  // 下一节点的上一节点指向新节点</span><br><span class="line">    node.pre = temp;  // 当前节点的下一节点指向node</span><br><span class="line">    </span><br><span class="line">&#125;else&#123;                  // 如果这个节点是尾结点</span><br><span class="line">    temp.next = node;</span><br><span class="line">    node.pre = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">if</span> (temp.next != <span class="keyword">null</span>)&#123;   <span class="comment">// 如果这个节点不是尾结点</span></span><br><span class="line">    </span><br><span class="line">    temp = node.pre;  <span class="comment">// 当前节点下一节点指向node（新节点）</span></span><br><span class="line">    node.next = temp.next;  <span class="comment">// 新节点指向下一节点</span></span><br><span class="line">    temp.next.pre = node;  <span class="comment">// 下一节点的上一节点指向新节点</span></span><br><span class="line">    node.pre = temp;  <span class="comment">// 当前节点的下一节点指向node</span></span><br><span class="line">    </span><br><span class="line">&#125;<span class="keyword">else</span>&#123;                  <span class="comment">// 如果这个节点是尾结点</span></span><br><span class="line">    temp.next = node;</span><br><span class="line">    node.pre = temp;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p><br><br></p>
 <h2 id="写在后面"><a href="#写在后面" class="headerlink" title="写在后面"></a>写在后面</h2><p>这个系列会一直写，后面的还有数组、队列、还有我还没学的二叉树等等。</p>
